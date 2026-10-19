@@ -1,0 +1,223 @@
+{
+  "checkpoints": [
+    {
+      "completed": true,
+      "model": "dovetail",
+      "view": [
+        0.680000007152557,
+        0.419999986886978
+      ]
+    },
+    {
+      "completed": true,
+      "model": "blind_tenon",
+      "view": [
+        0.680000007152557,
+        0.419999986886978
+      ]
+    },
+    {
+      "completed": true,
+      "model": "through_tenon",
+      "view": [
+        0.680000007152557,
+        0.419999986886978
+      ]
+    },
+    {
+      "completed": true,
+      "model": "cross_lap",
+      "view": [
+        0.680000007152557,
+        0.419999986886978
+      ]
+    },
+    {
+      "completed": true,
+      "model": "tongue_groove",
+      "view": [
+        0.680000007152557,
+        0.419999986886978
+      ]
+    },
+    {
+      "completed": true,
+      "model": "three_way_lap",
+      "view": [
+        0.680000007152557,
+        0.419999986886978
+      ]
+    },
+    {
+      "completed": true,
+      "model": "zong_corner",
+      "view": [
+        0.680000007152557,
+        0.419999986886978
+      ]
+    },
+    {
+      "completed": true,
+      "model": "clamp_head",
+      "view": [
+        0.680000007152557,
+        0.419999986886978
+      ]
+    },
+    {
+      "completed": true,
+      "model": "l_through",
+      "view": [
+        0.680000007152557,
+        0.419999986886978
+      ]
+    },
+    {
+      "completed": true,
+      "model": "dovetail",
+      "view": [
+        -0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    {
+      "completed": true,
+      "model": "blind_tenon",
+      "view": [
+        -0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    {
+      "completed": true,
+      "model": "through_tenon",
+      "view": [
+        -0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    {
+      "completed": true,
+      "model": "cross_lap",
+      "view": [
+        -0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    {
+      "completed": true,
+      "model": "tongue_groove",
+      "view": [
+        -0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    {
+      "completed": true,
+      "model": "three_way_lap",
+      "view": [
+        -0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    {
+      "completed": true,
+      "model": "zong_corner",
+      "view": [
+        -0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    {
+      "completed": true,
+      "model": "clamp_head",
+      "view": [
+        -0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    {
+      "completed": true,
+      "model": "l_through",
+      "view": [
+        -0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    {
+      "completed": true,
+      "model": "dovetail",
+      "view": [
+        1.25,
+        0.649999976158142
+      ]
+    },
+    {
+      "completed": true,
+      "model": "blind_tenon",
+      "view": [
+        1.25,
+        0.649999976158142
+      ]
+    },
+    {
+      "completed": true,
+      "model": "through_tenon",
+      "view": [
+        1.25,
+        0.649999976158142
+      ]
+    },
+    {
+      "completed": true,
+      "model": "cross_lap",
+      "view": [
+        1.25,
+        0.649999976158142
+      ]
+    },
+    {
+      "completed": true,
+      "model": "tongue_groove",
+      "view": [
+        1.25,
+        0.649999976158142
+      ]
+    },
+    {
+      "completed": true,
+      "model": "three_way_lap",
+      "view": [
+        1.25,
+        0.649999976158142
+      ]
+    },
+    {
+      "completed": true,
+      "model": "zong_corner",
+      "view": [
+        1.25,
+        0.649999976158142
+      ]
+    },
+    {
+      "completed": true,
+      "model": "clamp_head",
+      "view": [
+        1.25,
+        0.649999976158142
+      ]
+    },
+    {
+      "completed": true,
+      "model": "l_through",
+      "view": [
+        1.25,
+        0.649999976158142
+      ]
+    }
+  ],
+  "failed": 0,
+  "human_mouse_verified": false,
+  "passed": 524
+}

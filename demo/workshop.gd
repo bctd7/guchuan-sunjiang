@@ -153,7 +153,7 @@ func _build_ui() -> void:
 		interaction.cancel()
 		assembly.reset())
 	help = Label.new()
-	help.text = "点选 / 拖动木件\n空白拖动环绕 · 滚轮缩放\nEsc 取消 · 失焦自动安全停止"
+	help.text = "拖近蓝色入口 → 变绿后松手装入\n空白拖动环绕 · 滚轮缩放\nEsc 取消 · 失焦自动安全停止"
 	help.add_theme_font_size_override("font_size",14)
 	box.add_child(help)
 	status = Label.new()
@@ -221,11 +221,13 @@ func refresh() -> void:
 	detail.text = "每个木件都有独立接口与装配路径"
 	if not id.is_empty():
 		var result := assembly.candidate(id)
+		if assembly.capture_preview == id: result = {"reason":"release_to_insert"}
 		detail.text = str(assembly.specs[id].get("name", id)) + "\n" + reason_text(result.reason)
 		if result.has("distance"): detail.text += "  %.2fm / %.0f°" % [result.distance, result.angle]
 	refreshing = false
 
 func reason_text(reason: String) -> String:
+	if reason == "release_to_insert": return "入口已捕获：松手平滑对齐并装入"
 	return {"collision_blocked":"木件受阻：请绕开实体或重新对准入口", "invalid_path_pose":"接口姿态与装配路径不一致", "ready":"接口已对齐，可以装入", "distance":"拖近蓝色入口虚影", "angle":"旋转方向尚未对齐", "dependency":"请先安装前序木件", "occupied":"连接已锁定", "busy":"正在运动", "pair":"接口不匹配", "locked":"装配完成，连接已锁定", "remove_dependents_first":"请先逆序拆下后装木件"}.get(reason, reason)
 
 func show_feedback(message: String) -> void:

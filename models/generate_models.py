@@ -50,6 +50,8 @@ def finish(jid,name,variant,parts,source):
   export_obj(o,ROOT+'/assets/'+jid+'_'+p['id']+'.obj')
   mat=bpy.data.materials.new(jid+p['id']);mat.diffuse_color=[(.46,.25,.105,1),(.69,.43,.21,1),(.83,.61,.34,1)][i%3];mat.use_nodes=True;bs=mat.node_tree.nodes.get('Principled BSDF');bs.inputs['Base Color'].default_value=mat.diffuse_color;bs.inputs['Roughness'].default_value=.7;o.data.materials.append(mat);objs.append(o)
   start=p['start'];entry['parts'].append({'id':p['id'],'name':p['name'],'mesh':'res://models/assets/'+jid+'_'+p['id']+'.obj','assembled_position':[0,0,0],'assembled_rotation':[0,0,0],'start_position':start,'start_rotation':[0,0,0],'fixed':p['fixed'],'insertion_path':[[v*.7 for v in start],[0,0,0]] if not p['fixed'] else [[0,0,0]],'dependencies':p['deps']})
+ for spec in entry['parts']:
+  if not spec['fixed']:spec.update(capture_radius_pixels=64.0,capture_distance=1.25,capture_angle_degrees=35.0)
  CAT.append(entry)
  # save visible exploded preview later in one render batch
  for p in parts:p['o'].location+=Vector([v*.42 for v in p['start']])

@@ -78,7 +78,10 @@
         ],
         "dependencies": [
           "groove"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       }
     ]
   },
@@ -161,7 +164,10 @@
         ],
         "dependencies": [
           "post"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       }
     ]
   },
@@ -244,7 +250,10 @@
         ],
         "dependencies": [
           "post"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       }
     ]
   },
@@ -327,7 +336,10 @@
         ],
         "dependencies": [
           "lower"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       }
     ]
   },
@@ -410,7 +422,10 @@
         ],
         "dependencies": [
           "groove"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       }
     ]
   },
@@ -493,7 +508,10 @@
         ],
         "dependencies": [
           "lower"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       },
       {
         "id": "upper",
@@ -535,7 +553,10 @@
         "dependencies": [
           "lower",
           "middle"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       }
     ]
   },
@@ -618,7 +639,10 @@
         ],
         "dependencies": [
           "leg"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       },
       {
         "id": "zrail",
@@ -660,7 +684,10 @@
         "dependencies": [
           "leg",
           "xrail"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       }
     ]
   },
@@ -743,7 +770,10 @@
         ],
         "dependencies": [
           "leg"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       },
       {
         "id": "top",
@@ -785,7 +815,10 @@
         "dependencies": [
           "leg",
           "apron"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       }
     ]
   },
@@ -868,7 +901,10 @@
         ],
         "dependencies": [
           "post"
-        ]
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
       }
     ]
   }
