@@ -1,0 +1,128 @@
+[
+  {
+    "joint": "dovetail",
+    "part": "groove",
+    "volume": 3.306189748054771,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "dovetail",
+    "part": "tail",
+    "volume": 1.67173291260579,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "blind_tenon",
+    "part": "post",
+    "volume": 4.390349805343151,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "blind_tenon",
+    "part": "beam",
+    "volume": 1.8259112135137077,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "through_tenon",
+    "part": "post",
+    "volume": 4.136599816966056,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "through_tenon",
+    "part": "beam",
+    "volume": 2.0792792530516158,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "cross_lap",
+    "part": "lower",
+    "volume": 1.9891200332260106,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "cross_lap",
+    "part": "upper",
+    "volume": 1.9758144287788368,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "tongue_groove",
+    "part": "groove",
+    "volume": 2.1425599908161157,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "tongue_groove",
+    "part": "tongue",
+    "volume": 2.4890879681720732,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "three_way_lap",
+    "part": "lower",
+    "volume": 1.3803880698116673,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "three_way_lap",
+    "part": "middle",
+    "volume": 1.417038329120967,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "three_way_lap",
+    "part": "upper",
+    "volume": 1.3803881185991858,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "zong_corner",
+    "part": "leg",
+    "volume": 2.08035198822832,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "zong_corner",
+    "part": "xrail",
+    "volume": 1.7351640045119514,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "zong_corner",
+    "part": "zrail",
+    "volume": 1.7273440001900189,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "clamp_head",
+    "part": "leg",
+    "volume": 1.3825800544285785,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "clamp_head",
+    "part": "apron",
+    "volume": 0.612679990556239,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "clamp_head",
+    "part": "top",
+    "volume": 1.9642002290487353,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "l_through",
+    "part": "post",
+    "volume": 4.188755813670637,
+    "nonmanifold_edges": 0
+  },
+  {
+    "joint": "l_through",
+    "part": "beam",
+    "volume": 1.9665551877244476,
+    "nonmanifold_edges": 0
+  }
+]

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://drvg7b2juoh5c"
+path="res://.godot/imported/blind_tenon_post.obj-e6eb073a1f7d60bc3bfa3fc771f900fb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/blind_tenon_post.obj-e6eb073a1f7d60bc3bfa3fc771f900fb.mesh"]
+
+source_file="res://models/assets/blind_tenon_post.obj"
+dest_files=["res://.godot/imported/blind_tenon_post.obj-e6eb073a1f7d60bc3bfa3fc771f900fb.mesh", "res://.godot/imported/blind_tenon_post.obj-e6eb073a1f7d60bc3bfa3fc771f900fb.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
