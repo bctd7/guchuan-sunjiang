@@ -1,3 +1,5 @@
+> 历史验证证据：保留执行当时的结果与原路径，不作为最新需求或本轮重跑结果。最新要求与差异见[文档入口](../docs/README.md)（2026-10-31 整理）。
+
 > 历史验收记录。当前已改为固定龙骨、三次手动示范及统一暂缓长度挑战；请以 [当前记录](LEVEL01_CURRENT_VERIFICATION.md) 为准。
 
 # 第一关验收记录 · 2026-10-27
@@ -32,7 +34,7 @@
 
 ## 保全与范围
 
-原工程有大量未提交改动。本次先复制当前有效资源到独立工作副本；新增关卡位于 `levels/level01/`，不改原 `core/`、`demo/`、`education/`、`models/`。合入只新增关卡与本次测试证据，并修改 `project.godot` 的默认入口和 README 的入口说明。入口文件原件备份与合入哈希清单位于任务工作区 `evidence/pre-integration/`、`evidence/deployment-manifest.json`。未提交、未推送 Git。
+原工程有大量未提交改动。本次先复制当前有效资源到独立工作副本；新增关卡位于 `levels/level01/`，不改原 `core/`、`demo/`、`classroom/science/`、`models/joinery/`。合入只新增关卡与本次测试证据，并修改 `project.godot` 的默认入口和 README 的入口说明。入口文件原件备份与合入哈希清单位于任务工作区 `evidence/pre-integration/`、`evidence/deployment-manifest.json`。未提交、未推送 Git。
 
 ## 已知边界
 

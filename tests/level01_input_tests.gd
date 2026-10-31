@@ -144,8 +144,13 @@ func run() -> void:
 	await click(level.view.socket_screen_position("rib_l1"))
 	check(level.state.placed.has("rib_l1") and level.state.placed.rib_l1.joint=="dovetail" and level.busy,"wrong type starts a real trial without becoming stable")
 	await settle(3.0)
-	await button(level.inspector.retry_button)
-	check(level.state.progress_count()==0 and level.state.placed.size()==1 and not level.busy,"take-back restores the same task for another choice")
+	check(not level.state.failed and not level.panel.failure_overlay.visible,"wrong representative never ends an incomplete level")
+	await button(level.inspector.close_button)
+	var trial_deadline:=Time.get_ticks_msec()+10000
+	while level.busy and Time.get_ticks_msec()<trial_deadline: await process_frame
+	check(level.state.automatic_count()==5 and not level.state.failed,"wrong choices propagate through the full automatic group before verdict")
+	await button(level.panel.restart_button)
+	check(level.state.progress_count()==0 and level.state.placed.size()==1 and not level.busy and not level.state.failed,"failure restart restores the first task")
 	await choose_joint("blind_tenon")
 	var target: Vector2=level.view.socket_screen_position("rib_l1")
 	await mouse(level.panel.inspect_button.get_global_rect().get_center(),true)

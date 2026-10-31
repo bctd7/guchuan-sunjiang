@@ -315,7 +315,7 @@ func preview_capture(id: String, ready: bool) -> void:
 	if ready: feedback.emit("manual_ready")
 
 
-# Compatibility facade for existing embedders and the desktop regression suite.
+# Manual pointer interaction API shared by the classroom adapters.
 func can_drag(id: String) -> bool:
 	return is_editable(id) or is_guided(id)
 
@@ -331,5 +331,3 @@ func begin_manual(id: String) -> bool:
 func advance_manual(id: String, amount: float) -> bool:
 	return advance_insertion(id, amount)
 
-func insert_assisted(id: String) -> bool:
-	return begin_insertion(id)

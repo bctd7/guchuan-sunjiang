@@ -35,7 +35,7 @@ func test_guard() -> void:
 	guard.register_mesh("peg",box(Vector3.ONE * 0.2))
 	check(not guard.motion_is_safe("bar",at_pose(0),at_pose(0,0,0,PI),{"peg":at_pose(0,0,1.5)}), "rotation sweep cannot pass peg despite clear endpoint")
 	check(guard.motion_is_safe("bar",at_pose(0),at_pose(0,0,0,PI),{"peg":at_pose(0,2,1.5)}), "unobstructed rotation accepted")
-	guard.register_mesh("post",load("res://models/assets/through_tenon_post.obj"))
+	guard.register_mesh("post",load("res://models/joinery/assets/through_tenon_post.obj"))
 	check(guard.motion_is_safe("small",at_pose(-2),at_pose(2),{"post":Transform3D.IDENTITY}), "concave hole is not filled by convex hull")
 	check(not guard.motion_is_safe("small",at_pose(-2,0.8),at_pose(2,0.8),{"post":Transform3D.IDENTITY}), "same sweep outside mortise blocked by real wood")
 	var non_rigid := at_pose(-3)
@@ -163,7 +163,7 @@ func test_controller_fixtures(assembly: Node3D) -> void:
 func run() -> void:
 	var started := Time.get_ticks_msec()
 	test_guard()
-	var catalog: Array = JSON.parse_string(FileAccess.get_file_as_string("res://models/catalog.json"))
+	var catalog: Array = JSON.parse_string(FileAccess.get_file_as_string("res://models/joinery/catalog.json"))
 	var assembly := Assembly.new()
 	root.add_child(assembly)
 	test_catalog(assembly,catalog)

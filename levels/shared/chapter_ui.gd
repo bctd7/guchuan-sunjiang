@@ -1,6 +1,6 @@
 extends RefCounted
 ## Common chapter controls; no game rules, state or layout decisions.
-const Friendly = preload("res://demo/friendly_theme.gd")
+const Friendly = preload("res://shared/ui/friendly_theme.gd")
 const ERROR_COLOR := Color("a1432e")
 const FEEDBACK_COLOR := Color("325c4d")
 

@@ -3,7 +3,7 @@ from pathlib import Path
 import json,hashlib
 import numpy as np
 root=Path(__file__).resolve().parents[1]
-profiles=json.loads((root/'education/force_gallery/profiles.json').read_text())
+profiles=json.loads((root/'classroom/science/force_gallery/profiles.json').read_text())
 passed=0
 def check(value,label):
     global passed

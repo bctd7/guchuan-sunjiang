@@ -1,5 +1,5 @@
 extends SceneTree
-const Relief=preload("res://levels/level01/trial_receiver.gd")
+const Relief=preload("res://models/ship/keel/trial_receiver.gd")
 var passed:=0
 var failed:=0
 func _initialize() -> void:call_deferred("run")

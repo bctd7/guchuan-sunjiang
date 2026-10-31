@@ -1,6 +1,6 @@
 extends HBoxContainer
 signal chosen(kind: String)
-const G = preload("res://levels/level03/ship_geometry.gd")
+const G = preload("res://models/ship/rigging/ship_geometry.gd")
 const Rules = preload("res://levels/level03/connection_rules.gd")
 const EndCrop = preload("res://levels/shared/mesh_end_crop.gd")
 var buttons: Dictionary = {}

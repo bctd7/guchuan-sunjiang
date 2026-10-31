@@ -1,0 +1,7 @@
+{
+  "cases": 27,
+  "failed": 0,
+  "failures": [],
+  "method": "Godot Viewport mouse/drag injection; actual Tween playback accelerated; no direct gameplay state writes",
+  "passed": 955
+}

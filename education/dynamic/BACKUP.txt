@@ -1,1 +1,0 @@
-Existing education files are retained without edits. All dynamic module files were absent before this task (2026-10-23). No existing source needs restoration. Scope: education/dynamic/ only.

@@ -6,6 +6,7 @@ signal joint_chosen(id: String)
 signal length_chosen(id: String)
 signal lesson_requested
 signal install_requested
+signal trial_finished
 signal retry_requested
 var lesson_button: Button
 var install_button: Button
@@ -14,15 +15,14 @@ var _review_only:=false
 var length_gallery: Control
 var stage_surface: Control
 const LengthComparison=preload("res://levels/level01/length_measure_panel.gd")
-const Trial=preload("res://levels/level01/trial_fit.gd")
-const TrialReceiver=preload("res://levels/level01/trial_receiver.gd")
-const ReceiverSection=preload("res://levels/level01/receiver_section.gd")
-const Lengths=preload("res://levels/level01/length_geometry.gd")
-const Look = preload("res://demo/workshop_look.gd")
-const Friendly = preload("res://demo/friendly_theme.gd")
-const CandidateGeometry = preload("res://levels/level01/candidate_geometry.gd")
+const Trial=preload("res://models/ship/keel/trial_fit.gd")
+const TrialReceiver=preload("res://models/ship/keel/trial_receiver.gd")
+const ReceiverSection=preload("res://models/ship/keel/receiver_section.gd")
+const Lengths=preload("res://models/ship/keel/length_geometry.gd")
+const Look = preload("res://classroom/display/workshop_look.gd")
+const Friendly = preload("res://shared/ui/friendly_theme.gd")
+const InspectionGeometry = preload("res://levels/level01/inspector/inspection_geometry.gd")
 const TypeGallery = preload("res://levels/level01/type_gallery.gd")
-const CandidatePreview = preload("res://levels/level01/candidate_preview.gd")
 const InspectionOrbit = preload("res://levels/level01/assembly_drag_surface.gd")
 const LengthGallery = preload("res://levels/level01/length_candidate_gallery.gd")
 const COPY := {
@@ -192,29 +192,13 @@ func show_connection(piece_id: String, length: String = "", animate: bool = fals
 	_animating=false
 	animation_finished=review_installed and not animate
 	var joint_id := "blind_tenon" if piece_id.begins_with("rib_") else ("through_tenon" if piece_id.begins_with("beam") else "dovetail")
-	var ids: Array[String]=["keel",piece_id]
-	if piece_id.begins_with("beam"):
-		ids=["rib_l"+piece_id.right(1),"rib_r"+piece_id.right(1),piece_id]
-	for id in ids:
-		var copy: Node3D=source_view.duplicate_part(id) if id==piece_id else source_view.pieces[id].duplicate()
-		copy.name="Closeup_"+id
-		copy.transform=Transform3D.IDENTITY if id==piece_id else source_view.pieces[id].transform
-		copy.visible=true
-		_clone_materials(copy)
-		if id==piece_id:
-			source_view.apply_fit_geometry(copy,id,joint_type,length if not length.is_empty() else "correct")
-			if not observation_mode:copy.transform=source_view.trial_pose(id,length,joint_type)
-		world.add_child(copy)
-		pieces[id]=copy
+	pieces.merge(InspectionGeometry.create_parts(source_view,world,piece_id,length,joint_type,observation_mode))
 	animated_piece=pieces[piece_id]
-	Lengths.set_fasteners_visible(animated_piece,false)
-	# Normalize display-only surface direction and opacity; source resources stay intact.
-	for part in pieces.values(): CandidatePreview.solidify(part)
 	title.text=COPY[joint_id][0]
 	explanation.text=COPY[joint_id][1]
 	if not observation_mode:
 		title.text="试装 · "+str(TypeGallery.TYPES.get(joint_type,"木料"))
-		explanation.text="看看接合处，再决定继续搭建还是取回调整。"
+		explanation.text="装入后会自动检查配合；榫型或长度不合，本关就需要重新开始。"
 	if observation_mode:
 		title.text="观察船肋与龙骨" if piece_id.begins_with("rib_") else ("观察横撑与船肋" if piece_id.begins_with("beam") else "观察龙骨端接")
 		if piece_id.begins_with("rib_"):
@@ -325,8 +309,9 @@ func _finish_trial_review() -> void:
 		status.text="接上了！继续搭建，最后再检查整段骨架。"
 	else:
 		title.text="接合处有点松"
-		status.text="木料在晃动。可以取回换件，再试一次。"
+		status.text="连接出现松动，本关未通过，请重新开始。"
 	close_button.text="返回船架" if _review_only else "继续搭建"
+	trial_finished.emit()
 
 func _collect_trial_corners(node: Node, points: Array[Vector3]) -> void:
 	if node is MeshInstance3D and node.mesh and node.visible:
@@ -392,25 +377,10 @@ func _safe_trial_entry(final: Transform3D) -> Transform3D:
 	return result
 
 func _receiver_tip() -> MeshInstance3D:
-	if animated_piece.has_meta("candidate_tip_path"):return animated_piece.get_node(animated_piece.get_meta("candidate_tip_path")) as MeshInstance3D
-	if animated_piece_id.begins_with("rib_"):return animated_piece.find_child("RootTenon",true,false) as MeshInstance3D
-	return animated_piece.get_child(0).get_child(0) as MeshInstance3D if animated_piece_id in ["bow","stern"] else animated_piece.get_child(0) as MeshInstance3D
+	return InspectionGeometry.receiver_tip(animated_piece,animated_piece_id)
 
 func _grab_point() -> Vector3:
-	var tip: MeshInstance3D
-	if animated_piece.has_meta("candidate_tip_path"):
-		tip=animated_piece.get_node(animated_piece.get_meta("candidate_tip_path")) as MeshInstance3D
-	elif animated_piece_id.begins_with("rib_"):
-		tip=animated_piece.find_child("RootTenon",true,false) as MeshInstance3D
-	elif animated_piece_id in ["bow","stern"]:
-		tip=animated_piece.get_child(0).get_child(0) as MeshInstance3D
-	else:
-		tip=animated_piece.get_child(0) as MeshInstance3D
-	if tip==null: return Vector3.ZERO
-	var point: Vector3=tip.mesh.get_aabb().get_center()
-	if animated_piece_id.begins_with("beam") and not animated_piece.has_meta("candidate_tip_path"):
-		point.x=-Lengths.span(animated_piece_id,_length)*.5+.2
-	return animated_piece.to_local(tip.to_global(point))
+	return InspectionGeometry.grab_point(animated_piece,animated_piece_id,_length)
 
 func _configure_drag() -> void:
 	var enabled: bool=observation_mode and not selected_joint.is_empty() and not selected_length.is_empty()
@@ -420,35 +390,10 @@ func _configure_drag() -> void:
 	orbit.preview_limit=1.0
 
 func _tip_front() -> Vector3:
-	var tip: MeshInstance3D
-	if animated_piece.has_meta("candidate_tip_path"):
-		tip=animated_piece.get_node(animated_piece.get_meta("candidate_tip_path")) as MeshInstance3D
-	elif animated_piece_id.begins_with("rib_"):
-		tip=animated_piece.find_child("RootTenon",true,false) as MeshInstance3D
-	else:
-		tip=animated_piece.get_child(0).get_child(0) as MeshInstance3D if animated_piece_id in ["bow","stern"] else animated_piece.get_child(0) as MeshInstance3D
-	var outward: Vector3=source_view.insertion_offset(animated_piece_id).normalized()
-	var nearest:=INF
-	var total:=Vector3.ZERO
-	var count:=0
-	for vertex in tip.mesh.get_faces():
-		var point: Vector3=world.to_local(tip.to_global(vertex))
-		var distance: float=point.dot(outward)
-		if distance<nearest-.0001:
-			nearest=distance
-			total=point
-			count=1
-		elif absf(distance-nearest)<.0001:
-			total+=point
-			count+=1
-	return total/maxi(count,1)
+	return InspectionGeometry.tip_front(animated_piece,animated_piece_id,source_view,world)
 
 func _entry_mouth() -> Vector3:
-	var mouth: Vector3=source_view.connection_center(animated_piece_id)
-	if animated_piece_id.begins_with("rib_"):mouth.x=-.55 if animated_piece_id.begins_with("rib_l") else .55
-	elif animated_piece_id in ["bow","stern"]:mouth.z=-4.45 if animated_piece_id=="bow" else 4.45
-	else:mouth.x=2.97
-	return mouth
+	return InspectionGeometry.entry_mouth(animated_piece_id,source_view)
 
 func _prepare_install() -> void:
 	if not observation_mode: return
@@ -514,9 +459,7 @@ func _focus_connection(id: String, reset_orbit: bool = true) -> void:
 	orbit.configure(camera,center,direction,reset_orbit)
 
 func _clone_materials(node: Node) -> void:
-	if node is MeshInstance3D and node.material_override:
-		node.material_override=node.material_override.duplicate()
-	for child in node.get_children(): _clone_materials(child)
+	InspectionGeometry.clone_materials(node)
 
 func _set_cutaway(enabled: bool) -> void:
 	var opaque_section: bool=animated_piece_id in ["bow","stern"] or animated_piece_id.begins_with("beam")
@@ -530,12 +473,7 @@ func _set_cutaway(enabled: bool) -> void:
 		if web:_set_transparent(web,false)
 
 func _set_transparent(node: Node, enabled: bool) -> void:
-	if node is MeshInstance3D:
-		var mat:=node.material_override as StandardMaterial3D
-		if mat:
-			mat.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA if enabled else BaseMaterial3D.TRANSPARENCY_DISABLED
-			mat.albedo_color.a=.24 if enabled else 1.0
-	for child in node.get_children(): _set_transparent(child,enabled)
+	InspectionGeometry.set_transparent(node,enabled)
 
 func close() -> void:
 	if is_instance_valid(_motion): _motion.kill()

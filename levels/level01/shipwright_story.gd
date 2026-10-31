@@ -2,11 +2,18 @@ extends CanvasLayer
 ## Optional, read-only story. Owns no ship, camera, assembly, or campaign state.
 signal closed
 
-const Friendly = preload("res://demo/friendly_theme.gd")
+const Friendly = preload("res://shared/ui/friendly_theme.gd")
+const Fonts = preload("res://shared/chinese_fonts.gd")
 const STORY_TITLE := "龙骨里的七星伴月"
 const STORY_PARAGRAPHS := [
-	"泉州出土的一艘宋代古船，龙骨接头处藏着一个小秘密：七个小孔里放着钱币，一个大孔里放着铜镜，合在一起，像七颗星星陪着月亮。这种排列被称为“七星伴月”，也寄托着平安出海的心愿。"
+	"福建泉州出土的一艘宋代古船，龙骨接头里藏着一个小秘密：七个小孔里放着钱币，另一个大孔里放着铜镜。小孔排成北斗七星的样子，圆圆的铜镜像满月，人们把它叫作“七星伴月”，寄托着平安出海的心愿。",
+	"让我们沿着这个发现，想象一个造船的早晨。海风吹动帆角，船场传来笃、笃、笃的敲木声。小帮手阿禾蹲在船匠师傅身边，看见木头上摆着钱币和铜镜，好奇地问：“船还没出海，怎么先把星星请来了？”",
+	"师傅笑了：“你数数看。”阿禾伸出手指，一枚、两枚……正好七枚！他顺着钱币的排列看过去：“这几颗连起来，像一把长柄勺子！”师傅又指了指旁边的铜镜：“再加上这轮小月亮，便是七星伴月。我们把盼望平安的心愿，藏进船里。”",
+	"阿禾看看大船，又望望远处的海：“有了星星和月亮，船就不怕风浪了吗？”师傅摇摇头：“心愿很美好，木头也要接得牢。哪一处没对齐，哪一段没装稳，都要仔细看看。出海的人，还得留心天气，懂得掌舵。”阿禾明白了：祝福装在心里，功夫用在手上。",
+	"他低头望着龙骨。长长的龙骨像船底的脊梁，一根根船肋向两边伸开，仿佛大船慢慢张开了怀抱。刚才只顾着找星星的阿禾，这回认真看起木头的接头：“师傅，这里也要接得稳稳的！”",
+	"海风又吹来了。阿禾想，等船扬起帆，钱币和铜镜会静静留在龙骨里，陪着船上的人去远方。现在，再看看画里的七枚钱币与铜镜：你能找到那把长柄勺子吗？大船带走的不只是货物，还有岸上人盼它平安归来的心愿。"
 ]
+const STORY_NOTE := "下面的小帮手阿禾、师傅和他们的对话，是我们想象的故事。"
 const Illustration=preload("res://levels/level01/seven_stars_illustration.gd")
 
 var opened := false
@@ -15,7 +22,7 @@ var root: Control
 var _source: Node
 var _input_flags: Array[bool] = []
 var _previous_focus: WeakRef
-var _reading_font: SystemFont
+var _reading_font: Font
 
 func _ready() -> void:
 	layer = 35
@@ -82,11 +89,11 @@ func _build_ui() -> void:
 	root.mouse_filter = Control.MOUSE_FILTER_STOP
 	root.mouse_force_pass_scroll_events = false
 	root.theme = Friendly.make_theme(true)
-	_reading_font = root.theme.default_font.duplicate() as SystemFont
-	_reading_font.font_weight = 400
+	root.theme.default_font = Fonts.font(600)
+	_reading_font = Fonts.font(400)
 	add_child(root)
 	var shade := ColorRect.new()
-	shade.color = Color(0.22, 0.25, 0.18, 0.64)
+	shade.color = Color(0.16, 0.20, 0.17, 0.68)
 	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	shade.mouse_filter = Control.MOUSE_FILTER_STOP
 	shade.mouse_force_pass_scroll_events = false
@@ -101,28 +108,63 @@ func _build_ui() -> void:
 	var fit_card := func():
 		var viewport_size := get_viewport().get_visible_rect().size
 		var half_width := minf(viewport_size.x * .45, 530)
-		var half_height := minf(viewport_size.y * .44, 300)
+		var half_height := minf(viewport_size.y * .44, 370)
 		frame.offset_left = -half_width
 		frame.offset_right = half_width
 		frame.offset_top = -half_height
 		frame.offset_bottom = half_height
 	root.resized.connect(fit_card)
 	fit_card.call()
-	var card_style := Friendly.block(Friendly.CREAM, Color("c9a479"), 5)
-	card_style.content_margin_left = 24
-	card_style.content_margin_right = 24
-	card_style.content_margin_top = 20
-	card_style.content_margin_bottom = 20
+	var card_style := Friendly.block(Color("fff9ee"), Color("ccb99a"), 2)
+	card_style.set_border_width_all(1)
+	card_style.set_corner_radius_all(20)
+	card_style.shadow_color = Color(0.10, 0.13, 0.09, 0.25)
+	card_style.shadow_size = 28
+	card_style.shadow_offset = Vector2(0, 12)
+	card_style.content_margin_left = 32
+	card_style.content_margin_right = 32
+	card_style.content_margin_top = 24
+	card_style.content_margin_bottom = 28
 	frame.add_theme_stylebox_override("panel", card_style)
 	root.add_child(frame)
 	var stack := VBoxContainer.new()
-	stack.add_theme_constant_override("separation", 18)
+	stack.add_theme_constant_override("separation", 20)
 	frame.add_child(stack)
+	var header := HBoxContainer.new()
+	header.add_theme_constant_override("separation", 20)
+	stack.add_child(header)
 	var heading := VBoxContainer.new()
+	heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	heading.add_theme_constant_override("separation", 4)
-	stack.add_child(heading)
-	_label(heading, "船匠小故事  ·  自由阅读", 15, Color("718064"), true)
-	_label(heading, STORY_TITLE, 32)
+	header.add_child(heading)
+	_label(heading, "船匠小故事", 16, Color("7c806a"), true)
+	_label(heading, STORY_TITLE, 34)
+	close_button = Button.new()
+	close_button.name = "CloseStory"
+	close_button.text = "关闭"
+	close_button.tooltip_text = "关闭小故事（Esc）"
+	close_button.custom_minimum_size = Vector2(84, 44)
+	close_button.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	close_button.add_theme_font_override("font", _reading_font)
+	for state in ["normal", "hover", "pressed", "hover_pressed"]:
+		var button_style := StyleBoxFlat.new()
+		button_style.bg_color = Color("f4eddf") if state == "normal" else Color("e3ecd9")
+		button_style.border_color = Color("cdbfa8") if state == "normal" else Color("9cad8d")
+		button_style.set_border_width_all(1)
+		button_style.set_corner_radius_all(14)
+		button_style.content_margin_left = 14
+		button_style.content_margin_right = 14
+		button_style.content_margin_top = 8
+		button_style.content_margin_bottom = 8
+		close_button.add_theme_stylebox_override(state, button_style)
+	var focus_style := StyleBoxFlat.new()
+	focus_style.bg_color = Color.TRANSPARENT
+	focus_style.border_color = Color("849b73")
+	focus_style.set_border_width_all(2)
+	focus_style.set_corner_radius_all(14)
+	close_button.add_theme_stylebox_override("focus", focus_style)
+	close_button.pressed.connect(close)
+	header.add_child(close_button)
 	var scroll := ScrollContainer.new()
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -138,22 +180,41 @@ func _build_ui() -> void:
 	figure.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	figure.add_theme_constant_override("separation", 4)
 	body.add_child(figure)
+	var image_frame := PanelContainer.new()
+	image_frame.name = "StoryImageFrame"
+	image_frame.clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
+	var image_style := StyleBoxFlat.new()
+	image_style.bg_color = Color("ead8bb")
+	image_style.set_corner_radius_all(16)
+	image_frame.add_theme_stylebox_override("panel", image_style)
+	figure.add_child(image_frame)
 	var illustration:=Illustration.new()
-	figure.add_child(illustration)
-	_label(figure, "结构与故事示意 · 龙骨接头与藏物（非精确考古复原）", 14, Color("718064"), true)
+	illustration.name = "StoryIllustration"
+	image_frame.add_child(illustration)
+	_label(figure, "泉州湾宋代海船出土发现 · 故事示意，非精确考古复原", 14, Color("7b816c"), true)
+	var reading_card := PanelContainer.new()
+	reading_card.name = "StoryReadingCard"
+	var reading_style := StyleBoxFlat.new()
+	reading_style.bg_color = Color("f1f2e8")
+	reading_style.border_color = Color("dfdfce")
+	reading_style.set_border_width_all(1)
+	reading_style.set_corner_radius_all(14)
+	reading_style.content_margin_left = 20
+	reading_style.content_margin_right = 20
+	reading_style.content_margin_top = 16
+	reading_style.content_margin_bottom = 16
+	reading_card.add_theme_stylebox_override("panel", reading_style)
+	body.add_child(reading_card)
 	var words:=VBoxContainer.new()
 	words.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	body.add_child(words)
-	for paragraph in STORY_PARAGRAPHS:
-		var paragraph_label := _label(words, paragraph, 22, Friendly.INK, true)
-		paragraph_label.add_theme_constant_override("line_spacing", 5)
-	_label(figure, "泉州湾宋代海船出土发现", 13, Color("7b816c"), true)
-	close_button = Button.new()
-	close_button.name = "CloseStory"
-	close_button.text = "读完了，回到搭建  ·  Esc"
-	close_button.custom_minimum_size.y = 48
-	close_button.pressed.connect(close)
-	stack.add_child(close_button)
+	words.add_theme_constant_override("separation", 14)
+	reading_card.add_child(words)
+	for index in STORY_PARAGRAPHS.size():
+		if index == 1:
+			_label(words, STORY_NOTE, 16, Color("7b816c"), true)
+		var paragraph_label := _label(words, STORY_PARAGRAPHS[index], 24, Friendly.INK, true)
+		paragraph_label.name = "StoryParagraph%d" % (index + 1)
+		paragraph_label.add_theme_constant_override("line_spacing", 8)
 
 func _label(parent: Node, text: String, font_size: int, color := Friendly.INK, reading := false) -> Label:
 	var label := Label.new()

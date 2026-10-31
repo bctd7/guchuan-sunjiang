@@ -8,7 +8,7 @@ func named_button(panel: Node,text: String) -> Button:
 func run() -> void:
 	root.content_scale_size = Vector2i.ZERO
 	root.size = Vector2i(1440,900)
-	demo = load("res://demo/workshop.tscn").instantiate()
+	demo = load("res://classroom/classroom.tscn").instantiate()
 	root.add_child(demo)
 	await physics_frame
 	await process_frame
@@ -27,14 +27,12 @@ func run() -> void:
 		p.diagram.advance(p.diagram.CYCLE * 2.0)
 		check(p.diagram.playing and p.diagram.completed_cycles >= 2,"integrated animation continues across cycles")
 		check(p.panel.find_children("*","Button",true,false).size() == 1,"dovetail has close only")
-		p.compare_direction()
-		check(p.diagram.mode == 0,"legacy callback cannot reach removed slide")
 		await click(p.diagram.get_global_rect().get_center())
 		check(demo.interaction.mode == "idle" and demo.camera.global_transform.is_equal_approx(camera_before),"diagram clicks do not orbit background")
 		for id in poses: check(demo.assembly.parts[id].transform.is_equal_approx(poses[id]),"modal leaves original wood poses unchanged")
 		if cycle == 0:
 			p.diagram.elapsed = 3.2
-			p._sync()
+			p.diagram.queue_redraw()
 			await snapshot("workshop-dovetail-force")
 		await click(p.close_button.get_global_rect().get_center())
 		check(not p.opened and not p.panel.visible,"actual close returns to workshop")

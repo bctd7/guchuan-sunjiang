@@ -3,7 +3,7 @@ const Candidate = preload("res://levels/level01/candidate_geometry.gd")
 const Preview = preload("res://levels/level01/candidate_preview.gd")
 const TypeGallery = preload("res://levels/level01/type_gallery.gd")
 const LengthGallery = preload("res://levels/level01/length_candidate_gallery.gd")
-const Lengths = preload("res://levels/level01/length_geometry.gd")
+const Lengths = preload("res://models/ship/keel/length_geometry.gd")
 var passed := 0
 var failed := 0
 

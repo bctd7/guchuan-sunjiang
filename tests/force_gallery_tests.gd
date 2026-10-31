@@ -2,6 +2,12 @@ extends "res://tests/view_input_tests.gd"
 ## Host input and actual engine-rendered frames; no claim of human mouse testing.
 var graphical := DisplayServer.get_name() != "headless"
 
+
+# Reference zong renders two loads inside one 13.2 s cycle; its inherited
+# cycles-based `mode` property is not the load used by the renderer.
+func displayed_mode(diagram) -> int:
+	return diagram.clock.mode_index() if diagram.reference_active else diagram.mode
+
 func snapshot(label: String) -> void:
 	if not graphical: return
 	await RenderingServer.frame_post_draw
@@ -10,7 +16,7 @@ func snapshot(label: String) -> void:
 func run() -> void:
 	root.content_scale_size = Vector2i.ZERO
 	root.size = Vector2i(1440,900)
-	demo = load("res://demo/workshop.tscn").instantiate()
+	demo = load("res://classroom/classroom.tscn").instantiate()
 	root.add_child(demo)
 	await physics_frame
 	await process_frame
@@ -39,15 +45,15 @@ func run() -> void:
 				var count: int = diagram.profile.modes.size()
 				for mode_index in count:
 					diagram.clock.cycles = mode_index
-					diagram.clock.elapsed = 0.0
-					check(diagram.mode == mode_index,id+": mode routing")
+					diagram.clock.elapsed = diagram.clock.LEAD + diagram.clock.STAGE*mode_index if diagram.reference_active else 0.0
+					check(displayed_mode(diagram) == mode_index,id+": mode routing")
 					check(diagram.clock.playing,id+": auto plays")
 					diagram.advance(diagram.clock.DURATION*count*3.0)
 					check(diagram.clock.playing and diagram.clock.cycles >= 3,id+": continuous cycles")
 					var m: Dictionary = diagram.profile.modes[mode_index]
 					check(not m.removable,id+": no removal case in retained data")
 					for phase in [.0,.8,1.4,3.4,4.4,5.95]:
-						diagram.clock.elapsed = phase
+						diagram.clock.elapsed = diagram.clock.LEAD + diagram.clock.STAGE*mode_index + minf(phase, diagram.clock.STAGE-.001) if diagram.reference_active else phase
 						diagram.clock.playing = false
 						diagram.queue_redraw()
 						check(not diagram.clock.touching(m.removable) if m.removable else true,id+": no false removal reaction")
@@ -80,11 +86,11 @@ func run() -> void:
 								var shift: Vector2 = diagram.project(diagram.v3(m.initial)+diagram.v3(m.direction)*float(m.distance),diagram.view_data())
 								for edge in ring.size(): closest = minf(closest,point.distance_to(Geometry2D.get_closest_point_to_segment(point,ring[edge]+shift,ring[(edge+1)%ring.size()]+shift)))
 							check(closest < .012,id+": highlighted contact reaches actual moving boundary")
-					diagram.clock.elapsed = diagram.clock.DURATION-.001
+					diagram.clock.elapsed = (diagram.clock.LEAD + diagram.clock.STAGE if diagram.reference_active and mode_index == 0 else diagram.clock.DURATION)-.001
 					diagram.clock.playing = true
 					diagram.advance(.002)
-					check(diagram.mode == (mode_index+1)%count,id+": automatic next load at smooth loop boundary")
-				check(diagram.mode == 0,id+": modes wrap")
+					check(displayed_mode(diagram) == (mode_index+1)%count,id+": automatic next load at smooth loop boundary")
+				check(displayed_mode(diagram) == 0,id+": modes wrap")
 			await click(presenter.close_button.get_global_rect().get_center())
 			check(not presenter.opened and demo.interaction.process_mode == Node.PROCESS_MODE_INHERIT,id+": close restores input")
 			if id != "dovetail":

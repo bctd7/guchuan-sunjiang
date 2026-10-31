@@ -6,7 +6,7 @@ var failures: Array[String] = []
 var completion_count := 0
 var return_count := 0
 const Rules = preload("res://levels/level03/connection_rules.gd")
-const G = preload("res://levels/level03/ship_geometry.gd")
+const G = preload("res://models/ship/rigging/ship_geometry.gd")
 func _initialize() -> void: call_deferred("run")
 func check(value: bool, label: String) -> void:
 	if value:

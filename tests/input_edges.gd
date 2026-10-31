@@ -19,7 +19,7 @@ func run() -> void:
 	var input := Interaction.new()
 	root.add_child(input)
 	input.configure(assembly,camera)
-	var data: Array = JSON.parse_string(FileAccess.get_file_as_string("res://models/catalog.json"))
+	var data: Array = JSON.parse_string(FileAccess.get_file_as_string("res://models/joinery/catalog.json"))
 	var fixture: Dictionary = data[0].duplicate(true)
 	var id := "tail"
 	fixture.parts[0].assembled_position = [0,-100,0]

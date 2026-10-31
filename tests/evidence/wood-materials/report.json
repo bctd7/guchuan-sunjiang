@@ -1,0 +1,22 @@
+{
+  "failed": 0,
+  "failures": [],
+  "images": [
+    "res://tests/evidence/wood-materials/01-nine-teaching-previews.png",
+    "res://tests/evidence/wood-materials/workshop-dovetail.png",
+    "res://tests/evidence/wood-materials/workshop-blind_tenon.png",
+    "res://tests/evidence/wood-materials/workshop-through_tenon.png",
+    "res://tests/evidence/wood-materials/workshop-cross_lap.png",
+    "res://tests/evidence/wood-materials/workshop-tongue_groove.png",
+    "res://tests/evidence/wood-materials/workshop-three_way_lap.png",
+    "res://tests/evidence/wood-materials/workshop-zong_corner.png",
+    "res://tests/evidence/wood-materials/workshop-clamp_head.png",
+    "res://tests/evidence/wood-materials/workshop-l_through.png",
+    "res://tests/evidence/wood-materials/workshop-xray.png",
+    "res://tests/evidence/wood-materials/workshop-solid-restored.png",
+    "res://tests/evidence/wood-materials/level01-timber-reference.png"
+  ],
+  "method": "Actual GPU SubViewport pixels, minimized NO_FOCUS host; scripted setup, no hardware input.",
+  "no_focus": true,
+  "renderer": "macOS"
+}

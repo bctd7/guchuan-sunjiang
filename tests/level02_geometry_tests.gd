@@ -1,5 +1,5 @@
 extends SceneTree
-const G=preload("res://levels/level02/ship_geometry.gd")
+const G=preload("res://models/ship/hull/ship_geometry.gd")
 const State=preload("res://levels/level02/level_state.gd")
 const Rules=preload("res://levels/level02/connection_rules.gd")
 var passed:=0

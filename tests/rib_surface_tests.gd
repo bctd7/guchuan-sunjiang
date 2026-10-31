@@ -1,10 +1,10 @@
 extends SceneTree
 ## Geometric visibility tests run without a renderer. Each ray compares the
 ## physical first surface with the first clockwise face a back-culling camera sees.
-const Geometry = preload("res://levels/level01/ship_geometry.gd")
+const Geometry = preload("res://models/ship/keel/ship_geometry.gd")
 const Preview = preload("res://levels/level01/candidate_preview.gd")
 const Candidate = preload("res://levels/level01/candidate_geometry.gd")
-const Lengths = preload("res://levels/level01/length_geometry.gd")
+const Lengths = preload("res://models/ship/keel/length_geometry.gd")
 var passed := 0
 var failed := 0
 const OUTLINE = [Vector2(.55,.56),Vector2(1.22,.62),Vector2(1.92,.98),Vector2(2.43,1.50),Vector2(2.73,1.86),Vector2(2.96,1.86),Vector2(2.69,1.30),Vector2(2.12,.64),Vector2(1.34,.25),Vector2(.55,.10)]

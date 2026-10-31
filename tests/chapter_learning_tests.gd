@@ -1,8 +1,8 @@
 extends SceneTree
 ## Headless control-signal and state-preservation checks, not human GUI testing.
-const Learning = preload("res://shared/chapter_learning.gd")
-const ModelPreview = preload("res://shared/lesson_model_preview.gd")
-const Workshop = preload("res://demo/workshop.gd")
+const Learning = preload("res://levels/shared/teaching_portal.gd")
+const ModelPreview = preload("res://classroom/display/lesson_model_preview.gd")
+const Workshop = preload("res://classroom/classroom.gd")
 const GROUPS := [
 	["dovetail", "blind_tenon", "through_tenon"],
 	["cross_lap", "tongue_groove", "three_way_lap"],
@@ -127,7 +127,7 @@ func check_chapter_group_and_round_trip(chapter: int) -> void:
 	await process_frame
 
 func check_original_model_preview(preview, id: String) -> void:
-	var original_catalog: Array = JSON.parse_string(FileAccess.get_file_as_string("res://models/catalog.json"))
+	var original_catalog: Array = JSON.parse_string(FileAccess.get_file_as_string("res://models/joinery/catalog.json"))
 	var original: Dictionary = {}
 	for definition in original_catalog:
 		if definition.id == id: original = definition
@@ -182,7 +182,7 @@ func check_standalone_workshop_keeps_all_nine_original_lessons() -> void:
 	await process_frame
 	check(standalone.lesson_filter.is_empty(), "standalone default filter remains empty")
 	check(standalone.catalog.size() == 9 and standalone.picker.item_count == 9, "standalone classroom retains nine original lessons")
-	var original_catalog: Array = JSON.parse_string(FileAccess.get_file_as_string("res://models/catalog.json"))
+	var original_catalog: Array = JSON.parse_string(FileAccess.get_file_as_string("res://models/joinery/catalog.json"))
 	check(standalone.catalog == original_catalog, "standalone catalog matches original definitions without content edits")
 	standalone.free()
 	await process_frame

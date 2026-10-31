@@ -1,0 +1,16 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/level01-failure-r7/01-ready.png",
+    "res://tests/evidence/level01-failure-r7/02-drag-arrow-without-floating-text.png",
+    "res://tests/evidence/level01-failure-r7/03-failure-during-shake.png",
+    "res://tests/evidence/level01-failure-r7/04-failure-after-shake.png",
+    "res://tests/evidence/level01-failure-r7/05-failure-small-window.png",
+    "res://tests/evidence/level01-failure-r7/06-restarted.png",
+    "res://tests/evidence/level01-failure-r7/07-success-after-restart.png"
+  ],
+  "method": "Actual GPU SubViewport captures; minimized NO_FOCUS host; scripted scene setup, no desktop input",
+  "renderer": "macOS"
+}

@@ -8,11 +8,14 @@ signal feedback(message: String)
 var placed: Dictionary = Rules.initial_connections()
 var selected: String = "rib_l1"
 var completed: bool = false
+var failed: bool = false
+var _failure: Dictionary = {}
 ## Only player demonstrations enter undo history.
 var placement_order: Array[String] = []
 var pending_group: String = ""
 
 func select_piece(id: String) -> Dictionary:
+	if failed: return _failed()
 	if id == "keel":
 		return _report(Rules.result(false, "fixed_foundation", "龙骨已固定，请选择示范构件。"))
 	if not pending_group.is_empty():
@@ -26,6 +29,7 @@ func select_piece(id: String) -> Dictionary:
 	return Rules.result(true, "selected", str(Rules.SPECS[id].label))
 
 func attempt_place(piece_id: String, socket_id: String, joint_type: String = "", length: String = "correct") -> Dictionary:
+	if failed: return _failed()
 	if not pending_group.is_empty():
 		return _assembling()
 	if Rules.BUILD_IDS.has(piece_id) and not Rules.REPRESENTATIVE_IDS.has(piece_id):
@@ -40,6 +44,7 @@ func attempt_place(piece_id: String, socket_id: String, joint_type: String = "",
 	return _report(outcome)
 
 func place_automatic(id: String) -> Dictionary:
+	if failed: return _failed()
 	if pending_group.is_empty():
 		return _report(Rules.result(false, "no_pending_group", "请先完成代表件的榫型示范。"))
 	if not id in Rules.AUTO_GROUPS[pending_group]:
@@ -65,6 +70,7 @@ func place_automatic(id: String) -> Dictionary:
 	return _report(outcome)
 
 func finish_automatic() -> Dictionary:
+	if failed: return _failed()
 	if pending_group.is_empty():
 		return _report(Rules.result(false, "no_pending_group", "当前没有等待完成的自动装配。"))
 	if not Rules.connection_attached(pending_group, placed):
@@ -80,11 +86,13 @@ func finish_automatic() -> Dictionary:
 	return _report(outcome)
 
 func undo() -> Dictionary:
+	if failed: return _failed()
 	if placement_order.is_empty():
 		return _report(Rules.result(false, "nothing_to_undo", "还没有完成示范；固定龙骨会一直保留。"))
 	return remove_piece(placement_order.back())
 
 func remove_piece(id: String) -> Dictionary:
+	if failed: return _failed()
 	if id == "keel":
 		return _report(Rules.result(false, "fixed_foundation", "龙骨是固定基础，撤回只取回后装构件。"))
 	if Rules.BUILD_IDS.has(id) and not Rules.REPRESENTATIVE_IDS.has(id):
@@ -105,10 +113,14 @@ func reset() -> void:
 	pending_group = ""
 	selected = "rib_l1"
 	completed = false
+	failed = false
+	_failure.clear()
 	changed.emit()
 	feedback.emit("重新开始：龙骨已固定，先观察船肋的榫头与槽口。")
 
 func stage() -> String:
+	if failed:
+		return "failed"
 	if completed:
 		return "complete"
 	if not Rules.ribs_attached(placed):
@@ -135,12 +147,27 @@ func _count_present(ids: Array) -> int:
 	return count
 
 func is_stable() -> bool:
-	return pending_group.is_empty() and progress_count() == Rules.REPRESENTATIVE_IDS.size() and bool(Rules.validate(placed).ok)
+	return not failed and pending_group.is_empty() and progress_count() == Rules.REPRESENTATIVE_IDS.size() and bool(Rules.validate(placed).ok)
+
+## Fit is judged for the whole level only, after every automatic group seats.
+func assess_fit() -> Dictionary:
+	if failed: return _failure.duplicate(true)
+	if not pending_group.is_empty():
+		return Rules.result(false, "assembling", "同类构件尚未全部装妥，完成整关后再检查。")
+	var outcome: Dictionary = Rules.validate(placed)
+	if outcome.code in ["unstable_length", "unstable_fit"]:
+		failed = true
+		completed = false
+		pending_group = ""
+		_failure = outcome.duplicate(true)
+		changed.emit()
+	return outcome
 
 func validate_structure() -> Dictionary:
+	if failed: return _report(_failure.duplicate(true))
 	if not pending_group.is_empty():
 		return _assembling()
-	var outcome: Dictionary = Rules.validate(placed)
+	var outcome: Dictionary = assess_fit()
 	if outcome.ok:
 		if completed:
 			return _report(Rules.result(true, "already_complete", "骨架已经验收通过，可以撤回一组练习或重新挑战。"))
@@ -167,6 +194,9 @@ func _remove(id: String) -> Dictionary:
 
 func _assembling() -> Dictionary:
 	return _report(Rules.result(false, "assembling", "同类构件正在自动装配，请稍候，或撤回本次示范。"))
+
+func _failed() -> Dictionary:
+	return _report(Rules.result(false, "failed", "本关未通过，请重新开始。"))
 
 func _report(outcome: Dictionary) -> Dictionary:
 	feedback.emit(str(outcome.message))

@@ -1,12 +1,14 @@
+> 历史验证证据：保留执行当时的结果与原路径，不作为最新需求或本轮重跑结果。最新要求与差异见[文档入口](../docs/README.md)（2026-10-31 整理）。
+
 # 分层清理与回归记录 · 2026-10-27
 
-已合入原项目 `C:\Users\27902\Desktop\个人项目\古船榫匠`。启动配置不变：Godot 4.7.2 打开 `project.godot`，F5 进入三关目录。[简洁验收步骤](../docs/ACCEPTANCE.md) · [代码分层与依赖](../docs/CODE_STRUCTURE.md)。
+已合入原项目 `C:\Users\27902\Desktop\个人项目\古船榫匠`。启动配置不变：Godot 4.7.2 打开 `project.godot`，F5 进入三关目录。[简洁验收步骤](../docs/archive/2026-10-31-before-rebaseline/docs/ACCEPTANCE.md) · [代码分层与依赖](../docs/archive/2026-10-31-before-rebaseline/docs/CODE_STRUCTURE.md)。
 
 ## 修改
 
 - 三关直接共用 `levels/shared/socket_interaction.gd`，第二、三关不再依赖第一关的输入文件；原路径保留兼容薄层。
 - 共用 `levels/shared/chapter_ui.gd` 生成面板、标签、按钮和反馈颜色；关卡布局、视觉数值与按钮行为保留。
-- 首关实体构造抽到 `levels/level01/ship_geometry.gd`，`skeleton_view.gd` 从 390 行降至 256 行，保留镜头、槽口、姿态与动画接口。
+- 首关实体构造抽到 `models/ship/keel/ship_geometry.gd`，`skeleton_view.gd` 从 390 行降至 256 行，保留镜头、槽口、姿态与动画接口。
 - 第三关端部裁切抽到 `levels/shared/mesh_end_crop.gd`，`candidate_gallery.gd` 从 166 行降至 104 行，取消对主场景视图的无用依赖。
 - 第二关信号使用具名处理函数；第三关候选处理也具名化。移除确认没有读取的私有缓存和从未赋值的镜头 tween。
 - 规则/状态、现有光照、相机、尺寸、木纹、动画时序、模型资产、九种课堂及主场景配置均未改变。没有新增玩法。
@@ -51,7 +53,7 @@
 
 `C:\Users\27902\Documents\Codex\2026-10-27\task\evidence\before-refactor-20261027\`
 
-比对 2701 个原有文件，无缺失；其中 `core/`、`demo/`、`education/`、`models/`、旧隐藏草稿目录和 `project.godot` 等 2297 个受保护文件哈希未变。抽离涉及的首关全部长度变体及第三关端部预览共 233 个网格状态，顶点/变换/材质签名前后一致。新源码采用覆盖前哈希检查合入；已有未提交工作未回滚，旧草稿和验收材料未删除；测试生成的报告与截图有更新，其旧版本仍在备份。
+比对 2701 个原有文件，无缺失；其中 `core/`、`demo/`、`classroom/science/`、`models/joinery/`、旧隐藏草稿目录和 `project.godot` 等 2297 个受保护文件哈希未变。抽离涉及的首关全部长度变体及第三关端部预览共 233 个网格状态，顶点/变换/材质签名前后一致。新源码采用覆盖前哈希检查合入；已有未提交工作未回滚，旧草稿和验收材料未删除；测试生成的报告与截图有更新，其旧版本仍在备份。
 
 工作区首次非提权导入受用户目录写权限影响；使用隔离测试用户目录后，原项目最终导入退出 0、无错误。未更改系统安全设置或用户编辑器设置。
 

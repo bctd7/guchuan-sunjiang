@@ -1,6 +1,6 @@
 extends SceneTree
-const Length = preload("res://levels/level01/length_geometry.gd")
-const Geometry = preload("res://levels/level01/ship_geometry.gd")
+const Length = preload("res://models/ship/keel/length_geometry.gd")
+const Geometry = preload("res://models/ship/keel/ship_geometry.gd")
 var passed := 0
 var failed := 0
 

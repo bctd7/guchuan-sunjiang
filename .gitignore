@@ -35,7 +35,7 @@ credentials/
 # Migration: local experiments and backups stay on disk, outside Git history.
 /.*-20??????/
 /.codex-access-probe-*.txt
-/education/dynamic/backup-*/
+/classroom/science/dynamic/backup-*/
 
 # Generated render evidence; keep test sources, reference assets and text records.
 /tests/evidence/**/*.png
@@ -47,6 +47,6 @@ credentials/
 /tests/evidence/**/refactor-git-status-*.txt
 /tests/level02_evidence/
 /tests/level03_evidence/
-/education/dynamic/evidence/*.png
-/education/dynamic/evidence/*.png.import
+/classroom/science/dynamic/evidence/*.png
+/classroom/science/dynamic/evidence/*.png.import
 *.translation

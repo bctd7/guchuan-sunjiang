@@ -1,0 +1,18 @@
+{
+	"failed": 0.0,
+	"failures": [],
+	"method": "Actual Godot Viewport mouse events injected by automation; no direct business state mutation; not human hardware input",
+	"passed": 550.0,
+	"phase": "full",
+	"renderer": "headless",
+	"screenshots": [],
+	"supplementary_classroom": {
+		"failed": 0,
+		"failures": [],
+		"method": "Actual Godot Viewport mouse events injected by automation; no direct business state mutation; not human hardware input",
+		"passed": 124,
+		"phase": "classroom",
+		"renderer": "headless",
+		"screenshots": []
+	}
+}

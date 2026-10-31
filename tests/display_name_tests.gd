@@ -9,7 +9,7 @@ func _initialize() -> void:
 	call_deferred("run")
 func run() -> void:
 	root.size = Vector2i(1440,900)
-	var demo = load("res://demo/workshop.tscn").instantiate()
+	var demo = load("res://classroom/classroom.tscn").instantiate()
 	root.add_child(demo)
 	await process_frame
 	for index in demo.catalog.size():

@@ -431,7 +431,7 @@ func test_guided_input(assembly: Node3D) -> void:
 
 func run() -> void:
 	root.size = Vector2i(1440,900)
-	var catalog = JSON.parse_string(FileAccess.get_file_as_string("res://models/catalog.json"))
+	var catalog = JSON.parse_string(FileAccess.get_file_as_string("res://models/joinery/catalog.json"))
 	if not catalog is Array or catalog.size() != 9:
 		push_error("Expected nine catalog entries")
 		quit(1)

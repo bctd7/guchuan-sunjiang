@@ -1,6 +1,6 @@
 extends Control
 ## Measured reference and candidates. Each row shares the same ruler scale.
-const Lengths=preload("res://levels/level01/length_geometry.gd")
+const Lengths=preload("res://models/ship/keel/length_geometry.gd")
 const ORDER=["long","short","correct"]
 const LABELS={"long":"A","short":"B","correct":"C"}
 var piece_id:="rib_l1"

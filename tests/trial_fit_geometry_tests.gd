@@ -1,6 +1,6 @@
 extends SceneTree
-const Trial = preload("res://levels/level01/trial_fit.gd")
-const Lengths = preload("res://levels/level01/length_geometry.gd")
+const Trial = preload("res://models/ship/keel/trial_fit.gd")
+const Lengths = preload("res://models/ship/keel/length_geometry.gd")
 const Candidate = preload("res://levels/level01/candidate_geometry.gd")
 var passed := 0
 var failed := 0

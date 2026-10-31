@@ -1,6 +1,6 @@
 extends Node
 ## Navigation owns no joinery rules; each chapter retains its own state instance.
-const Friendly = preload("res://demo/friendly_theme.gd")
+const Friendly = preload("res://shared/ui/friendly_theme.gd")
 const CHAPTERS := [
 	{"title":"第一关 · 龙骨立架","description":"三次不同示范，自动补齐同构件\n观察榫头与槽口，搭稳一段骨架。","scene":"res://levels/level01/level01.tscn"},
 	{"title":"第二关 · 船板合壳","description":"从船底铺向船舷\n看清板端错缝，装好隔舱并试水。","scene":"res://levels/level02/level02.tscn"},
@@ -87,12 +87,13 @@ func open_level(number: int) -> void:
 		var level=packed.instantiate()
 		instances[number]=level
 		if level.has_signal("return_requested"): level.return_requested.connect(_show_menu)
-		if level.has_signal("level_completed"): level.level_completed.connect(func(): _chapter_changed(number))
+		level.progress_changed.connect(func(): _chapter_changed(number))
 		add_child(level)
-		if "state" in level and level.state.has_signal("changed"):
-			level.state.changed.connect(func(): _chapter_changed(number))
 	else:
 		add_child(instances[number])
+	# Directory visits always present the same lesson doorway, while retaining progress.
+	var current=instances[number]
+	current.enter()
 	active_level=number
 	menu.hide()
 	navigation.show()
@@ -100,8 +101,8 @@ func open_level(number: int) -> void:
 
 func _chapter_changed(number: int) -> void:
 	var level=instances.get(number)
-	if is_instance_valid(level) and "state" in level:
-		completed[number]=bool(level.state.completed)
+	if is_instance_valid(level):
+		completed[number]=level.is_completed()
 	for id in chapter_buttons:
 		chapter_buttons[id].text=("✓ " if completed.get(id,false) else "")+CHAPTERS[id-1].title
 	next_button.visible=active_level > 0 and active_level < 3 and completed.get(active_level,false)
@@ -110,7 +111,9 @@ func _chapter_changed(number: int) -> void:
 func _detach_active() -> void:
 	if active_level > 0 and instances.has(active_level):
 		var level: Node=instances[active_level]
-		if level.get_parent() == self: remove_child(level)
+		if level.get_parent() == self:
+			level.leave()
+			remove_child(level)
 	active_level=0
 
 func _show_menu() -> void:
@@ -121,16 +124,10 @@ func _show_menu() -> void:
 func _process(_delta: float) -> void:
 	if active_level < 1: return
 	var level=instances.get(active_level)
-	var modal_open := false
-	if is_instance_valid(level) and "inspector" in level:
-		var inspector=level.inspector
-		if is_instance_valid(inspector) and "opened" in inspector: modal_open=inspector.opened
-	if is_instance_valid(level) and "learning" in level:
-		if is_instance_valid(level.learning): modal_open=modal_open or level.learning.modal_open()
-	if is_instance_valid(level) and "story" in level:
-		if is_instance_valid(level.story): modal_open=modal_open or level.story.opened
-	navigation.visible=not modal_open
-	back_button.disabled=is_instance_valid(level) and "busy" in level and level.busy
+	if not is_instance_valid(level): return
+	var status: Dictionary=level.navigation_status()
+	navigation.visible=not status.modal_open
+	back_button.disabled=not status.can_leave
 
 func _label(parent: Node,text: String,font_size: int) -> Label:
 	var label:=Label.new()

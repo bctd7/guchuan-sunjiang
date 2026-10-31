@@ -1,0 +1,59 @@
+{
+  "method": "Same camera/pose/viewport before vs after; mean absolute RGB delta on mutual wood colour mask, UI/background excluded; not a perceptual score.",
+  "rows": [
+    {
+      "joint": "dovetail",
+      "mean_rgb_change_255": 33.9473756153098,
+      "wood_pixels": 67897,
+      "wood_pixels_changed_over_8": 0.932868904369854
+    },
+    {
+      "joint": "blind_tenon",
+      "mean_rgb_change_255": 25.725030414061,
+      "wood_pixels": 61704,
+      "wood_pixels_changed_over_8": 0.942191754181252
+    },
+    {
+      "joint": "through_tenon",
+      "mean_rgb_change_255": 25.682567282888,
+      "wood_pixels": 58946,
+      "wood_pixels_changed_over_8": 0.94060665694025
+    },
+    {
+      "joint": "cross_lap",
+      "mean_rgb_change_255": 27.1492098133194,
+      "wood_pixels": 55291,
+      "wood_pixels_changed_over_8": 0.954006981244687
+    },
+    {
+      "joint": "tongue_groove",
+      "mean_rgb_change_255": 32.9088641122473,
+      "wood_pixels": 54315,
+      "wood_pixels_changed_over_8": 0.958096290159256
+    },
+    {
+      "joint": "three_way_lap",
+      "mean_rgb_change_255": 39.766262012723,
+      "wood_pixels": 36665,
+      "wood_pixels_changed_over_8": 0.984562934678849
+    },
+    {
+      "joint": "zong_corner",
+      "mean_rgb_change_255": 26.2421162538433,
+      "wood_pixels": 67601,
+      "wood_pixels_changed_over_8": 0.994038549725596
+    },
+    {
+      "joint": "clamp_head",
+      "mean_rgb_change_255": 24.5103583449278,
+      "wood_pixels": 39418,
+      "wood_pixels_changed_over_8": 0.973387792379116
+    },
+    {
+      "joint": "l_through",
+      "mean_rgb_change_255": 25.6575177547793,
+      "wood_pixels": 65443,
+      "wood_pixels_changed_over_8": 0.943951224729918
+    }
+  ]
+}

@@ -113,8 +113,8 @@ static func validate(placed: Dictionary) -> Dictionary:
 		return result(false, "needs_keel", "固定龙骨缺失，请点“重新搭建”恢复基座。")
 	if not connection_correct("keel", placed):
 		return result(false, "invalid_connection", "固定龙骨损坏，请重新搭建以恢复基础。")
-	# Every known type and length can be tried. Inspect fit separately from
-	# attachment, before reporting missing members or symmetry.
+	# Every known type and length can be tried. Gather choices now, but
+	# diagnose their fit only after the entire skeleton is attached.
 	var unstable_pieces: Array[String] = []
 	var unstable_groups: Array[String] = []
 	var group_labels: Array[String] = []
@@ -139,22 +139,22 @@ static func validate(placed: Dictionary) -> Dictionary:
 				if not representative in unstable_groups:
 					unstable_groups.append(representative)
 					group_labels.append({"rib_l1":"船肋组", "bow":"前后连接组", "beam1":"横梁组"}[representative])
-	if not unstable_pieces.is_empty():
-		var code := "unstable_fit" if "wrong_joint" in reasons else "unstable_length"
-		var problem := "榫型和长度不合" if "wrong_joint" in reasons and "wrong_length" in reasons else ("榫型不合" if "wrong_joint" in reasons else "长度不合")
-		var outcome := result(false, code, "%s因%s出现松动，结构还不稳固。可以取回对应构件组，重新选择榫型和长度再试装；若船肋上已有加固件，请先取回后装的组。" % ["、".join(group_labels), problem])
-		outcome["unstable_pieces"] = unstable_pieces
-		outcome["unstable_groups"] = unstable_groups
-		outcome["unstable_reasons"] = unstable_reasons
-		outcome["reasons"] = reasons
-		return outcome
 	if not ribs_attached(placed):
 		return result(false, "asymmetric", "船肋还不完整。三组左右船肋全部咬合，骨架才会稳定。")
 	for id in IDS:
 		if not placed.has(id):
 			return result(false, "incomplete", "还需要%s。完成全部连接后再验收。" % SPECS[id].label)
-		if not connection_correct(id, placed):
-			return result(false, "invalid_connection", "连接尚未正确咬合，请撤回并重新安装。")
+		if not connection_attached(id, placed):
+			return result(false, "invalid_connection", "连接记录无效，请重新检查。")
 	if placed.size() != IDS.size():
 		return result(false, "invalid_connection", "存在不属于本关的连接，请重新检查。")
+	if not unstable_pieces.is_empty():
+		var code := "unstable_fit" if "wrong_joint" in reasons else "unstable_length"
+		var problem := "榫型和长度不合" if "wrong_joint" in reasons and "wrong_length" in reasons else ("榫型不合" if "wrong_joint" in reasons else "长度不合")
+		var outcome := result(false, code, "%s因%s出现松动。本关未通过，请重新开始。" % ["、".join(group_labels), problem])
+		outcome["unstable_pieces"] = unstable_pieces
+		outcome["unstable_groups"] = unstable_groups
+		outcome["unstable_reasons"] = unstable_reasons
+		outcome["reasons"] = reasons
+		return outcome
 	return result(true, "complete", "龙骨立架成功！左右对称，连接牢靠，可以准备铺船板了。")

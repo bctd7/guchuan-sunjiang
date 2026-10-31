@@ -1,3 +1,5 @@
+> 历史验证证据：保留执行当时的结果与原路径，不作为最新需求或本轮重跑结果。最新要求与差异见[文档入口](../../docs/README.md)（2026-10-31 整理）。
+
 # Resumed length-rule and chapter-preview verification
 
 Godot 4.7.2 stable, Windows console binary, headless only. All paths below are relative to the project root. No GUI or rendered visual-quality claim is made.

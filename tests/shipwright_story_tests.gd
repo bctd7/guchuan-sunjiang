@@ -48,6 +48,12 @@ func run() -> void:
 	check(story.layer == 35 and not story.opened and not story.root.visible, "optional overlay starts hidden at layer 35")
 	check(story.root.mouse_filter == Control.MOUSE_FILTER_STOP and not story.root.mouse_force_pass_scroll_events, "full-screen root blocks pointer and wheel pass-through")
 	check(story.root.get_child(0).mouse_filter == Control.MOUSE_FILTER_STOP, "shade blocks backdrop clicks")
+	check(story.close_button.text == "关闭", "story uses a concise close button")
+	check(story.root.find_children("*", "Button", true, false).size() == 1, "story has one close action")
+	check(story.root.find_child("StoryIllustration", true, false) != null, "illustration remains above the story text")
+	var illustration: Control = story.root.find_child("StoryIllustration", true, false)
+	check(illustration.ART.get_size() == Vector2(1916, 821), "approved seven-coin illustration is loaded at full resolution")
+	check(story.root.find_children("StoryParagraph*", "Label", true, false).size() == Story.STORY_PARAGRAPHS.size(), "all story paragraphs are available to read")
 	for mask in range(16):
 		source.set_process_input(bool(mask & 1))
 		source.set_process_unhandled_input(bool(mask & 2))
@@ -81,12 +87,13 @@ func run() -> void:
 		root.push_input(mouse)
 	check(backdrop_presses[0] == 0, "full-screen shade consumes click over underlying button")
 	check(story.close_button.has_focus(), "close button receives keyboard focus")
-	for viewport_size in [Vector2i(1440, 900), Vector2i(960, 600)]:
+	for viewport_size in [Vector2i(1440, 900), Vector2i(1100, 700), Vector2i(960, 600)]:
 		root.content_scale_size = viewport_size
 		root.size = viewport_size
 		await process_frame
 		await process_frame
 		check(Rect2(Vector2.ZERO, Vector2(viewport_size)).encloses(story.close_button.get_global_rect()), "close button remains in viewport %s" % viewport_size)
+		check(absf(illustration.size.y - illustration.size.x * 821.0 / 1916.0) <= 1, "full illustration keeps its aspect ratio %s" % viewport_size)
 	var key := InputEventKey.new()
 	key.keycode = KEY_ESCAPE
 	key.pressed = true

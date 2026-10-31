@@ -2,7 +2,7 @@ extends "res://tests/zong_geometry_tests.gd"
 func run() -> void:
 	var guard = Guard.new()
 	for id in ["xrail","zrail","leg"]:
-		meshes[id] = load("res://models/assets/zong_corner_"+id+".obj")
+		meshes[id] = load("res://models/joinery/assets/zong_corner_"+id+".obj")
 		guard.register_mesh(id,meshes[id])
 		check_topology(id)
 	check(contains_point("leg",Vector3(.6,.9,.2)),"long vertical tenon reaches .92")
@@ -45,7 +45,7 @@ func run() -> void:
 		intersections.append({"outward":id,"beyond_stop_volume":collision,"safe_max":.01998})
 	check(guard.motion_is_safe("leg",Transform3D.IDENTITY,parked,assembled),"vertical straight tenons still withdraw -Y before game locking")
 	# Check actual assembly capture/guide/locking state without changing shared code.
-	var definition: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://models/zong_corner_definition.json"))
+	var definition: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://models/joinery/zong_corner_definition.json"))
 	var assembly = load("res://core/assembly.gd").new()
 	root.add_child(assembly)
 	assembly.load_definition(definition)

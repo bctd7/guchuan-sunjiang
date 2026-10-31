@@ -1,0 +1,1216 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/wood-material-entry/before/chapter-1-introduction.png",
+    "res://tests/evidence/wood-material-entry/before/embedded-dovetail.png",
+    "res://tests/evidence/wood-material-entry/before/embedded-dovetail-1000.png",
+    "res://tests/evidence/wood-material-entry/before/xray-dovetail.png",
+    "res://tests/evidence/wood-material-entry/before/embedded-blind_tenon.png",
+    "res://tests/evidence/wood-material-entry/before/xray-blind_tenon.png",
+    "res://tests/evidence/wood-material-entry/before/embedded-through_tenon.png",
+    "res://tests/evidence/wood-material-entry/before/xray-through_tenon.png",
+    "res://tests/evidence/wood-material-entry/before/chapter-1-returned.png",
+    "res://tests/evidence/wood-material-entry/before/chapter-2-introduction.png",
+    "res://tests/evidence/wood-material-entry/before/embedded-cross_lap.png",
+    "res://tests/evidence/wood-material-entry/before/xray-cross_lap.png",
+    "res://tests/evidence/wood-material-entry/before/embedded-tongue_groove.png",
+    "res://tests/evidence/wood-material-entry/before/xray-tongue_groove.png",
+    "res://tests/evidence/wood-material-entry/before/embedded-three_way_lap.png",
+    "res://tests/evidence/wood-material-entry/before/xray-three_way_lap.png",
+    "res://tests/evidence/wood-material-entry/before/chapter-2-returned.png",
+    "res://tests/evidence/wood-material-entry/before/chapter-3-introduction.png",
+    "res://tests/evidence/wood-material-entry/before/embedded-zong_corner.png",
+    "res://tests/evidence/wood-material-entry/before/xray-zong_corner.png",
+    "res://tests/evidence/wood-material-entry/before/embedded-clamp_head.png",
+    "res://tests/evidence/wood-material-entry/before/xray-clamp_head.png",
+    "res://tests/evidence/wood-material-entry/before/embedded-l_through.png",
+    "res://tests/evidence/wood-material-entry/before/xray-l_through.png",
+    "res://tests/evidence/wood-material-entry/before/chapter-3-returned.png"
+  ],
+  "method": "Actual campaign chapter lesson buttons -> embedded classroom GPU pixels; minimized NO_FOCUS host, no desktop input.",
+  "no_focus": true,
+  "probes": [
+    {
+      "camera_environment": false,
+      "joint": "dovetail",
+      "nodes": [
+        {
+          "background": "(0.9333, 0.9059, 0.851, 1.0)",
+          "mode": 3,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@Node3D@24/@WorldEnvironment@25",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@Node3D@24/@DirectionalLight3D@26",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@Node3D@24/@DirectionalLight3D@27",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@191/@Control@192/@PanelContainer@194/@VBoxContainer@195/@HBoxContainer@212/@Control@213/@SubViewportContainer@214/@SubViewport@227/@Node3D@228/@WorldEnvironment@229",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@191/@Control@192/@PanelContainer@194/@VBoxContainer@195/@HBoxContainer@212/@Control@213/@SubViewportContainer@214/@SubViewport@227/@Node3D@228/@DirectionalLight3D@230",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@191/@Control@192/@PanelContainer@194/@VBoxContainer@195/@HBoxContainer@212/@Control@213/@SubViewportContainer@214/@SubViewport@227/@Node3D@228/@DirectionalLight3D@231",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/dovetail/@VBoxContainer@252/OriginalModelPreview/@SubViewport@254/@Node3D@255/@WorldEnvironment@256",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/dovetail/@VBoxContainer@252/OriginalModelPreview/@SubViewport@254/@Node3D@255/@DirectionalLight3D@257",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/dovetail/@VBoxContainer@252/OriginalModelPreview/@SubViewport@254/@Node3D@255/@DirectionalLight3D@258",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/blind_tenon/@VBoxContainer@262/OriginalModelPreview/@SubViewport@264/@Node3D@265/@WorldEnvironment@266",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/blind_tenon/@VBoxContainer@262/OriginalModelPreview/@SubViewport@264/@Node3D@265/@DirectionalLight3D@267",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/blind_tenon/@VBoxContainer@262/OriginalModelPreview/@SubViewport@264/@Node3D@265/@DirectionalLight3D@268",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/through_tenon/@VBoxContainer@272/OriginalModelPreview/@SubViewport@274/@Node3D@275/@WorldEnvironment@276",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/through_tenon/@VBoxContainer@272/OriginalModelPreview/@SubViewport@274/@Node3D@275/@DirectionalLight3D@277",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/through_tenon/@VBoxContainer@272/OriginalModelPreview/@SubViewport@274/@Node3D@275/@DirectionalLight3D@278",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterWorkshop/@WorldEnvironment@302",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterWorkshop/@DirectionalLight3D@303",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterWorkshop/@DirectionalLight3D@304",
+          "type": "light",
+          "visible": true
+        }
+      ],
+      "world_environment_background": "(0.9333, 0.9059, 0.851, 1.0)"
+    },
+    {
+      "camera_environment": false,
+      "joint": "blind_tenon",
+      "nodes": [
+        {
+          "background": "(0.9333, 0.9059, 0.851, 1.0)",
+          "mode": 3,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@Node3D@24/@WorldEnvironment@25",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@Node3D@24/@DirectionalLight3D@26",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@Node3D@24/@DirectionalLight3D@27",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@191/@Control@192/@PanelContainer@194/@VBoxContainer@195/@HBoxContainer@212/@Control@213/@SubViewportContainer@214/@SubViewport@227/@Node3D@228/@WorldEnvironment@229",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@191/@Control@192/@PanelContainer@194/@VBoxContainer@195/@HBoxContainer@212/@Control@213/@SubViewportContainer@214/@SubViewport@227/@Node3D@228/@DirectionalLight3D@230",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@191/@Control@192/@PanelContainer@194/@VBoxContainer@195/@HBoxContainer@212/@Control@213/@SubViewportContainer@214/@SubViewport@227/@Node3D@228/@DirectionalLight3D@231",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/dovetail/@VBoxContainer@252/OriginalModelPreview/@SubViewport@254/@Node3D@255/@WorldEnvironment@256",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/dovetail/@VBoxContainer@252/OriginalModelPreview/@SubViewport@254/@Node3D@255/@DirectionalLight3D@257",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/dovetail/@VBoxContainer@252/OriginalModelPreview/@SubViewport@254/@Node3D@255/@DirectionalLight3D@258",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/blind_tenon/@VBoxContainer@262/OriginalModelPreview/@SubViewport@264/@Node3D@265/@WorldEnvironment@266",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/blind_tenon/@VBoxContainer@262/OriginalModelPreview/@SubViewport@264/@Node3D@265/@DirectionalLight3D@267",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/blind_tenon/@VBoxContainer@262/OriginalModelPreview/@SubViewport@264/@Node3D@265/@DirectionalLight3D@268",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/through_tenon/@VBoxContainer@272/OriginalModelPreview/@SubViewport@274/@Node3D@275/@WorldEnvironment@276",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/through_tenon/@VBoxContainer@272/OriginalModelPreview/@SubViewport@274/@Node3D@275/@DirectionalLight3D@277",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/through_tenon/@VBoxContainer@272/OriginalModelPreview/@SubViewport@274/@Node3D@275/@DirectionalLight3D@278",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterWorkshop/@WorldEnvironment@363",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterWorkshop/@DirectionalLight3D@364",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterWorkshop/@DirectionalLight3D@365",
+          "type": "light",
+          "visible": true
+        }
+      ],
+      "world_environment_background": "(0.9333, 0.9059, 0.851, 1.0)"
+    },
+    {
+      "camera_environment": false,
+      "joint": "through_tenon",
+      "nodes": [
+        {
+          "background": "(0.9333, 0.9059, 0.851, 1.0)",
+          "mode": 3,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@Node3D@24/@WorldEnvironment@25",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@Node3D@24/@DirectionalLight3D@26",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@Node3D@24/@DirectionalLight3D@27",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@191/@Control@192/@PanelContainer@194/@VBoxContainer@195/@HBoxContainer@212/@Control@213/@SubViewportContainer@214/@SubViewport@227/@Node3D@228/@WorldEnvironment@229",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@191/@Control@192/@PanelContainer@194/@VBoxContainer@195/@HBoxContainer@212/@Control@213/@SubViewportContainer@214/@SubViewport@227/@Node3D@228/@DirectionalLight3D@230",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@191/@Control@192/@PanelContainer@194/@VBoxContainer@195/@HBoxContainer@212/@Control@213/@SubViewportContainer@214/@SubViewport@227/@Node3D@228/@DirectionalLight3D@231",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/dovetail/@VBoxContainer@252/OriginalModelPreview/@SubViewport@254/@Node3D@255/@WorldEnvironment@256",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/dovetail/@VBoxContainer@252/OriginalModelPreview/@SubViewport@254/@Node3D@255/@DirectionalLight3D@257",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/dovetail/@VBoxContainer@252/OriginalModelPreview/@SubViewport@254/@Node3D@255/@DirectionalLight3D@258",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/blind_tenon/@VBoxContainer@262/OriginalModelPreview/@SubViewport@264/@Node3D@265/@WorldEnvironment@266",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/blind_tenon/@VBoxContainer@262/OriginalModelPreview/@SubViewport@264/@Node3D@265/@DirectionalLight3D@267",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/blind_tenon/@VBoxContainer@262/OriginalModelPreview/@SubViewport@264/@Node3D@265/@DirectionalLight3D@268",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/through_tenon/@VBoxContainer@272/OriginalModelPreview/@SubViewport@274/@Node3D@275/@WorldEnvironment@276",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/through_tenon/@VBoxContainer@272/OriginalModelPreview/@SubViewport@274/@Node3D@275/@DirectionalLight3D@277",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterIntroduction/@MarginContainer@241/@VBoxContainer@242/LessonScroll/@GridContainer@249/through_tenon/@VBoxContainer@272/OriginalModelPreview/@SubViewport@274/@Node3D@275/@DirectionalLight3D@278",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterWorkshop/@WorldEnvironment@424",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterWorkshop/@DirectionalLight3D@425",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/KeelRaising/@CanvasLayer@239/ChapterWorkshop/@DirectionalLight3D@426",
+          "type": "light",
+          "visible": true
+        }
+      ],
+      "world_environment_background": "(0.9333, 0.9059, 0.851, 1.0)"
+    },
+    {
+      "camera_environment": false,
+      "joint": "cross_lap",
+      "nodes": [
+        {
+          "background": "(0.9333, 0.9059, 0.851, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@Node3D@481/@WorldEnvironment@482",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@Node3D@481/@DirectionalLight3D@483",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "background": "(0.9333, 0.8902, 0.8118, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@665/@SubViewport@666/@Node3D@667/@WorldEnvironment@668",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@665/@SubViewport@666/@Node3D@667/@DirectionalLight3D@669",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9333, 0.8902, 0.8118, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@680/@SubViewport@681/@Node3D@682/@WorldEnvironment@683",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@680/@SubViewport@681/@Node3D@682/@DirectionalLight3D@684",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9333, 0.8902, 0.8118, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@693/@SubViewport@694/@Node3D@695/@WorldEnvironment@696",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@693/@SubViewport@694/@Node3D@695/@DirectionalLight3D@697",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/cross_lap/@VBoxContainer@751/OriginalModelPreview/@SubViewport@753/@Node3D@754/@WorldEnvironment@755",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/cross_lap/@VBoxContainer@751/OriginalModelPreview/@SubViewport@753/@Node3D@754/@DirectionalLight3D@756",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/cross_lap/@VBoxContainer@751/OriginalModelPreview/@SubViewport@753/@Node3D@754/@DirectionalLight3D@757",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/tongue_groove/@VBoxContainer@761/OriginalModelPreview/@SubViewport@763/@Node3D@764/@WorldEnvironment@765",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/tongue_groove/@VBoxContainer@761/OriginalModelPreview/@SubViewport@763/@Node3D@764/@DirectionalLight3D@766",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/tongue_groove/@VBoxContainer@761/OriginalModelPreview/@SubViewport@763/@Node3D@764/@DirectionalLight3D@767",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/three_way_lap/@VBoxContainer@771/OriginalModelPreview/@SubViewport@773/@Node3D@774/@WorldEnvironment@775",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/three_way_lap/@VBoxContainer@771/OriginalModelPreview/@SubViewport@773/@Node3D@774/@DirectionalLight3D@776",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/three_way_lap/@VBoxContainer@771/OriginalModelPreview/@SubViewport@773/@Node3D@774/@DirectionalLight3D@777",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterWorkshop/@WorldEnvironment@785",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterWorkshop/@DirectionalLight3D@786",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterWorkshop/@DirectionalLight3D@787",
+          "type": "light",
+          "visible": true
+        }
+      ],
+      "world_environment_background": "(0.9333, 0.9059, 0.851, 1.0)"
+    },
+    {
+      "camera_environment": false,
+      "joint": "tongue_groove",
+      "nodes": [
+        {
+          "background": "(0.9333, 0.9059, 0.851, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@Node3D@481/@WorldEnvironment@482",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@Node3D@481/@DirectionalLight3D@483",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "background": "(0.9333, 0.8902, 0.8118, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@665/@SubViewport@666/@Node3D@667/@WorldEnvironment@668",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@665/@SubViewport@666/@Node3D@667/@DirectionalLight3D@669",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9333, 0.8902, 0.8118, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@680/@SubViewport@681/@Node3D@682/@WorldEnvironment@683",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@680/@SubViewport@681/@Node3D@682/@DirectionalLight3D@684",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9333, 0.8902, 0.8118, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@693/@SubViewport@694/@Node3D@695/@WorldEnvironment@696",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@693/@SubViewport@694/@Node3D@695/@DirectionalLight3D@697",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/cross_lap/@VBoxContainer@751/OriginalModelPreview/@SubViewport@753/@Node3D@754/@WorldEnvironment@755",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/cross_lap/@VBoxContainer@751/OriginalModelPreview/@SubViewport@753/@Node3D@754/@DirectionalLight3D@756",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/cross_lap/@VBoxContainer@751/OriginalModelPreview/@SubViewport@753/@Node3D@754/@DirectionalLight3D@757",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/tongue_groove/@VBoxContainer@761/OriginalModelPreview/@SubViewport@763/@Node3D@764/@WorldEnvironment@765",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/tongue_groove/@VBoxContainer@761/OriginalModelPreview/@SubViewport@763/@Node3D@764/@DirectionalLight3D@766",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/tongue_groove/@VBoxContainer@761/OriginalModelPreview/@SubViewport@763/@Node3D@764/@DirectionalLight3D@767",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/three_way_lap/@VBoxContainer@771/OriginalModelPreview/@SubViewport@773/@Node3D@774/@WorldEnvironment@775",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/three_way_lap/@VBoxContainer@771/OriginalModelPreview/@SubViewport@773/@Node3D@774/@DirectionalLight3D@776",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/three_way_lap/@VBoxContainer@771/OriginalModelPreview/@SubViewport@773/@Node3D@774/@DirectionalLight3D@777",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterWorkshop/@WorldEnvironment@846",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterWorkshop/@DirectionalLight3D@847",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterWorkshop/@DirectionalLight3D@848",
+          "type": "light",
+          "visible": true
+        }
+      ],
+      "world_environment_background": "(0.9333, 0.9059, 0.851, 1.0)"
+    },
+    {
+      "camera_environment": false,
+      "joint": "three_way_lap",
+      "nodes": [
+        {
+          "background": "(0.9333, 0.9059, 0.851, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@Node3D@481/@WorldEnvironment@482",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@Node3D@481/@DirectionalLight3D@483",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "background": "(0.9333, 0.8902, 0.8118, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@665/@SubViewport@666/@Node3D@667/@WorldEnvironment@668",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@665/@SubViewport@666/@Node3D@667/@DirectionalLight3D@669",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9333, 0.8902, 0.8118, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@680/@SubViewport@681/@Node3D@682/@WorldEnvironment@683",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@680/@SubViewport@681/@Node3D@682/@DirectionalLight3D@684",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9333, 0.8902, 0.8118, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@693/@SubViewport@694/@Node3D@695/@WorldEnvironment@696",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@631/@Control@632/@Control@664/@SubViewportContainer@693/@SubViewport@694/@Node3D@695/@DirectionalLight3D@697",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/cross_lap/@VBoxContainer@751/OriginalModelPreview/@SubViewport@753/@Node3D@754/@WorldEnvironment@755",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/cross_lap/@VBoxContainer@751/OriginalModelPreview/@SubViewport@753/@Node3D@754/@DirectionalLight3D@756",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/cross_lap/@VBoxContainer@751/OriginalModelPreview/@SubViewport@753/@Node3D@754/@DirectionalLight3D@757",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/tongue_groove/@VBoxContainer@761/OriginalModelPreview/@SubViewport@763/@Node3D@764/@WorldEnvironment@765",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/tongue_groove/@VBoxContainer@761/OriginalModelPreview/@SubViewport@763/@Node3D@764/@DirectionalLight3D@766",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/tongue_groove/@VBoxContainer@761/OriginalModelPreview/@SubViewport@763/@Node3D@764/@DirectionalLight3D@767",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/three_way_lap/@VBoxContainer@771/OriginalModelPreview/@SubViewport@773/@Node3D@774/@WorldEnvironment@775",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/three_way_lap/@VBoxContainer@771/OriginalModelPreview/@SubViewport@773/@Node3D@774/@DirectionalLight3D@776",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterIntroduction/@MarginContainer@740/@VBoxContainer@741/LessonScroll/@GridContainer@748/three_way_lap/@VBoxContainer@771/OriginalModelPreview/@SubViewport@773/@Node3D@774/@DirectionalLight3D@777",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterWorkshop/@WorldEnvironment@907",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterWorkshop/@DirectionalLight3D@908",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/HullPlanking/@CanvasLayer@738/ChapterWorkshop/@DirectionalLight3D@909",
+          "type": "light",
+          "visible": true
+        }
+      ],
+      "world_environment_background": "(0.9333, 0.9059, 0.851, 1.0)"
+    },
+    {
+      "camera_environment": false,
+      "joint": "zong_corner",
+      "nodes": [
+        {
+          "background": "(0.9333, 0.9059, 0.851, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@SubViewportContainer@987/@SubViewport@988/@Node3D@1004/@WorldEnvironment@1005",
+          "type": "environment"
+        },
+        {
+          "energy": 0.699999988079071,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@SubViewportContainer@987/@SubViewport@988/@Node3D@1004/@DirectionalLight3D@1006",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "energy": 0.25,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@SubViewportContainer@987/@SubViewport@988/@Node3D@1004/@DirectionalLight3D@1007",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "background": "(0.9098, 0.8784, 0.8078, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1023/@SubViewportContainer@1024/@SubViewport@1025/@WorldEnvironment@1026",
+          "type": "environment"
+        },
+        {
+          "energy": 1.0,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1023/@SubViewportContainer@1024/@SubViewport@1025/@DirectionalLight3D@1027",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1023/@SubViewportContainer@1024/@SubViewport@1025/@DirectionalLight3D@1028",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9098, 0.8784, 0.8078, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1031/@SubViewportContainer@1032/@SubViewport@1033/@WorldEnvironment@1034",
+          "type": "environment"
+        },
+        {
+          "energy": 1.0,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1031/@SubViewportContainer@1032/@SubViewport@1033/@DirectionalLight3D@1035",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1031/@SubViewportContainer@1032/@SubViewport@1033/@DirectionalLight3D@1036",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9098, 0.8784, 0.8078, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1039/@SubViewportContainer@1040/@SubViewport@1041/@WorldEnvironment@1042",
+          "type": "environment"
+        },
+        {
+          "energy": 1.0,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1039/@SubViewportContainer@1040/@SubViewport@1041/@DirectionalLight3D@1043",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1039/@SubViewportContainer@1040/@SubViewport@1041/@DirectionalLight3D@1044",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/zong_corner/@VBoxContainer@1060/OriginalModelPreview/@SubViewport@1062/@Node3D@1063/@WorldEnvironment@1064",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/zong_corner/@VBoxContainer@1060/OriginalModelPreview/@SubViewport@1062/@Node3D@1063/@DirectionalLight3D@1065",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/zong_corner/@VBoxContainer@1060/OriginalModelPreview/@SubViewport@1062/@Node3D@1063/@DirectionalLight3D@1066",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/clamp_head/@VBoxContainer@1070/OriginalModelPreview/@SubViewport@1072/@Node3D@1073/@WorldEnvironment@1074",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/clamp_head/@VBoxContainer@1070/OriginalModelPreview/@SubViewport@1072/@Node3D@1073/@DirectionalLight3D@1075",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/clamp_head/@VBoxContainer@1070/OriginalModelPreview/@SubViewport@1072/@Node3D@1073/@DirectionalLight3D@1076",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/l_through/@VBoxContainer@1080/OriginalModelPreview/@SubViewport@1082/@Node3D@1083/@WorldEnvironment@1084",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/l_through/@VBoxContainer@1080/OriginalModelPreview/@SubViewport@1082/@Node3D@1083/@DirectionalLight3D@1085",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/l_through/@VBoxContainer@1080/OriginalModelPreview/@SubViewport@1082/@Node3D@1083/@DirectionalLight3D@1086",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterWorkshop/@WorldEnvironment@1094",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterWorkshop/@DirectionalLight3D@1095",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterWorkshop/@DirectionalLight3D@1096",
+          "type": "light",
+          "visible": true
+        }
+      ],
+      "world_environment_background": "(0.9529, 0.9176, 0.8431, 1.0)"
+    },
+    {
+      "camera_environment": false,
+      "joint": "clamp_head",
+      "nodes": [
+        {
+          "background": "(0.9333, 0.9059, 0.851, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@SubViewportContainer@987/@SubViewport@988/@Node3D@1004/@WorldEnvironment@1005",
+          "type": "environment"
+        },
+        {
+          "energy": 0.699999988079071,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@SubViewportContainer@987/@SubViewport@988/@Node3D@1004/@DirectionalLight3D@1006",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "energy": 0.25,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@SubViewportContainer@987/@SubViewport@988/@Node3D@1004/@DirectionalLight3D@1007",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "background": "(0.9098, 0.8784, 0.8078, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1023/@SubViewportContainer@1024/@SubViewport@1025/@WorldEnvironment@1026",
+          "type": "environment"
+        },
+        {
+          "energy": 1.0,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1023/@SubViewportContainer@1024/@SubViewport@1025/@DirectionalLight3D@1027",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1023/@SubViewportContainer@1024/@SubViewport@1025/@DirectionalLight3D@1028",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9098, 0.8784, 0.8078, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1031/@SubViewportContainer@1032/@SubViewport@1033/@WorldEnvironment@1034",
+          "type": "environment"
+        },
+        {
+          "energy": 1.0,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1031/@SubViewportContainer@1032/@SubViewport@1033/@DirectionalLight3D@1035",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1031/@SubViewportContainer@1032/@SubViewport@1033/@DirectionalLight3D@1036",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9098, 0.8784, 0.8078, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1039/@SubViewportContainer@1040/@SubViewport@1041/@WorldEnvironment@1042",
+          "type": "environment"
+        },
+        {
+          "energy": 1.0,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1039/@SubViewportContainer@1040/@SubViewport@1041/@DirectionalLight3D@1043",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1039/@SubViewportContainer@1040/@SubViewport@1041/@DirectionalLight3D@1044",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/zong_corner/@VBoxContainer@1060/OriginalModelPreview/@SubViewport@1062/@Node3D@1063/@WorldEnvironment@1064",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/zong_corner/@VBoxContainer@1060/OriginalModelPreview/@SubViewport@1062/@Node3D@1063/@DirectionalLight3D@1065",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/zong_corner/@VBoxContainer@1060/OriginalModelPreview/@SubViewport@1062/@Node3D@1063/@DirectionalLight3D@1066",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/clamp_head/@VBoxContainer@1070/OriginalModelPreview/@SubViewport@1072/@Node3D@1073/@WorldEnvironment@1074",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/clamp_head/@VBoxContainer@1070/OriginalModelPreview/@SubViewport@1072/@Node3D@1073/@DirectionalLight3D@1075",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/clamp_head/@VBoxContainer@1070/OriginalModelPreview/@SubViewport@1072/@Node3D@1073/@DirectionalLight3D@1076",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/l_through/@VBoxContainer@1080/OriginalModelPreview/@SubViewport@1082/@Node3D@1083/@WorldEnvironment@1084",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/l_through/@VBoxContainer@1080/OriginalModelPreview/@SubViewport@1082/@Node3D@1083/@DirectionalLight3D@1085",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/l_through/@VBoxContainer@1080/OriginalModelPreview/@SubViewport@1082/@Node3D@1083/@DirectionalLight3D@1086",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterWorkshop/@WorldEnvironment@1157",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterWorkshop/@DirectionalLight3D@1158",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterWorkshop/@DirectionalLight3D@1159",
+          "type": "light",
+          "visible": true
+        }
+      ],
+      "world_environment_background": "(0.9529, 0.9176, 0.8431, 1.0)"
+    },
+    {
+      "camera_environment": false,
+      "joint": "l_through",
+      "nodes": [
+        {
+          "background": "(0.9333, 0.9059, 0.851, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@SubViewportContainer@987/@SubViewport@988/@Node3D@1004/@WorldEnvironment@1005",
+          "type": "environment"
+        },
+        {
+          "energy": 0.699999988079071,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@SubViewportContainer@987/@SubViewport@988/@Node3D@1004/@DirectionalLight3D@1006",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "energy": 0.25,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@SubViewportContainer@987/@SubViewport@988/@Node3D@1004/@DirectionalLight3D@1007",
+          "type": "light",
+          "visible": false
+        },
+        {
+          "background": "(0.9098, 0.8784, 0.8078, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1023/@SubViewportContainer@1024/@SubViewport@1025/@WorldEnvironment@1026",
+          "type": "environment"
+        },
+        {
+          "energy": 1.0,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1023/@SubViewportContainer@1024/@SubViewport@1025/@DirectionalLight3D@1027",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1023/@SubViewportContainer@1024/@SubViewport@1025/@DirectionalLight3D@1028",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9098, 0.8784, 0.8078, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1031/@SubViewportContainer@1032/@SubViewport@1033/@WorldEnvironment@1034",
+          "type": "environment"
+        },
+        {
+          "energy": 1.0,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1031/@SubViewportContainer@1032/@SubViewport@1033/@DirectionalLight3D@1035",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1031/@SubViewportContainer@1032/@SubViewport@1033/@DirectionalLight3D@1036",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9098, 0.8784, 0.8078, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1039/@SubViewportContainer@1040/@SubViewport@1041/@WorldEnvironment@1042",
+          "type": "environment"
+        },
+        {
+          "energy": 1.0,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1039/@SubViewportContainer@1040/@SubViewport@1041/@DirectionalLight3D@1043",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@965/@Control@966/@PanelContainer@990/@HBoxContainer@991/@VBoxContainer@1039/@SubViewportContainer@1040/@SubViewport@1041/@DirectionalLight3D@1044",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/zong_corner/@VBoxContainer@1060/OriginalModelPreview/@SubViewport@1062/@Node3D@1063/@WorldEnvironment@1064",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/zong_corner/@VBoxContainer@1060/OriginalModelPreview/@SubViewport@1062/@Node3D@1063/@DirectionalLight3D@1065",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/zong_corner/@VBoxContainer@1060/OriginalModelPreview/@SubViewport@1062/@Node3D@1063/@DirectionalLight3D@1066",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/clamp_head/@VBoxContainer@1070/OriginalModelPreview/@SubViewport@1072/@Node3D@1073/@WorldEnvironment@1074",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/clamp_head/@VBoxContainer@1070/OriginalModelPreview/@SubViewport@1072/@Node3D@1073/@DirectionalLight3D@1075",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/clamp_head/@VBoxContainer@1070/OriginalModelPreview/@SubViewport@1072/@Node3D@1073/@DirectionalLight3D@1076",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.0, 0.0, 0.0, 0.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/l_through/@VBoxContainer@1080/OriginalModelPreview/@SubViewport@1082/@Node3D@1083/@WorldEnvironment@1084",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/l_through/@VBoxContainer@1080/OriginalModelPreview/@SubViewport@1082/@Node3D@1083/@DirectionalLight3D@1085",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterIntroduction/@MarginContainer@1049/@VBoxContainer@1050/LessonScroll/@GridContainer@1057/l_through/@VBoxContainer@1080/OriginalModelPreview/@SubViewport@1082/@Node3D@1083/@DirectionalLight3D@1086",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "background": "(0.9529, 0.9176, 0.8431, 1.0)",
+          "mode": 1,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterWorkshop/@WorldEnvironment@1220",
+          "type": "environment"
+        },
+        {
+          "energy": 0.649999976158142,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterWorkshop/@DirectionalLight3D@1221",
+          "type": "light",
+          "visible": true
+        },
+        {
+          "energy": 0.200000002980232,
+          "path": "/root/@SubViewport@2/ShipwrightCampaign/Level03/@CanvasLayer@1047/ChapterWorkshop/@DirectionalLight3D@1222",
+          "type": "light",
+          "visible": true
+        }
+      ],
+      "world_environment_background": "(0.9529, 0.9176, 0.8431, 1.0)"
+    }
+  ],
+  "renderer": "macOS"
+}

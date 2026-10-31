@@ -9,7 +9,7 @@ signal inspect_requested
 signal turn_requested(degrees: float)
 signal return_requested
 const Controls = preload("res://levels/shared/chapter_ui.gd")
-const Friendly = preload("res://demo/friendly_theme.gd")
+const Friendly = preload("res://shared/ui/friendly_theme.gd")
 const Rules = preload("res://levels/level03/connection_rules.gd")
 const Gallery = preload("res://levels/level03/candidate_gallery.gd")
 var root: Control

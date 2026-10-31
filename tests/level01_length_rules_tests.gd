@@ -50,7 +50,7 @@ func _test_all_length_combinations() -> void:
 					check(not outcome.ok and outcome.code == "unstable_length" and not state.completed and not state.is_stable(), context + " attached wrong lengths fail final inspection")
 					check(outcome.get("unstable_groups", []) == unstable_groups, context + " exact affected representative groups")
 					check(outcome.get("unstable_pieces", []) == unstable_pieces, context + " exact affected manual and auto members")
-					check(state.stage() == "braces" and state.validate_structure() == outcome, context + " failed inspection is repeatable and keeps play active")
+					check(state.stage() == "failed" and state.failed and state.validate_structure() == outcome, context + " failed inspection ends the run until restart")
 
 func _test_withdraw_and_correct_each_group() -> void:
 	for wrong_group in Rules.REPRESENTATIVE_IDS:
@@ -60,6 +60,12 @@ func _test_withdraw_and_correct_each_group() -> void:
 				_assemble(state, representative, length if representative == wrong_group else "correct", "correction")
 			var outcome: Dictionary = state.validate_structure()
 			check(outcome.code == "unstable_length" and outcome.unstable_groups == [wrong_group], wrong_group + "/" + length + " isolated wrong group diagnosed")
+			check(state.failed and state.undo().code == "failed" and state.remove_piece(wrong_group).code == "failed", "wrong length cannot be corrected within a failed run")
+			state.reset()
+			for representative in Rules.REPRESENTATIVE_IDS:
+				_assemble(state, representative, "correct", "restart")
+			check(state.validate_structure().ok and state.completed and not state.failed, "restart after wrong length can complete")
+			# Successful runs still support taking a group back for practice.
 			if wrong_group == "rib_l1":
 				var before: Dictionary = state.placed.duplicate(true)
 				check(state.remove_piece(wrong_group).code == "dependents" and state.placed == before, "wrong ribs cannot bypass installed brace dependencies")
@@ -118,7 +124,10 @@ func _test_pending_order_and_interruption() -> void:
 		check(removed.removed_ids == ["rib_l1", "rib_r1"] and state.placed == Rules.initial_connections(), "partial wrong group undo removes both members")
 		check(state.place_automatic("rib_l2").code == "no_pending_group", "stale auto callback cannot reinstall withdrawn wrong group")
 		_assemble(state, "rib_l1", length, "replay")
-		check(state.validate_structure().code == "unstable_length", "wrong length diagnosis precedes missing braces")
+		check(state.validate_structure().code == "incomplete" and not state.failed, "wrong length waits for the remaining braces")
+		check(state.undo().ok, "unfinished wrong-length assembly can still be withdrawn")
+		state.reset()
+		_assemble(state, "rib_l1", length, "dependency setup before verdict")
 		_assemble(state, "bow", "long", "dependency")
 		check(state.attempt_place("beam1", "beam1", "through_tenon", "short").ok, "begin third wrong group")
 		check(state.remove_piece("bow").code == "assembling", "older withdrawal cannot strand pending third group")

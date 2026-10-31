@@ -1,0 +1,25 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/level02-rework/01-observe-and-choose.png",
+    "res://tests/evidence/level02-rework/02-shallow-push.png",
+    "res://tests/evidence/level02-rework/wave-approaching.png",
+    "res://tests/evidence/level02-rework/wave-impact-dry.png",
+    "res://tests/evidence/level02-rework/03-successful-sea-trial.png",
+    "res://tests/evidence/level02-rework/04-live-staggered-map.png",
+    "res://tests/evidence/level02-rework/05-waterproof-compartments.png",
+    "res://tests/evidence/level02-rework/wave-impact-leaking.png",
+    "res://tests/evidence/level02-rework/06-leaking-hull-failure.png",
+    "res://tests/evidence/level02-rework/07-map-1100.png",
+    "res://tests/evidence/level02-rework/08-lesson-1100.png",
+    "res://tests/evidence/level02-rework/09-drag-1100.png",
+    "res://tests/evidence/level02-rework/07-map-960.png",
+    "res://tests/evidence/level02-rework/08-lesson-960.png",
+    "res://tests/evidence/level02-rework/09-drag-960.png"
+  ],
+  "method": "actual Viewport mouse and simulated touch; no gameplay state mutation; not human hardware validation",
+  "passed": 466,
+  "renderer": "macOS"
+}

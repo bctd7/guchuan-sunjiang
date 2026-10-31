@@ -1,8 +1,13 @@
 extends Node3D
-const G=preload("res://levels/level02/ship_geometry.gd")
+const G=preload("res://models/ship/hull/ship_geometry.gd")
+const SeaTrial=preload("res://levels/level02/sea_trial.gd")
+const Backdrop=preload("res://levels/level02/hull_backdrop.gd")
 const Rules=preload("res://levels/level02/connection_rules.gd")
 const PANEL_POS=Vector3(0,.26,.45)
 const PANEL_ANGLE=-.95
+var trial: Node3D
+var backdrop: CanvasLayer
+var _camera_size := 11.5
 var camera: Camera3D
 var pieces: Dictionary={}
 var markers: Dictionary={}
@@ -21,12 +26,16 @@ var lightwood=G.material(Color("dcc29b"))
 var darkwood=G.material(Color("9e805d"))
 var teal=G.material(Color("2d8086"))
 var red=G.material(Color("bc4d36"))
+var preview_id := ""
+var preview_progress := 0.0
+var _preview_key := ""
 var _built_layouts: Dictionary={}
 func _ready() -> void:
 	for m in [wood,lightwood,darkwood]: G.grain(m)
 	var world=WorldEnvironment.new()
 	var env=Environment.new()
-	env.background_mode=Environment.BG_COLOR
+	env.background_mode=Environment.BG_CANVAS
+	env.background_canvas_max_layer=-10
 	env.background_color=Color("eee7d9")
 	env.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR
 	env.ambient_light_color=Color("fffaf0")
@@ -43,7 +52,14 @@ func _ready() -> void:
 	camera.current=true
 	camera.near=.05
 	add_child(camera)
-	G.box(self,Vector3(200,.1,200),Vector3(0,-.3,0),G.material(Color("aaa99b")))
+	get_viewport().size_changed.connect(_fit_camera)
+	backdrop=Backdrop.new()
+	add_child(backdrop)
+	visibility_changed.connect(func(): backdrop.visible=is_visible_in_tree())
+	var shadow=G.material(Color(0,0,0,0))
+	shadow.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
+	shadow.shadow_to_opacity=true
+	G.box(self,Vector3(200,.1,200),Vector3(0,-.3,0),shadow)
 	_build_fixed()
 	for id in Rules.IDS:
 		var node=Node3D.new()
@@ -71,6 +87,9 @@ func _ready() -> void:
 	add_child(water)
 	caulk=Node3D.new()
 	add_child(caulk)
+	trial=SeaTrial.new()
+	add_child(trial)
+	trial.setup(self)
 	show_overview()
 func panel_transform() -> Transform3D:
 	return Transform3D(Basis(Vector3.RIGHT,PANEL_ANGLE),PANEL_POS)
@@ -159,10 +178,11 @@ func sync_state(s) -> void:
 		if not animations.has(id): pieces[id].transform=poses[id]
 		pieces[id].visible=s.placed.has(id)
 		slots[id].position=socket_position(id,layout)
-		markers[id].visible=not inspected and (not s.placed.has(id))
+		markers[id].visible=false # wood itself is the interaction target
 		markers[id].modulate=Color("df9f3f") if id==s.selected else Color("619297")
 	for n in fixed.values(): n.visible=true
 	if inspected: _inspect_visibility()
+	_sync_preview(s)
 	_update_seams(s)
 	_set_shell_transparency()
 func _set_shell_transparency() -> void:
@@ -212,18 +232,22 @@ func _update_seams(s) -> void:
 		m.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
 		G.box(water,Vector3(3.6,.03,.73),Vector3(-1.9,.34,0),m)
 func animate_place(id: String) -> void:
+	var n: Node3D=pieces[id]
+	var released: Transform3D=n.transform
+	var remaining:=maxf(.12,.65*(1.0-preview_progress))
+	preview_id=""
+	preview_progress=0.0
+	_preview_key=""
 	inspected=false
 	show_overview()
-	var n: Node3D=pieces[id]
 	n.visible=true
-	var offset=Vector3(0,1.2,0)
-	if Rules.row_for(id)>=0: offset=poses[id].basis*Vector3(0,0,.65)
-	n.position=poses[id].origin+offset
+	n.transform=released
 	var tween=create_tween()
 	animations[id]=tween
-	tween.tween_property(n,"position",poses[id].origin,.65)
+	tween.tween_property(n,"transform",poses[id],remaining).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.finished.connect(func(): animations.erase(id))
 func cancel_animations() -> void:
+	if is_instance_valid(trial): trial.cancel()
 	for tween in animations.values(): tween.kill()
 	animations.clear()
 func inspect_selected() -> void:
@@ -240,7 +264,9 @@ func inspect_selected() -> void:
 	else:
 		_camera(target+(Vector3(0,6,3.5) if id.begins_with("three") else Vector3(2.4,2.7,3.5)),target,6.0)
 		camera.v_offset=1.33 if id.begins_with("three") else 1.2
-		if id.begins_with("three"): camera.size=8.0
+		if id.begins_with("three"):
+			_camera_size=8.0
+			_fit_camera()
 func _inspect_visibility() -> void:
 	if current==null: return
 	var id: String=current.selected
@@ -250,7 +276,7 @@ func _inspect_visibility() -> void:
 		markers[other].visible=false
 	for key in fixed:
 		fixed[key].visible=(row==0 and key=="starter") or (id=="cross_upper" and key=="cross_lower") or (id.begins_with("three") and key=="three_lower") or (id=="bulkhead" and key=="bulk_base")
-	pieces[id].position=poses[id].origin+(poses[id].basis*Vector3(0,0,.42) if row>=0 else Vector3(0,.75,0))
+	_apply_preview()
 func show_overview() -> void:
 	inspected=false
 	_camera(Vector3(8,9,12),Vector3(0,.85,.1),11.5)
@@ -263,7 +289,8 @@ func show_plan() -> void:
 func _camera(from: Vector3,target: Vector3,size_value: float) -> void:
 	camera.position=from
 	camera.look_at(target)
-	camera.size=size_value
+	_camera_size=size_value
+	_fit_camera()
 	camera.h_offset=-1.35
 	camera.v_offset=.08
 func socket_screen_position(id: String) -> Vector2:
@@ -285,3 +312,79 @@ func _beam(host: Node3D,a: Vector3,b: Vector3,width: float,mat: Material) -> Mes
 	var n=G.box(host,Vector3(width,width,a.distance_to(b)),(a+b)/2,mat)
 	n.look_at_from_position((a+b)/2,b,Vector3.UP)
 	return n
+
+# Preview travel is visual only; State receives a placement after an accepted release.
+func _sync_preview(s) -> void:
+	var eligible: bool=not s.failed and not s.completed and not s.placed.has(s.selected) and s.selected==s.next_id()
+	if not eligible:
+		preview_id=""
+		preview_progress=0.0
+		_preview_key=""
+		return
+	var key: String=s.selected+":"+str(_built_layouts[s.selected])
+	if key!=_preview_key:
+		preview_progress=0.0
+		_preview_key=key
+	preview_id=s.selected
+	_apply_preview()
+
+func preview_offset(id: String) -> Vector3:
+	return poses[id].basis*Vector3(0,0,.75) if Rules.row_for(id)>=0 else Vector3(0,1.2,0)
+
+func _apply_preview() -> void:
+	if preview_id.is_empty() or animations.has(preview_id): return
+	pieces[preview_id].visible=true
+	pieces[preview_id].transform=poses[preview_id]
+	pieces[preview_id].position+=preview_offset(preview_id)*(1.0-preview_progress)
+
+func set_preview_progress(value: float) -> void:
+	preview_progress=clampf(value,0.0,1.0)
+	_apply_preview()
+
+func reset_preview() -> void:
+	preview_progress=0.0
+	_apply_preview()
+
+func drag_path_screen() -> Vector2:
+	if preview_id.is_empty(): return Vector2.ZERO
+	var center: Vector3=socket_position(preview_id,str(_built_layouts[preview_id]))
+	return camera.unproject_position(center)-camera.unproject_position(center+preview_offset(preview_id))
+
+func drag_grab_screen() -> Vector2:
+	# A point on the center of actual exposed timber, useful for guide rendering.
+	if preview_id.is_empty(): return Vector2.ZERO
+	var n: Node3D=pieces[preview_id]
+	var row: int=Rules.row_for(preview_id)
+	var local:=Vector3.ZERO
+	if row>=0:
+		var seam: float=Rules.seam(str(_built_layouts[preview_id]))
+		local=Vector3((-4.0+seam)*.5 if preview_id.ends_with("a") else (seam+4.0)*.5,0,row*.78+.32)
+	elif preview_id.begins_with("three"):
+		var angle: float=PI/3.0 if preview_id=="three_middle" else -PI/3.0
+		local=Vector3(cos(angle)*.65,.02,sin(angle)*.65)
+	elif preview_id=="bulkhead": local=Vector3(0,1.0,0)
+	else: local=Vector3(0,.06,.55)
+	return camera.unproject_position(n.global_transform*local)
+
+func pick_drag_piece(point: Vector2) -> String:
+	if preview_id.is_empty() or not pieces[preview_id].is_visible_in_tree(): return ""
+	var origin: Vector3=camera.project_ray_origin(point)
+	var direction: Vector3=camera.project_ray_normal(point)
+	return preview_id if _hit_mesh(pieces[preview_id],origin,direction) else ""
+
+func _hit_mesh(node: Node3D,origin: Vector3,direction: Vector3) -> bool:
+	if node is MeshInstance3D and node.mesh!=null:
+		var inverse: Transform3D=node.global_transform.affine_inverse()
+		var local_origin:=inverse*origin
+		var local_direction:=inverse.basis*direction
+		if node.get_aabb().intersects_ray(local_origin,local_direction)!=null:
+			var faces: PackedVector3Array=node.mesh.get_faces()
+			for i in range(0,faces.size(),3):
+				if Geometry3D.ray_intersects_triangle(local_origin,local_direction,faces[i],faces[i+1],faces[i+2])!=null: return true
+	for child in node.get_children():
+		if child is Node3D and child.visible and _hit_mesh(child,origin,direction): return true
+	return false
+
+func _fit_camera() -> void:
+	var viewport_size:=get_viewport().get_visible_rect().size
+	camera.size=_camera_size*maxf(1.0,(1440.0/900.0)/(viewport_size.x/viewport_size.y))

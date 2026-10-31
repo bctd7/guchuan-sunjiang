@@ -2,8 +2,8 @@
 	"failed": 0,
 	"failures": [],
 	"method": "Actual Godot Viewport mouse events injected by automation; no direct business state mutation; not human hardware input",
-	"passed": 52,
-	"phase": "smoke",
+	"passed": 426,
+	"phase": "full",
 	"renderer": "headless",
 	"screenshots": []
 }

@@ -1,4 +1,5 @@
 extends Node3D
+signal progress_changed
 ## Workbench flow only; state validates, view animates, UI emits player intent.
 signal level_completed
 signal return_requested
@@ -6,7 +7,7 @@ const State = preload("res://levels/level03/level_state.gd")
 const View = preload("res://levels/level03/rigging_view.gd")
 const LevelPanel = preload("res://levels/level03/level_ui.gd")
 const Touch = preload("res://levels/shared/socket_interaction.gd")
-const Learning = preload("res://shared/chapter_learning.gd")
+const Learning = preload("res://levels/shared/teaching_portal.gd")
 var learning: CanvasLayer
 var state = State.new()
 var view: Node3D
@@ -33,6 +34,7 @@ func _ready() -> void:
 	panel.lesson_requested.connect(func():
 		if not busy: learning.show_intro())
 	state.changed.connect(_refresh)
+	state.changed.connect(func(): progress_changed.emit())
 	_refresh()
 	learning = Learning.new()
 	add_child(learning)
@@ -87,3 +89,16 @@ func _turn(degrees: float) -> void:
 		_completion_emitted = true
 		panel.success_panel.show()
 		level_completed.emit()
+
+# Campaign contract. Reentry keeps this instance and its gameplay state.
+func enter() -> void:
+	learning.show_intro()
+
+func leave() -> void:
+	interaction.cancel()
+
+func is_completed() -> bool:
+	return state.completed
+
+func navigation_status() -> Dictionary:
+	return {"modal_open": learning.modal_open(), "can_leave": not busy}

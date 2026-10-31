@@ -88,7 +88,7 @@ func run() -> void:
 	input.configure(assembly, camera)
 	input.orbit.screen_center_x = 0.63
 	check(input.orbit.get_parent() == input, "interaction owns orbit node lifecycle")
-	var catalog: Array = JSON.parse_string(FileAccess.get_file_as_string("res://models/catalog.json"))
+	var catalog: Array = JSON.parse_string(FileAccess.get_file_as_string("res://models/joinery/catalog.json"))
 	check(catalog.size() == 9, "test every catalog model")
 	await process_frame
 	for cycle in range(3):

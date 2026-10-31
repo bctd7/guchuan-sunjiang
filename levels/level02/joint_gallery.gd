@@ -1,6 +1,6 @@
 extends Control
 ## Three real ship-material candidate previews; assembled from current G solids.
-const G=preload("res://levels/level02/ship_geometry.gd")
+const G=preload("res://models/ship/hull/ship_geometry.gd")
 const TYPES=["tongue_groove","cross_lap","three_way_lap"]
 var movers: Dictionary={}
 var offsets: Dictionary={}

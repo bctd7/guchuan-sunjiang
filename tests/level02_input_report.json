@@ -2,6 +2,6 @@
 	"failed": 0,
 	"failures": [],
 	"method": "Godot Viewport real mouse/touch events; no state mutation",
-	"passed": 225,
-	"renderer": "Windows"
+	"passed": 370,
+	"renderer": "headless"
 }

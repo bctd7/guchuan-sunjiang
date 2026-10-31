@@ -73,7 +73,7 @@ func intersection_volume(a: String, ap: Transform3D, b: String, bp: Transform3D)
 func run() -> void:
 	var guard = Guard.new()
 	for id in ["xrail","zrail","leg"]:
-		meshes[id] = load("res://models/assets/zong_corner_" + id + ".obj")
+		meshes[id] = load("res://models/joinery/assets/zong_corner_" + id + ".obj")
 		guard.register_mesh(id,meshes[id])
 		check_topology(id)
 	check(contains_point("leg",Vector3(.6,.8,.2)),"long tenon reaches upper deep socket")

@@ -1,0 +1,32 @@
+{
+  "failed": 0,
+  "failures": [],
+  "images": [],
+  "method": "Actual campaign/lesson UI resources and primary glyph coverage; minimized GPU SubViewport when available. Popup calls only exercise UI display, not gameplay validation.",
+  "passed": 3177,
+  "screens": [
+    "01-main-menu",
+    "chapter-1-introduction",
+    "lesson-dovetail",
+    "popup-dovetail-force",
+    "lesson-blind_tenon",
+    "lesson-through_tenon",
+    "chapter-1-assembly",
+    "popup-joint-inspector",
+    "popup-story",
+    "popup-level01-failure",
+    "chapter-2-introduction",
+    "lesson-cross_lap",
+    "lesson-tongue_groove",
+    "lesson-three_way_lap",
+    "chapter-2-assembly",
+    "popup-level02-failure",
+    "chapter-3-introduction",
+    "lesson-zong_corner",
+    "popup-zong-force",
+    "lesson-clamp_head",
+    "lesson-l_through",
+    "chapter-3-assembly"
+  ],
+  "unique_project_chinese_glyphs": 671
+}

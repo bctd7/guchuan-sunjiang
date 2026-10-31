@@ -1,4 +1,5 @@
 extends SceneTree
+const HullPointer=preload("res://tests/hull_pointer.gd")
 ## Independent campaign acceptance. All actions use Viewport pointer events.
 ## State properties are read only. This is automated injection, not human hardware.
 var campaign: Node
@@ -164,10 +165,14 @@ func place_l2(id: String) -> void:
 	if row>0 and id.ends_with("a"):
 		await button(level.panel.layout_buttons["B" if row==1 else "A"])
 	await button(level.panel.overview_button)
-	var target: Vector2=level.view.socket_screen_position(id)
-	check(level.view.pick_socket(target)==id,"chapter two visible world hit target: "+id)
-	await click(target)
-	await settle(0.75)
+	var target: Vector2=level.view.drag_grab_screen()
+	check(level.view.pick_drag_piece(target)==id,"chapter two actual timber is pickable: "+id)
+	await settle(.5)
+	await HullPointer.drag(root,level.view,1.0)
+	var deadline:=Time.get_ticks_msec()+5000
+	while level.busy and Time.get_ticks_msec()<deadline: await process_frame
+	await settle(.06) # allow campaign navigation to reflect the finished tween
+	check(not level.busy and not campaign.back_button.disabled,"chapter two finished motion restores navigation")
 	check(level.state.placed.has(id),"chapter two pointer places "+id)
 
 func chapter_two() -> void:

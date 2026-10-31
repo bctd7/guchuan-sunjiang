@@ -1,7 +1,7 @@
 extends SceneTree
 ## Render-only fixture: own SubViewport, NO_FOCUS host, offscreen launch required.
 const OUTPUT := "res://tests/evidence/latest-level01/"
-const OLD_GEOMETRY := "C:/Users/27902/Documents/Codex/2026-10-27/task/evidence/before-fixed-keel/levels/level01/ship_geometry.gd"
+const OLD_GEOMETRY := "C:/Users/27902/Documents/Codex/2026-10-27/task/evidence/before-fixed-keel/models/ship/keel/ship_geometry.gd"
 var level: Node3D
 var surface: SubViewport
 var passed := 0

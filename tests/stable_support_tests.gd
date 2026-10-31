@@ -8,7 +8,7 @@ func snapshot(label: String) -> void:
 func run() -> void:
 	root.content_scale_size = Vector2i.ZERO
 	root.size = Vector2i(1440,900)
-	demo = load("res://demo/workshop.tscn").instantiate()
+	demo = load("res://classroom/classroom.tscn").instantiate()
 	root.add_child(demo)
 	await process_frame
 	var metadata := {}

@@ -2,7 +2,7 @@ extends VBoxContainer
 ## Whole-row buttons with actual connected timber previews; no default choice.
 signal chosen(id: String)
 const Preview = preload("res://levels/level01/candidate_preview.gd")
-const Lengths = preload("res://levels/level01/length_geometry.gd")
+const Lengths = preload("res://models/ship/keel/length_geometry.gd")
 const ORDER := ["long","short","correct"]
 var buttons: Dictionary = {}
 var viewports: Dictionary = {}

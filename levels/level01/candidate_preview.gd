@@ -1,7 +1,7 @@
 extends SubViewportContainer
 ## Real part clone, framed at its joint. Grain, tenon and shoulder stay together.
 const Candidate = preload("res://levels/level01/candidate_geometry.gd")
-const Lengths = preload("res://levels/level01/length_geometry.gd")
+const Lengths = preload("res://models/ship/keel/length_geometry.gd")
 var viewport: SubViewport
 var specimen: Node3D
 var camera: Camera3D

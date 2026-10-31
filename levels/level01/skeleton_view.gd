@@ -6,10 +6,10 @@ const IDS := ["keel", "rib_l1", "rib_r1", "rib_l2", "rib_r2", "rib_l3", "rib_r3"
 const LABELS := {"keel":"龙骨基座", "rib_l1":"左肋 1", "rib_r1":"右肋 1", "rib_l2":"左肋 2", "rib_r2":"右肋 2", "rib_l3":"左肋 3", "rib_r3":"右肋 3", "bow":"前段燕尾", "stern":"后段燕尾", "beam1":"前横撑", "beam3":"后横撑"}
 const Backdrop = preload("res://levels/level01/workshop_backdrop.gd")
 var backdrop: CanvasLayer
-const Lengths=preload("res://levels/level01/length_geometry.gd")
+const Lengths=preload("res://models/ship/keel/length_geometry.gd")
 const Candidate = preload("res://levels/level01/candidate_geometry.gd")
-const TrialFit = preload("res://levels/level01/trial_fit.gd")
-const Geometry = preload("res://levels/level01/ship_geometry.gd")
+const TrialFit = preload("res://models/ship/keel/trial_fit.gd")
+const Geometry = preload("res://models/ship/keel/ship_geometry.gd")
 const Rules = preload("res://levels/level01/connection_rules.gd")
 const STATIONS = Geometry.STATIONS
 var camera: Camera3D
@@ -173,7 +173,7 @@ func sync_state(placed: Dictionary, stage: String, selected: String) -> void:
 		ghosts[id].visible = not placed.has(id) and (active or stage == "complete")
 		# The fixed foundation has no placement target, even if a stale caller selects it.
 		slots[id].visible = id in Rules.REPRESENTATIVE_IDS and id == selected and not placed.has(id)
-		if stage == "complete": slots[id].visible = false
+		if stage in ["complete", "failed"]: slots[id].visible = false
 		markers[id].modulate = Color("c29439") if placed.has(id) else (Color("29a79a") if id == selected else Color("507f88"))
 		labels[id].text = str(LABELS[id]) + (" ✓" if placed.has(id) else "")
 		if placed.has(id) and not TrialFit.is_stable(id,length,joint):

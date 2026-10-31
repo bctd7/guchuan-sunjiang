@@ -32,7 +32,15 @@ func _test_target_matrix_and_correction() -> void:
 				_check_inspection(state, choices, context)
 				var before: Dictionary = state.placed.duplicate(true)
 				var duplicate: Dictionary = state.attempt_place(target, target, joint, length)
-				check(duplicate.code == ("complete" if state.completed else "already_placed") and state.placed == before, context + " duplicate cannot overwrite trial choice")
+				check(duplicate.code == ("failed" if state.failed else "complete") and state.placed == before, context + " duplicate cannot overwrite verdict")
+				if state.failed:
+					check(state.undo().code == "failed" and state.remove_piece(target).code == "failed" and state.select_piece(target).code == "failed",context + " failure blocks withdrawal and selection")
+					check(state.place_automatic(Rules.AUTO_GROUPS[target][0]).code == "failed" and state.finish_automatic().code == "failed",context + " failure blocks stale automatic callbacks")
+					state.reset()
+					for representative in Rules.REPRESENTATIVE_IDS:
+						_assemble(state,representative,Rules.expected_joint(representative),"correct",context + " restarted")
+					check(state.validate_structure().ok and state.completed and not state.failed,context + " restart can pass")
+					continue
 				if target == "rib_l1":
 					check(state.remove_piece(target).code == "dependents" and state.placed == before, context + " ribs retain dependent protection")
 					check(state.undo().piece_id == "beam1" and state.undo().piece_id == "bow", context + " later groups undo in order")
@@ -100,8 +108,8 @@ func _check_inspection(state, choices: Array, context: String) -> void:
 		check(not outcome.ok and outcome.code == expected_code and not state.completed and not state.is_stable(), context + " wrong fit fails final stability")
 		check(outcome.get("unstable_groups", []) == unstable_groups and outcome.get("unstable_pieces", []) == unstable_pieces, context + " exact affected groups and members")
 		check(outcome.get("unstable_reasons", {}) == unstable_reasons and outcome.get("reasons", []) == reasons, context + " exact wrong type and length reasons")
-		check(state.validate_structure() == outcome and state.stage() == "braces", context + " failure remains repeatable and recoverable")
-		check("取回" in str(outcome.message) and "松动" in str(outcome.message), context + " feedback explains looseness and taking back")
+		check(state.validate_structure() == outcome and state.stage() == "failed" and state.failed, context + " failure is latched until restart")
+		check("重新开始" in str(outcome.message) and "松动" in str(outcome.message), context + " feedback explains looseness and restart")
 
 func _test_rejections_and_foundation() -> void:
 	for joint in ["base", "bogus", "BLIND_TENON", " blind_tenon "]:
@@ -139,7 +147,7 @@ func _test_partial_undo_and_reset() -> void:
 			check(state.undo().removed_ids == ["rib_l1", "rib_r1"] and state.placed == Rules.initial_connections(), "undo takes back partial trial group")
 			check(state.place_automatic("rib_l2").code == "no_pending_group", "stale callback after trial undo rejected")
 			_assemble(state, "rib_l1", joint, length, "reset full trial")
-			check(state.validate_structure().code == "unstable_fit", "wrong type diagnosed before missing braces")
+			check(state.validate_structure().code == "incomplete" and not state.failed, "wrong type waits for the rest of the level")
 			state.reset()
 			check(state.placed == Rules.initial_connections() and state.placement_order.is_empty() and state.pending_group.is_empty() and not state.completed, "reset clears trial metadata and history")
 			check(state.progress_count() == 0 and state.automatic_count() == 0 and state.installed_count() == 0, "reset clears trial counters")

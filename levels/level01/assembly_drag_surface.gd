@@ -89,9 +89,6 @@ func _draw() -> void:
 	draw_dashed_line(grip+direction*17,end,Color(ink,.8),2,6,true)
 	draw_line(end,end-direction.rotated(.55)*12,ink,2,true)
 	draw_line(end,end-direction.rotated(-.55)*12,ink,2,true)
-	var words: String="松手接好" if ready else "沿槽口推入"
-	var label_pos:=Vector2(clampf(grip.x-45,8,maxf(8,size.x-115)),clampf(grip.y-30,22,size.y-12))
-	draw_string(get_theme_default_font(),label_pos,words,HORIZONTAL_ALIGNMENT_LEFT,-1,18,ink)
 
 func _input(event: InputEvent) -> void:
 	if not active: return

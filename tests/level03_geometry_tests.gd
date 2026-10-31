@@ -1,5 +1,5 @@
 extends SceneTree
-const G = preload("res://levels/level03/ship_geometry.gd")
+const G = preload("res://models/ship/rigging/ship_geometry.gd")
 var level: Node3D
 var passed := 0
 var failures: Array[String] = []

@@ -1,3 +1,5 @@
+> 历史验证证据：保留执行当时的结果与原路径，不作为最新需求或本轮重跑结果。最新要求与差异见[文档入口](../docs/README.md)（2026-10-31 整理）。
+
 # 第二、第三关与局部旋转验收 · 2026-10-27
 
 默认 F5 进入三关目录。可直接选择第二、第三关，也可完成前一关后进入下一关。返回目录保留本次运行各关状态；重新启动游戏不恢复存档。
@@ -38,4 +40,4 @@ godot --path . --script tests/campaign_tests.gd -- --phase=full
 
 开工前 2D 结构依据位于 `docs/design/level02-structure.png`、`docs/design/level03_structure.png`。客户要求的榫型与任务保留，具体连接位置、尺寸、角度、密封方式及装配台设置属于教学设计，不作为古船历史复原。两个新关卡使用新的船体局部部件；既有资产只作为几何原理与视觉风格参考。
 
-原 `core/`、`demo/`、`education/`、`models/` 保持，新增关卡独立于旧教学场。原入口、README 与第一关局部观察脚本在本任务工作区 `evidence/before-levels23/` 备份。未推送 Git，未打包独立安装程序。
+原 `core/`、`demo/`、`classroom/science/`、`models/joinery/` 保持，新增关卡独立于旧教学场。原入口、README 与第一关局部观察脚本在本任务工作区 `evidence/before-levels23/` 备份。未推送 Git，未打包独立安装程序。

@@ -1,5 +1,5 @@
 extends Node3D
-const G = preload("res://levels/level03/ship_geometry.gd")
+const G = preload("res://models/ship/rigging/ship_geometry.gd")
 const Rules = preload("res://levels/level03/connection_rules.gd")
 const OFFSETS = {"zrail":Vector3(0,0,1.65),"leg":Vector3(0,-1.65,0),"mast":Vector3(0,1.6,0),"apron":Vector3(0,1.1,0),"top":Vector3(0,1.4,0),"lbrace":Vector3(1.65,0,0),"rudder":Vector3(0,2.6,0),"blade":Vector3(0,0,-1.5)}
 const CENTERS = {"zrail":Vector3(.5,.6,.5),"leg":Vector3(.5,.45,.5),"mast":Vector3(2.7,.8,2.5),"apron":Vector3(0,.20,0),"top":Vector3(0,.5,0),"lbrace":Vector3(0,-.10,0),"rudder":Vector3(2.3,.7,0),"blade":Vector3(2.3,-.75,0)}

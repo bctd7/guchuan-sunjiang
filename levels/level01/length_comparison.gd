@@ -1,4 +1,5 @@
 extends Control
+const Fonts = preload("res://shared/chinese_fonts.gd")
 ## A neutral section comparison in the same unit scale as the actual ship meshes.
 ## Every candidate starts at the same shoulder line; no answer markings are drawn.
 const SLOT_DEPTH := 0.45
@@ -16,9 +17,7 @@ var _font: Font
 func _ready() -> void:
 	custom_minimum_size=Vector2(330,282)
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
-	var font := SystemFont.new()
-	font.font_names=PackedStringArray(["Microsoft YaHei UI","Microsoft YaHei"])
-	_font=font
+	_font=Fonts.font()
 	resized.connect(queue_redraw)
 
 func select_length(id: String) -> void:

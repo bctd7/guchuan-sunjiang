@@ -23,10 +23,15 @@ func _initialize() -> void:
 		if Rules.row_for(id)>0: s.choose_layout("A")
 		check(s.attempt(id).ok,"place "+id)
 	check(s.bad_row()==1,"only end seams define alignment")
-	check(s.validate().code=="leak" and not s.completed,"aligned seams fail inspection")
+	check(s.validate().code=="leak" and s.failed and not s.completed,"aligned seams fail final inspection")
+	var saved=s.placed.duplicate(true)
 	s.repair()
-	check(s.placed.size()==2 and s.next_id()=="plank_1a","repair rewinds to first bad row")
-	for id in Rules.IDS.slice(2):
+	s.undo()
+	check(s.placed==saved and s.failed and s.attempt("bulkhead").code=="failed","failed run cannot be repaired or continued")
+	check(s.validate().code=="leak","failed verdict remains stable")
+	s.reset()
+	check(not s.failed and s.placed.is_empty() and not s.checked,"restart clears failed hull state")
+	for id in Rules.IDS:
 		s.select(id)
 		s.observe()
 		s.choose_joint(Rules.expected(id))
