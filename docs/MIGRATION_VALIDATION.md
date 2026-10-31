@@ -33,7 +33,21 @@ Windows Godot `4.7.2.stable.official.ed1daf0bf` 首次导入退出 0，无 `ERRO
 
 原有 Git 历史保留，基线提交直接继承 `ea7d16ff6131cadb38844e0d53236f318851d1e6`。之后的文档提交仅记录此次验证；游戏代码与已测试基线一致。
 
-**远程状态：尚未创建 GitHub 私有仓库或推送。** 连接器确认账号为 `bctd7`，但没有创建仓库接口；可用浏览器停在 GitHub 登录页，需要账号持有人登录后继续。尚未进行 GitHub 远程 SHA 校验或从 GitHub 克隆。以上结果来自本地干净克隆，不能写成远程迁移已完成。
+## GitHub 远程验证
+
+用户完成登录后，已在账号 `bctd7` 下新建独立仓库 [guchuan-sunjiang](https://github.com/bctd7/guchuan-sunjiang)，API 元数据及网页均确认可见性为 **Private**。只使用普通 `git push --set-upstream origin main`，没有强推、镜像推送或覆盖其他仓库，没有读取或输出凭据。
+
+首次推送后，`git ls-remote origin refs/heads/main` 与本地 `main` 均为 `180aba674bbe07b9865603fe659db5712d71f043`。随后直接从 `https://github.com/bctd7/guchuan-sunjiang.git` 创建全新独立克隆，确认其 HEAD 一致、工作区初始干净，并包含原三条提交与两条迁移提交。没有从 Windows 正式工程复制 `.godot/`。
+
+从 GitHub 下载的干净克隆再次完成 Windows Godot 4.7.2 验证：
+
+| 检查 | 退出码 | 结果 |
+|---|---:|---|
+| 全新资源导入 | 0 | 无 ERROR / SCRIPT ERROR，3.9 秒 |
+| 主场景启动 | 0 | 正常退出，1.1 秒 |
+| 完整三关联调 | 0 | 426 通过 / 0 失败，84.5 秒 |
+
+原始结果保留在本次任务目录的 `github-migration-results.json` 和 `github-migration-*.log`。本次后续提交只更新接手指南的仓库地址及本验证记录，游戏代码、场景和资源与已验证的远程基线相同；最终远程 SHA 和最终干净克隆另在完成回报中提供。Mac 实机仍未测试。
 
 本机测试原始日志与迁移前保护快照保留在本次任务工作目录，不作为游戏运行依赖上传。旧测试输出可能因运行而更新，仅发生在独立验证克隆中；桌面正式工程未运行写输出的测试。
 

@@ -1,5 +1,14 @@
 # Mac 接手指南 · 2026-10-31
 
+私有仓库：[bctd7/guchuan-sunjiang](https://github.com/bctd7/guchuan-sunjiang)。Mac 登录具有访问权限的同一 GitHub 账号后：
+
+```sh
+git clone https://github.com/bctd7/guchuan-sunjiang.git
+cd guchuan-sunjiang
+```
+
+克隆后按下文安装 Godot、导入 `project.godot`。源码和资产都在 Git 中，无需额外素材包或 LFS 拉取。
+
 这是桌面正式工程的迁移基线，包含截至 2026-10-28 r6 的现有代码和用户修改。迁移只整理文档与版本管理，不改变玩法。请先读本文，再读旧验收记录；旧文档有互相覆盖的历史规则，不能全部当成当前行为。
 
 ## 在 Mac 上打开
