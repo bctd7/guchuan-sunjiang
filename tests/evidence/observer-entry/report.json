@@ -1,0 +1,13 @@
+{
+  "failed": 0,
+  "failures": [],
+  "images": [
+    "res://tests/evidence/observer-entry/01-pick-a-joint.png",
+    "res://tests/evidence/observer-entry/02-wood-picked-joint-still-needed.png",
+    "res://tests/evidence/observer-entry/03-ready-to-drag.png",
+    "res://tests/evidence/observer-entry/entry-held-wood.png",
+    "res://tests/evidence/observer-entry/04-real-installation-review.png"
+  ],
+  "method": "Actual GPU UI and GUI pointer events; supplementary to separately completed Windows native mouse verification.",
+  "passed": 29
+}

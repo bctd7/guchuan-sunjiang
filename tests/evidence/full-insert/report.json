@@ -1,0 +1,177 @@
+{
+  "drops": [
+    {
+      "accepted": true,
+      "actual_front": "(-1.63, 0.38, -2.7)",
+      "actual_mouth": "(-0.55, 0.38, -2.7)",
+      "mouse_release": "(466.5211, 356.7119)",
+      "mouse_start": "(390.8264, 399.01)",
+      "touch_dispatch": false,
+      "trial": "rib_l1-dovetail"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(-1.300048, 0.38, -2.7)",
+      "actual_mouth": "(-0.55, 0.38, -2.7)",
+      "mouse_release": "(408.6337, 369.6345)",
+      "mouse_start": "(356.0645, 399.01)",
+      "touch_dispatch": false,
+      "trial": "rib_l1-through_tenon"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(-1.78, 0.38, -2.7)",
+      "actual_mouth": "(-0.55, 0.38, -2.7)",
+      "mouse_release": "(376.7212, 421.8756)",
+      "mouse_start": "(290.5133, 470.0485)",
+      "touch_dispatch": false,
+      "trial": "rib_l1-short"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(-1.63, 0.38, -2.7)",
+      "actual_mouth": "(-0.55, 0.38, -2.7)",
+      "mouse_release": "(366.208, 427.7503)",
+      "mouse_start": "(290.5133, 470.0485)",
+      "touch_dispatch": false,
+      "trial": "rib_l1-correct"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(-0.0, 0.46, -5.2)",
+      "actual_mouth": "(0.0, 0.46, -4.45)",
+      "mouse_release": "(615.7044, 501.0791)",
+      "mouse_start": "(685.227, 545.4305)",
+      "touch_dispatch": false,
+      "trial": "bow-blind_tenon"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(-0.0, 0.46, -5.199976)",
+      "actual_mouth": "(0.0, 0.46, -4.45)",
+      "mouse_release": "(687.5105, 546.8873)",
+      "mouse_start": "(757.0309, 591.2374)",
+      "touch_dispatch": false,
+      "trial": "bow-through_tenon"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(-0.0, 0.46, -5.2)",
+      "actual_mouth": "(0.0, 0.46, -4.45)",
+      "mouse_release": "(761.1223, 612.0511)",
+      "mouse_start": "(830.6449, 656.4025)",
+      "touch_dispatch": false,
+      "trial": "bow-short"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(-0.0, 0.46, -5.199999)",
+      "actual_mouth": "(0.0, 0.46, -4.45)",
+      "mouse_release": "(789.8583, 630.3829)",
+      "mouse_start": "(859.3808, 674.7343)",
+      "touch_dispatch": true,
+      "trial": "bow-correct"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(3.72, 2.34, -2.7)",
+      "actual_mouth": "(2.97, 2.34, -2.7)",
+      "mouse_release": "(740.3187, 577.1891)",
+      "mouse_start": "(790.0892, 586.7017)",
+      "touch_dispatch": false,
+      "trial": "beam1-blind_tenon"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(3.72, 2.34, -2.7)",
+      "actual_mouth": "(2.97, 2.34, -2.7)",
+      "mouse_release": "(772.1718, 583.2772)",
+      "mouse_start": "(821.9423, 592.7897)",
+      "touch_dispatch": false,
+      "trial": "beam1-dovetail"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(3.72, 2.34, -2.7)",
+      "actual_mouth": "(2.97, 2.34, -2.7)",
+      "mouse_release": "(896.366, 568.4581)",
+      "mouse_start": "(946.1365, 577.9707)",
+      "touch_dispatch": false,
+      "trial": "beam1-short"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(3.72, 2.34, -2.7)",
+      "actual_mouth": "(2.97, 2.34, -2.7)",
+      "mouse_release": "(929.5464, 574.7998)",
+      "mouse_start": "(979.3169, 584.3124)",
+      "touch_dispatch": false,
+      "trial": "beam1-correct"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(-1.63, 0.38, -2.7)",
+      "actual_mouth": "(-0.55, 0.38, -2.7)",
+      "mouse_release": "(466.5211, 356.7119)",
+      "mouse_start": "(390.8264, 399.01)",
+      "touch_dispatch": false,
+      "trial": "rib_l1-full-wrong-group"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(-0.0, 0.46, -5.2)",
+      "actual_mouth": "(0.0, 0.46, -4.45)",
+      "mouse_release": "(663.9066, 531.8295)",
+      "mouse_start": "(733.4292, 576.1808)",
+      "touch_dispatch": false,
+      "trial": "bow-full-wrong-group"
+    },
+    {
+      "accepted": true,
+      "actual_front": "(3.72, 2.34, -2.7)",
+      "actual_mouth": "(2.97, 2.34, -2.7)",
+      "mouse_release": "(748.9456, 578.838)",
+      "mouse_start": "(798.7161, 588.3505)",
+      "touch_dispatch": false,
+      "trial": "beam1-full-wrong-group"
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "images": [
+    "res://tests/evidence/full-insert/rib_l1-dovetail-before.png",
+    "res://tests/evidence/full-insert/rib_l1-dovetail-after.png",
+    "res://tests/evidence/full-insert/rib_l1-through_tenon-before.png",
+    "res://tests/evidence/full-insert/rib_l1-through_tenon-after.png",
+    "res://tests/evidence/full-insert/rib_l1-short-before.png",
+    "res://tests/evidence/full-insert/rib_l1-short-after.png",
+    "res://tests/evidence/full-insert/rib_l1-correct-before.png",
+    "res://tests/evidence/full-insert/rib_l1-correct-after.png",
+    "res://tests/evidence/full-insert/bow-blind_tenon-before.png",
+    "res://tests/evidence/full-insert/bow-blind_tenon-after.png",
+    "res://tests/evidence/full-insert/bow-through_tenon-before.png",
+    "res://tests/evidence/full-insert/bow-through_tenon-after.png",
+    "res://tests/evidence/full-insert/bow-short-before.png",
+    "res://tests/evidence/full-insert/bow-short-after.png",
+    "res://tests/evidence/full-insert/bow-correct-before.png",
+    "res://tests/evidence/full-insert/bow-correct-after.png",
+    "res://tests/evidence/full-insert/beam1-blind_tenon-before.png",
+    "res://tests/evidence/full-insert/beam1-blind_tenon-after.png",
+    "res://tests/evidence/full-insert/beam1-dovetail-before.png",
+    "res://tests/evidence/full-insert/beam1-dovetail-after.png",
+    "res://tests/evidence/full-insert/beam1-short-before.png",
+    "res://tests/evidence/full-insert/beam1-short-after.png",
+    "res://tests/evidence/full-insert/beam1-correct-before.png",
+    "res://tests/evidence/full-insert/beam1-correct-after.png",
+    "res://tests/evidence/full-insert/corrected-stable-section.png",
+    "res://tests/evidence/full-insert/rib_l1-full-wrong-group-before.png",
+    "res://tests/evidence/full-insert/rib_l1-full-wrong-group-after.png",
+    "res://tests/evidence/full-insert/bow-full-wrong-group-before.png",
+    "res://tests/evidence/full-insert/bow-full-wrong-group-after.png",
+    "res://tests/evidence/full-insert/beam1-full-wrong-group-before.png",
+    "res://tests/evidence/full-insert/beam1-full-wrong-group-after.png",
+    "res://tests/evidence/full-insert/wrong-type-stability-check.png"
+  ],
+  "method": "Actual GPU frames and Viewport GUI events. Grip actual visible body, independently project physical tip face onto real receiving mouth, release there; no internal drag target used. Not native mouse/physical touchscreen.",
+  "passed": 284
+}

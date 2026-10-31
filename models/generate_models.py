@@ -100,11 +100,9 @@ for i,o in enumerate(bars):
   if i==j:continue
   cutter=box('crosscut',(-2,-.46 if i>j else -.15+i*.3,-.245),(2,-.45+i*.3 if i>j else .46,.245));cutter.rotation_euler[1]=[0,math.pi/3,-math.pi/3][j];boolop(o,cutter)
 finish('three_way_lap','扣合榫','三横交叉扣合：三层分配让位',[part(bars[0],'lower','底层横材',fixed=True),part(bars[1],'middle','中层横材',(0,1.6,0),['lower']),part(bars[2],'upper','顶层横材',(0,2.7,0),['lower','middle'])],STD+'#page=21 (A.14)')
-# three-way mitered corner; two independent vertical tongues on leg
-leg=box('leg',(-.5,-2,-.5),(.5,0,.5));add(leg,(.20,-.02,-.32),(.38,.62,.04));add(leg,(-.32,-.02,.20),(.04,.62,.38))
-x=prism('xrail',[(-.5,-.5),(2.3,-.5),(2.3,.5),(.52,.5)],.018,.8);cut(x,(.18,-.03,-.34),(.40,.65,.06))
-z=prism('zrail',[(-.5,-.48),(.5,.52),(.5,2.3),(-.5,2.3)],.018,.8);cut(z,(-.34,-.03,.18),(.06,.65,.40))
-finish('zong_corner','粽角榫','三方角、斜接双直榫教学变体',[part(leg,'leg','双榫角腿',fixed=True),part(x,'xrail','第一斜接横材',(0,1.5,0),['leg']),part(z,'zrail','第二斜接横材',(0,2.7,0),['leg','xrail'])],STD+'#page=23 (A.17)')
+# Refined zong corner is generated independently by generate_zong_corner.gd.
+# Keep its validated source/paths rather than restoring the legacy double-tenon mesh.
+CAT.append(json.load(open(ROOT+"/zong_corner_definition.json",encoding="utf-8")))
 # clamp-head: split top leg straddles apron; cheeks tenon into top panel
 leg=box('leg',(-.40,-2,-.40),(.40,.55,.40));cut(leg,(-.45,-.20,-.19),(.45,.7,.19));cut(leg,(-.45,.38,-.45),(-.25,.7,.45));cut(leg,(.25,.38,-.45),(.45,.7,.45))
 apron=box('apron',(-1.7,-.18,-.17),(1.7,.35,.17))
@@ -113,7 +111,7 @@ finish('clamp_head','夹头榫','开叉腿夹牙条、双榫入局部案面',[pa
 # L-shaped penetrating stepped beam, deep broad rear seat + smaller front outlet
 post=box('post',(-.65,-1.4,-.62),(.65,1.4,.62));cut(post,(-.16,-.31,-.26),(.7,.31,.26));cut(post,(-.7,-.31,-.26),(.0,-.06,.26))
 beam=box('beam',(.668,-.5,-.47),(2.45,.5,.47));add(beam,(-.14,-.29,-.24),(.69,.29,.24));add(beam,(-.80,-.29,-.24),(-.12,-.08,.24))
-finish('l_through','穿榫','L型阶梯小出榫（未加木楔）',[part(post,'post','阶梯卯眼柱',fixed=True),part(beam,'beam','L型阶梯穿材',(2.7,0,0),['post'])],'https://themefile.culture.tw/file/2021-10-29/3290c275-f65e-4350-9c0a-12be949b2c4d/5-1_%E5%82%B3%E7%B5%B1%E5%A4%A7%E6%9C%A8%E6%A7%8B%E9%80%A0%E8%88%87%E4%BF%AE%E5%BE%A9.pdf#page=18')
+finish('l_through','穿榫','L型阶梯小出榫（未加木楔）',[part(post,'post','卯眼柱',fixed=True),part(beam,'beam','穿榫横材',(2.7,0,0),['post'])],'https://themefile.culture.tw/file/2021-10-29/3290c275-f65e-4350-9c0a-12be949b2c4d/5-1_%E5%82%B3%E7%B5%B1%E5%A4%A7%E6%9C%A8%E6%A7%8B%E9%80%A0%E8%88%87%E4%BF%AE%E5%BE%A9.pdf#page=18')
 with open(ROOT+'/catalog.json.tmp','w') as f:json.dump(CAT,f,ensure_ascii=False,indent=2)
 os.replace(ROOT+'/catalog.json.tmp',ROOT+'/catalog.json')
 with open(ROOT+'/geometry_checks.json','w') as f:json.dump(CHECK,f,indent=2)

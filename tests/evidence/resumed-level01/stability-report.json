@@ -1,0 +1,11 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/resumed-level01/10-stability-check-status.png"
+  ],
+  "method": "Actual GPU focused presentation fixture with scripted assembly setup. Full real-pointer workflow reported separately.",
+  "no_focus": true,
+  "passed": 5
+}

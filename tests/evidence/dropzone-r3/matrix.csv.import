@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dd5hht6agv151"
+
+[deps]
+
+files=["res://tests/evidence/dropzone-r3/matrix.joint.translation", "res://tests/evidence/dropzone-r3/matrix.length.translation", "res://tests/evidence/dropzone-r3/matrix.program.translation", "res://tests/evidence/dropzone-r3/matrix.feedback.translation", "res://tests/evidence/dropzone-r3/matrix.take.translation", "res://tests/evidence/dropzone-r3/matrix.nb.translation", "res://tests/evidence/dropzone-r3/matrix.native.translation", "res://tests/evidence/dropzone-r3/matrix.physical.translation"]
+
+source_file="res://tests/evidence/dropzone-r3/matrix.csv"
+dest_files=["res://tests/evidence/dropzone-r3/matrix.joint.translation", "res://tests/evidence/dropzone-r3/matrix.length.translation", "res://tests/evidence/dropzone-r3/matrix.program.translation", "res://tests/evidence/dropzone-r3/matrix.feedback.translation", "res://tests/evidence/dropzone-r3/matrix.take.translation", "res://tests/evidence/dropzone-r3/matrix.nb.translation", "res://tests/evidence/dropzone-r3/matrix.native.translation", "res://tests/evidence/dropzone-r3/matrix.physical.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

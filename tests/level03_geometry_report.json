@@ -1,0 +1,104 @@
+{
+  "checks": [
+    {
+      "check": "mast bed has actual open square cavity",
+      "ok": true
+    },
+    {
+      "check": "mast socket retains solid bottom",
+      "ok": true
+    },
+    {
+      "check": "mast-top fork gap really open",
+      "ok": true
+    },
+    {
+      "check": "fork gap has supporting lower shoulder",
+      "ok": true
+    },
+    {
+      "check": "two distinct top tenons",
+      "ok": true
+    },
+    {
+      "check": "top board has two actual underside sockets",
+      "ok": true
+    },
+    {
+      "check": "top sockets retain sealed upper wall",
+      "ok": true
+    },
+    {
+      "check": "L socket larger rear portion open",
+      "ok": true
+    },
+    {
+      "check": "L socket small front outlet open",
+      "ok": true
+    },
+    {
+      "check": "L socket upper front remains solid, unlike ordinary through hole",
+      "ok": true
+    },
+    {
+      "check": "L tenon has actual small leading step",
+      "ok": true
+    },
+    {
+      "check": "round bearing axial center is clear",
+      "ok": true
+    },
+    {
+      "check": "actual bearing mesh inner radius is 0.20",
+      "ok": true
+    },
+    {
+      "check": "actual round shaft mesh radius is 0.17",
+      "ok": true
+    },
+    {
+      "check": "round opening continues through timber below bearing",
+      "ok": true
+    },
+    {
+      "check": "horizontal miter rail path stays clear (17 poses / 28 interior surface samples)",
+      "ok": true
+    },
+    {
+      "check": "long/short corner tenons enter from below without collision (17 poses / 44 interior surface samples)",
+      "ok": true
+    },
+    {
+      "check": "square mast foot enters actual bed (17 poses / 156 interior surface samples)",
+      "ok": true
+    },
+    {
+      "check": "apron drops between fork cheeks (17 poses / 12 interior surface samples)",
+      "ok": true
+    },
+    {
+      "check": "support board receives fork twin tenons (17 poses / 296 interior surface samples)",
+      "ok": true
+    },
+    {
+      "check": "stepped L beam enters matching stepped slot (17 poses / 238 interior surface samples)",
+      "ok": true
+    },
+    {
+      "check": "bare round axle and upper shoulder never pass through bearing walls (17 poses / 300 interior surface samples)",
+      "ok": true
+    },
+    {
+      "check": "open back collar and blade slide onto shaft from side (17 poses / 134 interior surface samples)",
+      "ok": true
+    },
+    {
+      "check": "opposite semicollar closes from the other side (17 poses / 410 interior surface samples)",
+      "ok": true
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "method": "actual triangle mesh ray parity, interior surface samples and 17-pose insertion sweeps; teaching-scale test",
+  "passed": 24
+}

@@ -1,0 +1,10 @@
+{
+  "failed": 0,
+  "failures": [],
+  "images": [
+    "res://tests/evidence/rib-repair/unselected-timber-prompts.png",
+    "res://tests/evidence/rib-repair/ready-release-feedback.png"
+  ],
+  "method": "Actual GPU feedback and full-timber GUI mouse events; no native desktop input or physical touchscreen.",
+  "passed": 11
+}

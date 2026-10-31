@@ -1,0 +1,13 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/resumed-level01/01-chapter-1-original-models.png",
+    "res://tests/evidence/resumed-level01/01-chapter-2-original-models.png",
+    "res://tests/evidence/resumed-level01/01-chapter-3-original-models.png"
+  ],
+  "method": "Real GUI pointer events and actual GPU SubViewport pixels; hidden NO_FOCUS host. No direct business state mutation or desktop input. Not human/physical touch testing.",
+  "no_focus": true,
+  "passed": 17
+}

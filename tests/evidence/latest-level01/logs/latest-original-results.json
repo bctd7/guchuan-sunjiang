@@ -1,0 +1,62 @@
+[
+  {
+    "Test": "import",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\latest-original-import.log"
+  },
+  {
+    "Test": "rules",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\latest-original-rules.log"
+  },
+  {
+    "Test": "skeleton",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\latest-original-skeleton.log"
+  },
+  {
+    "Test": "input",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\latest-original-input.log"
+  },
+  {
+    "Test": "inspector",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\latest-original-inspector.log"
+  },
+  {
+    "Test": "types",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\latest-original-types.log"
+  },
+  {
+    "Test": "orbit",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\latest-original-orbit.log"
+  },
+  {
+    "Test": "candidate",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\latest-original-candidate.log"
+  },
+  {
+    "Test": "campaign",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\latest-original-campaign.log"
+  },
+  {
+    "Test": "classroom",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\latest-original-classroom.log"
+  }
+]

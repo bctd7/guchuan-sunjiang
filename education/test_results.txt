@@ -1,0 +1,19 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PATCH dovetail/tail 右侧燕尾斜面 triangles=2
+PATCH dovetail/tail 左侧燕尾斜面 triangles=2
+PATCH blind_tenon/beam 下侧承压候选面 triangles=3
+PATCH through_tenon/beam 下侧承压候选面 triangles=4
+PATCH cross_lap/upper 刻半缺口底面 triangles=4
+PATCH tongue_groove/tongue 直舌下表面 triangles=4
+PATCH three_way_lap/middle 中心台阶下表面 triangles=6
+PATCH three_way_lap/upper 中心台阶下表面 triangles=4
+PATCH zong_corner/xrail 横材在腿顶的承托面 triangles=15
+PATCH zong_corner/zrail 横材在腿顶的承托面 triangles=15
+PATCH clamp_head/apron 牙条在夹槽内的下表面 triangles=4
+PATCH clamp_head/top 案面对应腿肩的下侧面 triangles=4
+PATCH clamp_head/top 案面对应腿肩的下侧面 triangles=4
+PATCH clamp_head/top 案面对应腿肩的下侧面 triangles=4
+PATCH clamp_head/top 案面对应腿肩的下侧面 triangles=4
+PATCH l_through/beam 阶梯榫下表面 triangles=12
+EDUCATION: 544 assertions; 0 failures

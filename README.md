@@ -1,8 +1,18 @@
-# 古船榫匠 · 模型与拼装交互审核版
+> 2026-10-31 Mac 接手基线：先读 [Mac 接手指南](docs/MAC_HANDOFF.md) 与 [迁移验证](docs/MIGRATION_VALIDATION.md)。当前仍为手动检查后晃动；自动失败弹窗和移除“沿槽口推入”悬浮文字尚未完成。下方保留多轮历史记录，旧规则以接手指南和 r6 为准。
 
-使用 **Godot 4.7.2** 打开本目录 `project.godot`，按 **F5**。唯一默认入口和独立人工审核场景均为 `res://demo/workshop.tscn`。
+> 当前版本已恢复三类接头的可测长度选择：长短均可试装，长度不合在检查时松动，榫型错配仍拒绝。教学页、观察页与任务栏已统一暖色，增加可选故事。详见 [当前操作](docs/ACCEPTANCE.md) 和 [本轮验证](tests/RESUMED_UI_VERIFICATION.md)。下面旧版说明仅作历史记录。
 
-本包包含九种教学榫卯、可复用交互核心、自动测试和人工审核场。不含关卡、剧情、整船或联网系统。复杂结构明确标为教学简化，不能据此认定古船使用这些节点。选型、几何源及参考出处见 [models/README.md](models/README.md)。
+> 当前验收入口：每关先看本关三种榫卯，再开始局部造船。第一关船坊背景与紧凑布局已接入，三次手动示范后七件逐一自动装配；全部动画结束后才可检查。详见 [操作说明](docs/ACCEPTANCE.md) 与 [本轮验证](tests/LAYOUT_CURRENT_VERIFICATION.md)。历史记录保留如下。
+
+# 古船榫匠 · 三关造船与榫卯教学
+
+[当前首关调整与验证](tests/LEVEL01_CURRENT_VERIFICATION.md) · [三关验收操作](docs/ACCEPTANCE.md) · [代码分层](docs/CODE_STRUCTURE.md) · [重构验证记录](tests/REFACTOR_VERIFICATION.md)
+
+使用 **Godot 4.7.2** 打开本目录 `project.godot`，按 **F5** 进入关卡目录，体验“龙骨立架”“船板合壳”“帆樯舾装”。默认入口为 `res://campaign/campaign.tscn`；[导航说明](campaign/README.md)。原有九种榫卯教学仍可通过第一关右上角“九种榫卯课堂”进入，独立教学场景仍为 `res://demo/workshop.tscn`。
+
+本包包含三个关卡的船体局部、九种教学榫卯、可复用交互核心、自动测试和人工审核场。不含整船或联网系统。复杂结构明确标为教学简化，不能据此认定古船使用这些节点。选型、几何源及参考出处见 [models/README.md](models/README.md)。以下操作说明适用于原有教学场。
+
+第一关现为固定龙骨、三次不同榫卯示范和七件同构木件自动补齐。榫型选择集中在局部观察页；三种榫型统一暂缓长度选择，主页面不重复选型。
 
 ## 操作
 

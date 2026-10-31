@@ -1,0 +1,11 @@
+{
+  "failed": 0,
+  "failures": [],
+  "images": [
+    "res://tests/evidence/seven-stars/story-1440.png",
+    "res://tests/evidence/seven-stars/story-960.png",
+    "res://tests/evidence/seven-stars/story-960-scrolled.png"
+  ],
+  "method": "No-focus hidden GPU and Viewport GUI events; not native mouse.",
+  "passed": 13
+}

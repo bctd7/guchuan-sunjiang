@@ -1,0 +1,147 @@
+{
+  "failed": 0,
+  "failures": [],
+  "images": [
+    "res://tests/evidence/trial-flow/rib_l1-dovetail-before.png",
+    "res://tests/evidence/trial-flow/rib_l1-dovetail-held-wood.png",
+    "res://tests/evidence/trial-flow/rib_l1-dovetail-after.png",
+    "res://tests/evidence/trial-flow/rib_l1-through_tenon-before.png",
+    "res://tests/evidence/trial-flow/rib_l1-through_tenon-held-wood.png",
+    "res://tests/evidence/trial-flow/rib_l1-through_tenon-after.png",
+    "res://tests/evidence/trial-flow/rib_l1-short-before.png",
+    "res://tests/evidence/trial-flow/rib_l1-short-held-wood.png",
+    "res://tests/evidence/trial-flow/rib_l1-short-after.png",
+    "res://tests/evidence/trial-flow/rib_l1-correct-before.png",
+    "res://tests/evidence/trial-flow/rib_l1-correct-held-wood.png",
+    "res://tests/evidence/trial-flow/rib_l1-correct-after.png",
+    "res://tests/evidence/trial-flow/bow-blind_tenon-before.png",
+    "res://tests/evidence/trial-flow/bow-blind_tenon-held-wood.png",
+    "res://tests/evidence/trial-flow/bow-blind_tenon-after.png",
+    "res://tests/evidence/trial-flow/bow-through_tenon-before.png",
+    "res://tests/evidence/trial-flow/bow-through_tenon-held-wood.png",
+    "res://tests/evidence/trial-flow/bow-through_tenon-after.png",
+    "res://tests/evidence/trial-flow/bow-short-before.png",
+    "res://tests/evidence/trial-flow/bow-short-held-wood.png",
+    "res://tests/evidence/trial-flow/bow-short-after.png",
+    "res://tests/evidence/trial-flow/bow-correct-before.png",
+    "res://tests/evidence/trial-flow/bow-correct-held-wood.png",
+    "res://tests/evidence/trial-flow/bow-correct-after.png",
+    "res://tests/evidence/trial-flow/beam1-blind_tenon-before.png",
+    "res://tests/evidence/trial-flow/beam1-blind_tenon-held-wood.png",
+    "res://tests/evidence/trial-flow/beam1-blind_tenon-after.png",
+    "res://tests/evidence/trial-flow/beam1-dovetail-before.png",
+    "res://tests/evidence/trial-flow/beam1-dovetail-held-wood.png",
+    "res://tests/evidence/trial-flow/beam1-dovetail-after.png",
+    "res://tests/evidence/trial-flow/beam1-short-before.png",
+    "res://tests/evidence/trial-flow/beam1-short-held-wood.png",
+    "res://tests/evidence/trial-flow/beam1-short-after.png",
+    "res://tests/evidence/trial-flow/beam1-correct-before.png",
+    "res://tests/evidence/trial-flow/beam1-correct-held-wood.png",
+    "res://tests/evidence/trial-flow/beam1-correct-after.png",
+    "res://tests/evidence/trial-flow/corrected-stable-section.png",
+    "res://tests/evidence/trial-flow/rib_l1-full-wrong-group-before.png",
+    "res://tests/evidence/trial-flow/rib_l1-full-wrong-group-held-wood.png",
+    "res://tests/evidence/trial-flow/rib_l1-full-wrong-group-after.png",
+    "res://tests/evidence/trial-flow/bow-full-wrong-group-before.png",
+    "res://tests/evidence/trial-flow/bow-full-wrong-group-held-wood.png",
+    "res://tests/evidence/trial-flow/bow-full-wrong-group-after.png",
+    "res://tests/evidence/trial-flow/beam1-full-wrong-group-before.png",
+    "res://tests/evidence/trial-flow/beam1-full-wrong-group-held-wood.png",
+    "res://tests/evidence/trial-flow/beam1-full-wrong-group-after.png",
+    "res://tests/evidence/trial-flow/wrong-type-stability-check.png"
+  ],
+  "loose_samples": [
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "rib_l1-dovetail",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "rib_l1-through_tenon",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "rib_l1-short",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": false,
+      "trial": "rib_l1-correct",
+      "wrong": false
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "bow-blind_tenon",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "bow-through_tenon",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "bow-short",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": false,
+      "trial": "bow-correct",
+      "wrong": false
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "beam1-blind_tenon",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "beam1-dovetail",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "beam1-short",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": false,
+      "trial": "beam1-correct",
+      "wrong": false
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "rib_l1-full-wrong-group",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "bow-full-wrong-group",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "beam1-full-wrong-group",
+      "wrong": true
+    }
+  ],
+  "method": "Actual GPU frames and Viewport-dispatched mouse/touch path: whole-card choice, full-wood drag, wrong types/lengths animated and loose, take-back/retry, correct completion and full wrong-type stability failure. Hidden NO_FOCUS; not native Windows or physical touchscreen testing.",
+  "passed": 449
+}

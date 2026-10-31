@@ -1,0 +1,19 @@
+{
+  "status": "not_completed",
+  "reason": "Library prepare_uploads is not available",
+  "authorization": "Explicit user approval received after initial approval rejection",
+  "library_file_ids": [],
+  "screenshots": [
+	"C:/Users/27902/Documents/Codex/2026-10-27/task/ship-level1/tests/evidence/layout-current/02-keel-workshop-layout.png",
+	"C:/Users/27902/Documents/Codex/2026-10-27/task/ship-level1/tests/evidence/layout-current/05a-complete-model-before-check.png",
+	"C:/Users/27902/Documents/Codex/2026-10-27/task/ship-level1/tests/evidence/layout-current/05-completed-ship-section-plan.png",
+	"C:/Users/27902/Documents/Codex/2026-10-27/task/ship-level1/tests/evidence/layout-current/01-chapter-one-three-lessons.png",
+	"C:/Users/27902/Documents/Codex/2026-10-27/task/ship-level1/tests/evidence/layout-current/06-chapter-2-three-lessons.png",
+    "C:/Users/27902/Documents/Codex/2026-10-27/task/ship-level1/tests/evidence/layout-current/06-chapter-3-three-lessons.png"
+  ],
+  "files_local": true,
+  "project_delivered": true,
+  "original_import": 0,
+  "original_smoke_passed": 50,
+  "original_smoke_failed": 0
+}

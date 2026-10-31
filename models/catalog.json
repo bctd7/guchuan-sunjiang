@@ -563,13 +563,13 @@
   {
     "id": "zong_corner",
     "name": "粽角榫",
-    "variant": "三方角、斜接双直榫教学变体",
-    "source": "https://qxb-img-osscache.qixin.com/standards/1e366d3f4f33deb45fe71e33149cde95.pdf#page=23 (A.17)",
+    "variant": "三向斜肩、竖向长短榫入卯（教学尺度）",
+    "source": "用户提供粽角榫参考示意图（libfile_14098cf402f08191bed2c8c0d8932367、libfile_1020deddd78081919aadf28a59a1d311、libfile_ebabf5ee4a1081918a041622cf8ca434）：45°拼角、竖向长短榫进入有侧壁的对应卯眼；尺寸为项目教学约定，非原图量测；无额外横向榫块。",
     "parts": [
       {
-        "id": "leg",
-        "name": "双榫角腿",
-        "mesh": "res://models/assets/zong_corner_leg.obj",
+        "id": "xrail",
+        "name": "大边横材 · 长竖榫卯眼",
+        "mesh": "res://models/assets/zong_corner_xrail.obj",
         "assembled_position": [
           0,
           0,
@@ -598,55 +598,14 @@
             0
           ]
         ],
-        "dependencies": []
-      },
-      {
-        "id": "xrail",
-        "name": "第一斜接横材",
-        "mesh": "res://models/assets/zong_corner_xrail.obj",
-        "assembled_position": [
-          0,
-          0,
-          0
-        ],
-        "assembled_rotation": [
-          0,
-          0,
-          0
-        ],
-        "start_position": [
-          0,
-          1.5,
-          0
-        ],
-        "start_rotation": [
-          0,
-          0,
-          0
-        ],
-        "fixed": false,
-        "insertion_path": [
-          [
-            0.0,
-            1.0499999999999998,
-            0.0
-          ],
-          [
-            0,
-            0,
-            0
-          ]
-        ],
-        "dependencies": [
-          "leg"
-        ],
+        "dependencies": [],
         "capture_radius_pixels": 64.0,
         "capture_distance": 1.25,
         "capture_angle_degrees": 35.0
       },
       {
         "id": "zrail",
-        "name": "第二斜接横材",
+        "name": "抹头横材 · 短竖榫卯眼",
         "mesh": "res://models/assets/zong_corner_zrail.obj",
         "assembled_position": [
           0,
@@ -660,7 +619,51 @@
         ],
         "start_position": [
           0,
-          2.7,
+          0,
+          1.6
+        ],
+        "start_rotation": [
+          0,
+          0,
+          0
+        ],
+        "fixed": false,
+        "insertion_path": [
+          [
+            0,
+            0,
+            1.0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "dependencies": [
+          "xrail"
+        ],
+        "capture_radius_pixels": 64.0,
+        "capture_distance": 1.25,
+        "capture_angle_degrees": 35.0
+      },
+      {
+        "id": "leg",
+        "name": "三向斜肩长短榫角腿",
+        "mesh": "res://models/assets/zong_corner_leg.obj",
+        "assembled_position": [
+          0,
+          0,
+          0
+        ],
+        "assembled_rotation": [
+          0,
+          0,
+          0
+        ],
+        "start_position": [
+          0,
+          -1.6,
           0
         ],
         "start_rotation": [
@@ -671,9 +674,9 @@
         "fixed": false,
         "insertion_path": [
           [
-            0.0,
-            1.89,
-            0.0
+            0,
+            -1.0,
+            0
           ],
           [
             0,
@@ -682,14 +685,15 @@
           ]
         ],
         "dependencies": [
-          "leg",
-          "xrail"
+          "xrail",
+          "zrail"
         ],
         "capture_radius_pixels": 64.0,
         "capture_distance": 1.25,
         "capture_angle_degrees": 35.0
       }
-    ]
+    ],
+    "assembly_note": "先横向互接横材，再从下方装入角腿；游戏固定不代表实物自锁或强度认证"
   },
   {
     "id": "clamp_head",
@@ -830,7 +834,7 @@
     "parts": [
       {
         "id": "post",
-        "name": "阶梯卯眼柱",
+        "name": "卯眼柱",
         "mesh": "res://models/assets/l_through_post.obj",
         "assembled_position": [
           0,
@@ -864,7 +868,7 @@
       },
       {
         "id": "beam",
-        "name": "L型阶梯穿材",
+        "name": "穿榫横材",
         "mesh": "res://models/assets/l_through_beam.obj",
         "assembled_position": [
           0,

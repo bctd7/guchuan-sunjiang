@@ -1,15 +1,16 @@
 class_name JoineryAssembly
 extends Node3D
+const InsertionPath = preload("res://core/insertion_path.gd")
 const MeshCollisionGuard = preload("res://core/mesh_collision_guard.gd")
 ## Reusable assembly controller. All poses and connector targets are assembly-local.
 ## This class has no dependency on the demo, camera or UI.
 signal changed
 signal feedback(message: String)
 signal connection_succeeded(part_id: String)
-signal disassembled(part_id: String)
+signal disassembled(part_id: String) # Retained for embedding compatibility; never emitted.
 signal reset_completed
-@export var distance_tolerance: float = 0.35
-@export var angle_tolerance_degrees: float = 12.0
+@export var distance_tolerance: float = 0.8
+@export var angle_tolerance_degrees: float = 30.0
 @export var insertion_speed: float = 2.2
 var definition: Dictionary = {}
 var parts: Dictionary = {}
@@ -18,16 +19,16 @@ var states: Dictionary = {}
 var occupied: Dictionary = {}
 var selected: String = ""
 var moving: String = ""
-var motion: Tween
-var safe_pose := Transform3D.IDENTITY
-var ghost: MeshInstance3D
-var xray := false
-var collision_guard = MeshCollisionGuard.new()
-var travelled: Array[Vector3] = []
-var travelled_poses: Array[Transform3D] = []
+var paths: Dictionary = {}
+var progress: Dictionary = {}
+var path_progress: Dictionary:
+	get: return progress
 var capture_preview := ""
 @export var capture_distance := 1.25
 @export var capture_angle_degrees := 35.0
+var ghost: MeshInstance3D
+var xray := false
+var collision_guard = MeshCollisionGuard.new()
 
 static func vector(value: Array) -> Vector3:
 	return Vector3(float(value[0]), float(value[1]), float(value[2]))
@@ -42,6 +43,7 @@ func load_definition(data: Dictionary) -> void:
 		child.queue_free()
 	parts.clear()
 	specs.clear()
+	paths.clear()
 	states.clear()
 	occupied.clear()
 	selected = ""
@@ -51,6 +53,7 @@ func load_definition(data: Dictionary) -> void:
 	for spec in definition.parts:
 		var id: String = spec.id
 		specs[id] = spec
+		paths[id] = InsertionPath.new(spec.insertion_path)
 		var part := StaticBody3D.new()
 		part.name = id
 		part.set_meta("part_id", id)
@@ -94,8 +97,9 @@ func reset() -> void:
 	# Reset explicitly rebuilds the arrangement; it is not a physical traversal.
 	_stop_motion()
 	occupied.clear()
-	selected = ""
+	progress.clear()
 	capture_preview = ""
+	selected = ""
 	for id in parts:
 		var spec: Dictionary = specs[id]
 		parts[id].transform = assembled_pose(id) if spec.get("fixed", false) else pose(spec.start_position, spec.get("start_rotation", [0,0,0]))
@@ -161,152 +165,82 @@ func snap(id: String) -> bool:
 	changed.emit()
 	return true
 
-func insert_part(id: String, instant: bool = false) -> bool:
-	if not parts.has(id) or not candidate(id).ok: return false
+func insert_part(id: String, _legacy_instant: bool = false) -> bool:
+	# Compatibility entry point now only engages the guide; never auto-completes.
+	return begin_insertion(id)
+
+func is_guided(id: String) -> bool:
+	return parts.has(id) and states.get(id, "") == "guided"
+
+func begin_insertion(id: String) -> bool:
+	if is_guided(id): return true
+	if not parts.has(id) or not capture_candidate(id).ok: return false
+	var path = paths[id]
+	if not path.valid():
+		feedback.emit("invalid_path_pose")
+		return false
 	var snapped := socket_pose(id) * connector_pose(id).affine_inverse()
-	# A position-only path cannot silently correct a rotated/offset connector pose.
 	if not snapped.is_equal_approx(entrance_pose(id)):
 		feedback.emit("invalid_path_pose")
 		return false
+	# Calibration is generous, never a collision bypass. Preflight the full route.
 	if not _motion_clear(id, parts[id].transform, snapped) or not _path_clear(id, snapped, specs[id].insertion_path, assembled_pose(id)):
 		feedback.emit("collision_blocked")
 		return false
-	if not snap(id): return false
-	safe_pose = parts[id].transform
-	travelled = [safe_pose.origin]
-	travelled_poses = [safe_pose]
-	moving = id
-	states[id] = "inserting"
+	parts[id].transform = snapped
+	progress[id] = 0.0
+	states[id] = "guided"
 	hide_ghost()
-	var path: Array = specs[id].insertion_path
-	if instant:
-		parts[id].transform = assembled_pose(id)
-		_finish_insert(id)
-		return true
-	motion = create_tween()
-	var previous: Vector3 = parts[id].position
-	for point in path:
-		var next := vector(point)
-		motion.tween_property(parts[id], "position", next, maxf(0.08, previous.distance_to(next) / insertion_speed)).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		motion.tween_callback(_record_waypoint.bind(next))
-		previous = next
-	motion.tween_callback(_finish_insert.bind(id))
+	feedback.emit("guided")
 	changed.emit()
 	return true
 
-func _finish_insert(id: String) -> void:
-	parts[id].transform = assembled_pose(id)
-	states[id] = "locked"
-	occupied[id] = id
-	moving = ""
-	motion = null
-	feedback.emit("locked")
-	changed.emit()
-	connection_succeeded.emit(id)
-
-func can_remove(id: String) -> bool:
-	if not parts.has(id) or specs[id].get("fixed", false) or states[id] != "locked" or not moving.is_empty(): return false
-	for other in specs:
-		if states[other] == "locked" and id in specs[other].get("dependencies", []): return false
-	return true
-
-func remove_part(id: String, instant: bool = false) -> bool:
-	if not can_remove(id):
-		feedback.emit("remove_dependents_first")
-		return false
-	var reverse_path: Array = specs[id].insertion_path.duplicate()
-	reverse_path.reverse()
-	reverse_path.append(specs[id].start_position)
-	if not _path_clear(id, parts[id].transform, reverse_path, withdrawn_pose(id)):
-		feedback.emit("collision_blocked")
-		return false
-	moving = id
-	safe_pose = parts[id].transform
-	travelled = [safe_pose.origin]
-	travelled_poses = [safe_pose]
-	states[id] = "removing"
-	if instant:
-		_finish_remove(id)
-		return true
-	motion = create_tween()
-	var previous: Vector3 = parts[id].position
-	var path: Array = reverse_path
-	for point in path:
-		var next := vector(point)
-		motion.tween_property(parts[id], "position", next, maxf(0.08, previous.distance_to(next) / insertion_speed)).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		motion.tween_callback(_record_waypoint.bind(next))
-		previous = next
-	motion.tween_callback(_finish_remove.bind(id))
-	changed.emit()
-	return true
-
-func _finish_remove(id: String) -> void:
-	parts[id].transform = withdrawn_pose(id)
-	states[id] = "free"
-	occupied.erase(id)
-	moving = ""
-	motion = null
+func advance_insertion(id: String, amount: float) -> bool:
+	if not is_guided(id) or not is_finite(amount): return false
+	var path = paths[id]
+	var destination: float = clampf(float(progress[id]) + amount, 0.0, path.length)
+	# Projection can leave a few micrometres after regrabbing. Validate the
+	# exact endpoint too, so that exhausted segment input reaches permanent lock.
+	if amount > 0.0 and path.length - destination <= 0.00001:
+		destination = path.length
+	var current: Transform3D = parts[id].transform
+	# Validate every segment before committing, so blocked input retains safe pose.
+	for point in path.traversal(float(progress[id]), destination):
+		var next := Transform3D(current.basis, point)
+		if not _motion_clear(id, current, next):
+			feedback.emit("collision_blocked")
+			return false
+		current = next
+	parts[id].transform = current
+	progress[id] = destination
+	if destination >= path.length:
+		states[id] = "locked"
+		occupied[id] = id
+		feedback.emit("locked")
+		connection_succeeded.emit(id)
+	elif float(progress[id]) == 0.0 and amount < 0.0:
+		states[id] = "free"
+		progress.erase(id)
+		feedback.emit("withdrawn")
 	update_ghost()
 	changed.emit()
-	disassembled.emit(id)
+	return true
 
-func _record_waypoint(point: Vector3) -> void:
-	travelled.append(point)
-	if parts.has(moving): travelled_poses.append(parts[moving].transform)
+func can_remove(_id: String) -> bool:
+	# A completed connection is permanent for this round, including API callers.
+	return false
+
+func remove_part(_id: String, _legacy_instant: bool = false) -> bool:
+	feedback.emit("permanent_lock")
+	return false
 
 func _stop_motion() -> void:
-	# Internal teardown for reset/model switch. No callback can touch freed parts.
-	if is_instance_valid(motion): motion.kill()
-	motion = null
 	moving = ""
-	travelled.clear()
-	travelled_poses.clear()
-	capture_preview = ""
 
 func cancel_motion() -> void:
-	if moving.is_empty():
-		return
-	var id := moving
-	if states[id] == "cancelling": return
-	if is_instance_valid(motion): motion.kill()
-	motion = null
-	var reverse_poses: Array[Transform3D] = []
-	for index in range(travelled_poses.size() - 1, -1, -1):
-		reverse_poses.append(travelled_poses[index])
-	var previous_pose: Transform3D = parts[id].transform
-	var clear := true
-	for next_pose in reverse_poses:
-		if not _motion_clear(id,previous_pose,next_pose): clear = false
-		previous_pose = next_pose
-	if not clear or not previous_pose.is_equal_approx(safe_pose):
-		# Never jump through an unexpected blocker. Reset remains an explicit escape.
-		states[id] = "paused"
-		moving = ""
-		feedback.emit("collision_blocked")
-		changed.emit()
-		return
-	states[id] = "cancelling"
-	motion = create_tween()
-	previous_pose = parts[id].transform
-	for next_pose in reverse_poses:
-		motion.tween_property(parts[id], "transform", next_pose, _pose_duration(previous_pose,next_pose,0.04)).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		previous_pose = next_pose
-	motion.tween_callback(_finish_cancel.bind(id))
-	changed.emit()
-
-func _finish_cancel(id: String) -> void:
-	parts[id].transform = safe_pose
-	states[id] = "locked" if occupied.has(id) else "free"
+	# Focus loss, Escape and release pause exactly where the player stopped.
+	# No tween, rewind, extrapolation or movement occurs without pointer input.
 	moving = ""
-	motion = null
-	travelled.clear()
-	travelled_poses.clear()
-	update_ghost()
-	changed.emit()
-
-func withdrawn_pose(id: String) -> Transform3D:
-	# Park outside the entrance so a removed piece does not block the next exit.
-	return pose(specs[id].start_position, specs[id].get("assembled_rotation", [0,0,0]))
 
 func hide_ghost() -> void:
 	if is_instance_valid(ghost): ghost.hide()
@@ -323,7 +257,7 @@ func update_ghost() -> void:
 	ghost.transform = entrance_pose(selected)
 	var material := StandardMaterial3D.new()
 	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color = Color(0.18,0.72,0.51,0.40) if capture_preview == selected or candidate(selected).ok else Color(0.24,0.57,0.8,0.20)
+	material.albedo_color = Color(0.18,0.72,0.51,0.28) if candidate(selected).ok else Color(0.24,0.57,0.8,0.16)
 	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	ghost.material_override = material
 	ghost.show()
@@ -334,9 +268,6 @@ func set_xray(enabled: bool) -> void:
 		var material: StandardMaterial3D = parts[id].get_node("Wood").material_override
 		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA if enabled else BaseMaterial3D.TRANSPARENCY_DISABLED
 		material.albedo_color.a = 0.25 if enabled else 1.0
-
-func _exit_tree() -> void:
-	if is_instance_valid(motion): motion.kill()
 
 ## All other real wood pieces are obstacles, including uninstalled and locked parts.
 ## Ghost visuals never enter this geometry query. Coordinates stay instance-local.
@@ -355,11 +286,9 @@ func _path_clear(id: String, from: Transform3D, points: Array, final_pose: Trans
 		var next := Transform3D(from.basis, vector(point))
 		if not previous.is_equal_approx(next) and not _motion_clear(id, previous, next): return false
 		previous = next
-	# _finish_insert/_finish_remove must never teleport orientation/position.
+	# The position-only route must end at the complete final pose.
 	return previous.is_equal_approx(final_pose)
 
-## Intent capture is wider than precision mating, but never bypasses physical approach.
-## Screen-space target choice belongs to the adapter; these constraints are model-local.
 func capture_candidate(id: String) -> Dictionary:
 	var result := candidate(id)
 	if result.reason not in ["ready","distance","angle"]: return result
@@ -375,7 +304,7 @@ func capture_candidate(id: String) -> Dictionary:
 		return {"ok":false,"reason":"angle"}
 	if not _motion_clear(id,current,target_pose):
 		return {"ok":false,"reason":"collision_blocked"}
-	return {"ok":true,"reason":"release_to_insert","distance":distance,"angle":angle}
+	return {"ok":true,"reason":"manual_ready","distance":distance,"angle":angle}
 
 func preview_capture(id: String, ready: bool) -> void:
 	var next := id if ready else ""
@@ -383,39 +312,24 @@ func preview_capture(id: String, ready: bool) -> void:
 	capture_preview = next
 	update_ghost()
 	changed.emit()
-	if ready: feedback.emit("release_to_insert")
+	if ready: feedback.emit("manual_ready")
 
-func _pose_duration(from: Transform3D,to: Transform3D,minimum: float = 0.12) -> float:
-	var angle := from.basis.get_rotation_quaternion().angle_to(to.basis.get_rotation_quaternion())
-	return maxf(minimum,maxf(from.origin.distance_to(to.origin)/insertion_speed,angle/PI))
 
-## Released capture smoothly aligns the entire connector pose before following its path.
+# Compatibility facade for existing embedders and the desktop regression suite.
+func can_drag(id: String) -> bool:
+	return is_editable(id) or is_guided(id)
+
+func path_length(id: String) -> float:
+	return paths[id].length if paths.has(id) else 0.0
+
+func path_pose(id: String, value: float) -> Transform3D:
+	return Transform3D(entrance_pose(id).basis, paths[id].sample(value))
+
+func begin_manual(id: String) -> bool:
+	return begin_insertion(id)
+
+func advance_manual(id: String, amount: float) -> bool:
+	return advance_insertion(id, amount)
+
 func insert_assisted(id: String) -> bool:
-	var result := capture_candidate(id)
-	if not result.ok:
-		feedback.emit(result.reason)
-		return false
-	var entrance := entrance_pose(id)
-	if not _path_clear(id,entrance,specs[id].insertion_path,assembled_pose(id)):
-		feedback.emit("collision_blocked")
-		return false
-	safe_pose = parts[id].transform
-	travelled = [safe_pose.origin]
-	travelled_poses = [safe_pose]
-	moving = id
-	states[id] = "inserting"
-	capture_preview = ""
-	hide_ghost()
-	motion = create_tween()
-	motion.tween_property(parts[id],"transform",entrance,_pose_duration(safe_pose,entrance)).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	motion.tween_callback(_record_waypoint.bind(entrance.origin))
-	var previous := entrance
-	for point in specs[id].insertion_path:
-		var next := Transform3D(entrance.basis,vector(point))
-		if previous.is_equal_approx(next): continue
-		motion.tween_property(parts[id],"transform",next,_pose_duration(previous,next,0.08)).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		motion.tween_callback(_record_waypoint.bind(next.origin))
-		previous = next
-	motion.tween_callback(_finish_insert.bind(id))
-	changed.emit()
-	return true
+	return begin_insertion(id)

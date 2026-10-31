@@ -1,0 +1,26 @@
+{
+  "failed": 0,
+  "failures": [],
+  "images": [
+    "res://tests/evidence/candidate-revision/main-natural-guidance.png",
+    "res://tests/evidence/candidate-revision/rib_l1-unselected.png",
+    "res://tests/evidence/candidate-revision/rib_l1-blind_tenon.png",
+    "res://tests/evidence/candidate-revision/rib_l1-dovetail.png",
+    "res://tests/evidence/candidate-revision/rib_l1-through_tenon.png",
+    "res://tests/evidence/candidate-revision/rib_l1-rotated.png",
+    "res://tests/evidence/candidate-revision/bow-unselected.png",
+    "res://tests/evidence/candidate-revision/bow-blind_tenon.png",
+    "res://tests/evidence/candidate-revision/bow-dovetail.png",
+    "res://tests/evidence/candidate-revision/bow-through_tenon.png",
+    "res://tests/evidence/candidate-revision/bow-rotated.png",
+    "res://tests/evidence/candidate-revision/beam1-unselected.png",
+    "res://tests/evidence/candidate-revision/beam1-blind_tenon.png",
+    "res://tests/evidence/candidate-revision/beam1-dovetail.png",
+    "res://tests/evidence/candidate-revision/beam1-through_tenon.png",
+    "res://tests/evidence/candidate-revision/beam1-rotated.png",
+    "res://tests/evidence/candidate-revision/wrong-length-instability.png",
+    "res://tests/evidence/candidate-revision/completed-frame.png"
+  ],
+  "method": "Actual GPU pixels and Viewport-dispatched mouse/touch sequences. Hidden NO_FOCUS host, no desktop input. Not human or physical touchscreen play.",
+  "passed": 214
+}

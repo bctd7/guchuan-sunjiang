@@ -1,0 +1,11 @@
+{
+  "bearing_radial_clearance": 0.03,
+  "failed": 0,
+  "failures": [],
+  "input": "Viewport mouse and touchscreen",
+  "passed": 155,
+  "steering_range_degrees": [
+    -30,
+    30
+  ]
+}

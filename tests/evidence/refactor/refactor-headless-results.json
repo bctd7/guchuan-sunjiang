@@ -1,0 +1,44 @@
+[
+  {
+    "Test": "level01_rules_tests",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\refactor-level01_rules_tests.log"
+  },
+  {
+    "Test": "level02_rules_tests",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\refactor-level02_rules_tests.log"
+  },
+  {
+    "Test": "level02_geometry_tests",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\refactor-level02_geometry_tests.log"
+  },
+  {
+    "Test": "level03_geometry_tests",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\refactor-level03_geometry_tests.log"
+  },
+  {
+    "Test": "run_tests",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\refactor-run_tests.log"
+  },
+  {
+    "Test": "zong_reference_model_tests",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\refactor-zong_reference_model_tests.log"
+  },
+  {
+    "Test": "level01_candidate_geometry_tests",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\refactor-level01_candidate_geometry_tests.log"
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "failed": 0,
+  "failures": [],
+  "method": "Program Viewport mouse/touch GUI events; free 2D movement, half-resolution render viewport, parent offset/resize, off-axis and overshoot, focus/cancel/duplicate/missing-choice guards. Not native hardware.",
+  "passed": 20,
+  "requests": 5
+}

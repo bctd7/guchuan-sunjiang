@@ -1,0 +1,82 @@
+{
+  "recorded_utc": "2026-10-28T01:41:54.178516+00:00",
+  "engine": "Godot 4.7.2 stable",
+  "execution": "headless only; no GUI launch or desktop input",
+  "latest_tween_finished_revision_refreshed": [
+    "level01_input",
+    "campaign_full"
+  ],
+  "passed": 2679,
+  "failed": 0,
+  "suites": [
+    {
+      "suite": "level01_rules",
+      "passed": 333,
+      "failed": 0,
+      "evidence": "tests/level01_rules_report.json"
+    },
+    {
+      "suite": "level01_input",
+      "passed": 656,
+      "failed": 0,
+      "evidence": "tests/level01_input_report.json"
+    },
+    {
+      "suite": "level02_input",
+      "passed": 339,
+      "failed": 0,
+      "evidence": "tests/level02_input_report.json"
+    },
+    {
+      "suite": "level03_input",
+      "passed": 155,
+      "failed": 0,
+      "evidence": "tests/level03_input_report.json"
+    },
+    {
+      "suite": "level01_type_observation",
+      "passed": 384,
+      "failed": 0,
+      "evidence": "tests/level01_length_observation_report.json"
+    },
+    {
+      "suite": "level01_orbit",
+      "passed": 42,
+      "failed": 0,
+      "evidence": "tests/evidence/level01-orbit/report.json"
+    },
+    {
+      "suite": "level02_geometry",
+      "passed": 20,
+      "failed": 0,
+      "evidence": "tests/level02_geometry_report.json"
+    },
+    {
+      "suite": "level03_geometry",
+      "passed": 24,
+      "failed": 0,
+      "evidence": "tests/level03_geometry_report.json"
+    },
+    {
+      "suite": "campaign_full",
+      "passed": 414,
+      "failed": 0,
+      "evidence": "tests/campaign_report.json"
+    },
+    {
+      "suite": "campaign_three_chapters_nine_lessons",
+      "passed": 121,
+      "failed": 0,
+      "evidence": "tests/evidence/campaign-classroom-learning-report.json"
+    },
+    {
+      "suite": "chapter_learning_component_and_standalone_nine_lessons",
+      "passed": 191,
+      "failed": 0,
+      "evidence": "tests/evidence/chapter_learning_tests-learning.log"
+    }
+  ],
+  "visual_fixtures": "intro start adapted in level01_visual_regression.gd and level03_preview_tests.gd; GPU rendering not executed by this agent",
+  "production_files_modified_by_this_agent": [],
+  "remaining_blockers": []
+}

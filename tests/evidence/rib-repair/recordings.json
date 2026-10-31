@@ -1,0 +1,20 @@
+[
+  {
+    "file": "automatic-ribs.gif",
+    "source_frames": 54,
+    "duration_ms": 10920,
+    "source": "Actual GPU frame capture; only bounded transition/end holds, no synthetic movement"
+  },
+  {
+    "file": "automatic-stern.gif",
+    "source_frames": 10,
+    "duration_ms": 2115,
+    "source": "Actual GPU frame capture; only bounded transition/end holds, no synthetic movement"
+  },
+  {
+    "file": "automatic-beam.gif",
+    "source_frames": 10,
+    "duration_ms": 2100,
+    "source": "Actual GPU frame capture; only bounded transition/end holds, no synthetic movement"
+  }
+]

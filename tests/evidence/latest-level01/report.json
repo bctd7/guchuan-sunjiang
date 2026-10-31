@@ -1,0 +1,25 @@
+{
+  "failed": 0,
+  "failures": [],
+  "images": [
+    "res://tests/evidence/latest-level01/01-fixed-keel-single-entry.png",
+    "res://tests/evidence/latest-level01/02-no-default-no-lengths.png",
+    "res://tests/evidence/latest-level01/03-before-tenon-tone.png",
+    "res://tests/evidence/latest-level01/04-opaque-deeper-tenon.png",
+    "res://tests/evidence/latest-level01/05-keel-angle--30.0--18.0.png",
+    "res://tests/evidence/latest-level01/05-keel-angle--15.0-12.0.png",
+    "res://tests/evidence/latest-level01/05-keel-angle-0.0-0.0.png",
+    "res://tests/evidence/latest-level01/05-keel-angle-15.0--12.0.png",
+    "res://tests/evidence/latest-level01/05-keel-angle-30.0-18.0.png",
+    "res://tests/evidence/latest-level01/06-blind-bottom-cutaway.png",
+    "res://tests/evidence/latest-level01/07-through-hole-exits.png",
+    "res://tests/evidence/latest-level01/08-through-seated-both-exits.png",
+    "res://tests/evidence/latest-level01/09-through-real-back-exit-detail.png",
+    "res://tests/evidence/latest-level01/10-complete-unobstructed-symmetry.png"
+  ],
+  "method": "Actual GPU rendering into a dedicated offscreen SubViewport; hidden NO_FOCUS host. No desktop input.",
+  "no_focus": true,
+  "passed": 69,
+  "renderer": "Windows",
+  "window_position": "(0, 0)"
+}

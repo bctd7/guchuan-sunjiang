@@ -80,20 +80,23 @@
   {
     "joint": "zong_corner",
     "part": "leg",
-    "volume": 2.08035198822832,
-    "nonmanifold_edges": 0
+    "volume": 2.378392594390094,
+    "nonmanifold_edges": 0,
+    "validation_stage": "final static CSG mesh, 2026-10-23"
   },
   {
     "joint": "zong_corner",
     "part": "xrail",
-    "volume": 1.7351640045119514,
-    "nonmanifold_edges": 0
+    "volume": 2.287620752436212,
+    "nonmanifold_edges": 0,
+    "validation_stage": "final static CSG mesh, 2026-10-23"
   },
   {
     "joint": "zong_corner",
     "part": "zrail",
-    "volume": 1.7273440001900189,
-    "nonmanifold_edges": 0
+    "volume": 2.280180282625118,
+    "nonmanifold_edges": 0,
+    "validation_stage": "final static CSG mesh, 2026-10-23"
   },
   {
     "joint": "clamp_head",

@@ -1,0 +1,87 @@
+{
+	"checks": [
+		{
+			"check": "actual plank BoxMesh: 66 lateral insertion positions clear",
+			"ok": true
+		},
+		{
+			"check": "negative control: roof-crossing lift collides",
+			"ok": true
+		},
+		{
+			"check": "actual cross lap solids: 101 vertical positions clear",
+			"ok": true
+		},
+		{
+			"check": "negative control: inverse cross insertion collides",
+			"ok": true
+		},
+		{
+			"check": "three horizontal members: 303 ordered insertion positions clear",
+			"ok": true
+		},
+		{
+			"check": "negative control: inverse three-way insertion collides",
+			"ok": true
+		},
+		{
+			"check": "three-way central layer 0 belongs only to member 0",
+			"ok": true
+		},
+		{
+			"check": "three-way central layer 1 belongs only to member 0",
+			"ok": true
+		},
+		{
+			"check": "three-way central layer 2 belongs only to member 0",
+			"ok": true
+		},
+		{
+			"check": "three-way central layer 0 belongs only to member 1",
+			"ok": true
+		},
+		{
+			"check": "three-way central layer 1 belongs only to member 1",
+			"ok": true
+		},
+		{
+			"check": "three-way central layer 2 belongs only to member 1",
+			"ok": true
+		},
+		{
+			"check": "three-way central layer 0 belongs only to member 2",
+			"ok": true
+		},
+		{
+			"check": "three-way central layer 1 belongs only to member 2",
+			"ok": true
+		},
+		{
+			"check": "three-way central layer 2 belongs only to member 2",
+			"ok": true
+		},
+		{
+			"check": "geometry fixture completes with staggered end seams",
+			"ok": true
+		},
+		{
+			"check": "sealed partition: 1240 X-axis crossing rays, 0 holes",
+			"ok": true
+		},
+		{
+			"check": "bulkhead rail bottom equals floor top .165",
+			"ok": true
+		},
+		{
+			"check": "curved rib context surrounds local flat plank band",
+			"ok": true
+		},
+		{
+			"check": "all support vertices clear both hull inner faces; upward insertion increases clearance",
+			"ok": true
+		}
+	],
+	"failed": 0,
+	"method": "actual BoxMesh overlaps; clipped polygon layer volumes; triangle segment crossings of actual partition meshes. Static teaching-scale geometry only.",
+	"passed": 20
+}

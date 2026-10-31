@@ -1,0 +1,26 @@
+[
+  {
+    "Test": "campaign_tests",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\refactor-campaign_tests.log"
+  },
+  {
+    "Test": "level01_orbit_tests",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\refactor-level01_orbit_tests.log"
+  },
+  {
+    "Test": "level01_inspector_tests",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\refactor-level01_inspector_tests.log"
+  },
+  {
+    "Test": "level01_length_observation_tests",
+    "ExitCode": 0,
+    "ErrorLines": 0,
+    "Log": "C:\\Users\\27902\\Documents\\Codex\\2026-10-27\\task\\evidence\\refactor-level01_length_observation_tests.log"
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "failed": 0,
+  "intersections": [
+    {
+      "positive_control_volume": 2.28762077889405
+    },
+    {
+      "assembled_volume": 0.0,
+      "pair": [
+        "xrail",
+        "zrail"
+      ]
+    },
+    {
+      "assembled_volume": 0.0,
+      "pair": [
+        "xrail",
+        "leg"
+      ]
+    },
+    {
+      "assembled_volume": 0.0,
+      "pair": [
+        "zrail",
+        "leg"
+      ]
+    },
+    {
+      "maximum_boolean_intersection_volume": 0.0,
+      "moving": "zrail",
+      "samples": 41
+    },
+    {
+      "maximum_boolean_intersection_volume": 0.0,
+      "moving": "leg",
+      "samples": 41
+    }
+  ],
+  "passed": 29
+}

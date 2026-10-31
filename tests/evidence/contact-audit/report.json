@@ -1,0 +1,196 @@
+{
+  "cases": [
+    {
+      "contacts": [],
+      "kind": "blind_tenon",
+      "length": "short",
+      "reliefs": 0,
+      "socket": "rib_l1"
+    },
+    {
+      "contacts": [],
+      "kind": "blind_tenon",
+      "length": "correct",
+      "reliefs": 0,
+      "socket": "rib_l1"
+    },
+    {
+      "contacts": [],
+      "kind": "blind_tenon",
+      "length": "long",
+      "reliefs": 0,
+      "socket": "rib_l1"
+    },
+    {
+      "contacts": [],
+      "kind": "dovetail",
+      "length": "short",
+      "reliefs": 2,
+      "socket": "rib_l1"
+    },
+    {
+      "contacts": [],
+      "kind": "dovetail",
+      "length": "correct",
+      "reliefs": 3,
+      "socket": "rib_l1"
+    },
+    {
+      "contacts": [],
+      "kind": "dovetail",
+      "length": "long",
+      "reliefs": 3,
+      "socket": "rib_l1"
+    },
+    {
+      "contacts": [],
+      "kind": "through_tenon",
+      "length": "short",
+      "reliefs": 1,
+      "socket": "rib_l1"
+    },
+    {
+      "contacts": [],
+      "kind": "through_tenon",
+      "length": "correct",
+      "reliefs": 1,
+      "socket": "rib_l1"
+    },
+    {
+      "contacts": [],
+      "kind": "through_tenon",
+      "length": "long",
+      "reliefs": 1,
+      "socket": "rib_l1"
+    },
+    {
+      "contacts": [],
+      "kind": "blind_tenon",
+      "length": "short",
+      "reliefs": 0,
+      "socket": "bow"
+    },
+    {
+      "contacts": [],
+      "kind": "blind_tenon",
+      "length": "correct",
+      "reliefs": 0,
+      "socket": "bow"
+    },
+    {
+      "contacts": [],
+      "kind": "blind_tenon",
+      "length": "long",
+      "reliefs": 0,
+      "socket": "bow"
+    },
+    {
+      "contacts": [],
+      "kind": "dovetail",
+      "length": "short",
+      "reliefs": 0,
+      "socket": "bow"
+    },
+    {
+      "contacts": [],
+      "kind": "dovetail",
+      "length": "correct",
+      "reliefs": 0,
+      "socket": "bow"
+    },
+    {
+      "contacts": [],
+      "kind": "dovetail",
+      "length": "long",
+      "reliefs": 0,
+      "socket": "bow"
+    },
+    {
+      "contacts": [],
+      "kind": "through_tenon",
+      "length": "short",
+      "reliefs": 4,
+      "socket": "bow"
+    },
+    {
+      "contacts": [],
+      "kind": "through_tenon",
+      "length": "correct",
+      "reliefs": 4,
+      "socket": "bow"
+    },
+    {
+      "contacts": [],
+      "kind": "through_tenon",
+      "length": "long",
+      "reliefs": 4,
+      "socket": "bow"
+    },
+    {
+      "contacts": [],
+      "kind": "blind_tenon",
+      "length": "short",
+      "reliefs": 0,
+      "socket": "beam1"
+    },
+    {
+      "contacts": [],
+      "kind": "blind_tenon",
+      "length": "correct",
+      "reliefs": 0,
+      "socket": "beam1"
+    },
+    {
+      "contacts": [],
+      "kind": "blind_tenon",
+      "length": "long",
+      "reliefs": 0,
+      "socket": "beam1"
+    },
+    {
+      "contacts": [],
+      "kind": "dovetail",
+      "length": "short",
+      "reliefs": 4,
+      "socket": "beam1"
+    },
+    {
+      "contacts": [],
+      "kind": "dovetail",
+      "length": "correct",
+      "reliefs": 4,
+      "socket": "beam1"
+    },
+    {
+      "contacts": [],
+      "kind": "dovetail",
+      "length": "long",
+      "reliefs": 4,
+      "socket": "beam1"
+    },
+    {
+      "contacts": [],
+      "kind": "through_tenon",
+      "length": "short",
+      "reliefs": 0,
+      "socket": "beam1"
+    },
+    {
+      "contacts": [],
+      "kind": "through_tenon",
+      "length": "correct",
+      "reliefs": 0,
+      "socket": "beam1"
+    },
+    {
+      "contacts": [],
+      "kind": "through_tenon",
+      "length": "long",
+      "reliefs": 0,
+      "socket": "beam1"
+    }
+  ],
+  "method": "Final and nine insertion samples of visible stock/receiver meshes, with removable pins hidden during motion. Box inner-volume edge checks; non-box receiver point-in-solid rays. Diagnostic program geometry, not visual or native input acceptance.",
+  "path_suspects": [],
+  "suspected_penetrations": 0
+}

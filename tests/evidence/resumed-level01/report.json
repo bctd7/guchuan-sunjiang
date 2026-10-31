@@ -1,0 +1,21 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/resumed-level01/01-chapter-1-original-models.png",
+    "res://tests/evidence/resumed-level01/01-chapter-2-original-models.png",
+    "res://tests/evidence/resumed-level01/01-chapter-3-original-models.png",
+    "res://tests/evidence/resumed-level01/02-compact-task-and-workshop.png",
+    "res://tests/evidence/resumed-level01/03-optional-shipwright-story.png",
+    "res://tests/evidence/resumed-level01/04-neutral-length-and-type-comparison.png",
+    "res://tests/evidence/resumed-level01/05-short-half-tenon-before-install.png",
+    "res://tests/evidence/resumed-level01/06-long-dovetail-before-install.png",
+    "res://tests/evidence/resumed-level01/07-long-through-beam-before-install.png",
+    "res://tests/evidence/resumed-level01/08-installed-but-unstable.png",
+    "res://tests/evidence/resumed-level01/09-corrected-plan-completion.png"
+  ],
+  "method": "Real GUI pointer events and actual GPU SubViewport pixels; hidden NO_FOCUS host. No direct business state mutation or desktop input. Not human/physical touch testing.",
+  "no_focus": true,
+  "passed": 108
+}

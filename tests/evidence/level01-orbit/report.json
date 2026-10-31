@@ -1,0 +1,12 @@
+{
+	"failed": 0,
+	"failures": [],
+	"method": "root.push_input real Viewport GUI mouse/touch dispatch; only focus-loss notification injected",
+	"passed": 42,
+	"renderer": "headless",
+	"screenshots": [
+		"01-default.png",
+		"02-rotated.png",
+		"03-hole-interior.png"
+	]
+}

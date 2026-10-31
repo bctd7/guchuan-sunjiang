@@ -31,3 +31,22 @@ credentials/
 *api-key*
 *.pdf
 *.PDF
+
+# Migration: local experiments and backups stay on disk, outside Git history.
+/.*-20??????/
+/.codex-access-probe-*.txt
+/education/dynamic/backup-*/
+
+# Generated render evidence; keep test sources, reference assets and text records.
+/tests/evidence/**/*.png
+/tests/evidence/**/*.png.import
+/tests/evidence/**/*.gif
+/tests/evidence/**/*.gif.import
+/tests/evidence/**/*.patch
+/tests/evidence/**/git-status-*.txt
+/tests/evidence/**/refactor-git-status-*.txt
+/tests/level02_evidence/
+/tests/level03_evidence/
+/education/dynamic/evidence/*.png
+/education/dynamic/evidence/*.png.import
+*.translation

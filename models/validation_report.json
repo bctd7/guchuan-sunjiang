@@ -218,38 +218,43 @@
     "parts": [
       {
         "id": "leg",
-        "volume": 2.0798521226751623,
+        "volume": 2.378392594390094,
         "nonmanifold_edges": 0,
         "nontriangle_faces": 0
       },
       {
         "id": "xrail",
-        "volume": 1.7348752651651755,
+        "volume": 2.287620752436212,
         "nonmanifold_edges": 0,
         "nontriangle_faces": 0
       },
       {
         "id": "zrail",
-        "volume": 1.727062516787131,
+        "volume": 2.280180282625118,
         "nonmanifold_edges": 0,
         "nontriangle_faces": 0
       }
     ],
     "assembly_path_samples": [
       {
-        "part": "xrail",
+        "part": "zrail",
         "samples_per_segment": 41,
-        "max_intersection_volume": 0,
+        "max_intersection_volume": 0.0,
         "worst_position": null
       },
       {
-        "part": "zrail",
+        "part": "leg",
         "samples_per_segment": 41,
-        "max_intersection_volume": 0,
+        "max_intersection_volume": 0.0,
         "worst_position": null
       }
     ],
     "assembled_overlaps": [
+      {
+        "a": "xrail",
+        "b": "zrail",
+        "volume": 0.0
+      },
       {
         "a": "xrail",
         "b": "leg",
@@ -259,13 +264,11 @@
         "a": "zrail",
         "b": "leg",
         "volume": 0.0
-      },
-      {
-        "a": "zrail",
-        "b": "xrail",
-        "volume": 0.0
       }
-    ]
+    ],
+    "validation_source": "Godot baked static meshes; independent welded topology, boolean positive control, imported mesh intersections and unchanged continuous collision guard, 2026-10-23",
+    "positive_control_volume": 2.28762077889405,
+    "continuous_sweep_verified": true
   },
   {
     "id": "clamp_head",

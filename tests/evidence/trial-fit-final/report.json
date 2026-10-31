@@ -1,0 +1,47 @@
+{
+  "failed": 0,
+  "failures": [],
+  "images": [
+    "res://tests/evidence/trial-fit-final/rib_l1-trial-before.png",
+    "res://tests/evidence/trial-fit-final/rib_l1-trial-held-wood.png",
+    "res://tests/evidence/trial-fit-final/rib_l1-trial-after.png",
+    "res://tests/evidence/trial-fit-final/rib_l1-retry-before.png",
+    "res://tests/evidence/trial-fit-final/rib_l1-retry-held-wood.png",
+    "res://tests/evidence/trial-fit-final/rib_l1-retry-after.png",
+    "res://tests/evidence/trial-fit-final/bow-trial-before.png",
+    "res://tests/evidence/trial-fit-final/bow-trial-held-wood.png",
+    "res://tests/evidence/trial-fit-final/bow-trial-after.png",
+    "res://tests/evidence/trial-fit-final/beam1-trial-before.png",
+    "res://tests/evidence/trial-fit-final/beam1-trial-held-wood.png",
+    "res://tests/evidence/trial-fit-final/beam1-trial-after.png",
+    "res://tests/evidence/trial-fit-final/unstable-frame-after-check.png"
+  ],
+  "loose_samples": [
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "rib_l1-trial",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "rib_l1-retry",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "bow-trial",
+      "wrong": true
+    },
+    {
+      "approached_contact": true,
+      "loosened": true,
+      "trial": "beam1-trial",
+      "wrong": true
+    }
+  ],
+  "method": "Final actual GPU frames; Viewport GUI mouse and touch dispatch, complete unstable groups, stability feedback, take-back and reset. Hidden NO_FOCUS. No native mouse or physical touchscreen.",
+  "passed": 136
+}

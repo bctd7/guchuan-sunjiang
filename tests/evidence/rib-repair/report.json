@@ -1,0 +1,1237 @@
+{
+  "failed": 0,
+  "failures": [],
+  "images": [
+    "res://tests/evidence/rib-repair/rib_l1-default-closeup.png",
+    "res://tests/evidence/rib-repair/rib_l1-rotated-closeup.png",
+    "res://tests/evidence/rib-repair/rib_r1-default-closeup.png",
+    "res://tests/evidence/rib-repair/rib_r1-rotated-closeup.png",
+    "res://tests/evidence/rib-repair/rib_l2-default-closeup.png",
+    "res://tests/evidence/rib-repair/rib_l2-rotated-closeup.png",
+    "res://tests/evidence/rib-repair/rib_r2-default-closeup.png",
+    "res://tests/evidence/rib-repair/rib_r2-rotated-closeup.png",
+    "res://tests/evidence/rib-repair/rib_l3-default-closeup.png",
+    "res://tests/evidence/rib-repair/rib_l3-rotated-closeup.png",
+    "res://tests/evidence/rib-repair/rib_r3-default-closeup.png",
+    "res://tests/evidence/rib-repair/rib_r3-rotated-closeup.png",
+    "res://tests/evidence/rib-repair/rib_l1-held-wood.png",
+    "res://tests/evidence/rib-repair/auto-mid-rib_r1.png",
+    "res://tests/evidence/rib-repair/auto-mid-rib_l2.png",
+    "res://tests/evidence/rib-repair/auto-mid-rib_r2.png",
+    "res://tests/evidence/rib-repair/auto-mid-rib_l3.png",
+    "res://tests/evidence/rib-repair/auto-mid-rib_r3.png",
+    "res://tests/evidence/rib-repair/bow-held-wood.png",
+    "res://tests/evidence/rib-repair/auto-mid-stern.png",
+    "res://tests/evidence/rib-repair/beam1-held-wood.png",
+    "res://tests/evidence/rib-repair/auto-mid-beam3.png",
+    "res://tests/evidence/rib-repair/completed-section.png",
+    "res://tests/evidence/rib-repair/rib_l1-held-wood.png",
+    "res://tests/evidence/rib-repair/bow-held-wood.png",
+    "res://tests/evidence/rib-repair/beam1-held-wood.png",
+    "res://tests/evidence/rib-repair/wrong-length-remains-correctable.png"
+  ],
+  "method": "Actual GPU pixels. Mouse/touch sequences through real Viewport GUI, full timber picks. Six rib closeups use read-only inspector fixture. Hidden NO_FOCUS host; no native desktop or physical touchscreen testing.",
+  "motion_samples": {
+    "beam3": [
+      {
+        "at_ms": 36595,
+        "position": [
+          6.59999990463257,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 36752,
+        "position": [
+          6.38160371780396,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 36919,
+        "position": [
+          5.86683034896851,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 37082,
+        "position": [
+          5.12066745758057,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 37252,
+        "position": [
+          4.16129493713379,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 37707,
+        "position": [
+          2.22303342819214,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 37875,
+        "position": [
+          1.31182193756104,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 38045,
+        "position": [
+          0.627116680145264,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 38219,
+        "position": [
+          0.146057605743408,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 38382,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      }
+    ],
+    "rib_l2": [
+      {
+        "at_ms": 16351,
+        "position": [
+          -1.89999997615814,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 16532,
+        "position": [
+          -1.89972507953644,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 16716,
+        "position": [
+          -1.84581887722015,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 16900,
+        "position": [
+          -1.70458948612213,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 17084,
+        "position": [
+          -1.48718750476837,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 17571,
+        "position": [
+          -0.951303958892822,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 17743,
+        "position": [
+          -0.657674193382263,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 17911,
+        "position": [
+          -0.406129479408264,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 18089,
+        "position": [
+          -0.182201027870178,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 18254,
+        "position": [
+          -0.0469000339508057,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 18429,
+        "position": [
+          -0.000122904777526855,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      }
+    ],
+    "rib_l3": [
+      {
+        "at_ms": 20783,
+        "position": [
+          -1.89999997615814,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 20958,
+        "position": [
+          -1.89943468570709,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 21136,
+        "position": [
+          -1.84328818321228,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 21309,
+        "position": [
+          -1.69884896278381,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 21473,
+        "position": [
+          -1.4815548658371,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 21932,
+        "position": [
+          -0.959088027477264,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 22090,
+        "position": [
+          -0.656802892684937,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 22248,
+        "position": [
+          -0.400777101516724,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 22414,
+        "position": [
+          -0.188143849372864,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 22592,
+        "position": [
+          -0.0466163158416748,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 22769,
+        "position": [
+          -0.00000321865081787109,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      }
+    ],
+    "rib_r1": [
+      {
+        "at_ms": 14359,
+        "position": [
+          1.89999997615814,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 14519,
+        "position": [
+          1.8410257101059,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 14688,
+        "position": [
+          1.6945219039917,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 14843,
+        "position": [
+          1.47573971748352,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 15017,
+        "position": [
+          1.21155762672424,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 15464,
+        "position": [
+          0.660206437110901,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 15636,
+        "position": [
+          0.386269092559814,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 15808,
+        "position": [
+          0.177566647529602,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 15978,
+        "position": [
+          0.0444753170013428,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 16164,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      }
+    ],
+    "rib_r2": [
+      {
+        "at_ms": 18599,
+        "position": [
+          1.89999997615814,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 18772,
+        "position": [
+          1.89935958385468,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 18940,
+        "position": [
+          1.8421174287796,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 19099,
+        "position": [
+          1.70240116119385,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 19277,
+        "position": [
+          1.47980439662933,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 19752,
+        "position": [
+          0.951336443424225,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 19929,
+        "position": [
+          0.668764472007751,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 20104,
+        "position": [
+          0.390211462974548,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 20262,
+        "position": [
+          0.189835548400879,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 20435,
+        "position": [
+          0.0468164682388306,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 20606,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      }
+    ],
+    "rib_r3": [
+      {
+        "at_ms": 22947,
+        "position": [
+          1.89999997615814,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 23125,
+        "position": [
+          1.89851868152618,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 23297,
+        "position": [
+          1.84014964103699,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 23460,
+        "position": [
+          1.68619728088379,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 23627,
+        "position": [
+          1.46462273597717,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 24093,
+        "position": [
+          0.896969676017761,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 24264,
+        "position": [
+          0.618135571479797,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 24441,
+        "position": [
+          0.349572062492371,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 24612,
+        "position": [
+          0.160037755966187,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 24794,
+        "position": [
+          0.0315178632736206,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 24966,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      }
+    ],
+    "stern": [
+      {
+        "at_ms": 29856,
+        "position": [
+          0.0,
+          0.0,
+          1.79999995231628
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 30024,
+        "position": [
+          0.0,
+          0.0,
+          1.74162828922272
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 30196,
+        "position": [
+          0.0,
+          0.0,
+          1.6101952791214
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 30359,
+        "position": [
+          0.0,
+          0.0,
+          1.39347958564758
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 30539,
+        "position": [
+          0.0,
+          0.0,
+          1.1367461681366
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 31000,
+        "position": [
+          0.0,
+          0.0,
+          0.615580916404724
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 31168,
+        "position": [
+          0.0,
+          0.0,
+          0.364575743675232
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 31329,
+        "position": [
+          0.0,
+          0.0,
+          0.173534274101257
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 31489,
+        "position": [
+          0.0,
+          0.0,
+          0.0404876470565796
+        ],
+        "visible": true
+      },
+      {
+        "at_ms": 31668,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "visible": true
+      }
+    ]
+  },
+  "passed": 325,
+  "recording": [
+    {
+      "at_ms": 14518,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0000.png",
+      "moving": [
+        "rib_r1"
+      ]
+    },
+    {
+      "at_ms": 14687,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0001.png",
+      "moving": [
+        "rib_r1"
+      ]
+    },
+    {
+      "at_ms": 14842,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0002.png",
+      "moving": [
+        "rib_r1"
+      ]
+    },
+    {
+      "at_ms": 15015,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0003.png",
+      "moving": [
+        "rib_r1"
+      ]
+    },
+    {
+      "at_ms": 15177,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0004.png",
+      "moving": [
+        "rib_r1"
+      ]
+    },
+    {
+      "at_ms": 15635,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0005.png",
+      "moving": [
+        "rib_r1"
+      ]
+    },
+    {
+      "at_ms": 15807,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0006.png",
+      "moving": [
+        "rib_r1"
+      ]
+    },
+    {
+      "at_ms": 15976,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0007.png",
+      "moving": [
+        "rib_r1"
+      ]
+    },
+    {
+      "at_ms": 16163,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0008.png",
+      "moving": [
+        "rib_r1"
+      ]
+    },
+    {
+      "at_ms": 16346,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0009.png",
+      "moving": [
+        "rib_r1"
+      ]
+    },
+    {
+      "at_ms": 16531,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0010.png",
+      "moving": [
+        "rib_l2"
+      ]
+    },
+    {
+      "at_ms": 16715,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0011.png",
+      "moving": [
+        "rib_l2"
+      ]
+    },
+    {
+      "at_ms": 16898,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0012.png",
+      "moving": [
+        "rib_l2"
+      ]
+    },
+    {
+      "at_ms": 17082,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0013.png",
+      "moving": [
+        "rib_l2"
+      ]
+    },
+    {
+      "at_ms": 17270,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0014.png",
+      "moving": [
+        "rib_l2"
+      ]
+    },
+    {
+      "at_ms": 17742,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0015.png",
+      "moving": [
+        "rib_l2"
+      ]
+    },
+    {
+      "at_ms": 17910,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0016.png",
+      "moving": [
+        "rib_l2"
+      ]
+    },
+    {
+      "at_ms": 18088,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0017.png",
+      "moving": [
+        "rib_l2"
+      ]
+    },
+    {
+      "at_ms": 18253,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0018.png",
+      "moving": [
+        "rib_l2"
+      ]
+    },
+    {
+      "at_ms": 18428,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0019.png",
+      "moving": [
+        "rib_l2"
+      ]
+    },
+    {
+      "at_ms": 18594,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0020.png",
+      "moving": [
+        "rib_l2"
+      ]
+    },
+    {
+      "at_ms": 18770,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0021.png",
+      "moving": [
+        "rib_r2"
+      ]
+    },
+    {
+      "at_ms": 18939,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0022.png",
+      "moving": [
+        "rib_r2"
+      ]
+    },
+    {
+      "at_ms": 19098,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0023.png",
+      "moving": [
+        "rib_r2"
+      ]
+    },
+    {
+      "at_ms": 19275,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0024.png",
+      "moving": [
+        "rib_r2"
+      ]
+    },
+    {
+      "at_ms": 19451,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0025.png",
+      "moving": [
+        "rib_r2"
+      ]
+    },
+    {
+      "at_ms": 19928,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0026.png",
+      "moving": [
+        "rib_r2"
+      ]
+    },
+    {
+      "at_ms": 20103,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0027.png",
+      "moving": [
+        "rib_r2"
+      ]
+    },
+    {
+      "at_ms": 20261,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0028.png",
+      "moving": [
+        "rib_r2"
+      ]
+    },
+    {
+      "at_ms": 20434,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0029.png",
+      "moving": [
+        "rib_r2"
+      ]
+    },
+    {
+      "at_ms": 20605,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0030.png",
+      "moving": [
+        "rib_r2"
+      ]
+    },
+    {
+      "at_ms": 20779,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0031.png",
+      "moving": [
+        "rib_r2"
+      ]
+    },
+    {
+      "at_ms": 20957,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0032.png",
+      "moving": [
+        "rib_l3"
+      ]
+    },
+    {
+      "at_ms": 21134,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0033.png",
+      "moving": [
+        "rib_l3"
+      ]
+    },
+    {
+      "at_ms": 21308,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0034.png",
+      "moving": [
+        "rib_l3"
+      ]
+    },
+    {
+      "at_ms": 21472,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0035.png",
+      "moving": [
+        "rib_l3"
+      ]
+    },
+    {
+      "at_ms": 21636,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0036.png",
+      "moving": [
+        "rib_l3"
+      ]
+    },
+    {
+      "at_ms": 22089,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0037.png",
+      "moving": [
+        "rib_l3"
+      ]
+    },
+    {
+      "at_ms": 22246,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0038.png",
+      "moving": [
+        "rib_l3"
+      ]
+    },
+    {
+      "at_ms": 22413,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0039.png",
+      "moving": [
+        "rib_l3"
+      ]
+    },
+    {
+      "at_ms": 22591,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0040.png",
+      "moving": [
+        "rib_l3"
+      ]
+    },
+    {
+      "at_ms": 22767,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0041.png",
+      "moving": [
+        "rib_l3"
+      ]
+    },
+    {
+      "at_ms": 22942,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0042.png",
+      "moving": [
+        "rib_l3"
+      ]
+    },
+    {
+      "at_ms": 23124,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0043.png",
+      "moving": [
+        "rib_r3"
+      ]
+    },
+    {
+      "at_ms": 23296,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0044.png",
+      "moving": [
+        "rib_r3"
+      ]
+    },
+    {
+      "at_ms": 23459,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0045.png",
+      "moving": [
+        "rib_r3"
+      ]
+    },
+    {
+      "at_ms": 23626,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0046.png",
+      "moving": [
+        "rib_r3"
+      ]
+    },
+    {
+      "at_ms": 23792,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0047.png",
+      "moving": [
+        "rib_r3"
+      ]
+    },
+    {
+      "at_ms": 24262,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0048.png",
+      "moving": [
+        "rib_r3"
+      ]
+    },
+    {
+      "at_ms": 24440,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0049.png",
+      "moving": [
+        "rib_r3"
+      ]
+    },
+    {
+      "at_ms": 24611,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0050.png",
+      "moving": [
+        "rib_r3"
+      ]
+    },
+    {
+      "at_ms": 24792,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0051.png",
+      "moving": [
+        "rib_r3"
+      ]
+    },
+    {
+      "at_ms": 24964,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0052.png",
+      "moving": [
+        "rib_r3"
+      ]
+    },
+    {
+      "at_ms": 25138,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0053.png",
+      "moving": [
+        "rib_r3"
+      ]
+    },
+    {
+      "at_ms": 30022,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0054.png",
+      "moving": [
+        "stern"
+      ]
+    },
+    {
+      "at_ms": 30195,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0055.png",
+      "moving": [
+        "stern"
+      ]
+    },
+    {
+      "at_ms": 30357,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0056.png",
+      "moving": [
+        "stern"
+      ]
+    },
+    {
+      "at_ms": 30538,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0057.png",
+      "moving": [
+        "stern"
+      ]
+    },
+    {
+      "at_ms": 30711,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0058.png",
+      "moving": [
+        "stern"
+      ]
+    },
+    {
+      "at_ms": 31166,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0059.png",
+      "moving": [
+        "stern"
+      ]
+    },
+    {
+      "at_ms": 31327,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0060.png",
+      "moving": [
+        "stern"
+      ]
+    },
+    {
+      "at_ms": 31488,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0061.png",
+      "moving": [
+        "stern"
+      ]
+    },
+    {
+      "at_ms": 31667,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0062.png",
+      "moving": [
+        "stern"
+      ]
+    },
+    {
+      "at_ms": 31837,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0063.png",
+      "moving": [
+        "stern"
+      ]
+    },
+    {
+      "at_ms": 36751,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0064.png",
+      "moving": [
+        "beam3"
+      ]
+    },
+    {
+      "at_ms": 36918,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0065.png",
+      "moving": [
+        "beam3"
+      ]
+    },
+    {
+      "at_ms": 37081,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0066.png",
+      "moving": [
+        "beam3"
+      ]
+    },
+    {
+      "at_ms": 37250,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0067.png",
+      "moving": [
+        "beam3"
+      ]
+    },
+    {
+      "at_ms": 37417,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0068.png",
+      "moving": [
+        "beam3"
+      ]
+    },
+    {
+      "at_ms": 37874,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0069.png",
+      "moving": [
+        "beam3"
+      ]
+    },
+    {
+      "at_ms": 38044,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0070.png",
+      "moving": [
+        "beam3"
+      ]
+    },
+    {
+      "at_ms": 38217,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0071.png",
+      "moving": [
+        "beam3"
+      ]
+    },
+    {
+      "at_ms": 38380,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0072.png",
+      "moving": [
+        "beam3"
+      ]
+    },
+    {
+      "at_ms": 38551,
+      "file": "res://tests/evidence/rib-repair/recording/frame-0073.png",
+      "moving": [
+        "beam3"
+      ]
+    }
+  ]
+}

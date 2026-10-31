@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="古船榫匠 · Joinery Workshop"
-run/main_scene="res://demo/workshop.tscn"
+run/main_scene="res://campaign/campaign.tscn"
 config/features=PackedStringArray("4.7")
 
 [display]
 
 window/size/viewport_width=1440
 window/size/viewport_height=900
+window/size/window_width_override=1440
+window/size/window_height_override=900
 window/stretch/mode="canvas_items"
 
 [rendering]

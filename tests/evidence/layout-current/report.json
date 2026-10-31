@@ -1,0 +1,19 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+	"res://tests/evidence/layout-current/01-chapter-one-three-lessons.png",
+	"res://tests/evidence/layout-current/02-keel-workshop-layout.png",
+	"res://tests/evidence/layout-current/03-half-tenon-local-view.png",
+	"res://tests/evidence/layout-current/04-labelled-automatic-insertion.png",
+	"res://tests/evidence/layout-current/05a-complete-model-before-check.png",
+	"res://tests/evidence/layout-current/05-completed-ship-section-plan.png",
+	"res://tests/evidence/layout-current/06-chapter-2-three-lessons.png",
+	"res://tests/evidence/layout-current/07-chapter-2-original-background.png",
+	"res://tests/evidence/layout-current/06-chapter-3-three-lessons.png",
+    "res://tests/evidence/layout-current/07-chapter-3-original-background.png"
+  ],
+  "method": "Actual GPU SubViewport captures; hidden NO_FOCUS host; scripted setup, no desktop interaction.",
+  "no_focus": true
+}
