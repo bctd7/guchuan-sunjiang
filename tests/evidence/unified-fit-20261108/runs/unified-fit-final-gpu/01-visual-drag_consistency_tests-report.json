@@ -1,0 +1,153 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "passed": 441,
+  "renderer": "macOS",
+  "samples": [
+    {
+      "input_logical_pixels": 220.0,
+      "raw_logical_pixels": 289.500915527344,
+      "size": "(1440, 900)",
+      "touch": false,
+      "type": "tongue_groove",
+      "zoom": 0.25
+    },
+    {
+      "input_logical_pixels": 80.0,
+      "raw_logical_pixels": 72.3751678466797,
+      "size": "(1440, 900)",
+      "touch": false,
+      "type": "tongue_groove",
+      "zoom": 1.0
+    },
+    {
+      "input_logical_pixels": 80.0,
+      "raw_logical_pixels": 45.2344932556152,
+      "size": "(1440, 900)",
+      "touch": false,
+      "type": "tongue_groove",
+      "zoom": 1.6
+    },
+    {
+      "input_logical_pixels": 220.0,
+      "raw_logical_pixels": 330.524627685547,
+      "size": "(1440, 900)",
+      "touch": false,
+      "type": "cross_lap",
+      "zoom": 0.25
+    },
+    {
+      "input_logical_pixels": 82.631103515625,
+      "raw_logical_pixels": 82.631103515625,
+      "size": "(1440, 900)",
+      "touch": false,
+      "type": "cross_lap",
+      "zoom": 1.0
+    },
+    {
+      "input_logical_pixels": 80.0,
+      "raw_logical_pixels": 51.6444091796875,
+      "size": "(1440, 900)",
+      "touch": false,
+      "type": "cross_lap",
+      "zoom": 1.6
+    },
+    {
+      "input_logical_pixels": 220.0,
+      "raw_logical_pixels": 395.617431640625,
+      "size": "(1440, 900)",
+      "touch": false,
+      "type": "three_way_lap",
+      "zoom": 0.25
+    },
+    {
+      "input_logical_pixels": 98.9043655395508,
+      "raw_logical_pixels": 98.9043655395508,
+      "size": "(1440, 900)",
+      "touch": false,
+      "type": "three_way_lap",
+      "zoom": 1.0
+    },
+    {
+      "input_logical_pixels": 80.0,
+      "raw_logical_pixels": 61.8152046203613,
+      "size": "(1440, 900)",
+      "touch": false,
+      "type": "three_way_lap",
+      "zoom": 1.6
+    },
+    {
+      "input_logical_pixels": 220.0,
+      "raw_logical_pixels": 271.685424804688,
+      "size": "(960, 600)",
+      "touch": true,
+      "type": "tongue_groove",
+      "zoom": 0.25
+    },
+    {
+      "input_logical_pixels": 80.0,
+      "raw_logical_pixels": 67.9213409423828,
+      "size": "(960, 600)",
+      "touch": true,
+      "type": "tongue_groove",
+      "zoom": 1.0
+    },
+    {
+      "input_logical_pixels": 80.0,
+      "raw_logical_pixels": 42.4508438110352,
+      "size": "(960, 600)",
+      "touch": true,
+      "type": "tongue_groove",
+      "zoom": 1.6
+    },
+    {
+      "input_logical_pixels": 220.0,
+      "raw_logical_pixels": 310.184661865234,
+      "size": "(960, 600)",
+      "touch": true,
+      "type": "cross_lap",
+      "zoom": 0.25
+    },
+    {
+      "input_logical_pixels": 80.0,
+      "raw_logical_pixels": 77.5461196899414,
+      "size": "(960, 600)",
+      "touch": true,
+      "type": "cross_lap",
+      "zoom": 1.0
+    },
+    {
+      "input_logical_pixels": 80.0,
+      "raw_logical_pixels": 48.4663200378418,
+      "size": "(960, 600)",
+      "touch": true,
+      "type": "cross_lap",
+      "zoom": 1.6
+    },
+    {
+      "input_logical_pixels": 220.0,
+      "raw_logical_pixels": 371.271728515625,
+      "size": "(960, 600)",
+      "touch": true,
+      "type": "three_way_lap",
+      "zoom": 0.25
+    },
+    {
+      "input_logical_pixels": 92.8179168701172,
+      "raw_logical_pixels": 92.8179168701172,
+      "size": "(960, 600)",
+      "touch": true,
+      "type": "three_way_lap",
+      "zoom": 1.0
+    },
+    {
+      "input_logical_pixels": 80.0,
+      "raw_logical_pixels": 58.0112113952637,
+      "size": "(960, 600)",
+      "touch": true,
+      "type": "three_way_lap",
+      "zoom": 1.6
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/comparison-navigation/plank_0a-1440-scaled.png",
+    "res://tests/evidence/comparison-navigation/plank_0a-1440-closeup.png",
+    "res://tests/evidence/comparison-navigation/plank_0a-1440-magnified.png",
+    "res://tests/evidence/comparison-navigation/plank_0a-960-scaled.png",
+    "res://tests/evidence/comparison-navigation/plank_0a-960-magnified.png",
+    "res://tests/evidence/comparison-navigation/cross_upper-1440-scaled.png",
+    "res://tests/evidence/comparison-navigation/cross_upper-1440-magnified.png",
+    "res://tests/evidence/comparison-navigation/cross_upper-960-scaled.png",
+    "res://tests/evidence/comparison-navigation/cross_upper-960-closeup.png",
+    "res://tests/evidence/comparison-navigation/cross_upper-960-magnified.png",
+    "res://tests/evidence/comparison-navigation/three_middle-1440-scaled.png",
+    "res://tests/evidence/comparison-navigation/three_middle-1440-magnified.png",
+    "res://tests/evidence/comparison-navigation/three_middle-960-scaled.png",
+    "res://tests/evidence/comparison-navigation/three_middle-960-magnified.png",
+    "res://tests/evidence/comparison-navigation/three_upper-1440-scaled.png",
+    "res://tests/evidence/comparison-navigation/three_upper-1440-magnified.png",
+    "res://tests/evidence/comparison-navigation/three_upper-960-scaled.png",
+    "res://tests/evidence/comparison-navigation/three_upper-960-magnified.png",
+    "res://tests/evidence/comparison-navigation/first-cross_lap-scaled.png",
+    "res://tests/evidence/comparison-navigation/first-cross_lap-magnified.png",
+    "res://tests/evidence/comparison-navigation/first-three_way_lap-scaled.png",
+    "res://tests/evidence/comparison-navigation/first-three_way_lap-magnified.png"
+  ],
+  "passed": 324,
+  "renderer": "macOS",
+  "scope": "Real wheel/orbit/reset/magnifier/return input for four manual stages and two adapted first joints, including 1440 and 960 widths; comparison scale, full candidate bounds and unchanged assembly."
+}

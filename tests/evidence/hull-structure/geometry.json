@@ -1,0 +1,7 @@
+{
+  "failed": 0,
+  "failures": [],
+  "hull_surface_contacts": 32,
+  "method": "actual mesh triangle contact patches and shell surface rays, independent narrow-phase guard; pure State setup, not GUI or engineering simulation",
+  "passed": 47
+}

@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "id": "plank_0a",
+      "option": "A",
+      "path_clear": true,
+      "stop_height": 0.0
+    },
+    {
+      "id": "plank_0a",
+      "option": "B",
+      "path_clear": true,
+      "stop_height": 0.0
+    },
+    {
+      "id": "plank_0a",
+      "option": "C",
+      "path_clear": true,
+      "stop_height": 0.0
+    },
+    {
+      "id": "plank_0b",
+      "option": "A",
+      "path_clear": true,
+      "stop_height": 0.0
+    },
+    {
+      "id": "plank_0b",
+      "option": "B",
+      "path_clear": true,
+      "stop_height": 0.0
+    },
+    {
+      "id": "plank_0b",
+      "option": "C",
+      "path_clear": true,
+      "stop_height": 0.0
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "passed": 60,
+  "scope": "Independent triangle/containment oracle: all six paired ABC assemblies fully seat against the fixed hull, retain connected wood, lock the middle and engage the rail. Unmatched C tops remain blocked by A/B as counterfactual controls."
+}

@@ -1,0 +1,116 @@
+{
+  "records": [
+    {
+      "path": "docs/current/LEVEL02_REQUIREMENTS.md",
+      "before": "269aaa251c20e522773fa9bcb3a7f9d6481b0b5140eade5b6a2fcc2ef3d89525",
+      "after": "c8ee3ad7ff8ae663b3422f72d8d31e8cd2daf945e62c05860773df9c0c5cd942"
+    },
+    {
+      "path": "docs/current/TECHNICAL_ARCHITECTURE.md",
+      "before": "d602cfaac218cbfc4c0fede3d4a152303b3ffd5af1080d98d49b6b24a2e7b709",
+      "after": "bb5aaa62f19e60756defe47397f1fd3925a5923b95bd8de9e580c9c78b5e1925"
+    },
+    {
+      "path": "levels/level02/README.md",
+      "before": "705b680a1e9360e1208d2bd969d3b2c6133e7e0bed617204be73a2aac9bc08f2",
+      "after": "4ba1d1e985ba047060771c7fe7339ca0452ebcb9cedef17ddfee1295b41387cf"
+    },
+    {
+      "path": "levels/level02/assembly_alignment.gd",
+      "before": null,
+      "after": "b936d20befb229a07e4740fbdc5eba3f75bd331b682b335631ddac5ebdb17000"
+    },
+    {
+      "path": "levels/level02/assembly_alignment.gd.uid",
+      "before": null,
+      "after": "ed85dd9be80f8bca0ff29e6fae3bb7cfc8ba9be7456b71135aaf46b13dd2e184"
+    },
+    {
+      "path": "levels/level02/hull_view.gd",
+      "before": "4793ffe4b36ddede230d6c057740c67d74d9989516a7bb6641ffe6083eb76af7",
+      "after": "3bb47eb8286bcededbbcd932dc39e78a8ad527e120d8e5b2d66ae67ef8b630d3"
+    },
+    {
+      "path": "levels/level02/joint_gallery.gd",
+      "before": "afd2dfdcb13736338923075e582358763b376a373af4285a52590686463ff21a",
+      "after": "da56c775a7031db334378588b2f07cd2310f908423635e3937062a6794a516d1"
+    },
+    {
+      "path": "levels/level02/level_ui.gd",
+      "before": "b621864f4ef6bc12858b8f031eb8edbf687741a7933ec4ed34134dee34ba1283",
+      "after": "496244f81b950678f619f2bbb02456fdea42b38f923ea4d4cf4f10d8e2bef07c"
+    },
+    {
+      "path": "levels/level02/trial_contact.gd",
+      "before": "da904ccafb2eb42e8bbef451ba7b67caca6578eb4bf337e3587fe55b322f3b55",
+      "after": "f5ff9da56a2fd26dca5c39e7a39fcd2f05115bb445efc4c8fa673493bba36b05"
+    },
+    {
+      "path": "levels/shared/joint_demonstration.gd",
+      "before": null,
+      "after": "6e85d7a5902b36569f446a485701303d6b73b547b87319091aa0785474224b9b"
+    },
+    {
+      "path": "levels/shared/joint_demonstration.gd.uid",
+      "before": null,
+      "after": "51e621fa64c0920e8121949fe65f3e133b570ed3b084a29e5f0a1dfe51f38262"
+    },
+    {
+      "path": "levels/shared/model_magnifier.gd",
+      "before": "949c6003ca9ae6163c0337e31177f57f59d9021c36f611f23e9456a991261659",
+      "after": "f4c35bb75d66ed3dc8a65c3b49f10a7634518cee31c784b71712ae47d1a0978f"
+    },
+    {
+      "path": "levels/shared/rotatable_preview.gd",
+      "before": "60b39a3e03a0934269dd8edce359a8b317eb42e0646342463b348fdfffe273eb",
+      "after": "1d18d3cc4befc3ece0ebc92c635efc56d00bae8542f93ce75a180b06d8183acd"
+    },
+    {
+      "path": "tests/LEVEL02_ALIGNMENT_VERIFICATION.md",
+      "before": null,
+      "after": "6c9fd47018440d445a6d785732e9972cc9173befc602ee5e86c020a2f2913852"
+    },
+    {
+      "path": "tests/README.md",
+      "before": "968f7410926bc0a24b1a04680fbf3eb2cc443864aa735bd9b5bc2af228050d56",
+      "after": "cccd05e92f182d00dbee452ee02dfeecc313480db2ae7b08f1a281da8402e36c"
+    },
+    {
+      "path": "tests/level02_alignment_geometry_tests.gd",
+      "before": null,
+      "after": "fc620db953fdba7d0104609a171b209a36bb0d167adda6f43af85fb22b126c10"
+    },
+    {
+      "path": "tests/level02_alignment_geometry_tests.gd.uid",
+      "before": null,
+      "after": "bc0aee65ea8bfc3a9c4395c3eec2cd332a567f16d527ea295cac30b9fb23c0d9"
+    },
+    {
+      "path": "tests/level02_alignment_tests.gd",
+      "before": null,
+      "after": "3c4081b7d930038ff43f5d636466eb8a0ce83d8f6787008b917176261460e40f"
+    },
+    {
+      "path": "tests/level02_alignment_tests.gd.uid",
+      "before": null,
+      "after": "d150dffa0398d29e9898974a4d3061bded7a1bcc3360df4139a3cba66ae1803d"
+    },
+    {
+      "path": "tests/run_suite.py",
+      "before": "38fe69b5a34399e733fd9ec2565af91b507524109a12f049925cecafaf029c5c",
+      "after": "1a6281a0c6d423a1e5028601e13a8c6747fc099eca3a308b4b83bfe4d84b1fc0"
+    },
+    {
+      "path": "tests/stock_clearance.gd",
+      "before": "0c41255d2976921c974d515521783e4a2f986198db3ad47a324682b3e91d4fd5",
+      "after": "da3d23424810aff6af9288d5c78a028d6f843de3570bc752efba50953fb8e163"
+    },
+    {
+      "path": "tests/test_suite_runner.py",
+      "before": "93fe39121d36ec7b2e7050a26da8175b743ef5fc9c2063e69fa6b2069c6d52fb",
+      "after": "7f7c83cf4104270833a2f7be32d656fc3faecacf8ba11af0fc64995af3b966f3"
+    }
+  ],
+  "conflicts": [],
+  "scope": "source/docs only; evidence hashes excluded to avoid recursion"
+}

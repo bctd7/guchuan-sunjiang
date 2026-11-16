@@ -1,0 +1,40 @@
+{
+  "project": "/private/tmp/guchuan-three-groups-review",
+  "started_utc": "2026-11-08T08:59:31.514715+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-three_group_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 30.81,
+      "log": "/private/tmp/three-groups-gpu/00-visual-three_group_tests.log",
+      "engine_log": "/private/tmp/three-groups-gpu/00-visual-three_group_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/three-groups-gpu/00-visual-three_group_tests-engine.log",
+        "--script",
+        "tests/three_group_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

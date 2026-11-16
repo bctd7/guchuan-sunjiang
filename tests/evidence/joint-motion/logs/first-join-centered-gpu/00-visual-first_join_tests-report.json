@@ -1,0 +1,19 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/first-join/cross_lap-before.png",
+    "res://tests/evidence/first-join/cross_lap-partway.png",
+    "res://tests/evidence/first-join/cross_lap-contact.png",
+    "res://tests/evidence/first-join/three_way_lap-before.png",
+    "res://tests/evidence/first-join/three_way_lap-partway.png",
+    "res://tests/evidence/first-join/three_way_lap-contact.png",
+    "res://tests/evidence/first-join/tongue_groove-before.png",
+    "res://tests/evidence/first-join/tongue_groove-partway.png",
+    "res://tests/evidence/first-join/correct-pair-overview.png"
+  ],
+  "passed": 176,
+  "renderer": "macOS",
+  "scope": "Second-level first joint only. Real mouse choice of cross, three-way, tongue; shallow approach, physical wrong-stock contact and withdrawal, correct pair repetition; actual receiver cutaway and default camera."
+}

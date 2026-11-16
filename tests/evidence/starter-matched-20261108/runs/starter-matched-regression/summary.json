@@ -1,0 +1,97 @@
+{
+  "project": "/private/tmp/guchuan-starter-matched-review",
+  "started_utc": "2026-11-08T06:37:37.657573+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-receiving_edge_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.59,
+      "log": "/private/tmp/starter-matched-regression/00-levels-receiving_edge_tests.log",
+      "engine_log": "/private/tmp/starter-matched-regression/00-levels-receiving_edge_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-matched-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-matched-regression/00-levels-receiving_edge_tests-engine.log",
+        "--script",
+        "tests/receiving_edge_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-first_join_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 12.15,
+      "log": "/private/tmp/starter-matched-regression/01-levels-first_join_tests.log",
+      "engine_log": "/private/tmp/starter-matched-regression/01-levels-first_join_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-matched-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-matched-regression/01-levels-first_join_tests-engine.log",
+        "--script",
+        "tests/first_join_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 31.3,
+      "log": "/private/tmp/starter-matched-regression/02-levels-level02_wrong_type_tests.log",
+      "engine_log": "/private/tmp/starter-matched-regression/02-levels-level02_wrong_type_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-matched-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-matched-regression/02-levels-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-level02_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 25.78,
+      "log": "/private/tmp/starter-matched-regression/03-levels-level02_input_tests.log",
+      "engine_log": "/private/tmp/starter-matched-regression/03-levels-level02_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-matched-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-matched-regression/03-levels-level02_input_tests-engine.log",
+        "--script",
+        "tests/level02_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

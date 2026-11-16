@@ -1,0 +1,40 @@
+{
+  "project": "/private/tmp/guchuan-unified-fit-review",
+  "started_utc": "2026-11-08T13:42:08.401020+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-continuation_matrix_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 108.59,
+      "log": "/private/tmp/unified-fit-continuation-final-gpu/00-visual-continuation_matrix_tests.log",
+      "engine_log": "/private/tmp/unified-fit-continuation-final-gpu/00-visual-continuation_matrix_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/unified-fit-continuation-final-gpu/00-visual-continuation_matrix_tests-engine.log",
+        "--script",
+        "tests/continuation_matrix_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

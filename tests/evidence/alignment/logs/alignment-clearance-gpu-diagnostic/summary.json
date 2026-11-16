@@ -1,0 +1,40 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+  "started_utc": "2026-11-01T14:33:03.592110+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 38.62,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-clearance-gpu-diagnostic/00-visual-inspection_workspace_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-clearance-gpu-diagnostic/00-visual-inspection_workspace_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-clearance-gpu-diagnostic/00-visual-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

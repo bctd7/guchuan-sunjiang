@@ -1,0 +1,53 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+  "started_utc": "2026-11-01T10:36:37.219823+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-stock_clearance_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.2,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-contact-convex/00-levels-stock_clearance_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-contact-convex/00-levels-stock_clearance_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-contact-convex/00-levels-stock_clearance_tests-engine.log",
+        "--script",
+        "tests/stock_clearance_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-trial_contact_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 38.44,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-contact-convex/01-levels-trial_contact_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-contact-convex/01-levels-trial_contact_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-contact-convex/01-levels-trial_contact_tests-engine.log",
+        "--script",
+        "tests/trial_contact_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

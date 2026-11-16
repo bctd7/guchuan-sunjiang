@@ -1,0 +1,31 @@
+{
+  "project": "/private/tmp/guchuan-opening-comparison-review",
+  "started_utc": "2026-11-08T14:15:59.518048+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-starter_lock_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 9.94,
+      "log": "/private/tmp/opening-comparison-starter-final/00-levels-starter_lock_tests.log",
+      "engine_log": "/private/tmp/opening-comparison-starter-final/00-levels-starter_lock_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-opening-comparison-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/opening-comparison-starter-final/00-levels-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

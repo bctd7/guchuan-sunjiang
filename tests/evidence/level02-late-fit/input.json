@@ -1,0 +1,7 @@
+{
+	"failed": 0,
+	"failures": [],
+	"method": "Godot Viewport real mouse/touch events; no state mutation",
+	"passed": 353,
+	"renderer": "headless"
+}

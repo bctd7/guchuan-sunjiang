@@ -1,222 +1,449 @@
 extends CanvasLayer
-const Failure=preload("res://levels/shared/assembly_failure.gd")
+const ZoomBar=preload("res://levels/shared/inspection_zoom_bar.gd")
+## Overview presents the current task; a separate inspection page owns model choices.
+const Magnifier=preload("res://levels/shared/model_magnifier.gd")
+const Workspace=preload("res://levels/shared/inspection_workspace.gd")
+const OpeningGallery=preload("res://levels/level02/opening_gallery.gd")
+const OpeningReference=preload("res://levels/level02/opening_reference.gd")
+const OpeningMeasure=preload("res://levels/level02/opening_measure_panel.gd")
+const ObservationOrbit=preload("res://levels/shared/inspection_orbit.gd")
+const Style=preload("res://shared/ui/workshop_ui_style.gd")
 const Controls=preload("res://levels/shared/chapter_ui.gd")
 const Friendly=preload("res://shared/ui/friendly_theme.gd")
+const Failure=preload("res://levels/shared/assembly_failure.gd")
 const Gallery=preload("res://levels/level02/joint_gallery.gd")
-const SeamDiagram=preload("res://levels/level02/seam_diagram.gd")
 const DragGuide=preload("res://levels/level02/drag_guide.gd")
 const Rules=preload("res://levels/level02/connection_rules.gd")
 signal bulkhead_requested
-var bulkhead_button: Button
 signal lesson_requested
-var lesson_button: Button
-signal piece_selected(id: String)
+signal group_selected(index: int)
+signal next_piece_requested
 signal joint_selected(id: String)
+signal opening_selected(id: String)
+signal prepare_observation_requested
+signal reset_observation_requested
 signal layout_selected(id: String)
 signal observe_requested
 signal overview_requested
 signal transparent_requested
-signal plan_requested
+signal zoom_requested(factor: float)
+signal magnify_requested(source: Control,title: String)
 signal undo_requested
-signal repair_requested
 signal restart_requested
 signal check_requested
 signal return_requested
 signal continue_requested
-var piece_buttons: Dictionary={}
+var magnifier: Control
+var zoom_in_button: Button
+var zoom_out_button: Button
+var zoom_reset_button: Button
+var zoom_label: Label
+var root_control: Control
+var main_chrome: Control
+var workspace: Control
+var local_viewport: SubViewport
+var observation_orbit: Control
+var opening_gallery: Control
+var opening_measure: Control
+var opening_buttons: Dictionary={}
+var prepare_observation_button: Button
+var reset_observation_button: Button
+var options_panel: VBoxContainer
+var current_view: Node3D
+var observer_chrome: Control
+var main_header: PanelContainer
+var main_sidebar: PanelContainer
+var main_footer: PanelContainer
+var inventory_panel: PanelContainer
+var inventory_button: Button
+var inventory_close_button: Button
+var inventory_open: bool:
+	get: return is_instance_valid(inventory_panel) and inventory_panel.visible
+var group_buttons: Dictionary={}
+var next_piece_button: Button
 var joint_buttons: Dictionary={}
 var layout_buttons: Dictionary={}
 var observe_button: Button
+var observer_undo_button: Button
 var overview_button: Button
 var transparent_button: Button
-var plan_button: Button
 var undo_button: Button
-var repair_button: Button
 var restart_button: Button
 var check_button: Button
 var return_button: Button
 var continue_button: Button
+var bulkhead_button: Button
+var lesson_button: Button
 var feedback_label: Label
+var observer_instruction: Label
+var observer_feedback: Label
 var title_label: Label
-var count_label: Label
+var header_label: Label
+var task_label: Label
+var selection_label: Label
+var stage_label: Label
 var observation_label: Label
-var diagram: Control
+var layout_title: Label
+var layout_note: Label
 var drag_guide: Control
+var gallery: Control
 var success_panel: PanelContainer
 var failure_overlay: ColorRect
 var failure_restart_button: Button
 var failure_return_button: Button
-var root_control: Control
+var _shade: ColorRect
 var current
-var gallery: Control
-var header_label: Label
+var _inspected := false
 func _ready() -> void:
+	layer=5
 	root_control=Control.new()
-	root_control.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 	root_control.size=Vector2(1440,900)
 	root_control.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	root_control.theme=Friendly.make_theme(true)
 	add_child(root_control)
 	drag_guide=DragGuide.new()
 	root_control.add_child(drag_guide)
-	var header=_panel(Rect2(20,15,1190,68))
-	header_label=_label_at("02  船板合壳  /  从底向舷 · 端缝错开",Rect2(36,27,1150,45),28)
-	return_button=_button_at("关卡目录",Rect2(1230,20,190,52))
-	return_button.pressed.connect(func(): return_requested.emit())
-	lesson_button=_button_at("本关榫卯",Rect2(1230,100,190,48))
-	lesson_button.pressed.connect(func(): lesson_requested.emit())
-	bulkhead_button=_button_at("水密隔舱小课堂",Rect2(1210,158,210,48))
-	bulkhead_button.pressed.connect(func(): bulkhead_requested.emit())
-	var inventory=_panel(Rect2(20,100,300,650))
-	var list=VBoxContainer.new()
-	inventory.add_child(list)
-	list.add_theme_constant_override("separation",3)
-	_label(list,"构件  /  依序放置",22)
-	count_label=_label(list,"0 / 10",20)
-	for id in Rules.IDS:
-		var b=Button.new()
-		b.text=Rules.label_for(id)
-		b.custom_minimum_size=Vector2(260,48)
-		list.add_child(b)
-		piece_buttons[id]=b
-		b.pressed.connect(func(): piece_selected.emit(id))
-	undo_button=Button.new()
-	undo_button.text="撤回上一件"
-	undo_button.custom_minimum_size=Vector2(260,48)
-	list.add_child(undo_button)
-	undo_button.pressed.connect(func(): undo_requested.emit())
-	restart_button=_button_at("重新搭建",Rect2(20,772,142,50))
-	restart_button.pressed.connect(func(): restart_requested.emit())
-	repair_button=_button_at("修正端缝",Rect2(172,772,148,50))
-	repair_button.pressed.connect(func(): repair_requested.emit())
-	title_label=_label_at("选择构件 → 观察选材 → 按住木料沿箭头推入",Rect2(350,98,1050,35),22)
-	observe_button=_button_at("放大观察槽口",Rect2(350,145,220,50))
-	observe_button.pressed.connect(func(): observe_requested.emit())
-	overview_button=_button_at("返回船壳",Rect2(582,145,190,50))
-	overview_button.pressed.connect(func(): overview_requested.emit())
-	transparent_button=_button_at("透视船板",Rect2(784,145,190,50))
-	transparent_button.pressed.connect(func(): transparent_requested.emit())
-	plan_button=_button_at("端缝展开图",Rect2(986,145,200,50))
-	plan_button.pressed.connect(func(): plan_requested.emit())
-	var idx=0
-	for joint in ["tongue_groove","cross_lap","three_way_lap"]:
-		var b=_button_at(Rules.JOINT_NAMES[joint],Rect2(350+idx*145,210,135,48))
-		joint_buttons[joint]=b
-		b.pressed.connect(func(): joint_selected.emit(joint))
-		idx+=1
-	for i in 2:
-		var id="A" if i==0 else "B"
-		var b=_button_at("排布 %s · X=%s" % [id,"−1.40" if i==0 else "+1.40"],Rect2(810+i*295,210,282,47))
-		layout_buttons[id]=b
-		b.pressed.connect(func(): layout_selected.emit(id))
-	gallery=Gallery.new()
-	gallery.position=Vector2(350,315)
-	root_control.add_child(gallery)
-	gallery.hide()
-	observation_label=_label_at("",Rect2(350,268,1050,48),20)
-	observation_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	observation_label.vertical_alignment=VERTICAL_ALIGNMENT_TOP
-	diagram=SeamDiagram.new()
-	diagram.position=Vector2(350,315)
-	diagram.size=Vector2(1050,370)
-	diagram.hide()
-	root_control.add_child(diagram)
-	var foot=_panel(Rect2(340,710,1080,170))
-	feedback_label=_label_at("先选择底列尾板，放大查看连续舌槽。",Rect2(365,725,790,58),21)
+	main_chrome=_surface()
+	main_chrome.theme=Style.theme()
+	workspace=Workspace.new()
+	root_control.add_child(workspace)
+	observer_chrome=workspace
+	_build_overview()
+	_build_observer()
+	_build_modals()
+	magnifier=Magnifier.new();root_control.add_child(magnifier)
+	get_viewport().size_changed.connect(_fit_layout)
+	tree_entered.connect(_fit_layout.call_deferred)
+	_fit_layout()
+	visibility_changed.connect(_sync_local_scene)
+func _surface() -> Control:
+	var control:=Control.new()
+	control.size=Vector2(1440,900)
+	control.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	root_control.add_child(control)
+	return control
+func _card(parent: Node,rect: Rect2) -> PanelContainer:
+	var card=Controls.panel(parent,rect)
+	card.add_theme_stylebox_override("panel",Style.card())
+	return card
+func _label(parent: Node,text: String,size_value:=18,weight:=400,muted:=false) -> Label:
+	var label=Controls.label(parent,text,size_value)
+	Style.label(label,size_value,weight,muted)
+	return label
+func _button(parent: Node,text: String,primary:=false) -> Button:
+	var button=Controls.button(parent,text)
+	Style.button(button,primary)
+	return button
+func _build_overview() -> void:
+	main_header=_card(main_chrome,Rect2(20,18,1400,82))
+	var header_style=Style.card();header_style.content_margin_top=10;header_style.content_margin_bottom=10
+	main_header.add_theme_stylebox_override("panel",header_style)
+	var heading:=HBoxContainer.new()
+	heading.add_theme_constant_override("separation",36)
+	main_header.add_child(heading)
+	var titles:=VBoxContainer.new()
+	titles.add_theme_constant_override("separation",2)
+	heading.add_child(titles)
+	_label(titles,"古船榫匠 / 第二关",14,500,true)
+	header_label=_label(titles,"船板合壳",28,600)
+	var task:=VBoxContainer.new()
+	task.add_theme_constant_override("separation",4)
+	task.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	heading.add_child(task)
+	_label(task,"当前任务",14,500,true)
+	task_label=_label(task,"",23,500)
+	var navigation_space:=Control.new()
+	navigation_space.custom_minimum_size.x=180
+	heading.add_child(navigation_space)
+	return_button=_button(main_chrome,"‹ 关卡目录")
+	return_button.position=Vector2(1244,34)
+	return_button.size=Vector2(160,48)
+	return_button.pressed.connect(func():return_requested.emit())
+	main_sidebar=_card(main_chrome,Rect2(20,144,310,405))
+	var stack:=VBoxContainer.new()
+	stack.add_theme_constant_override("separation",12)
+	main_sidebar.add_child(stack)
+	var status:=HBoxContainer.new()
+	stack.add_child(status)
+	stage_label=_label(status,"当前要安装",14,500,true)
+	stage_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	var selected_words:=VBoxContainer.new();selected_words.add_theme_constant_override("separation",4);stack.add_child(selected_words)
+	_label(selected_words,"这组木料",14,400,true)
+	selection_label=_label(selected_words,"",24,600)
+	var instruction=_label(stack,"先观察开口与槽口，再挑选木料。\n抓住木料，沿箭头推入槽内。",17)
+	instruction.add_theme_constant_override("line_spacing",4)
+	observe_button=_button(stack,"看榫头，挑木料",true)
+	observe_button.custom_minimum_size.y=60
+	observe_button.pressed.connect(func():observe_requested.emit())
+	bulkhead_button=_button(stack,"水密隔舱小课堂")
+	bulkhead_button.custom_minimum_size.y=52
+	bulkhead_button.pressed.connect(func():bulkhead_requested.emit())
+	var note=_label(stack,"同类木料一次示范，依次补齐。\n扣合撑分别侧推、下压。",16,400,true)
+	note.add_theme_constant_override("line_spacing",3)
+	main_footer=_card(main_chrome,Rect2(20,770,1400,110))
+	var row:=HBoxContainer.new()
+	row.add_theme_constant_override("separation",12)
+	main_footer.add_child(row)
+	var words:=VBoxContainer.new()
+	words.add_theme_constant_override("separation",6)
+	words.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	row.add_child(words)
+	inventory_button=Button.new()
+	inventory_button.flat=true
+	for state in ["normal","hover","pressed","hover_pressed"]:inventory_button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
+	var focus:=StyleBoxFlat.new();focus.bg_color=Color(0,0,0,0);focus.border_color=Color("7b956e");focus.set_border_width_all(2)
+	inventory_button.add_theme_stylebox_override("focus",focus)
+	inventory_button.alignment=HORIZONTAL_ALIGNMENT_LEFT
+	inventory_button.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
+	inventory_button.add_theme_font_override("font",Style.font(500))
+	inventory_button.add_theme_font_size_override("font_size",16)
+	inventory_button.add_theme_color_override("font_color",Style.MUTED)
+	words.add_child(inventory_button)
+	inventory_button.pressed.connect(func():
+		inventory_panel.show()
+		_shade.show())
+	feedback_label=_label(words,"底列船板待安装。",21,500)
 	feedback_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	feedback_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	_label_at("木榫不等于水密。装齐后统一试浪；海浪和浅水为教学示意，实际仍须填缝与试验。",Rect2(365,813,1030,42),18)
-	check_button=_button_at("装齐后自动试浪",Rect2(1170,731,230,58))
-	check_button.pressed.connect(func(): check_requested.emit())
-	success_panel=_panel(Rect2(500,310,710,365))
-	var v=VBoxContainer.new()
+	undo_button=_button(row,"撤回上一步")
+	undo_button.pressed.connect(func():undo_requested.emit())
+	restart_button=_button(row,"重新搭建")
+	restart_button.pressed.connect(func():restart_requested.emit())
+	check_button=_button(row,"海浪测试",true)
+	check_button.pressed.connect(func():check_requested.emit())
+	for button in [undo_button,restart_button,check_button]:
+		button.size_flags_horizontal=Control.SIZE_SHRINK_CENTER
+		button.custom_minimum_size=Vector2(148,56)
+	check_button.hide() # The whole-hull trial starts automatically.
+func _build_observer() -> void:
+	title_label=workspace.title
+	observer_instruction=workspace.explanation
+	lesson_button=workspace.button(workspace.header,"本关榫卯讲解")
+	lesson_button.pressed.connect(func():lesson_requested.emit())
+	observer_undo_button=workspace.button(workspace.header,"取回调整")
+	observer_undo_button.pressed.connect(func():undo_requested.emit())
+	next_piece_button=workspace.button(workspace.header,"接着铺另一块")
+	next_piece_button.pressed.connect(func():next_piece_requested.emit())
+	overview_button=workspace.button(workspace.header,"返回船架")
+	overview_button.pressed.connect(func():overview_requested.emit())
+	gallery=Gallery.new();workspace.candidates.add_child(gallery);joint_buttons=gallery.buttons
+	gallery.chosen.connect(func(id: String):joint_selected.emit(id))
+	gallery.inspect_requested.connect(func(id: String):magnify_requested.emit(gallery.previews[id],Rules.JOINT_NAMES[id]+" · "+Gallery.DETAILS[id]))
+	options_panel=workspace.options
+	observation_label=workspace.label(options_panel,"三件同型木料，缺口形状不同。",18)
+	observation_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	observation_label.hide()
+	opening_measure=OpeningMeasure.new();options_panel.add_child(opening_measure)
+	opening_gallery=OpeningGallery.new();options_panel.add_child(opening_gallery);opening_buttons=opening_gallery.buttons
+	reset_observation_requested.connect(opening_gallery.reset_view)
+	opening_gallery.chosen.connect(func(id: String):opening_selected.emit(id))
+	opening_gallery.inspect_requested.connect(func(id: String):magnify_requested.emit(opening_gallery.previews[id],"开口候选 · 木料 "+id))
+	layout_title=workspace.label(options_panel,"板端位置",18)
+	layout_note=workspace.label(options_panel,"",16);layout_note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	var positions:=HBoxContainer.new();options_panel.add_child(positions)
+	positions.hide()
+	for id in ["A","B"]:
+		var button=workspace.button(positions,"端缝靠左" if id=="A" else "端缝靠右")
+		button.toggle_mode=true;button.custom_minimum_size=Vector2(140,44);button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		Workspace.neutral_selection(button);layout_buttons[id]=button;button.pressed.connect(func():layout_selected.emit(id))
+	local_viewport=SubViewport.new();local_viewport.own_world_3d=true;local_viewport.size=Vector2i(1000,490);local_viewport.gui_disable_input=true;local_viewport.msaa_3d=Viewport.MSAA_4X
+	workspace.viewport_container.add_child(local_viewport)
+	observation_orbit=ObservationOrbit.new();workspace.stage_surface.add_child(observation_orbit)
+	observation_orbit.mouse_filter=Control.MOUSE_FILTER_IGNORE;observation_orbit.set_process_input(false)
+	drag_guide.reparent(workspace.stage_surface,false)
+	drag_guide.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	observer_feedback=workspace.status
+	prepare_observation_button=workspace.button(workspace.actions,"先选榫头")
+	prepare_observation_button.pressed.connect(func():prepare_observation_requested.emit())
+	transparent_button=workspace.button(workspace.actions,"看槽口");transparent_button.toggle_mode=true
+	transparent_button.pressed.connect(func():transparent_requested.emit())
+	reset_observation_button=workspace.button(workspace.actions,"重新观察")
+	reset_observation_button.pressed.connect(func():reset_observation_requested.emit())
+	var zoom_bar:=ZoomBar.new();workspace.stage_surface.add_child(zoom_bar)
+	zoom_out_button=zoom_bar.zoom_out;zoom_label=zoom_bar.percentage;zoom_in_button=zoom_bar.zoom_in;zoom_reset_button=zoom_bar.reset_button
+	zoom_bar.zoom_requested.connect(func(factor: float):zoom_requested.emit(factor))
+	zoom_bar.reset_requested.connect(func():reset_observation_requested.emit())
+	workspace.note.text="拖空白处旋转 · 双指、滚轮或按钮缩放 · 候选可放大查看"
+
+func bind_view(view: Node3D) -> void:
+	current_view=view
+func _build_modals() -> void:
+	_shade=ColorRect.new()
+	_shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_shade.color=Color(.15,.18,.13,.38)
+	root_control.add_child(_shade)
+	_shade.hide()
+	inventory_panel=_card(root_control,Rect2(350,200,560,422))
+	var list:=VBoxContainer.new()
+	list.add_theme_constant_override("separation",6)
+	inventory_panel.add_child(list)
+	var header:=HBoxContainer.new()
+	list.add_child(header)
+	_label(header,"三组搭建进度",22,600).size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	inventory_close_button=_button(header,"收起")
+	inventory_close_button.pressed.connect(func():
+		inventory_panel.hide()
+		_shade.hide())
+	for index in Rules.GROUPS.size():
+		var button=_button(list,Rules.GROUP_LABELS[index])
+		button.custom_minimum_size.y=44
+		group_buttons[index]=button
+		button.pressed.connect(func():
+			inventory_panel.hide()
+			_shade.hide()
+			group_selected.emit(index))
+	inventory_panel.hide()
+	success_panel=_card(root_control,Rect2(470,245,740,390))
+	var v:=VBoxContainer.new()
+	v.add_theme_constant_override("separation",8)
 	success_panel.add_child(v)
-	_label(v,"船板合壳完成",30)
-	var text=_label(v,"三列端缝错开；十字框、三向撑和隔舱就位。\n试浪未见漏水；青色线表示需填缝密封的边缘。\n实际水密须经材料、工艺和实体试验验证。",21)
-	# Three explicit short lines avoid the initial zero-width wrap expanding the panel.
-	continue_button=Button.new()
-	continue_button.text="继续 / 返回关卡目录"
-	continue_button.custom_minimum_size.y=50
-	v.add_child(continue_button)
-	continue_button.pressed.connect(func(): continue_requested.emit())
-	var close=Button.new()
-	close.text="查看完成船段"
-	v.add_child(close)
-	close.pressed.connect(func(): success_panel.hide())
-	var science=Button.new()
-	science.text="了解水密隔舱"
-	science.custom_minimum_size.y=48
-	v.add_child(science)
-	science.pressed.connect(func(): bulkhead_requested.emit())
+	_label(v,"第二关完成 · 船板合壳成功！",28,600)
+	_label(v,"三列端缝错开，支撑与隔舱就位。\n海浪拂过，看看你亲手搭好的船壳。",20)
+	continue_button=_button(v,"继续 / 返回关卡目录",true)
+	continue_button.pressed.connect(func():continue_requested.emit())
+	var close=_button(v,"收起卡片 · 欣赏船壳")
+	close.pressed.connect(func():success_panel.hide())
+	var science=_button(v,"了解水密隔舱")
+	science.pressed.connect(func():bulkhead_requested.emit())
 	success_panel.hide()
 	failure_overlay=Failure.new()
 	root_control.add_child(failure_overlay)
 	failure_restart_button=failure_overlay.restart_button
 	failure_return_button=failure_overlay.return_button
-	failure_overlay.restart_requested.connect(func(): restart_requested.emit())
-	failure_overlay.return_requested.connect(func(): return_requested.emit())
-	get_viewport().size_changed.connect(_fit_layout)
-	_fit_layout()
-func _panel(rect: Rect2) -> PanelContainer:
-	return Controls.panel(root_control,rect)
-
-func _label(parent: Node, text: String, font_size: int) -> Label:
-	return Controls.label(parent,text,font_size)
-
-func _label_at(text_value: String,rect: Rect2,font: int) -> Label:
-	var n=_label(root_control,text_value,font)
-	n.position=rect.position
-	n.size=rect.size
-	return n
-func _button_at(text_value: String,rect: Rect2) -> Button:
-	var n=Button.new()
-	n.text=text_value
-	n.position=rect.position
-	n.size=rect.size
-	root_control.add_child(n)
-	return n
-func refresh(s,inspected: bool,busy := false) -> void:
-	current=s
-	diagram.configure(s)
-	observation_label.visible=not diagram.visible
-	busy=busy or s.failed
-	header_label.queue_redraw()
-	gallery.visible=inspected and not diagram.visible
-	var joint_index=0
-	for key in ["tongue_groove","cross_lap","three_way_lap"]:
-		joint_buttons[key].position=Vector2(350+joint_index*355,439) if inspected else Vector2(350+joint_index*145,210)
-		joint_buttons[key].size=Vector2(330,48) if inspected else Vector2(135,48)
-		joint_index+=1
-	count_label.text="%d / 10 件%s" % [s.placed.size()," · 已完成" if s.completed else ""]
-	for id in piece_buttons:
-		piece_buttons[id].text=("✓ " if s.placed.has(id) else "○ ")+Rules.label_for(id)
-		piece_buttons[id].disabled=busy
-		piece_buttons[id].button_pressed=s.selected==id
-		piece_buttons[id].modulate=Color("dbe5cc") if s.selected==id else Color.WHITE
+	failure_overlay.restart_requested.connect(func():restart_requested.emit())
+	failure_overlay.return_requested.connect(func():return_requested.emit())
+func refresh(state,inspected: bool,busy:=false,revealed:=false) -> void:
+	current=state
+	_inspected=inspected
+	main_chrome.visible=not inspected
+	observer_chrome.visible=inspected
+	_shade.visible=inventory_panel.visible
+	var locked: bool=busy or state.failed
+	var starter_top: bool=state.starter_top()
+	var starter_pending: bool=state.starter_middle_seated(state.selected)
+	if state.failed:
+		failure_overlay.title.text="榫型不匹配，连接松动" if not state.mismatched_joints().is_empty() else ("槽口位置不合，接合漏水" if not state.mismatched_openings().is_empty() else "板端接缝对齐，试浪漏水")
+		var failure: Dictionary=state.failure_result()
+		if failure.get("code","")=="assembly_failed":failure_overlay.title.text="组装失败"
+		elif failure.get("code","")=="assembly_mismatch":failure_overlay.title.text="拼装错误"
+		elif failure.get("code","")=="structure":failure_overlay.title.text="搭扣未扣牢，支撑松动"
+		elif failure.get("code","")=="mixed":failure_overlay.title.text="船板漏水，支撑松动"
+		failure_overlay.description.text=str(failure.get("message","请重新观察，再试一次。"))
+	var row: int=Rules.row_for(state.selected)
+	workspace.note.text=("装配船架 · " if row<0 else "")+"拖空白处旋转 · 双指、滚轮或按钮缩放 · 候选可放大查看"
+	observation_label.text=("三件同型木料，缺口形状不同。" if row>=0 else "比较接合口的宽、深与上下层次。")+("\n中件侧推后，再装上方木件。" if row==0 and state.joint=="three_way_lap" else ("\n示范一块，其余船板依次装入。" if row>=0 else ("\n隔舱底部沿用同一种缺口。" if state.selected=="cross_upper" else "")))
+	var automatic_pending: bool=state.selected not in Rules.MANUAL_IDS and not state.placed.has(state.selected)
+	var installed: bool=state.placed.has(state.selected)
+	selection_label.text="完整船壳" if state.completed else Rules.GROUP_LABELS[Rules.group_for(state.selected)]
+	stage_label.text="本关未通过" if state.failed else ("演示进行中" if busy else ("合壳完成" if state.completed else "当前要安装"))
+	task_label.text="重新观察，重新挑战" if state.failed else ("船壳与隔舱已完成" if state.completed else ("从底向舷铺好船板" if row>=0 else "接好支撑与隔舱"))
+	var completed_groups:=0
+	for index in Rules.GROUPS.size():
+		var installed_count:=0
+		for id in Rules.GROUPS[index]:
+			if state.placed.has(id):installed_count+=1
+		if installed_count==Rules.GROUPS[index].size():completed_groups+=1
+		group_buttons[index].text=("✓ " if installed_count==Rules.GROUPS[index].size() else "○ ")+Rules.GROUP_LABELS[index]+" · %d/%d 件"%[installed_count,Rules.GROUPS[index].size()]
+		group_buttons[index].disabled=locked or state.group_target(index).is_empty()
+	inventory_button.text="搭建进度 %d / %d 组 · 展开  ›"%[completed_groups,Rules.GROUPS.size()]
+	observe_button.disabled=locked
+	observe_button.text="看看这处连接" if installed else "看榫头，挑木料"
+	for button in [bulkhead_button,transparent_button,prepare_observation_button,reset_observation_button,inventory_button,return_button,lesson_button,zoom_in_button,zoom_out_button,zoom_reset_button]:button.disabled=locked
+	undo_button.disabled=state.failed or (state.placed.is_empty() and not starter_pending)
+	observer_undo_button.disabled=undo_button.disabled
+	observer_undo_button.text="撤回上一步"
+	observer_undo_button.visible=installed or starter_pending
+	if starter_pending:observer_undo_button.text="取回中件"
+	restart_button.disabled=state.failed
+	check_button.disabled=locked or state.placed.size()!=Rules.IDS.size() or state.completed
 	for id in joint_buttons:
-		joint_buttons[id].disabled=busy or not s.observed.has(s.selected)
-		joint_buttons[id].modulate=Color("bacbaa") if s.joint==id else Color.WHITE
+		joint_buttons[id].disabled=locked or starter_top or installed or automatic_pending or not state.observed.has(state.selected)
+		joint_buttons[id].set_pressed_no_signal(state.joint==id)
+		joint_buttons[id].modulate=Color.WHITE
+	prepare_observation_button.visible=not installed
+	prepare_observation_button.text="先选榫头" if state.joint.is_empty() else ("先选木料" if state.opening.is_empty() else "准备试装")
+	if not installed and not busy:
+		observer_feedback.text="先点上方，挑一个榫头。" if state.joint.is_empty() else ("榫头选好了，再转动右侧木料，选择匹配的开口位置。" if state.opening.is_empty() else "抓住木料沿箭头推入；拖空白处可转动查看。")
+	var review: bool=installed and not busy
+	title_label.text=("这一处已试装 · " if review else "观察 · ")+Rules.label_for(state.selected)
+	observer_instruction.text="接着安装同组木料，或返回船架。" if review else "转动看看槽口的位置，再选一件能接上的木料。"
+	if review:
+		if state.selected=="cross_upper":observer_instruction.text="两件已试装。转动看看缺口两侧是否贴合，再继续搭建。"
+		elif state.selected=="three_middle":observer_instruction.text="中件已从侧面滑入。接着装顶件，看看能否合拢并挡住中件的退出方向。"
+		elif state.selected=="three_upper":observer_instruction.text="顶件已落入交叉槽，接下来看看整船能否经得住海浪。"
+	if not review:
+		if row==0:observer_instruction.text="先观察这件木料的缺口，再沿对应方向试着嵌入。"
+		if state.selected=="cross_upper":observer_instruction.text="上下两个缺口相向，把上件向下落入下梁，观察槽肩是否贴合。"
+		elif state.selected=="three_middle":observer_instruction.text="第 2 件：从侧面推入，为最后一根木料留出缺口。"
+		elif state.selected=="three_upper":observer_instruction.text="第 3 件：向下装入交叉槽，挡住中件的退出方向。"
+		elif state.selected=="bulkhead":observer_instruction.text="让底部缺口对准座梁；观察槽肩能否贴合，再继续压入。"
+	if starter_top:observer_instruction.text="中件已就位，把上方木件向下嵌入交叉槽，扣住中件。"
+	if state.failed:
+		title_label.text=failure_overlay.title.text+" · "+Rules.label_for(state.selected)
+		observer_instruction.text="本次拼装结束，可重新开始或回到关卡目录。"
+	gallery.configure_task(Rules.expected(state.selected))
+	gallery.visible=not review
+	options_panel.visible=not review and not starter_top
+	if is_instance_valid(current_view):
+		opening_gallery.configure(current_view,state)
+		opening_measure.configure(current_view.receiving_dimensions(state.selected),OpeningReference.build(current_view,state),opening_gallery)
+	for id in opening_buttons:opening_buttons[id].disabled=locked or starter_top or installed or automatic_pending or state.joint.is_empty()
+	for button in gallery.inspect_buttons.values():button.disabled=locked
+	for button in opening_gallery.inspect_buttons.values():button.disabled=locked or state.joint.is_empty()
+	if is_instance_valid(current_view):update_zoom(current_view.framing.zoom_factor)
+	overview_button.disabled=locked
+	overview_button.text="继续搭建" if review and state.next_in_group().is_empty() else "返回船架"
+	next_piece_button.visible=not state.failed and not state.next_in_group().is_empty()
+	next_piece_button.disabled=locked
+	next_piece_button.text="接着铺另一块" if row>=0 else "接着装顶撑"
+	transparent_button.visible=inspected
+	transparent_button.set_pressed_no_signal(revealed)
+	transparent_button.text="返回装配视野" if revealed else "看槽口"
+	# The complete board group uses staggered stock; there is no separate
+	# per-row choice after the representative has been installed.
+	layout_title.visible=false
+	layout_note.visible=false
+	layout_note.text="上下排短接缝需要错开。" if row>0 else "底列从左侧端缝起铺。"
+	_sync_local_scene()
 	for id in layout_buttons:
-		layout_buttons[id].disabled=busy or not s.observed.has(s.selected) or Rules.row_for(s.selected)<1 or s.selected.ends_with("b")
-		layout_buttons[id].modulate=Color("bacbaa") if s.layout==id else Color.WHITE
-	var row=Rules.row_for(s.selected)
-	if not s.observed.has(s.selected): observation_label.text="先观察实际船材。候选不会默认选中。"
-	elif row>=0:
-		observation_label.text="板材沿板列方向侧向送入；中央细舌对应连续直槽。\n%s端缝是短竖边，长水平拼边不是错缝。" % ("底列端缝 X=−1.40。" if row==0 else "与下列端缝比较，再选 A/B。")
-	elif s.selected=="cross_upper": observation_label.text="船内十字边框：两材各刻半，上材沿 −Y 落入。观察缺口，再选榫型。"
-	elif s.selected.begins_with("three"): observation_label.text="船内三根横撑：0° / +60° / −60°；交点各留底 / 中 / 顶 1/3。\n中撑先于顶撑，从上方落入。观察三层缺口，再选榫型。"
-	else: observation_label.text="隔舱最后落入，底轨下半缺口与固定基框上半缺口相合。\n周边仍需填缝、密封；支撑安装时上方须保持开放。"
-	overview_button.disabled=not inspected and not diagram.visible
-	repair_button.hide() # Final failed runs offer restart or directory return.
-	undo_button.disabled=s.failed or s.placed.is_empty()
-	for control in [observe_button,transparent_button,plan_button,lesson_button,bulkhead_button,return_button]: control.disabled=busy
-	restart_button.disabled=s.failed
-	check_button.disabled=busy or s.placed.size()!=Rules.IDS.size()
-func feedback(message: String, error := false) -> void:
+		layout_buttons[id].visible=false
+		layout_buttons[id].disabled=locked or installed or row<1 or state.selected.ends_with("b")
+		layout_buttons[id].set_pressed_no_signal(state.layout==id)
+func feedback(message: String,error:=false) -> void:
 	Controls.feedback(feedback_label,message,error)
-
+	Controls.feedback(observer_feedback,message,error)
 func _fit_layout() -> void:
+	if not is_inside_tree():return
 	var viewport_size:=get_viewport().get_visible_rect().size
 	var factor:=minf(viewport_size.x/1440.0,viewport_size.y/900.0)
 	root_control.scale=Vector2.ONE*factor
+	for button in [lesson_button,observer_undo_button,next_piece_button,overview_button,prepare_observation_button,transparent_button,reset_observation_button]:
+		button.custom_minimum_size.y=maxf(52,44/factor)
+	for button in layout_buttons.values():button.custom_minimum_size.y=maxf(44,44/factor)
+	for button in [zoom_in_button,zoom_out_button,zoom_reset_button]:
+		button.custom_minimum_size.y=maxf(48,44/factor)
+	for button in [zoom_in_button,zoom_out_button]:button.custom_minimum_size.x=maxf(52,44/factor)
+	for button in opening_gallery.inspect_buttons.values():button.custom_minimum_size=Vector2(maxf(56,44/factor),44/factor)
+	for id in gallery.inspect_buttons:
+		gallery.inspect_buttons[id].custom_minimum_size=Vector2(maxf(56,44/factor),44/factor)
+		gallery.previews[id].custom_minimum_size.y=maxf(88,164-gallery.inspect_buttons[id].custom_minimum_size.y)
+	magnifier.set_display_scale(factor)
 	root_control.position=(viewport_size-Vector2(1440,900)*factor)*.5
+func _unhandled_key_input(event: InputEvent) -> void:
+	if not visible:return
+	if magnifier.visible:
+		if event.is_action_pressed("ui_cancel"):magnifier.close();get_viewport().set_input_as_handled()
+		return
+	if event.is_action_pressed("ui_cancel"):
+		if inventory_open:
+			inventory_panel.hide()
+			_shade.hide()
+		elif _inspected:overview_requested.emit()
+		else:return
+		get_viewport().set_input_as_handled()
+
+func _sync_local_scene() -> void:
+	if is_instance_valid(local_viewport):local_viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS if _inspected and visible else SubViewport.UPDATE_DISABLED
+	if is_instance_valid(observation_orbit):observation_orbit.set_process(_inspected and visible)
+
+func update_zoom(factor: float) -> void:
+	zoom_label.text="%d%%"%roundi(100.0/factor)

@@ -1,0 +1,22 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/plank-context/plank_1a-before-choice.png",
+    "res://tests/evidence/plank-context/plank_1a-layout-A.png",
+    "res://tests/evidence/plank-context/plank_1a-layout-B.png",
+    "res://tests/evidence/plank-context/plank_1a-framed-960.png",
+    "res://tests/evidence/plank-context/plank_1a-framed-1440.png",
+    "res://tests/evidence/plank-context/plank_1a-halfway.png",
+    "res://tests/evidence/plank-context/plank_2a-before-choice.png",
+    "res://tests/evidence/plank-context/plank_2a-layout-A.png",
+    "res://tests/evidence/plank-context/plank_2a-layout-B.png",
+    "res://tests/evidence/plank-context/plank_2a-framed-960.png",
+    "res://tests/evidence/plank-context/plank_2a-framed-1440.png",
+    "res://tests/evidence/plank-context/plank_2a-halfway.png"
+  ],
+  "passed": 369,
+  "renderer": "macOS",
+  "scope": "Real UI after a correct first row: middle/shear views retain actual hull framing and installed lower boards, hide uninstalled companion, expose mating face, support both seam layouts and two resolutions, and complete via real pointer input."
+}

@@ -1,0 +1,521 @@
+{
+  "completed_utc": "2026-11-01T15:30:41.741681+00:00",
+  "headless_passed": 15,
+  "gpu_passed": 5,
+  "python_passed": 6,
+  "headless": [
+    {
+      "suite": "structure-final-headless",
+      "name": "00-levels-level02_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.8,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-final-headless/00-levels-level02_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-final-headless/00-levels-level02_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-final-headless/00-levels-level02_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-exterior-fit",
+      "name": "00-levels-level02_alignment_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.87,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-exterior-fit/00-levels-level02_alignment_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-exterior-fit/00-levels-level02_alignment_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-exterior-fit/00-levels-level02_alignment_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-exterior-fit",
+      "name": "01-levels-level02_structure_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.61,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-exterior-fit/01-levels-level02_structure_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-exterior-fit/01-levels-level02_structure_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-exterior-fit/01-levels-level02_structure_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_structure_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-exterior-fit",
+      "name": "02-levels-trial_contact_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 14.95,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-exterior-fit/02-levels-trial_contact_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-exterior-fit/02-levels-trial_contact_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-exterior-fit/02-levels-trial_contact_tests-engine.log",
+        "--script",
+        "tests/trial_contact_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-delivery-headless",
+      "name": "02-levels-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 33.55,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-headless/02-levels-inspection_workspace_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-headless/02-levels-inspection_workspace_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-headless/02-levels-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-regression-headless",
+      "name": "00-levels-level01_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 42.1,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/00-levels-level01_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/00-levels-level01_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/00-levels-level01_input_tests-engine.log",
+        "--script",
+        "tests/level01_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-regression-headless",
+      "name": "01-levels-level01_inspector_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 22.56,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/01-levels-level01_inspector_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/01-levels-level01_inspector_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/01-levels-level01_inspector_tests-engine.log",
+        "--script",
+        "tests/level01_inspector_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-regression-headless",
+      "name": "02-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.2,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/02-levels-level02_rules_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/02-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/02-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-delivery-headless",
+      "name": "00-levels-level02_structure_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 27.46,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-headless/00-levels-level02_structure_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-headless/00-levels-level02_structure_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-headless/00-levels-level02_structure_tests-engine.log",
+        "--script",
+        "tests/level02_structure_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-regression-headless",
+      "name": "04-levels-sea_trial_presentation_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.37,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/04-levels-sea_trial_presentation_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/04-levels-sea_trial_presentation_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/04-levels-sea_trial_presentation_tests-engine.log",
+        "--script",
+        "tests/sea_trial_presentation_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-regression-headless",
+      "name": "05-levels-level03_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.67,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/05-levels-level03_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/05-levels-level03_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/05-levels-level03_geometry_tests-engine.log",
+        "--script",
+        "tests/level03_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-regression-headless",
+      "name": "06-campaign-campaign_reentry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.33,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/06-campaign-campaign_reentry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/06-campaign-campaign_reentry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/06-campaign-campaign_reentry_tests-engine.log",
+        "--script",
+        "tests/campaign_reentry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-regression-headless",
+      "name": "07-campaign-campaign_loading_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.89,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/07-campaign-campaign_loading_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/07-campaign-campaign_loading_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/07-campaign-campaign_loading_tests-engine.log",
+        "--script",
+        "tests/campaign_loading_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-regression-headless",
+      "name": "08-classroom-chapter_learning_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.27,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/08-classroom-chapter_learning_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/08-classroom-chapter_learning_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-regression-headless/08-classroom-chapter_learning_tests-engine.log",
+        "--script",
+        "tests/chapter_learning_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "structure-delivery-headless",
+      "name": "01-levels-level02_alignment_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.86,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-headless/01-levels-level02_alignment_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-headless/01-levels-level02_alignment_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-headless/01-levels-level02_alignment_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ],
+  "gpu": [
+    {
+      "name": "00-visual-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 38.87,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/00-visual-inspection_workspace_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/00-visual-inspection_workspace_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/00-visual-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 36.76,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/01-visual-level02_wrong_type_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/01-visual-level02_wrong_type_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/01-visual-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "02-visual-level02_drag_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 52.92,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/02-visual-level02_drag_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/02-visual-level02_drag_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/02-visual-level02_drag_tests-engine.log",
+        "--script",
+        "tests/level02_drag_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "03-visual-level02_alignment_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.09,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/03-visual-level02_alignment_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/03-visual-level02_alignment_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/03-visual-level02_alignment_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "04-visual-level02_structure_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 31.64,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/04-visual-level02_structure_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/04-visual-level02_structure_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/structure-delivery-gpu/04-visual-level02_structure_tests-engine.log",
+        "--script",
+        "tests/level02_structure_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ],
+  "protected_source_files": 290,
+  "earlier_failures_retained": [
+    "structure-verified-gpu/00-visual-inspection_workspace_tests: rib contact treated as collision; added small fit clearance",
+    "structure-final-gpu/01-visual-level02_wrong_type_tests: wrong thick shoulders blocked by ribs; added measured exterior resting offset"
+  ],
+  "limitations": [
+    "Targeted regressions, not complete all suite",
+    "Injected Viewport mouse/simulated touch; not physical touchscreen or human target-device QA",
+    "Teaching geometry and waves; not structural or fluid simulation",
+    "Archaeological sources support structural relationships, not exact historical location of these three textbook joint models"
+  ]
+}

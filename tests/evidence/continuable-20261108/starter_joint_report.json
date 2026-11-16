@@ -1,0 +1,224 @@
+{
+  "cases": [
+    {
+      "id": "plank_0a",
+      "kind": "tongue_groove",
+      "occupies_real_housing": true,
+      "opening": "A",
+      "path_clear": true,
+      "position": [
+        0.0,
+        0.33416759967804,
+        0.503038108348846
+      ]
+    },
+    {
+      "id": "plank_0a",
+      "kind": "tongue_groove",
+      "occupies_real_housing": true,
+      "opening": "B",
+      "path_clear": true,
+      "position": [
+        0.0,
+        0.259999990463257,
+        0.449999988079071
+      ]
+    },
+    {
+      "id": "plank_0a",
+      "kind": "tongue_groove",
+      "occupies_real_housing": false,
+      "opening": "C",
+      "path_clear": true,
+      "position": [
+        0.0,
+        0.33416759967804,
+        0.503038108348846
+      ]
+    },
+    {
+      "id": "plank_0a",
+      "kind": "cross_lap",
+      "occupies_real_housing": true,
+      "opening": "A",
+      "path_clear": true,
+      "position": [
+        -1.54999995231628,
+        0.321218311786652,
+        0.360000014305115
+      ]
+    },
+    {
+      "id": "plank_0a",
+      "kind": "cross_lap",
+      "occupies_real_housing": true,
+      "opening": "B",
+      "path_clear": true,
+      "position": [
+        -1.54999995231628,
+        0.261218309402466,
+        0.360000014305115
+      ]
+    },
+    {
+      "id": "plank_0a",
+      "kind": "cross_lap",
+      "occupies_real_housing": true,
+      "opening": "C",
+      "path_clear": true,
+      "position": [
+        -1.54999995231628,
+        0.261218309402466,
+        0.360000014305115
+      ]
+    },
+    {
+      "id": "plank_0a",
+      "kind": "three_way_lap",
+      "occupies_real_housing": true,
+      "opening": "A",
+      "path_clear": true,
+      "position": [
+        -1.54999995231628,
+        0.303000003099442,
+        0.624387860298157
+      ]
+    },
+    {
+      "id": "plank_0a",
+      "kind": "three_way_lap",
+      "occupies_real_housing": true,
+      "opening": "B",
+      "path_clear": true,
+      "position": [
+        -1.54999995231628,
+        0.303000003099442,
+        0.624387860298157
+      ]
+    },
+    {
+      "id": "plank_0a",
+      "kind": "three_way_lap",
+      "occupies_real_housing": true,
+      "opening": "C",
+      "path_clear": true,
+      "position": [
+        -1.54999995231628,
+        0.303000003099442,
+        0.624387860298157
+      ]
+    },
+    {
+      "id": "plank_0b",
+      "kind": "tongue_groove",
+      "occupies_real_housing": true,
+      "opening": "A",
+      "path_clear": true,
+      "position": [
+        0.0,
+        0.33416759967804,
+        0.503038108348846
+      ]
+    },
+    {
+      "id": "plank_0b",
+      "kind": "tongue_groove",
+      "occupies_real_housing": true,
+      "opening": "B",
+      "path_clear": true,
+      "position": [
+        0.0,
+        0.259999990463257,
+        0.449999988079071
+      ]
+    },
+    {
+      "id": "plank_0b",
+      "kind": "tongue_groove",
+      "occupies_real_housing": false,
+      "opening": "C",
+      "path_clear": true,
+      "position": [
+        0.0,
+        0.33416759967804,
+        0.503038108348846
+      ]
+    },
+    {
+      "id": "plank_0b",
+      "kind": "cross_lap",
+      "occupies_real_housing": true,
+      "opening": "A",
+      "path_clear": true,
+      "position": [
+        1.04999995231628,
+        0.321218311786652,
+        0.360000014305115
+      ]
+    },
+    {
+      "id": "plank_0b",
+      "kind": "cross_lap",
+      "occupies_real_housing": true,
+      "opening": "B",
+      "path_clear": true,
+      "position": [
+        1.04999995231628,
+        0.261218309402466,
+        0.360000014305115
+      ]
+    },
+    {
+      "id": "plank_0b",
+      "kind": "cross_lap",
+      "occupies_real_housing": true,
+      "opening": "C",
+      "path_clear": true,
+      "position": [
+        1.04999995231628,
+        0.261218309402466,
+        0.360000014305115
+      ]
+    },
+    {
+      "id": "plank_0b",
+      "kind": "three_way_lap",
+      "occupies_real_housing": true,
+      "opening": "A",
+      "path_clear": true,
+      "position": [
+        1.04999995231628,
+        0.303000003099442,
+        0.624387860298157
+      ]
+    },
+    {
+      "id": "plank_0b",
+      "kind": "three_way_lap",
+      "occupies_real_housing": true,
+      "opening": "B",
+      "path_clear": true,
+      "position": [
+        1.04999995231628,
+        0.303000003099442,
+        0.624387860298157
+      ]
+    },
+    {
+      "id": "plank_0b",
+      "kind": "three_way_lap",
+      "occupies_real_housing": true,
+      "opening": "C",
+      "path_clear": true,
+      "position": [
+        1.04999995231628,
+        0.303000003099442,
+        0.624387860298157
+      ]
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "passed": 58,
+  "scope": "18 actual first-row stock variants, 51 positions each against every fixed hull mesh; independent narrow-phase intersections, original uncut rail counterfactual proving true housing entry, fixed correct board placement."
+}

@@ -4,6 +4,6 @@
   "host_had_focus": true,
   "host_no_focus": false,
   "method": "Viewport mouse/touch injection, not human hardware input",
-  "passed": 1242,
+  "passed": 1241,
   "renderer": "headless"
 }

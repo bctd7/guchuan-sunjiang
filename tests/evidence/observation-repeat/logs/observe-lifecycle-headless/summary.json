@@ -1,0 +1,31 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+  "started_utc": "2026-11-01T16:05:20.374783+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-repeat_lifecycle_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 6.17,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-headless/00-levels-repeat_lifecycle_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-headless/00-levels-repeat_lifecycle_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-headless/00-levels-repeat_lifecycle_tests-engine.log",
+        "--script",
+        "tests/repeat_lifecycle_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

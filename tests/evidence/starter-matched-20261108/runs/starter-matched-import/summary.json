@@ -1,0 +1,53 @@
+{
+  "project": "/private/tmp/guchuan-starter-matched-review",
+  "started_utc": "2026-11-08T06:34:40.579682+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "import",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.14,
+      "log": "/private/tmp/starter-matched-import/import.log",
+      "engine_log": null,
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-matched-review",
+        "--headless",
+        "--editor",
+        "--import",
+        "--quit"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Cannot save file '/Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres'.",
+        "ERROR: Error saving editor settings to /Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres"
+      ]
+    },
+    {
+      "name": "00-levels-starter_lock_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.34,
+      "log": "/private/tmp/starter-matched-import/00-levels-starter_lock_geometry_tests.log",
+      "engine_log": "/private/tmp/starter-matched-import/00-levels-starter_lock_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-matched-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-matched-import/00-levels-starter_lock_geometry_tests-engine.log",
+        "--script",
+        "tests/starter_lock_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

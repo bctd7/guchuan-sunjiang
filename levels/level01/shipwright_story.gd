@@ -13,7 +13,6 @@ const STORY_PARAGRAPHS := [
 	"他低头望着龙骨。长长的龙骨像船底的脊梁，一根根船肋向两边伸开，仿佛大船慢慢张开了怀抱。刚才只顾着找星星的阿禾，这回认真看起木头的接头：“师傅，这里也要接得稳稳的！”",
 	"海风又吹来了。阿禾想，等船扬起帆，钱币和铜镜会静静留在龙骨里，陪着船上的人去远方。现在，再看看画里的七枚钱币与铜镜：你能找到那把长柄勺子吗？大船带走的不只是货物，还有岸上人盼它平安归来的心愿。"
 ]
-const STORY_NOTE := "下面的小帮手阿禾、师傅和他们的对话，是我们想象的故事。"
 const Illustration=preload("res://levels/level01/seven_stars_illustration.gd")
 
 var opened := false
@@ -191,7 +190,6 @@ func _build_ui() -> void:
 	var illustration:=Illustration.new()
 	illustration.name = "StoryIllustration"
 	image_frame.add_child(illustration)
-	_label(figure, "泉州湾宋代海船出土发现 · 故事示意，非精确考古复原", 14, Color("7b816c"), true)
 	var reading_card := PanelContainer.new()
 	reading_card.name = "StoryReadingCard"
 	var reading_style := StyleBoxFlat.new()
@@ -210,8 +208,6 @@ func _build_ui() -> void:
 	words.add_theme_constant_override("separation", 14)
 	reading_card.add_child(words)
 	for index in STORY_PARAGRAPHS.size():
-		if index == 1:
-			_label(words, STORY_NOTE, 16, Color("7b816c"), true)
 		var paragraph_label := _label(words, STORY_PARAGRAPHS[index], 24, Friendly.INK, true)
 		paragraph_label.name = "StoryParagraph%d" % (index + 1)
 		paragraph_label.add_theme_constant_override("line_spacing", 8)

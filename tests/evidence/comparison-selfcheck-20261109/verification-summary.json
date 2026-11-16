@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-09",
+  "isolated_project": "/private/tmp/guchuan-comparison-selfcheck-20261109",
+  "bugs_reproduced_and_fixed": [
+    "Single-card wheel broke shared comparison scale",
+    "Existing reset omitted candidate views",
+    "Magnifier cropped full stock using thumbnail framing"
+  ],
+  "changed_production_gd": [
+    "levels/shared/model_magnifier.gd",
+    "levels/level02/level_ui.gd",
+    "levels/level02/opening_gallery.gd",
+    "levels/level02/opening_measure_panel.gd"
+  ],
+  "source_hashes": {
+    "levels/level02/opening_gallery.gd": "cc222d07d3413afef2c03d3d2d071f1854ae3938afd315298711912d5cdc38ab",
+    "levels/level02/opening_measure_panel.gd": "cc1cfb4b72d25da228a23d1b84771956d81d6736e6f0f9792de4dd690333e719",
+    "levels/level02/level_ui.gd": "a327708c0271c66d742eed911ca1ed6219e268c824037f71ba50789f9542f4ab",
+    "levels/shared/model_magnifier.gd": "35ffa9f6178d2b2aad286e84601b13a87c72a21cc67467427c55be138e2b208d",
+    "tests/run_suite.py": "415ab1021a4a4aba5cd85631fc463f60ad65edd60aa430620a803803a2fb2b7e",
+    "tests/opening_navigation_tests.gd": "0ad3b1a72bfb6864ce7fa7fc0f128d9389ce6366e0a41bf6fcc9888bc6a359a7",
+    "tests/opening_navigation_tests.gd.uid": "ea853f33a882559a2a360dbeed48a9900508131065a293c83f16febec7fd5b02"
+  },
+  "matches_tested_source": true,
+  "unchanged_baseline_gd_count": 199,
+  "final_results": {
+    "dimensions_gpu": "passed",
+    "navigation_gpu": "passed",
+    "navigation_headless": "passed",
+    "workspace_headless": "passed",
+    "runner_unit_tests": "6 passed"
+  },
+  "scope": "Four manual stages and two first adapted joints, 1440x900 and 960x600, real viewport pointer/wheel and simulated touch. Engine screenshots reviewed; no human hardware claim."
+}

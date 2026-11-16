@@ -1,0 +1,21 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_focus_reported": false,
+  "host_minimized": true,
+  "images": [
+    "res://tests/evidence/story-design/story-1440.png",
+    "res://tests/evidence/story-design/story-1440-bottom.png",
+    "res://tests/evidence/story-design/story-1280.png",
+    "res://tests/evidence/story-design/story-1280-bottom.png",
+    "res://tests/evidence/story-design/story-1100.png",
+    "res://tests/evidence/story-design/story-1100-bottom.png",
+    "res://tests/evidence/story-design/story-960.png",
+    "res://tests/evidence/story-design/story-960-bottom.png",
+    "res://tests/evidence/story-design/story-768.png",
+    "res://tests/evidence/story-design/story-768-bottom.png"
+  ],
+  "method": "Minimized GPU and Viewport GUI events; not native mouse.",
+  "no_focus_flag": true,
+  "passed": 71
+}

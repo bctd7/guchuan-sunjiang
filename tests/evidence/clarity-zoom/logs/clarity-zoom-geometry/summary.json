@@ -1,0 +1,97 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-work",
+  "started_utc": "2026-11-01T11:54:48.307796+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level02_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.8,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/00-levels-level02_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/00-levels-level02_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/00-levels-level02_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-opening_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.61,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/01-levels-opening_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/01-levels-opening_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/01-levels-opening_geometry_tests-engine.log",
+        "--script",
+        "tests/opening_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-stock_clearance_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.32,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/02-levels-stock_clearance_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/02-levels-stock_clearance_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/02-levels-stock_clearance_tests-engine.log",
+        "--script",
+        "tests/stock_clearance_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-trial_contact_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 13.72,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/03-levels-trial_contact_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/03-levels-trial_contact_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-geometry/03-levels-trial_contact_tests-engine.log",
+        "--script",
+        "tests/trial_contact_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

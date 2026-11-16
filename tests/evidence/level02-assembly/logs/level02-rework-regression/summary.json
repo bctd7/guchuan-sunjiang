@@ -1,0 +1,273 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T13:26:20.966682+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level02_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.77,
+      "log": "/private/tmp/level02-rework-regression/00-levels-level02_geometry_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/00-levels-level02_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/00-levels-level02_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-opening_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.68,
+      "log": "/private/tmp/level02-rework-regression/01-levels-opening_geometry_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/01-levels-opening_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/01-levels-opening_geometry_tests-engine.log",
+        "--script",
+        "tests/opening_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-hull_wood_normals_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.19,
+      "log": "/private/tmp/level02-rework-regression/02-levels-hull_wood_normals_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/02-levels-hull_wood_normals_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/02-levels-hull_wood_normals_tests-engine.log",
+        "--script",
+        "tests/hull_wood_normals_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-level02_structure_geometry_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 0.79,
+      "log": "/private/tmp/level02-rework-regression/03-levels-level02_structure_geometry_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/03-levels-level02_structure_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/03-levels-level02_structure_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_structure_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-level02_structure_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 22.58,
+      "log": "/private/tmp/level02-rework-regression/04-levels-level02_structure_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/04-levels-level02_structure_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/04-levels-level02_structure_tests-engine.log",
+        "--script",
+        "tests/level02_structure_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "05-levels-repeat_lifecycle_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.35,
+      "log": "/private/tmp/level02-rework-regression/05-levels-repeat_lifecycle_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/05-levels-repeat_lifecycle_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/05-levels-repeat_lifecycle_tests-engine.log",
+        "--script",
+        "tests/repeat_lifecycle_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "06-levels-level02_clarity_zoom_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 16.8,
+      "log": "/private/tmp/level02-rework-regression/06-levels-level02_clarity_zoom_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/06-levels-level02_clarity_zoom_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/06-levels-level02_clarity_zoom_tests-engine.log",
+        "--script",
+        "tests/level02_clarity_zoom_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "07-levels-sea_trial_presentation_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.37,
+      "log": "/private/tmp/level02-rework-regression/07-levels-sea_trial_presentation_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/07-levels-sea_trial_presentation_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/07-levels-sea_trial_presentation_tests-engine.log",
+        "--script",
+        "tests/sea_trial_presentation_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "08-levels-stock_clearance_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.19,
+      "log": "/private/tmp/level02-rework-regression/08-levels-stock_clearance_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/08-levels-stock_clearance_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/08-levels-stock_clearance_tests-engine.log",
+        "--script",
+        "tests/stock_clearance_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "09-levels-inspection_workspace_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 28.31,
+      "log": "/private/tmp/level02-rework-regression/09-levels-inspection_workspace_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/09-levels-inspection_workspace_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/09-levels-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "10-levels-level02_drag_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 38.7,
+      "log": "/private/tmp/level02-rework-regression/10-levels-level02_drag_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/10-levels-level02_drag_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/10-levels-level02_drag_tests-engine.log",
+        "--script",
+        "tests/level02_drag_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "11-levels-auxiliary_panel_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.85,
+      "log": "/private/tmp/level02-rework-regression/11-levels-auxiliary_panel_tests.log",
+      "engine_log": "/private/tmp/level02-rework-regression/11-levels-auxiliary_panel_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-regression/11-levels-auxiliary_panel_tests-engine.log",
+        "--script",
+        "tests/auxiliary_panel_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

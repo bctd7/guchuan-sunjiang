@@ -1,0 +1,18 @@
+{
+  "failed": 8,
+  "failures": [
+    "blocked stock remains visible at real contact behind failure",
+    "blocked stock remains visible at real contact behind failure",
+    "blocked stock remains visible at real contact behind failure",
+    "blocked stock remains visible at real contact behind failure",
+    "blocked stock remains visible at real contact behind failure",
+    "blocked stock remains visible at real contact behind failure",
+    "blocked stock remains visible at real contact behind failure",
+    "blocked stock remains visible at real contact behind failure"
+  ],
+  "host_had_focus": false,
+  "images": [],
+  "passed": 1191,
+  "renderer": "headless",
+  "scope": "All nine middle/top combinations, real side/down pointer strokes against an eight-piece prefix originally assembled through real UI. Shallow exploration, visible final contact, automatic failure/restart, actual retained predecessor, and correct whole-hull completion."
+}

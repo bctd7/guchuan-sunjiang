@@ -1,6 +1,16 @@
 extends RefCounted
-const IDS := ["plank_0a","plank_0b","plank_1a","plank_1b","plank_2a","plank_2b","cross_upper","three_middle","three_upper","bulkhead"]
-const LABELS := ["底列 · 尾板","底列 · 首板","中列 · 尾板","中列 · 首板","舷列 · 尾板","舷列 · 首板","隔舱十字上框","三向中撑","三向顶撑","隔舱板"]
+const IDS := ["plank_0a","plank_0b","plank_1a","plank_1b","plank_2a","plank_2b","cross_upper","bulkhead","three_middle","three_upper"]
+## Repeated stock uses the same physical mouth profile and the player's choice.
+const REPEATS := {"plank_0a":"plank_0b","plank_1a":"plank_1b","plank_2a":"plank_2b"}
+const AUTO_GROUPS := {"plank_0a":["plank_0b","plank_1a","plank_1b","plank_2a","plank_2b"],"cross_upper":["bulkhead"]}
+const MANUAL_IDS := ["plank_0a","cross_upper","three_middle","three_upper"]
+const GROUPS := [["plank_0a","plank_0b","plank_1a","plank_1b","plank_2a","plank_2b"],["cross_upper","bulkhead"],["three_middle","three_upper"]]
+const GROUP_LABELS := ["企口铺板","搭扣框与隔舱","扣合撑"]
+static func group_for(id: String) -> int:
+	for index in GROUPS.size():
+		if id in GROUPS[index]:return index
+	return -1
+const LABELS := ["底列 · 尾板","底列 · 首板","中列 · 尾板","中列 · 首板","舷列 · 尾板","舷列 · 首板","隔舱十字上框","隔舱板","三向中撑","三向顶撑"]
 const JOINT_NAMES := {"tongue_groove":"企口榫","cross_lap":"搭扣榫","three_way_lap":"扣合榫"}
 static func label_for(id: String) -> String:
 	return LABELS[IDS.find(id)] if IDS.has(id) else id

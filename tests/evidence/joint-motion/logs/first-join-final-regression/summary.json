@@ -1,0 +1,119 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T15:47:27.211947+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-boat_joint_recovery_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.67,
+      "log": "/private/tmp/first-join-final-regression/00-levels-boat_joint_recovery_tests.log",
+      "engine_log": "/private/tmp/first-join-final-regression/00-levels-boat_joint_recovery_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-join-final-regression/00-levels-boat_joint_recovery_tests-engine.log",
+        "--script",
+        "tests/boat_joint_recovery_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_alignment_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.54,
+      "log": "/private/tmp/first-join-final-regression/01-levels-level02_alignment_geometry_tests.log",
+      "engine_log": "/private/tmp/first-join-final-regression/01-levels-level02_alignment_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-join-final-regression/01-levels-level02_alignment_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-level02_alignment_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.47,
+      "log": "/private/tmp/first-join-final-regression/02-levels-level02_alignment_tests.log",
+      "engine_log": "/private/tmp/first-join-final-regression/02-levels-level02_alignment_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-join-final-regression/02-levels-level02_alignment_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-level02_clarity_zoom_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 16.96,
+      "log": "/private/tmp/first-join-final-regression/03-levels-level02_clarity_zoom_tests.log",
+      "engine_log": "/private/tmp/first-join-final-regression/03-levels-level02_clarity_zoom_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-join-final-regression/03-levels-level02_clarity_zoom_tests-engine.log",
+        "--script",
+        "tests/level02_clarity_zoom_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 83.01,
+      "log": "/private/tmp/first-join-final-regression/04-levels-level02_wrong_type_tests.log",
+      "engine_log": "/private/tmp/first-join-final-regression/04-levels-level02_wrong_type_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-join-final-regression/04-levels-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

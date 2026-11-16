@@ -56,7 +56,7 @@ func show_intro() -> void:
 	_suspend_source()
 	opened = true
 	_heading.text = "第 %d 关 · 先认识这三种榫卯" % chapter
-	start_button.text = "返回船体局部" if _started else "开始本关"
+	start_button.text = "返回本关搭建" if _started else "开始本关"
 	_intro.show()
 	back_button.hide()
 	start_button.grab_focus()

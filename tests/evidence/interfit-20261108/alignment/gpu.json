@@ -1,0 +1,25 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/alignment/plank-context-100.png",
+    "res://tests/evidence/alignment/plank-context-249.png",
+    "res://tests/evidence/alignment/correct-tongue-facing-receiver.png",
+    "res://tests/evidence/alignment/type-cross_lap-exploded.png",
+    "res://tests/evidence/alignment/type-cross_lap-upper-pocket.png",
+    "res://tests/evidence/alignment/type-cross_lap-closed.png",
+    "res://tests/evidence/alignment/type-three_way_lap-exploded.png",
+    "res://tests/evidence/alignment/type-three_way_lap-upper-pocket.png",
+    "res://tests/evidence/alignment/three-middle-top-pocket.png",
+    "res://tests/evidence/alignment/three-middle-bottom-pocket.png",
+    "res://tests/evidence/alignment/type-three_way_lap-closed.png",
+    "res://tests/evidence/alignment/aligned-local-1100.png",
+    "res://tests/evidence/alignment/three-upper-pocket-1100.png",
+    "res://tests/evidence/alignment/aligned-local-960.png",
+    "res://tests/evidence/alignment/three-upper-pocket-960.png"
+  ],
+  "method": "Actual Viewport mouse and simulated touch; first plank 249 percent touch approach and withdrawal, correct stock, three-size framing and distinct type models.",
+  "passed": 171,
+  "renderer": "macOS"
+}

@@ -168,7 +168,7 @@ func run() -> void:
 		check(level.panel.check_button.disabled and level.view.animations.size()==1,"early-close wait keeps stability gated and one member moving")
 		await settle(.04)
 		wait_for_automatic+=.04
-	check(level.state.automatic_count()>0 and level.panel.feedback_label.text.contains("自动"),"automatic animation is explicit, separate from manual action")
+	check(level.state.automatic_count()>0 and level.panel.feedback_label.text.contains("同类木料"),"approved copy explicitly identifies same-kind automatic members while provenance remains automatic")
 	check(not level.view.animations.has("rib_l1") and level.view.animations.size()==1,"automatic repeat starts only after representative tween finishes")
 	await snapshot("02-automatic-labelled")
 	await button(level.panel.undo_button)

@@ -1,0 +1,40 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+  "started_utc": "2026-11-01T16:04:30.555101+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-repeat_lifecycle_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 8.89,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-gpu/00-visual-repeat_lifecycle_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-gpu/00-visual-repeat_lifecycle_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-gpu/00-visual-repeat_lifecycle_tests-engine.log",
+        "--script",
+        "tests/repeat_lifecycle_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

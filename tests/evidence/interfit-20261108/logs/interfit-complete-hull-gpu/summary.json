@@ -1,0 +1,40 @@
+{
+  "project": "/private/tmp/guchuan-interfit-review-20261108",
+  "started_utc": "2026-11-08T04:32:28.941435+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-boat_joint_motion_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 28.5,
+      "log": "/private/tmp/interfit-complete-hull-gpu/00-visual-boat_joint_motion_tests.log",
+      "engine_log": "/private/tmp/interfit-complete-hull-gpu/00-visual-boat_joint_motion_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/interfit-complete-hull-gpu/00-visual-boat_joint_motion_tests-engine.log",
+        "--script",
+        "tests/boat_joint_motion_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

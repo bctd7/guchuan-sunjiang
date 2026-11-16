@@ -1,0 +1,93 @@
+[
+  {
+    "name": "rules",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 0.29,
+    "log": "regression/rules.log"
+  },
+  {
+    "name": "opening_geometry",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 0.46,
+    "log": "regression/opening_geometry.log"
+  },
+  {
+    "name": "geometry",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 0.57,
+    "log": "regression/geometry.log"
+  },
+  {
+    "name": "level01_orbit",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 7.1,
+    "log": "regression/level01_orbit.log"
+  },
+  {
+    "name": "level02",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 24.69,
+    "log": "regression/level02.log"
+  },
+  {
+    "name": "chapter_tools",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 2.72,
+    "log": "regression/chapter_tools.log"
+  },
+  {
+    "name": "level01_inspector",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 22.38,
+    "log": "regression/level01_inspector.log"
+  },
+  {
+    "name": "level01",
+    "exit_code": 0,
+    "status": "passed",
+    "log": "regression/level01.log",
+    "note": "Reran after adapting the old copy assertion to the already approved same-kind member wording."
+  },
+  {
+    "name": "classroom",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 1.22,
+    "log": "regression/classroom.log"
+  },
+  {
+    "name": "reentry",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 10.23,
+    "log": "regression/reentry.log"
+  },
+  {
+    "name": "fonts",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 3.7,
+    "log": "regression/fonts.log"
+  },
+  {
+    "name": "campaign",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 89.9,
+    "log": "regression/campaign.log"
+  },
+  {
+    "name": "failure",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 96.05,
+    "log": "regression/failure.log"
+  }
+]

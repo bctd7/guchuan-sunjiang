@@ -1,0 +1,119 @@
+{
+  "project": "/private/tmp/guchuan-solid-stock-review",
+  "started_utc": "2026-11-08T05:37:57.440767+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-boat_joint_sweep_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.56,
+      "log": "/private/tmp/solid-stock-checks/00-levels-boat_joint_sweep_tests.log",
+      "engine_log": "/private/tmp/solid-stock-checks/00-levels-boat_joint_sweep_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-solid-stock-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-checks/00-levels-boat_joint_sweep_tests-engine.log",
+        "--script",
+        "tests/boat_joint_sweep_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-first_join_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 9.35,
+      "log": "/private/tmp/solid-stock-checks/01-levels-first_join_tests.log",
+      "engine_log": "/private/tmp/solid-stock-checks/01-levels-first_join_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-solid-stock-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-checks/01-levels-first_join_tests-engine.log",
+        "--script",
+        "tests/first_join_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-opening_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.78,
+      "log": "/private/tmp/solid-stock-checks/02-levels-opening_geometry_tests.log",
+      "engine_log": "/private/tmp/solid-stock-checks/02-levels-opening_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-solid-stock-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-checks/02-levels-opening_geometry_tests-engine.log",
+        "--script",
+        "tests/opening_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-timber_rendering_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "log": "/private/tmp/solid-stock-checks/03-levels-timber_rendering_tests.log",
+      "engine_log": "/private/tmp/solid-stock-checks/03-levels-timber_rendering_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-solid-stock-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-checks/03-levels-timber_rendering_tests-engine.log",
+        "--script",
+        "tests/timber_rendering_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-level02_alignment_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 5.33,
+      "log": "/private/tmp/solid-stock-checks/04-levels-level02_alignment_geometry_tests.log",
+      "engine_log": "/private/tmp/solid-stock-checks/04-levels-level02_alignment_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-solid-stock-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-checks/04-levels-level02_alignment_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

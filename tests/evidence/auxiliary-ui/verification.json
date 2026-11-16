@@ -1,0 +1,100 @@
+{
+  "revision": "auxiliary-ui-20261101",
+  "checked_utc": "2026-11-01T06:45:41.589667+00:00",
+  "source_sha256": {
+    "levels/level01/level_ui.gd": "6e448729b3906f16a66b9bf1f5becb7a7519e1d6c22ce5b59e9858b05c1d2dd1",
+    "levels/level02/level_ui.gd": "e1e7fb4aea78cd45a61590fc87b5044280f64fa177db5a52e4c27a987768a447",
+    "levels/shared/workshop_auxiliary.gd": "7cf127b6a134bd0f9b75f076ad4d31106b8811dc8b3b1b7647670e6ccfa4e787",
+    "levels/shared/workshop_auxiliary.gd.uid": "da26e9760e1545014c9a6eab2b2f9cbb5712ecff46cfc43228f793cb9624e26b",
+    "levels/shared/teaching_portal.gd": "2f174b30673e75e21832e77b0e3091eb6fa937d95351cdde0747b8b1718f432c",
+    "classroom/introduction/lesson_intro.gd": "876b2c6504e42b0bb91c8e0a2b433300729f291ac66e8dc0bf8478764b0b0406",
+    "levels/level02/hull_view.gd": "18550f2f801b9ca83b39d60c646530f72d776641ab356b725c0eb04d162051a3",
+    "levels/level02/bulkhead_lesson.gd": "f5b830afb8bbd4e28bbc616758984cd03a1224ae0232fd699aebb367c075d754",
+    "tests/chapter_learning_tests.gd": "dae75a91cf827f3cd894e0b374173687ba351db0426715b3ad422cb6fc4b45c2",
+    "tests/run_suite.py": "9a7fe5060e1d02790b9658ed3b2d4b0694026bfdffdb89da8f74d1a4f01f5b19",
+    "tests/auxiliary_panel_tests.gd": "87d80cf44b976226c39c41ef118f3eaa2e0c3eb115f44138cfe939a3d26bde97",
+    "tests/auxiliary_panel_tests.gd.uid": "25e61a553a1c50b78379bd159c1c6e264ee259c3987d888894c47f25748cc8a2"
+  },
+  "protected_files_unchanged": 131,
+  "headless": {
+    "failed": 0,
+    "failures": [],
+    "host_had_focus": true,
+    "images": [],
+    "method": "Actual Viewport mouse events; not human hardware validation",
+    "passed": 127,
+    "renderer": "headless",
+    "revision": "auxiliary-ui-20261101"
+  },
+  "gpu": {
+    "failed": 0,
+    "failures": [],
+    "host_had_focus": false,
+    "images": [
+      "res://tests/evidence/auxiliary-ui/chapter-1-1440.png",
+      "res://tests/evidence/auxiliary-ui/chapter-1-1100.png",
+      "res://tests/evidence/auxiliary-ui/chapter-1-960.png",
+      "res://tests/evidence/auxiliary-ui/chapter-2-1440.png",
+      "res://tests/evidence/auxiliary-ui/chapter-2-1100.png",
+      "res://tests/evidence/auxiliary-ui/chapter-2-960.png"
+    ],
+    "method": "Actual Viewport mouse events; not human hardware validation",
+    "passed": 134,
+    "renderer": "macOS",
+    "revision": "auxiliary-ui-20261101"
+  },
+  "final_regressions": [
+    {
+      "name": "level01",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 42.06,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/aux-final-regression/level01.log"
+    },
+    {
+      "name": "campaign",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 88.31,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/aux-final-regression/campaign.log"
+    },
+    {
+      "name": "failure",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 94.79,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/aux-final-regression/failure.log"
+    }
+  ],
+  "other_regressions": [
+    {
+      "name": "classroom",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 1.27,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/aux-regression/classroom.log"
+    },
+    {
+      "name": "level02",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 24.27,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/aux-regression/level02.log"
+    },
+    {
+      "name": "reentry",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 10.18,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/aux-regression/reentry.log"
+    },
+    {
+      "name": "fonts",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 3.7,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/aux-regression/fonts.log"
+    }
+  ],
+  "note": "No user window operation. Actual Viewport pointer and Mac GPU checks, not human or target-device acceptance."
+}

@@ -1,0 +1,57 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+  "started_utc": "2026-11-01T10:45:09.821436+00:00",
+  "groups": [
+    "campaign"
+  ],
+  "results": [
+    {
+      "name": "00-campaign-campaign_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 90.36,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/00-campaign-campaign_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/00-campaign-campaign_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/00-campaign-campaign_tests-engine.log",
+        "--script",
+        "tests/campaign_tests.gd",
+        "--",
+        "--phase=full"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-campaign-campaign_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 18.94,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/01-campaign-campaign_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/01-campaign-campaign_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/01-campaign-campaign_tests-engine.log",
+        "--script",
+        "tests/campaign_tests.gd",
+        "--",
+        "--phase=classroom"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

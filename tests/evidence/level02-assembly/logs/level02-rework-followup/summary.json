@@ -1,0 +1,98 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T13:29:14.120963+00:00",
+  "groups": [
+    "core",
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-core-collision_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 1.32,
+      "log": "/private/tmp/level02-rework-followup/00-core-collision_tests.log",
+      "engine_log": "/private/tmp/level02-rework-followup/00-core-collision_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-followup/00-core-collision_tests-engine.log",
+        "--script",
+        "tests/collision_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_assembly_failure_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 22.28,
+      "log": "/private/tmp/level02-rework-followup/01-levels-level02_assembly_failure_input_tests.log",
+      "engine_log": "/private/tmp/level02-rework-followup/01-levels-level02_assembly_failure_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-followup/01-levels-level02_assembly_failure_input_tests-engine.log",
+        "--script",
+        "tests/level02_assembly_failure_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-trial_contact_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 13.89,
+      "log": "/private/tmp/level02-rework-followup/02-levels-trial_contact_tests.log",
+      "engine_log": "/private/tmp/level02-rework-followup/02-levels-trial_contact_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-followup/02-levels-trial_contact_tests-engine.log",
+        "--script",
+        "tests/trial_contact_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 31.69,
+      "log": "/private/tmp/level02-rework-followup/03-levels-inspection_workspace_tests.log",
+      "engine_log": "/private/tmp/level02-rework-followup/03-levels-inspection_workspace_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-followup/03-levels-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

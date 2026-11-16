@@ -1,0 +1,16 @@
+{
+  "contact_heights": {
+    "bulkhead/A": 0.284999996423721,
+    "bulkhead/B": 0.346180468797684,
+    "bulkhead/C": 0.40618047118187,
+    "three_middle/A": 1.45000004768372,
+    "three_middle/B": 1.45000004768372,
+    "three_middle/C": 1.45000004768372,
+    "three_upper/A": 1.45000004768372,
+    "three_upper/B": 1.61118054389954,
+    "three_upper/C": 1.61118054389954
+  },
+  "failed": 0,
+  "failures": [],
+  "passed": 60
+}

@@ -1,0 +1,1237 @@
+{
+  "created_utc": "2026-11-08T06:26:00.198961+00:00",
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "isolated_project": "/private/tmp/guchuan-first-lock-review",
+  "latest_results": [
+    {
+      "run": "first-lock-wiring",
+      "case": "starter_joint_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 3.29,
+      "log": "runs/first-lock-wiring/00-levels-starter_joint_tests-engine.log"
+    },
+    {
+      "run": "first-lock-final-geometry",
+      "case": "receiving_edge_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 2.25,
+      "log": "runs/first-lock-final-geometry/01-levels-receiving_edge_tests-engine.log"
+    },
+    {
+      "run": "first-lock-current",
+      "case": "starter_lock_geometry_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 2.34,
+      "log": "runs/first-lock-current/00-levels-starter_lock_geometry_tests-engine.log"
+    },
+    {
+      "run": "first-lock-current",
+      "case": "starter_lock_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 12.52,
+      "log": "runs/first-lock-current/01-levels-starter_lock_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "level02_rules_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 0.29,
+      "log": "runs/first-lock-regression/00-levels-level02_rules_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "level02_assembly_outcome_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 0.29,
+      "log": "runs/first-lock-regression/01-levels-level02_assembly_outcome_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "first_join_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 11.54,
+      "log": "runs/first-lock-regression/02-levels-first_join_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "continuable_joint_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 7.8,
+      "log": "runs/first-lock-regression/03-levels-continuable_joint_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "level02_wrong_type_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 28.69,
+      "log": "runs/first-lock-regression/04-levels-level02_wrong_type_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "level02_input_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 25.68,
+      "log": "runs/first-lock-regression/05-levels-level02_input_tests-engine.log"
+    },
+    {
+      "run": "first-lock-gpu-current",
+      "case": "starter_lock_tests",
+      "group": "visual",
+      "status": "passed",
+      "seconds": 16.01,
+      "log": "runs/first-lock-gpu-current/00-visual-starter_lock_tests-engine.log"
+    },
+    {
+      "run": "first-lock-final-geometry",
+      "case": "boat_joint_recovery_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 10.71,
+      "log": "runs/first-lock-final-geometry/02-levels-boat_joint_recovery_tests-engine.log"
+    },
+    {
+      "run": "first-lock-final-geometry",
+      "case": "opening_geometry_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 0.68,
+      "log": "runs/first-lock-final-geometry/03-levels-opening_geometry_tests-engine.log"
+    },
+    {
+      "run": "first-lock-final-geometry",
+      "case": "level02_alignment_geometry_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 4.34,
+      "log": "runs/first-lock-final-geometry/04-levels-level02_alignment_geometry_tests-engine.log"
+    }
+  ],
+  "history": [
+    {
+      "run": "first-lock-wiring",
+      "case": "starter_joint_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 3.29,
+      "log": "runs/first-lock-wiring/00-levels-starter_joint_tests-engine.log"
+    },
+    {
+      "run": "first-lock-wiring",
+      "case": "receiving_edge_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 1.39,
+      "log": "runs/first-lock-wiring/01-levels-receiving_edge_tests-engine.log"
+    },
+    {
+      "run": "first-lock-initial",
+      "case": "starter_lock_geometry_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 2.03,
+      "log": "runs/first-lock-initial/00-levels-starter_lock_geometry_tests-engine.log"
+    },
+    {
+      "run": "first-lock-initial",
+      "case": "starter_lock_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 11.15,
+      "log": "runs/first-lock-initial/01-levels-starter_lock_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "level02_rules_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 0.29,
+      "log": "runs/first-lock-regression/00-levels-level02_rules_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "level02_assembly_outcome_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 0.29,
+      "log": "runs/first-lock-regression/01-levels-level02_assembly_outcome_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "first_join_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 11.54,
+      "log": "runs/first-lock-regression/02-levels-first_join_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "continuable_joint_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 7.8,
+      "log": "runs/first-lock-regression/03-levels-continuable_joint_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "level02_wrong_type_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 28.69,
+      "log": "runs/first-lock-regression/04-levels-level02_wrong_type_tests-engine.log"
+    },
+    {
+      "run": "first-lock-regression",
+      "case": "level02_input_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 25.68,
+      "log": "runs/first-lock-regression/05-levels-level02_input_tests-engine.log"
+    },
+    {
+      "run": "first-lock-gpu",
+      "case": "starter_lock_tests",
+      "group": "visual",
+      "status": "passed",
+      "seconds": 14.64,
+      "log": "runs/first-lock-gpu/00-visual-starter_lock_tests-engine.log"
+    },
+    {
+      "run": "first-lock-final-geometry",
+      "case": "starter_lock_geometry_tests",
+      "group": "levels",
+      "status": "engine_error",
+      "seconds": 2.01,
+      "log": "runs/first-lock-final-geometry/00-levels-starter_lock_geometry_tests-engine.log"
+    },
+    {
+      "run": "first-lock-final-geometry",
+      "case": "receiving_edge_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 2.25,
+      "log": "runs/first-lock-final-geometry/01-levels-receiving_edge_tests-engine.log"
+    },
+    {
+      "run": "first-lock-final-geometry",
+      "case": "boat_joint_recovery_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 10.71,
+      "log": "runs/first-lock-final-geometry/02-levels-boat_joint_recovery_tests-engine.log"
+    },
+    {
+      "run": "first-lock-final-geometry",
+      "case": "opening_geometry_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 0.68,
+      "log": "runs/first-lock-final-geometry/03-levels-opening_geometry_tests-engine.log"
+    },
+    {
+      "run": "first-lock-final-geometry",
+      "case": "level02_alignment_geometry_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 4.34,
+      "log": "runs/first-lock-final-geometry/04-levels-level02_alignment_geometry_tests-engine.log"
+    },
+    {
+      "run": "first-lock-gpu-final",
+      "case": "starter_lock_tests",
+      "group": "visual",
+      "status": "timeout",
+      "seconds": 150.08,
+      "log": "runs/first-lock-gpu-final/00-visual-starter_lock_tests-engine.log"
+    },
+    {
+      "run": "first-lock-clearance",
+      "case": "starter_lock_geometry_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 2.24,
+      "log": "runs/first-lock-clearance/00-levels-starter_lock_geometry_tests-engine.log"
+    },
+    {
+      "run": "first-lock-gpu-clearance",
+      "case": "starter_lock_tests",
+      "group": "visual",
+      "status": "passed",
+      "seconds": 15.22,
+      "log": "runs/first-lock-gpu-clearance/00-visual-starter_lock_tests-engine.log"
+    },
+    {
+      "run": "first-lock-current",
+      "case": "starter_lock_geometry_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 2.34,
+      "log": "runs/first-lock-current/00-levels-starter_lock_geometry_tests-engine.log"
+    },
+    {
+      "run": "first-lock-current",
+      "case": "starter_lock_tests",
+      "group": "levels",
+      "status": "passed",
+      "seconds": 12.52,
+      "log": "runs/first-lock-current/01-levels-starter_lock_tests-engine.log"
+    },
+    {
+      "run": "first-lock-gpu-current",
+      "case": "starter_lock_tests",
+      "group": "visual",
+      "status": "passed",
+      "seconds": 16.01,
+      "log": "runs/first-lock-gpu-current/00-visual-starter_lock_tests-engine.log"
+    }
+  ],
+  "source_hashes": {
+    "campaign/campaign.gd": {
+      "sha256": "f4dc45767f3285abf962352cf58f7fe2dab8213679b8b29f706c79a91aec019a",
+      "matches_isolated": true
+    },
+    "classroom/classroom.gd": {
+      "sha256": "b3ccfdca58aedfcb7eeaf17f61e1bcb8193dfaa8177b5615f7deb1819f9421ba",
+      "matches_isolated": true
+    },
+    "classroom/ui/ladder_timber_style.gd": {
+      "sha256": "2840c8d0e235d4605414d00eff0aac480d5da26ee71227c0e3fe24bda20d18d2",
+      "matches_isolated": true
+    },
+    "classroom/ui/wood_block_button.gd": {
+      "sha256": "5ddbc7b42aad02fdccea68e818d9893bf15e8ae869aee9c48cabd0ff7ea6bf17",
+      "matches_isolated": true
+    },
+    "classroom/ui/workshop_panel.gd": {
+      "sha256": "03d6f886b9a0478fd768ac597a9ee16d7474d5325a8ce8dc8f43befd03683136",
+      "matches_isolated": true
+    },
+    "classroom/ui/wood_ladder.gd": {
+      "sha256": "e5bf9849d4ddc824ffc3fc7064f8c553adbb37220ab6b1affef3468792ac4438",
+      "matches_isolated": true
+    },
+    "classroom/introduction/lesson_intro.gd": {
+      "sha256": "876b2c6504e42b0bb91c8e0a2b433300729f291ac66e8dc0bf8478764b0b0406",
+      "matches_isolated": true
+    },
+    "classroom/science/demo.gd": {
+      "sha256": "552f60da449cf1bcfc7e8f3d3af57d6073e9a60f95d463593d8131d6336f3b90",
+      "matches_isolated": true
+    },
+    "classroom/science/panel.gd": {
+      "sha256": "6246090bca380b3c8e1f1f678fdc1fc57386a10b6a9fe28d68f61c806c27e9e3",
+      "matches_isolated": true
+    },
+    "classroom/science/test_education.gd": {
+      "sha256": "d037b572c772bfb4b2efafd9965bd4434a25cdb7154b66d82887f34ccba3c4f7",
+      "matches_isolated": true
+    },
+    "classroom/science/contact_geometry.gd": {
+      "sha256": "c48677488733e82bec14596bf986391259f609865c53ab58347c79243ba2f07a",
+      "matches_isolated": true
+    },
+    "classroom/science/presenter.gd": {
+      "sha256": "ff1dd1c69805ff13bb9d5fbe4b64f96be5b687e0f806a62111a6a228256d122c",
+      "matches_isolated": true
+    },
+    "classroom/content/lesson_copy.gd": {
+      "sha256": "bec4695d274e0f0d14fad43cb8ded463eb4927f0cf01c24a81a05a3abe5774a8",
+      "matches_isolated": true
+    },
+    "classroom/display/workshop_look.gd": {
+      "sha256": "dea4654cf1f78d7844fd42883b6b089770aab94573e6b6cbe7fee18c3d46dabf",
+      "matches_isolated": true
+    },
+    "classroom/display/lesson_model_preview.gd": {
+      "sha256": "e1f1062a7dce2a52250b837362f09aa19715170a4f5079f4fd160a8fb9a435bb",
+      "matches_isolated": true
+    },
+    "classroom/science/dynamic/test_dynamic.gd": {
+      "sha256": "1a444471d4bab28997b21ede640436187dffaff1bef0cc1840348a2abf62caec",
+      "matches_isolated": true
+    },
+    "classroom/science/dynamic/demo.gd": {
+      "sha256": "d02fe48d8e6a546311bc3a5c30820140e41248f21863dd48bbf760d665125065",
+      "matches_isolated": true
+    },
+    "classroom/science/dynamic/diagram.gd": {
+      "sha256": "389e8b1a4cab7d7d9756cedfc584d708e9d4e1652363db9337ff97e4ed549a2e",
+      "matches_isolated": true
+    },
+    "classroom/science/dynamic/presenter.gd": {
+      "sha256": "8b4581f4bb15a22942c8649ea83afd3c046f7172658a0e61ba334af5706649c2",
+      "matches_isolated": true
+    },
+    "classroom/science/force_gallery/zong_display.gd": {
+      "sha256": "ec82d1b085f215b79e02b31283e7cf06ba2170355b55197cff422c00d2b86576",
+      "matches_isolated": true
+    },
+    "classroom/science/force_gallery/cross_lap_clearance.gd": {
+      "sha256": "b83ac578631cf22e211cb5b50dca07d9c3cf96ceab62f47c941b649daea0aa97",
+      "matches_isolated": true
+    },
+    "classroom/science/force_gallery/zong_timeline.gd": {
+      "sha256": "ceeef0047f84109a1e99f9f1bcf265a6eec965b46a085c7d2ec4a80f1699fa0e",
+      "matches_isolated": true
+    },
+    "classroom/science/force_gallery/zong_diagram.gd": {
+      "sha256": "a6fac58fd45db92e07d4c6f51a6a50fb59dd42a21f4d1a1ac7b2968d7367e8f8",
+      "matches_isolated": true
+    },
+    "classroom/science/force_gallery/pull_timeline.gd": {
+      "sha256": "0dd54b818c3bb66da4a7fd6e03647db70125013c2e9be0e914a67863b47bf124",
+      "matches_isolated": true
+    },
+    "classroom/science/force_gallery/timeline.gd": {
+      "sha256": "41e27ba37af2d7d05ad9c73d574855fbaa7e48f431b9840ca9e9e75455bae90e",
+      "matches_isolated": true
+    },
+    "classroom/science/force_gallery/diagram.gd": {
+      "sha256": "117db9ea4f222c991322a2fb5221556ad5b3ff471ec974a8e2fa0ac28b7c4b38",
+      "matches_isolated": true
+    },
+    "classroom/science/force_gallery/presenter.gd": {
+      "sha256": "ae0d03096be826485e22d24719732d17394f50ca2aa9f7c23a14596344e56fda",
+      "matches_isolated": true
+    },
+    "classroom/science/force_gallery/pull_effects.gd": {
+      "sha256": "77b77ca2b3c4424a62d5b97d9fbf2f42f4f08930e989e8e122434e02e4f6a983",
+      "matches_isolated": true
+    },
+    "core/assembly.gd": {
+      "sha256": "a84f595fd7c295b8eb3510773057c7bdfcad71b3106701d821417e515c8ad3e8",
+      "matches_isolated": true
+    },
+    "core/mesh_collision_guard.gd": {
+      "sha256": "02aa77220eb963bed3437122cb4c56d0c4107015ff4ea070be24c9253c56d5b1",
+      "matches_isolated": true
+    },
+    "core/insertion_path.gd": {
+      "sha256": "d00879cc4bacc7d19796ecfef790c5189089f55bbf9e73f6ac92bc891e259088",
+      "matches_isolated": true
+    },
+    "core/guided_drag.gd": {
+      "sha256": "1e72e383bf35d46a58636693072d3211da0d304f33499e74b3c6b6cc81d9024d",
+      "matches_isolated": true
+    },
+    "core/interaction.gd": {
+      "sha256": "c196597e8c3b34fce02dfabef8d4b5ba107b0973ef8b3585759caf487b3af501",
+      "matches_isolated": true
+    },
+    "core/orbit_camera.gd": {
+      "sha256": "401a9d5baf55e48809399aea4d668aeb864bd435967659b3614edee7f9333ae4",
+      "matches_isolated": true
+    },
+    "levels/level01/level_ui.gd": {
+      "sha256": "71d32e54c92562c25cd066a67a831bc3406f15af917b7e356d678e4c0836ecca",
+      "matches_isolated": true
+    },
+    "levels/level01/candidate_geometry.gd": {
+      "sha256": "6b3d59511ca2c8e92ff1e93f60f46f95aa65291d731855ef96e23b6119215bca",
+      "matches_isolated": true
+    },
+    "levels/level01/skeleton_geometry_probe.gd": {
+      "sha256": "59394252acad767a14fdd241532adb57c22a296a5ed9185489b12dbf370d3417",
+      "matches_isolated": true
+    },
+    "levels/level01/level_state.gd": {
+      "sha256": "6094299735892f0eca5213086ef377a0cc3e39976800631477e29bb3993883be",
+      "matches_isolated": true
+    },
+    "levels/level01/assembly_drag_surface.gd": {
+      "sha256": "c7488e1ab4be8345bf94c9b7a7daa23d2a1ad4d49191341d249c2b9725e2a34f",
+      "matches_isolated": true
+    },
+    "levels/level01/level01.gd": {
+      "sha256": "0e7741325b29d595cf1fabbe13386868d012f3354ce93d9e8b91b4836685328f",
+      "matches_isolated": true
+    },
+    "levels/level01/seven_stars_illustration.gd": {
+      "sha256": "2dd4396a7f96efbb02f1123e6c0c3c4b32ae0a22670fffe5763468ea2a68125c",
+      "matches_isolated": true
+    },
+    "levels/level01/joint_inspector.gd": {
+      "sha256": "23e310fa187f789114589466e9cca78fe76ca222ad5b857e88089388d86c9aa2",
+      "matches_isolated": true
+    },
+    "levels/level01/candidate_preview.gd": {
+      "sha256": "38d8c1c5fcc777351e959a7bf49e6c3e4e7bb470c076e8331edfe6195710ab23",
+      "matches_isolated": true
+    },
+    "levels/level01/shipwright_story.gd": {
+      "sha256": "3910a2107eed7ae2aa1a763154e943032af67fa55f86bdea3fb0fe3bab6bc520",
+      "matches_isolated": true
+    },
+    "levels/level01/skeleton_view.gd": {
+      "sha256": "3d068b7846757f8ffbc6d70770c8fadafd0b0ad010517deb498cec00de287c5b",
+      "matches_isolated": true
+    },
+    "levels/level01/length_measure_panel.gd": {
+      "sha256": "d3990449a1414dae31273f1f8046e83e4ba15a34c81aa71b4f7971061a3adcb8",
+      "matches_isolated": true
+    },
+    "levels/level01/length_comparison.gd": {
+      "sha256": "783fbf252e7dcac8eaa07a9b387cf3298a7790a0fcc117fead2000613688115a",
+      "matches_isolated": true
+    },
+    "levels/level01/type_gallery.gd": {
+      "sha256": "eb507b2f6e469e746b0ef3cf010f0a8200f8fa59573d0fbf77267c47a501d7c5",
+      "matches_isolated": true
+    },
+    "levels/level01/length_candidate_gallery.gd": {
+      "sha256": "65f0b30e49b1340c3d3d97af6715ba357caf733ad315d761dbfe2abd0977e478",
+      "matches_isolated": true
+    },
+    "levels/level01/workshop_backdrop.gd": {
+      "sha256": "129da2e5daa186bcee44b501bb916c48036e00bbd8b70e76dd1597d9a78ddb55",
+      "matches_isolated": true
+    },
+    "levels/level01/connection_rules.gd": {
+      "sha256": "f8ea6bb7cf9106efa26b4098cb5f267056a9c55deb444d13067218e93a99d09e",
+      "matches_isolated": true
+    },
+    "levels/level01/inspection_orbit.gd": {
+      "sha256": "c310ff250dc8789da6b694bafad52d6d6b97892b1a7b00e9df8f39e916b7a44e",
+      "matches_isolated": true
+    },
+    "levels/shared/rotatable_preview.gd": {
+      "sha256": "20f995bf42e49c5f3bff000cf833367ea92bae0ac673d89d98cee00edc211c24",
+      "matches_isolated": true
+    },
+    "levels/shared/inspection_zoom_bar.gd": {
+      "sha256": "c870154fef6f817d8813966e13d02527ef7e2d2a104c6ea49fd91f7fdc09bafc",
+      "matches_isolated": true
+    },
+    "levels/shared/model_magnifier.gd": {
+      "sha256": "7f528e814c362885a74090ee0f72ffa827822cccf55a8d2fea7b610504b859f3",
+      "matches_isolated": true
+    },
+    "levels/shared/assembly_failure.gd": {
+      "sha256": "cedb76b9eceb9045457b89786accfe6e7f9c4d1df29340b14acf89777b796ca2",
+      "matches_isolated": true
+    },
+    "levels/shared/socket_interaction.gd": {
+      "sha256": "b1dbec9808a96c7921547d358e68efad04f06c7c3805bd968a4ad4c4defd490b",
+      "matches_isolated": true
+    },
+    "levels/shared/chapter_ui.gd": {
+      "sha256": "5fb52d8bc82afc87c4dfe723595fd5e3af53a8e5e47d321bf88954be30832e88",
+      "matches_isolated": true
+    },
+    "levels/shared/mesh_end_crop.gd": {
+      "sha256": "0430eaa603a5dee4357d1157b079f230d0a4fc6eef5c0c24623df4a249159dae",
+      "matches_isolated": true
+    },
+    "levels/shared/teaching_portal.gd": {
+      "sha256": "2f174b30673e75e21832e77b0e3091eb6fa937d95351cdde0747b8b1718f432c",
+      "matches_isolated": true
+    },
+    "levels/shared/joint_demonstration.gd": {
+      "sha256": "190e608d7a074cc0ecc731d925889280d4b9d52686ad0ddda4ce178c6505a07a",
+      "matches_isolated": true
+    },
+    "levels/shared/inspection_workspace.gd": {
+      "sha256": "ab89fe1a30c6bd248272f4d6b8d91b0df1cd4e2c7e77081e0ba0189e46f64e10",
+      "matches_isolated": true
+    },
+    "levels/shared/selectable_orbit.gd": {
+      "sha256": "df135932ebffd9fc67b1706e79ca546fc529be566450307c99f87c26f1c4b174",
+      "matches_isolated": true
+    },
+    "levels/shared/inspection_orbit.gd": {
+      "sha256": "f44f4ccba6db1e30ac58df13236b9116f8143a27274fc9f4e87d51abbe15b60c",
+      "matches_isolated": true
+    },
+    "levels/level03/level_ui.gd": {
+      "sha256": "de75437d92f682c2a43254537372c892044478b910fe20e5c2a97d3079bfde2d",
+      "matches_isolated": true
+    },
+    "levels/level03/level_state.gd": {
+      "sha256": "bad3484447f9af77855b40d49a8b6dcc5dbedb45521c559e90203da4546da287",
+      "matches_isolated": true
+    },
+    "levels/level03/level03.gd": {
+      "sha256": "0a40e44965c2bb272d2c9ce9be7131aa3b6516bd2ad0e0849754f045921e7019",
+      "matches_isolated": true
+    },
+    "levels/level03/candidate_gallery.gd": {
+      "sha256": "03ed72991a0bf2dd732950a35db5ade8d9853d8410bd7903cd5a7f52d57f0fed",
+      "matches_isolated": true
+    },
+    "levels/level03/rigging_view.gd": {
+      "sha256": "4da2c07dc66df78e3972f8ae3ff7de214f2d97849ae99d3d69a705f6f5c8fb19",
+      "matches_isolated": true
+    },
+    "levels/level03/connection_rules.gd": {
+      "sha256": "4fedd9f56afe3182414e31c22060c3b145589cbc164e5e7bef4cc579885b7bba",
+      "matches_isolated": true
+    },
+    "levels/level02/level_ui.gd": {
+      "sha256": "c22a254e164db5a536deac231873ad39db18abfd46a9a9fe082d3b363ac06a94",
+      "matches_isolated": true
+    },
+    "levels/level02/timber_lighting.gd": {
+      "sha256": "01700d2c7146451171d16933c8916853d8d72f7c689d4843024b261fc9bd935c",
+      "matches_isolated": true
+    },
+    "levels/level02/inspection_camera.gd": {
+      "sha256": "59550713e971b4951cfa1955997bdb628e84c528b17d722975b890f3f6690a46",
+      "matches_isolated": true
+    },
+    "levels/level02/trial_contact.gd": {
+      "sha256": "1bfdb834f5bed44fd0487d515ecca48f9c125d4326815be70653d5cb0b782269",
+      "matches_isolated": true
+    },
+    "levels/level02/level_state.gd": {
+      "sha256": "54d96cc871880f3ccab4b84b9b3c5d127f6cbb6857a3ddd56289614af2413ba0",
+      "matches_isolated": true
+    },
+    "levels/level02/opening_gallery.gd": {
+      "sha256": "a8eff6ac7d1133f71be471cc61d3995dabc4adaa11735a64c37a893a2cd91015",
+      "matches_isolated": true
+    },
+    "levels/level02/hull_view.gd": {
+      "sha256": "448e00b050347c1a762a6f3095bcf2a57de3e1f2c406f4ad0b0a9cdeff77bf90",
+      "matches_isolated": true
+    },
+    "levels/level02/model_seam_guides.gd": {
+      "sha256": "816e34f52928ee59d6c6bfe6ad25dd5025bc08ce0081991a68e2bc01512ed11f",
+      "matches_isolated": true
+    },
+    "levels/level02/hull_backdrop.gd": {
+      "sha256": "5466440da3bcc96c5484955ec9cf7d51908440dbcc3df8b74c2011104742feac",
+      "matches_isolated": true
+    },
+    "levels/level02/assembly_policy.gd": {
+      "sha256": "e8782e80edbcdc71c08422bc4c6a7d2d0d750d6260af223086f157897e87dc9c",
+      "matches_isolated": true
+    },
+    "levels/level02/opening_rules.gd": {
+      "sha256": "315e059de5a854d3c61f08ffa478dce0beaf113fe46cf934f8c2041b556d10cb",
+      "matches_isolated": true
+    },
+    "levels/level02/bulkhead_diagram.gd": {
+      "sha256": "a78b5a3da460ce89263490e55f91bf9290bc18af1f06b5a9e737b4fe36e3a7dc",
+      "matches_isolated": true
+    },
+    "levels/level02/receiving_edge.gd": {
+      "sha256": "4a1d8c8dbc750ea9346767830323f5839eb3a96e796a4bf49c4cb0e9e6541a1e",
+      "matches_isolated": true
+    },
+    "levels/level02/joint_gallery.gd": {
+      "sha256": "b684126fd0cce09eee0d325b5e01dba641954b3d8cf569ca8c657bb36f994fe4",
+      "matches_isolated": true
+    },
+    "levels/level02/wood_surface.gd": {
+      "sha256": "5581291d2017b707e4304e484b3455eedcc9cb1eabfacb685fde3337766bbbb0",
+      "matches_isolated": true
+    },
+    "levels/level02/level02.gd": {
+      "sha256": "016032ce733b361c8027c2f000412735c2fa632c6520a13823799f3382aadce0",
+      "matches_isolated": true
+    },
+    "levels/level02/wood_appearance.gd": {
+      "sha256": "3479d7372297ac9f0943c245ec4351b9aa63381be3a79853853cfa4a040e9a58",
+      "matches_isolated": true
+    },
+    "levels/level02/bulkhead_lesson.gd": {
+      "sha256": "cae641934e3e297731d15d24aa8b4a942fd53152379d3dc527168259faa63337",
+      "matches_isolated": true
+    },
+    "levels/level02/trial_presentation.gd": {
+      "sha256": "5fa2f41c390abd695cbb6280870e44ea7ddefc8e4afe1713e0b5226f99382025",
+      "matches_isolated": true
+    },
+    "levels/level02/assembly_alignment.gd": {
+      "sha256": "ec9fc53545c059152d687365351cbf0f12101faa8760146f6b35daf60f47a77e",
+      "matches_isolated": true
+    },
+    "levels/level02/drag_guide.gd": {
+      "sha256": "6fe5be891b0e6ae26b7c623c2891c27d383fb39d62181d46027686f53d867c6a",
+      "matches_isolated": true
+    },
+    "levels/level02/connection_rules.gd": {
+      "sha256": "985958516f9aeb9677c3d4357652f6a334fb9684344914054afaa51cfcc13c83",
+      "matches_isolated": true
+    },
+    "levels/level02/inspection_context.gd": {
+      "sha256": "01a75e7248055520fb6bb9e7885c51941ec6a7b8fc6ee8bd373f6e5163262c32",
+      "matches_isolated": true
+    },
+    "levels/level02/sea_trial.gd": {
+      "sha256": "6f1f400bd2ecdf3793e40aeca76c4e27c7247183a2ed8c80364e8fabab15a34f",
+      "matches_isolated": true
+    },
+    "levels/level02/hull_drag_interaction.gd": {
+      "sha256": "9fbcdc3e33ab241b2413e714f79d4982aad794bca4d0d7c0c2b5969c60d99490",
+      "matches_isolated": true
+    },
+    "levels/level02/contact_cells.gd": {
+      "sha256": "2c8b38eaff5cde01ec04e9dab9c08b4d0a4d04838fc4d2d7555a21280ee2f975",
+      "matches_isolated": true
+    },
+    "levels/level01/inspector/inspection_geometry.gd": {
+      "sha256": "0ebb1b0e9f510c272781e48372e3dae1bd448f559214959720fed0b6864b9ed5",
+      "matches_isolated": true
+    },
+    "models/joinery/verify_import_holes.gd": {
+      "sha256": "be361d84f812746ab99eb328fc4f4618dfcbc01a7ffbc673dbbb27846b3dea91",
+      "matches_isolated": true
+    },
+    "models/joinery/generate_zong_corner.gd": {
+      "sha256": "17441375395244aefeeae048a4dc8f1e7634cc44e332bbe5993e7f9ffde54c00",
+      "matches_isolated": true
+    },
+    "models/ship/keel/ship_geometry.gd": {
+      "sha256": "76e3099eceecf3fb3ade5507d350a64b89183ecba2380237beeb306ffe6172d5",
+      "matches_isolated": true
+    },
+    "models/ship/keel/receiver_section.gd": {
+      "sha256": "55f9ed82fb5c3dd1cf3fc8d44b08ecd2537f014d3b8977e1315341c813759ed9",
+      "matches_isolated": true
+    },
+    "models/ship/keel/trial_receiver.gd": {
+      "sha256": "82f76bb02a0ff64fe041636b452a0919cf5237983533f780109928b7ffb8b8bd",
+      "matches_isolated": true
+    },
+    "models/ship/keel/trial_fit.gd": {
+      "sha256": "d3fc0da22cdbc1fb04a606f8af7d60acda17884964f463c768280b22445ab034",
+      "matches_isolated": true
+    },
+    "models/ship/keel/length_geometry.gd": {
+      "sha256": "6512522a4efbd5ccc3f521094bf0f25867810ad5f2a6eb160d5e020ffeaa6228",
+      "matches_isolated": true
+    },
+    "models/ship/hull/starter_joint.gd": {
+      "sha256": "747a30ccd2b843caba47728b74c2d4fdda689d8c74190f15980c62e19a54f856",
+      "matches_isolated": true
+    },
+    "models/ship/hull/convex_carving.gd": {
+      "sha256": "cde20859887a6cc6a647c24ab3d121e713b8597f97118f2c1c49be3202651f5e",
+      "matches_isolated": true
+    },
+    "models/ship/hull/ship_geometry.gd": {
+      "sha256": "cee76e55e81e0c1bd3e914bb0050988dd85696b8590bf3761cf4b6714cdaa2f0",
+      "matches_isolated": true
+    },
+    "models/ship/hull/support_geometry.gd": {
+      "sha256": "d5e9cb9737319b221ec6648ab367229f10381d79588fe5b81c23f93d02c96894",
+      "matches_isolated": true
+    },
+    "models/ship/hull/boat_joints.gd": {
+      "sha256": "9d3e6d5df04755a0ac8f996eb8dcca4d7f4588fabbce21a2097709dba27b9d87",
+      "matches_isolated": true
+    },
+    "models/ship/hull/starter_lock.gd": {
+      "sha256": "6a9fcfd1a9240016b077f00c69e8fd2a710a369af8e1bc28aa2c1c055e4f85eb",
+      "matches_isolated": true
+    },
+    "models/ship/rigging/ship_geometry.gd": {
+      "sha256": "150e4b7652ae87b379604acc23b195aa4828b95bc9b3b1c8817cd4736febc6e6",
+      "matches_isolated": true
+    },
+    "models/ship/rigging/generate_ship_zong.gd": {
+      "sha256": "60ae06be80d6f07959490979fc3f96caaf72ed49d15a6aa4ace8677dc8c2a2b0",
+      "matches_isolated": true
+    },
+    "shared/source_presentation.gd": {
+      "sha256": "a414f8b55bc897fd16e359c103f60112d2b85b028cab90a633b852d12de77de8",
+      "matches_isolated": true
+    },
+    "shared/chinese_fonts.gd": {
+      "sha256": "5ca5c89ed4a167df422eaab724ec1b1bae097c3e38be2be15cdcd6acd9b574a0",
+      "matches_isolated": true
+    },
+    "shared/ui/workshop_ui_style.gd": {
+      "sha256": "3ad60bafa6183d4229e4f68f7d77ba9b0f6eccd0e62748c9e2163b8841fd0c7f",
+      "matches_isolated": true
+    },
+    "shared/ui/friendly_theme.gd": {
+      "sha256": "85c334e98ed0158c041af4f1af4d1a9ee404b74e12f763a8b9548278c8c244b5",
+      "matches_isolated": true
+    },
+    "shared/fonts/generate_font_resource.gd": {
+      "sha256": "5c7b97f1425765b5a0088ffc95d3fcddccfe413e105c9d0dce928b737fa3b650",
+      "matches_isolated": true
+    },
+    "tests/continuable_joint_tests.gd": {
+      "sha256": "74b102118408a9f49aba796faa1e9534179cd9c148d0d84ec6a0c5b950de5426",
+      "matches_isolated": true
+    },
+    "tests/starter_joint_tests.gd": {
+      "sha256": "878878c2755488deb29057a88d5b740b1accd623129ef09cf2ba75796e3aad32",
+      "matches_isolated": true
+    },
+    "tests/zong_reference_input_tests.gd": {
+      "sha256": "627ff89b5ea0e7ba75d9e9cba079486e61f169b9c387786aa48f3034aae77e26",
+      "matches_isolated": true
+    },
+    "tests/auxiliary_panel_tests.gd": {
+      "sha256": "f1d1ee5f93b12a40bc5d789a50e4a3c201802cc0e78271d75ee9228494de0e84",
+      "matches_isolated": true
+    },
+    "tests/force_sequence_tests.gd": {
+      "sha256": "2962b8eff53a1056691024649a0439bba7ea3eacee4d4d1ac93d7023520ac5e4",
+      "matches_isolated": true
+    },
+    "tests/timber_rendering_tests.gd": {
+      "sha256": "94d69fe8faf128f55b21e65a1c2001104a71bba9ff5eea3d0b1fcb7f42723ee4",
+      "matches_isolated": true
+    },
+    "tests/level02_wave_outcome_tests.gd": {
+      "sha256": "5334a58bf0aff54cad9f1c39ef2c19467b786612bb293bb4c80ac183727fe2e0",
+      "matches_isolated": true
+    },
+    "tests/level02_rules_tests.gd": {
+      "sha256": "ed4d7a67a2313208bf99d5a88998ffe4f336c5f609451dbe2c719bf7cecfcfe3",
+      "matches_isolated": true
+    },
+    "tests/inserted_contact_audit.gd": {
+      "sha256": "ab264da15be90ac42c29561eb3ba966de15c3a6db15257470fcaef8b4d304392",
+      "matches_isolated": true
+    },
+    "tests/bulkhead_story_visual.gd": {
+      "sha256": "c2eb0b961e674d40a550642a03f5d4cc699523eff4c453ef5895580c5ccc3293",
+      "matches_isolated": true
+    },
+    "tests/boat_joint_motion_tests.gd": {
+      "sha256": "d7e491970dea579949e555962b7e028ad8b240f96d302955278781dcfb48bca8",
+      "matches_isolated": true
+    },
+    "tests/wood_material_tests.gd": {
+      "sha256": "4f82fb76c18b5aad6381e11eff562593d57daf2077df221eaa534716ab75809f",
+      "matches_isolated": true
+    },
+    "tests/alignment_contact_visual.gd": {
+      "sha256": "c207b29e2215684afa32119ce80baf9e0e7c11c9917a7543e13aa96331f4f4da",
+      "matches_isolated": true
+    },
+    "tests/trial_fit_final_visual.gd": {
+      "sha256": "41a543327bd9e441a4d70e75e786ceff7af90593740da64f7b4ce9bafc262654",
+      "matches_isolated": true
+    },
+    "tests/rib_feedback_visual.gd": {
+      "sha256": "166e47a4f99067da1d92430017f0a0faba7f69b548f9ef07f256df8e1d163029",
+      "matches_isolated": true
+    },
+    "tests/inspection_workspace_tests.gd": {
+      "sha256": "5999d743e70143164af7bf23c4c7f11251c815573fe707f6bd35a3cb2822a2db",
+      "matches_isolated": true
+    },
+    "tests/zong_geometry_tests.gd": {
+      "sha256": "d8089bbef20595cc42da6a72d579200f932daa2633201bf91b84b25b6fce666d",
+      "matches_isolated": true
+    },
+    "tests/hull_wood_normals_tests.gd": {
+      "sha256": "afe900bea05f91dd357fb3a930b976bc38a678625f16bbf12a608e76c65749c7",
+      "matches_isolated": true
+    },
+    "tests/trial_receiver_visual.gd": {
+      "sha256": "66d7a7951dc594713b3bdf7b5fa7f81720d9bf57950de936ccbe30a72250941b",
+      "matches_isolated": true
+    },
+    "tests/level02_clarity_zoom_tests.gd": {
+      "sha256": "0e952e318ad6e17226104e4db1ef05b199910237c531af323f42d671cbe369a1",
+      "matches_isolated": true
+    },
+    "tests/candidate_preview_tests.gd": {
+      "sha256": "487e74fb38d7289370938b61a937502b7158968a8e42f2368078bda2d738679b",
+      "matches_isolated": true
+    },
+    "tests/zong_input_tests.gd": {
+      "sha256": "f793f8c671c31dc2e5b332ada0db7fe36fe92950e0ebc703046d96adc0950c7a",
+      "matches_isolated": true
+    },
+    "tests/rib_surface_tests.gd": {
+      "sha256": "c6fbedc7848fc2273d1630d6dab2d00aea8f61391241b8c22b329d69cafab5a8",
+      "matches_isolated": true
+    },
+    "tests/wood_material_visual.gd": {
+      "sha256": "a8ce1f56d171608666e347082f800c2939b56b2343502374dfd902d9f7297cc6",
+      "matches_isolated": true
+    },
+    "tests/hull_pointer.gd": {
+      "sha256": "4424c74552e8fa9e02738a7ff52e3d5e8fc1de020b4af2fee3cb637266e15550",
+      "matches_isolated": true
+    },
+    "tests/chinese_font_tests.gd": {
+      "sha256": "9399594495b63d166c9b5fd1e68d303a89e43e2692ed12e74dfdaa851831e621",
+      "matches_isolated": true
+    },
+    "tests/level01_length_geometry_tests.gd": {
+      "sha256": "fe6d91291bfee15b86e800b6a3404213a3679b84a6df96678603cda7c278f571",
+      "matches_isolated": true
+    },
+    "tests/level02_plank_sequences_tests.gd": {
+      "sha256": "f0232ad6be1bd11360762e1ed38cd113faf5f76979cbbddcfce954c9f09cb748",
+      "matches_isolated": true
+    },
+    "tests/resumed_level01_visual.gd": {
+      "sha256": "a500e5f26cc92bf8ab138d58994cff32f725b856efe1c02e74b08a88b472bb8f",
+      "matches_isolated": true
+    },
+    "tests/level01_inspector_tests.gd": {
+      "sha256": "03a40784e13e0144a2de6273b190706749c952c9935eff0c8e60eabf384b56f7",
+      "matches_isolated": true
+    },
+    "tests/starter_lock_geometry_tests.gd": {
+      "sha256": "c721f9ad031b5f281437903c2fe103a8a426a3ef781a7ac5d0ca4f288ee0b5cb",
+      "matches_isolated": true
+    },
+    "tests/resumed_stability_visual.gd": {
+      "sha256": "da0a1fa2c7b6ab0d492bf60236329dadcd8255ecc07f42cbd4d96aa55357348b",
+      "matches_isolated": true
+    },
+    "tests/chapter_learning_tests.gd": {
+      "sha256": "dae75a91cf827f3cd894e0b374173687ba351db0426715b3ad422cb6fc4b45c2",
+      "matches_isolated": true
+    },
+    "tests/display_name_tests.gd": {
+      "sha256": "af71ed4a43b5245da27b76e40d78cd9a2a67eeeb8df21de1d976745445fc9284",
+      "matches_isolated": true
+    },
+    "tests/trial_contact_tests.gd": {
+      "sha256": "e7d00040c659a3e5bcb4d920be18c04da912a08f1277df24c61f8a42bd524d65",
+      "matches_isolated": true
+    },
+    "tests/view_input_tests.gd": {
+      "sha256": "469f26bcdbc476f1b8643bb2a3224d234b5ffaff51ff078b111a9499a30c5cb6",
+      "matches_isolated": true
+    },
+    "tests/level01_length_rules_tests.gd": {
+      "sha256": "a539261078b41a420703b2f4e73d82910b391eabb0b6262ad312d5607b64282a",
+      "matches_isolated": true
+    },
+    "tests/level01_rules_tests.gd": {
+      "sha256": "fdf17739226ec5b0cffb793a9a545003b535cd752fa1dfe7eb91c278e78b401a",
+      "matches_isolated": true
+    },
+    "tests/observer_snap_tests.gd": {
+      "sha256": "3423d96a9c45684de8c5eacf5467a67d5f0f1b8c1b2d6aa9312e97b7eab87521",
+      "matches_isolated": true
+    },
+    "tests/level02_drag_tests.gd": {
+      "sha256": "8cd40e4a96513b20d4e57418b207a37ce9b73d3da0b5c98c5b874361759c90dd",
+      "matches_isolated": true
+    },
+    "tests/zong_cutaway_tests.gd": {
+      "sha256": "c3decdf64f151f7cd6fe7dbc4991335d3c1d27e3cb19e9b8e3a7927d497e7770",
+      "matches_isolated": true
+    },
+    "tests/receiving_edge_tests.gd": {
+      "sha256": "e8b9b679c33db251f432d2aa5d3616e31d2f73813db88765aaa178e0ceff437f",
+      "matches_isolated": true
+    },
+    "tests/hull_navigation.gd": {
+      "sha256": "2d53a7cbab96671b9e47e800d1d5dbbc4e097ec66c7c7a44ceed7bc5ba3fb860",
+      "matches_isolated": true
+    },
+    "tests/level01_failure_visual.gd": {
+      "sha256": "4998a148db282bc9024fd85542a5fcaeda6617d1790507af8c9ebcc44580b8b9",
+      "matches_isolated": true
+    },
+    "tests/unified_panel_tests.gd": {
+      "sha256": "9466a544df731ea83445fce0697558372983c08b77d4fa8c2c7558a34b7e8f13",
+      "matches_isolated": true
+    },
+    "tests/level01_trial_rules_tests.gd": {
+      "sha256": "22ea1209c20e9834e661f2d4bfbaa67ddd164fc3ae5ea85849add6c54db9a943",
+      "matches_isolated": true
+    },
+    "tests/observer_entry_visual.gd": {
+      "sha256": "619aa17d58a0b0955c8a5aa475d3dba3c0a3ad08896d3082eb7af1c03d3d890c",
+      "matches_isolated": true
+    },
+    "tests/dropzone_input_tests.gd": {
+      "sha256": "20ddaf0090dc161ccfdc9b4820231deaa42c182fe91157ebce6031c940557ccd",
+      "matches_isolated": true
+    },
+    "tests/first_join_tests.gd": {
+      "sha256": "037864f7d55451428fa99d63bdd353a5564251770be895829c0e8f6b63eca424",
+      "matches_isolated": true
+    },
+    "tests/dropzone_matrix_visual.gd": {
+      "sha256": "f7a949f6a697422cfcc868849619d0f21d5045b6fb1d70edfc859fe96ef0021d",
+      "matches_isolated": true
+    },
+    "tests/dynamic_integration_tests.gd": {
+      "sha256": "70dd5eea7f804139f3e351a124f96dbfadc8e51a58168d9cf5ce488ee6b36c0c",
+      "matches_isolated": true
+    },
+    "tests/opening_geometry_tests.gd": {
+      "sha256": "a945940590edd31fa6d3732ee3d0fd3a98ea49786cc4b21406d5502662b189ac",
+      "matches_isolated": true
+    },
+    "tests/layout_visual_regression.gd": {
+      "sha256": "72fa0dcb3097841c44b6f14743c8e6f27e67d2138b22e7e6c25f74a510014a66",
+      "matches_isolated": true
+    },
+    "tests/mouth_drop_visual.gd": {
+      "sha256": "8df61e8070162a578c2054cc8fe057c41bbf831a16a48e46333c609d3a5ab045",
+      "matches_isolated": true
+    },
+    "tests/stock_clearance_tests.gd": {
+      "sha256": "c6bd048996de737384c0dc3f4e45ac3e156b15a2eb78e48b52b5c65afee2b873",
+      "matches_isolated": true
+    },
+    "tests/ui_tests.gd": {
+      "sha256": "7c95b2d2310fed4c5d5eda1d3e837f195af2fad4157965e5b2e6cf9498835d3c",
+      "matches_isolated": true
+    },
+    "tests/observer_entry_tests.gd": {
+      "sha256": "d87331cdd11defb52e1e819b8f0679565442509ce268c290d3d2012d01887f06",
+      "matches_isolated": true
+    },
+    "tests/level01_candidate_geometry_tests.gd": {
+      "sha256": "9efc4c9edcf57ba8a437dcb42d3a3f12c1071cd55f229ea3f9dcfe28de4ecb18",
+      "matches_isolated": true
+    },
+    "tests/level02_input_tests.gd": {
+      "sha256": "33fe7d967ff7af7f5ea97c114339d3e67149a6888d8801419d9b7225209b9a4d",
+      "matches_isolated": true
+    },
+    "tests/trial_flow_visual.gd": {
+      "sha256": "db1d1b6db51099570dd365595a53a2d4f6541003f58df924313cd9af4635b416",
+      "matches_isolated": true
+    },
+    "tests/candidate_revision_visual.gd": {
+      "sha256": "2aaaab094404cc9d6fef2e534a0d1d2ae6b78871558287f9e8fc720bc22d6b19",
+      "matches_isolated": true
+    },
+    "tests/cross_lap_view_tests.gd": {
+      "sha256": "558e4ab5230089795034f7edf44125099d3bef4003f0ccb70b05071149b7f469",
+      "matches_isolated": true
+    },
+    "tests/observation_repeat_tests.gd": {
+      "sha256": "4d9bf69b78dce1d10f2bbd7b15e8cc5bf61f85b8921b97bd90b36768d5595633",
+      "matches_isolated": true
+    },
+    "tests/level02_alignment_geometry_tests.gd": {
+      "sha256": "7f9e93eb70bf251f8e1fb7f7d9a082f53522e0d96b09240eb5407c64ede17e49",
+      "matches_isolated": true
+    },
+    "tests/boat_joint_loose_tests.gd": {
+      "sha256": "cbe1650028c5e033f1a883e436b21d99cc1ddbb9d19ee0d2daee8c3d30b22dfa",
+      "matches_isolated": true
+    },
+    "tests/level01_length_observation_tests.gd": {
+      "sha256": "78a23160c75107174494464069f55615ade67fe85990e7012ac01322e7ce325e",
+      "matches_isolated": true
+    },
+    "tests/guided_insertion_visual.gd": {
+      "sha256": "c344052ed07f8e15d160ae66827a15ec845a370efe009ad7dddbad6c8dddcfc7",
+      "matches_isolated": true
+    },
+    "tests/repeat_lifecycle_tests.gd": {
+      "sha256": "945c2d6310fadba6f014ac18773447a5122ef068acb0ef1976660aefc786edec",
+      "matches_isolated": true
+    },
+    "tests/level01_orbit_tests.gd": {
+      "sha256": "93c5b4bbb7ab8661c12cfd9a1ae6e090b2ddc5c749471a588a22aa49b7fad87e",
+      "matches_isolated": true
+    },
+    "tests/campaign_loading_tests.gd": {
+      "sha256": "d30b8ae8a2cb9e908613c34b7952b70c7aad1e5f2324b11bb08d6cece55a2ccb",
+      "matches_isolated": true
+    },
+    "tests/boat_joint_recovery_tests.gd": {
+      "sha256": "f355127e7c62a20687a331914902d9c6d82abd5a95c5968b2768d4cac03c9e25",
+      "matches_isolated": true
+    },
+    "tests/run_tests.gd": {
+      "sha256": "a553e571ae0c3984eb429fd9b90c9cfbb25095c00a55f0e34d65adb7b9531dbe",
+      "matches_isolated": true
+    },
+    "tests/camera_tests.gd": {
+      "sha256": "f0ece91498a685b94f7bc019c54d9bd216e50e43e9bf911853f0f0a23acbbccd",
+      "matches_isolated": true
+    },
+    "tests/level02_structure_tests.gd": {
+      "sha256": "f00e4672088fe0b1cc282e8b33f38d7cddc5bf52dccb68dd169a43b820b236c2",
+      "matches_isolated": true
+    },
+    "tests/stock_clearance.gd": {
+      "sha256": "8e942c6090542240ff5bbc1fcf1caeece80fdbabed7d6819579037c318c37d43",
+      "matches_isolated": true
+    },
+    "tests/seven_stars_visual.gd": {
+      "sha256": "d2198f524a15239adf5470c48829ce1a947a9c619fda8f9ab83f83dca51c4b24",
+      "matches_isolated": true
+    },
+    "tests/trial_receiver_tests.gd": {
+      "sha256": "f3c2052555b77fa5ca2afaef9110cefaa3126e1b8e10e6fdc9540641e9f789e1",
+      "matches_isolated": true
+    },
+    "tests/zong_reference_model_tests.gd": {
+      "sha256": "b8fde69612aa0d7c96b1b9ba6c4d6cdedc824c42653a84333911b5cb1362ddee",
+      "matches_isolated": true
+    },
+    "tests/boat_joint_interaction_tests.gd": {
+      "sha256": "f6fc0ab188742669114b1adb6cbef9137ee58f084fb83945d5ec46acc29e0eb4",
+      "matches_isolated": true
+    },
+    "tests/drag_input_tests.gd": {
+      "sha256": "1b77543f2ecaeb3c704219a41ad0446e0de6722c921e94d3ad0292824074bdb6",
+      "matches_isolated": true
+    },
+    "tests/level02_assembly_failure_input_tests.gd": {
+      "sha256": "d0dad119c87e3c5db5dceb751c6ba4d18f7f23399aa1a48027bedcd66cfbb8d2",
+      "matches_isolated": true
+    },
+    "tests/campaign_reentry_tests.gd": {
+      "sha256": "972599fc35e7ab3be6f433dc396e998192ffa1421ec30fabf949547d40fe1925",
+      "matches_isolated": true
+    },
+    "tests/force_gallery_tests.gd": {
+      "sha256": "a6529d845b7470e46333141b6ef88e97361a59b1c8286438ef51a55b874626df",
+      "matches_isolated": true
+    },
+    "tests/level02_alignment_tests.gd": {
+      "sha256": "62822e212f0688cd03d536d378f9566ddf739bea827f6f9ad70c993f0da61a0a",
+      "matches_isolated": true
+    },
+    "tests/boat_joint_geometry_tests.gd": {
+      "sha256": "b574035c0be3e4880d5aeff0cb7a7331f21c3e80b2bdffd46de1fe2ba77ebaa7",
+      "matches_isolated": true
+    },
+    "tests/level02_structure_geometry_tests.gd": {
+      "sha256": "629996230646fda91758e6da9b6744c4f21a2f3535bee9326572eb55ff0afbb8",
+      "matches_isolated": true
+    },
+    "tests/campaign_tests.gd": {
+      "sha256": "5bcbfc7a3416103dd9557684aa7484ff383d97b6dadb42238776f65ee786b0a3",
+      "matches_isolated": true
+    },
+    "tests/receiver_section_tests.gd": {
+      "sha256": "d765a388dfd3c9ff8f7a3bbfe50ff3887bc5b3d43dab98c4bbf5a470f691c50e",
+      "matches_isolated": true
+    },
+    "tests/wood_material_entry_tests.gd": {
+      "sha256": "54356613f14458bc5c44021835894cf518ef644c32d67d8fa1b39e0896a2be4f",
+      "matches_isolated": true
+    },
+    "tests/level02_wrong_type_tests.gd": {
+      "sha256": "91b1034a83ada8dcc9f97902bbcc3b37d8e65adc2af28501a4db91c636fcc13c",
+      "matches_isolated": true
+    },
+    "tests/starter_lock_tests.gd": {
+      "sha256": "49e744d836103eeebce3ba408359752b5b7a26d99da903731add591609d806ef",
+      "matches_isolated": true
+    },
+    "tests/level03_input_tests.gd": {
+      "sha256": "bad6dfcea78f9988c3398622495633b1cc08d21209cebf0910bd255f4af96562",
+      "matches_isolated": true
+    },
+    "tests/reset_baseline_tests.gd": {
+      "sha256": "e6052d3dad8e6924f0783b387165da5e9a4b83f486fe7fb3c30931a28b2a5021",
+      "matches_isolated": true
+    },
+    "tests/level03_geometry_tests.gd": {
+      "sha256": "c5f7434209be1d16ebec6bfc874604c3df70d70fed3c0252f9e6ae973e19a7fa",
+      "matches_isolated": true
+    },
+    "tests/level01_input_tests.gd": {
+      "sha256": "c4942b3f96616a665a38d1c26eb058dfc4a5923d8190c2d8003ac573a30c5023",
+      "matches_isolated": true
+    },
+    "tests/rib_repair_visual.gd": {
+      "sha256": "e0eba570dd9c28b3d8558407241bc7d47844e152861c55716b304ba90796a5f6",
+      "matches_isolated": true
+    },
+    "tests/stable_support_tests.gd": {
+      "sha256": "267949f8ce608815f42c56c1e96d61f9ed3d31d3674c9210b700d56f5b7d47ac",
+      "matches_isolated": true
+    },
+    "tests/level01_visual_regression.gd": {
+      "sha256": "e82080033fb0e6073bb33a055c4c4119becdabfea2e14da1c62bdf01ff70544a",
+      "matches_isolated": true
+    },
+    "tests/wood_material_entry_visual.gd": {
+      "sha256": "b1d869ef4f87dae4174ca31eb97123332f8d16d37514d102d2966bcc423917a5",
+      "matches_isolated": true
+    },
+    "tests/wood_material_pixel_compare.gd": {
+      "sha256": "1c85b2d08987e129f8bf3e9c4d248da992a5419eddc60bc95ac0cac7e3061c53",
+      "matches_isolated": true
+    },
+    "tests/sea_trial_presentation_tests.gd": {
+      "sha256": "00bb9de8f4c2b2bd62cc10d2740c3c7c45806d1baa79dd3110bb89b0ca6a5502",
+      "matches_isolated": true
+    },
+    "tests/level01_failure_tests.gd": {
+      "sha256": "e87f04a830eeb73282a1f315221acf033f90d09221c63126f3e220bdf0a34dba",
+      "matches_isolated": true
+    },
+    "tests/resumed_intro_visual.gd": {
+      "sha256": "d538fb5799aa52b95cceab7144377339758655ace5f7c2cd1ead4a6056410601",
+      "matches_isolated": true
+    },
+    "tests/boat_joint_sweep_tests.gd": {
+      "sha256": "764224482aa4b6b41d679c98a9b675b7f82d2a376567acec1129ae24024e7cfb",
+      "matches_isolated": true
+    },
+    "tests/shipwright_story_tests.gd": {
+      "sha256": "4aa5a37627478b6c546213fcff51f833a249e7f6b674d380de086d35bfdc5010",
+      "matches_isolated": true
+    },
+    "tests/collision_tests.gd": {
+      "sha256": "51422db94603a4efe65680f6fa1a2630a143db874f2cdfe5ad7b97e2f6c3dd76",
+      "matches_isolated": true
+    },
+    "tests/automatic_motion_tests.gd": {
+      "sha256": "4b28456b46791f21b41d2ca9d7aee20969db2a0d70220763753022d4ff5d956d",
+      "matches_isolated": true
+    },
+    "tests/level02_geometry_tests.gd": {
+      "sha256": "012bfc273ab9784ffd7c26837c4d3e5a7e5bb794016d2ac6a5f388e0a2d719b7",
+      "matches_isolated": true
+    },
+    "tests/level03_preview_tests.gd": {
+      "sha256": "1c0472fffa051b345a7434c982d9ea93ba28b694bb11e4ecb424b4a68c1c31b7",
+      "matches_isolated": true
+    },
+    "tests/trial_fit_geometry_tests.gd": {
+      "sha256": "602218249f8d654e507ec997dda1d7ed663e5a7c597fd8d29fed7b6e46a81621",
+      "matches_isolated": true
+    },
+    "tests/input_edges.gd": {
+      "sha256": "bc57bdb91a1cb1441fffe88c0c439624a6841f832ab652671c2dc0c13a04e560",
+      "matches_isolated": true
+    },
+    "tests/level02_contact_geometry_tests.gd": {
+      "sha256": "42f9ed1d79c079459a4bcf557f45451b285e7e34ed13992d42f2583c1d37669f",
+      "matches_isolated": true
+    },
+    "tests/level02_assembly_outcome_tests.gd": {
+      "sha256": "2caa17c69d8a77f9b417159e64046ba676d70f39deca0ca55fd8e6f69ab56682",
+      "matches_isolated": true
+    },
+    "tests/guided_insertion_input_tests.gd": {
+      "sha256": "c2256c338b1dac5cc5125db593174bec87b3c49299bcc9c924b7f8a50ae84395",
+      "matches_isolated": true
+    }
+  },
+  "isolated_mismatches": [],
+  "unchanged_from_turn_baseline": {
+    "models/ship/hull/starter_joint.gd": true,
+    "models/ship/hull/boat_joints.gd": true,
+    "models/ship/hull/ship_geometry.gd": true,
+    "levels/level02/timber_lighting.gd": true,
+    "levels/level02/wood_appearance.gd": true,
+    "levels/level02/receiving_edge.gd": true
+  },
+  "notes": [
+    "Historical runs include the .36 parked top and the failing .85-height/.16-edge version. Current geometry uses .85 height/.13 edge; first-lock-current and first-lock-gpu-current validate the final source.",
+    "Other regression results were collected before the final top-edge correction and builder decoupling; their logs retain original execution paths. Failures/timeouts are preserved and superseded, not counted as passing.",
+    "No existing user Godot window was operated. GPU fixture host remained unfocused."
+  ]
+}

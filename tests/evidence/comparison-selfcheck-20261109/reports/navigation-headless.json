@@ -1,0 +1,9 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "passed": 254,
+  "renderer": "headless",
+  "scope": "Real wheel/orbit/reset/magnifier/return input for four manual stages and two adapted first joints, including 1440 and 960 widths; comparison scale, full candidate bounds and unchanged assembly."
+}

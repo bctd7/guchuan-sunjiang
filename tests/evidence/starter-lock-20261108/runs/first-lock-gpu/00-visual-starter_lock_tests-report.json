@@ -1,0 +1,23 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/starter-lock/A-two-waiting-parts.png",
+    "res://tests/evidence/starter-lock/A-middle-seated-top-waiting.png",
+    "res://tests/evidence/starter-lock/A-top-at-contact.png",
+    "res://tests/evidence/starter-lock/A-top-blocked-failure.png",
+    "res://tests/evidence/starter-lock/B-two-waiting-parts.png",
+    "res://tests/evidence/starter-lock/B-middle-seated-top-waiting.png",
+    "res://tests/evidence/starter-lock/B-top-at-contact.png",
+    "res://tests/evidence/starter-lock/B-top-blocked-failure.png",
+    "res://tests/evidence/starter-lock/C-two-waiting-parts.png",
+    "res://tests/evidence/starter-lock/C-middle-seated-top-waiting.png",
+    "res://tests/evidence/starter-lock/C-top-at-contact.png",
+    "res://tests/evidence/starter-lock/C-complete-pair.png",
+    "res://tests/evidence/starter-lock/C-next-board-failure.png"
+  ],
+  "passed": 298,
+  "renderer": "macOS",
+  "scope": "Actual pointer strokes: two waiting pieces, side-in middle, independent downward top, ABC late upper-mouth outcomes, pending undo, physically repeated pair and later missing plank receiver. No state mutation."
+}

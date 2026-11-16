@@ -1,0 +1,317 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T14:12:21.591177+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.31,
+      "log": "logs/boat-redesign-regression/00-levels-level02_rules_tests.log",
+      "engine_log": "logs/boat-redesign-regression/00-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/00-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-boat_joint_interaction_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 18.78,
+      "log": "logs/boat-redesign-regression/01-levels-boat_joint_interaction_tests.log",
+      "engine_log": "logs/boat-redesign-regression/01-levels-boat_joint_interaction_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/01-levels-boat_joint_interaction_tests-engine.log",
+        "--script",
+        "tests/boat_joint_interaction_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-level02_wave_outcome_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.62,
+      "log": "logs/boat-redesign-regression/02-levels-level02_wave_outcome_tests.log",
+      "engine_log": "logs/boat-redesign-regression/02-levels-level02_wave_outcome_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/02-levels-level02_wave_outcome_tests-engine.log",
+        "--script",
+        "tests/level02_wave_outcome_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-opening_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.72,
+      "log": "logs/boat-redesign-regression/03-levels-opening_geometry_tests.log",
+      "engine_log": "logs/boat-redesign-regression/03-levels-opening_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/03-levels-opening_geometry_tests-engine.log",
+        "--script",
+        "tests/opening_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-level02_alignment_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.5,
+      "log": "logs/boat-redesign-regression/04-levels-level02_alignment_geometry_tests.log",
+      "engine_log": "logs/boat-redesign-regression/04-levels-level02_alignment_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/04-levels-level02_alignment_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "05-levels-level02_structure_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.02,
+      "log": "logs/boat-redesign-regression/05-levels-level02_structure_geometry_tests.log",
+      "engine_log": "logs/boat-redesign-regression/05-levels-level02_structure_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/05-levels-level02_structure_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_structure_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "06-levels-level02_structure_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 25.29,
+      "log": "logs/boat-redesign-regression/06-levels-level02_structure_tests.log",
+      "engine_log": "logs/boat-redesign-regression/06-levels-level02_structure_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/06-levels-level02_structure_tests-engine.log",
+        "--script",
+        "tests/level02_structure_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "07-levels-observation_repeat_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 50.6,
+      "log": "logs/boat-redesign-regression/07-levels-observation_repeat_tests.log",
+      "engine_log": "logs/boat-redesign-regression/07-levels-observation_repeat_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/07-levels-observation_repeat_tests-engine.log",
+        "--script",
+        "tests/observation_repeat_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "08-levels-repeat_lifecycle_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.36,
+      "log": "logs/boat-redesign-regression/08-levels-repeat_lifecycle_tests.log",
+      "engine_log": "logs/boat-redesign-regression/08-levels-repeat_lifecycle_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/08-levels-repeat_lifecycle_tests-engine.log",
+        "--script",
+        "tests/repeat_lifecycle_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "09-levels-level02_alignment_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 7.35,
+      "log": "logs/boat-redesign-regression/09-levels-level02_alignment_tests.log",
+      "engine_log": "logs/boat-redesign-regression/09-levels-level02_alignment_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/09-levels-level02_alignment_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "10-levels-level02_clarity_zoom_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 16.84,
+      "log": "logs/boat-redesign-regression/10-levels-level02_clarity_zoom_tests.log",
+      "engine_log": "logs/boat-redesign-regression/10-levels-level02_clarity_zoom_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/10-levels-level02_clarity_zoom_tests-engine.log",
+        "--script",
+        "tests/level02_clarity_zoom_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "11-levels-level02_wrong_type_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 82.91,
+      "log": "logs/boat-redesign-regression/11-levels-level02_wrong_type_tests.log",
+      "engine_log": "logs/boat-redesign-regression/11-levels-level02_wrong_type_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/11-levels-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "12-levels-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 31.6,
+      "log": "logs/boat-redesign-regression/12-levels-inspection_workspace_tests.log",
+      "engine_log": "logs/boat-redesign-regression/12-levels-inspection_workspace_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/12-levels-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "13-levels-level02_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 24.83,
+      "log": "logs/boat-redesign-regression/13-levels-level02_input_tests.log",
+      "engine_log": "logs/boat-redesign-regression/13-levels-level02_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-regression/13-levels-level02_input_tests-engine.log",
+        "--script",
+        "tests/level02_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

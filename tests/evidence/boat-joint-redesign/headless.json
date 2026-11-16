@@ -1,0 +1,9 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "passed": 1363,
+  "renderer": "headless",
+  "scope": "Production game using actual Viewport mouse events: repeated recoverable jam, orbit, withdrawal/replacement, wrong middle provisionally seats, top obstructed by its channel, preceding-piece repair, final bulkhead repair, same-run completion, explicit inspection failure and directory restart."
+}

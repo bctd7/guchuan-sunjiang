@@ -1,0 +1,91 @@
+{
+  "failed": 0,
+  "failures": [],
+  "passed": 30,
+  "records": [
+    {
+      "id": "cross_upper",
+      "mode": "loose",
+      "option": "A",
+      "y": 1.31118047237396
+    },
+    {
+      "id": "cross_upper",
+      "mode": "loose",
+      "option": "B",
+      "y": 1.25
+    },
+    {
+      "id": "cross_upper",
+      "mode": "seated",
+      "option": "C",
+      "y": 1.25
+    },
+    {
+      "id": "three_middle",
+      "mode": "loose",
+      "option": "A",
+      "y": 1.45000004768372
+    },
+    {
+      "middle": "A",
+      "top_contact_y": 1.53118050098419
+    },
+    {
+      "id": "three_middle",
+      "mode": "loose",
+      "option": "B",
+      "y": 1.45000004768372
+    },
+    {
+      "middle": "B",
+      "top_contact_y": 1.53118050098419
+    },
+    {
+      "id": "three_middle",
+      "mode": "seated",
+      "option": "C",
+      "y": 1.45000004768372
+    },
+    {
+      "middle": "C",
+      "top_contact_y": 1.45000004768372
+    },
+    {
+      "id": "three_upper",
+      "mode": "seated",
+      "option": "A",
+      "y": 1.45000004768372
+    },
+    {
+      "id": "three_upper",
+      "mode": "blocked",
+      "option": "B",
+      "y": 1.61118054389954
+    },
+    {
+      "id": "three_upper",
+      "mode": "blocked",
+      "option": "C",
+      "y": 1.61118054389954
+    },
+    {
+      "id": "bulkhead",
+      "mode": "seated",
+      "option": "A",
+      "y": 0.284999996423721
+    },
+    {
+      "id": "bulkhead",
+      "mode": "blocked",
+      "option": "B",
+      "y": 0.346180468797684
+    },
+    {
+      "id": "bulkhead",
+      "mode": "blocked",
+      "option": "C",
+      "y": 0.40618047118187
+    }
+  ]
+}

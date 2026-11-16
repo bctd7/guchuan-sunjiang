@@ -1,0 +1,20 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_minimized": true,
+  "images": [
+    "res://tests/evidence/bulkhead-story/story-1440.png",
+    "res://tests/evidence/bulkhead-story/story-1440-bottom.png",
+    "res://tests/evidence/bulkhead-story/story-1280.png",
+    "res://tests/evidence/bulkhead-story/story-1280-bottom.png",
+    "res://tests/evidence/bulkhead-story/story-1100.png",
+    "res://tests/evidence/bulkhead-story/story-1100-bottom.png",
+    "res://tests/evidence/bulkhead-story/story-960.png",
+    "res://tests/evidence/bulkhead-story/story-960-bottom.png",
+    "res://tests/evidence/bulkhead-story/story-768.png",
+    "res://tests/evidence/bulkhead-story/story-768-bottom.png"
+  ],
+  "no_focus_flag": true,
+  "passed": 69,
+  "renderer": "macOS"
+}

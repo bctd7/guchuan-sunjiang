@@ -1,0 +1,9 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "passed": 1127,
+  "renderer": "headless",
+  "scope": "Actual Viewport input on production game: wrong type, middle/top/bulkhead wrong openings, shallow/full drag, contact animation, modal, no repeat/wave, stale release and restart. Separate controlled extra geometry verifies automatic-half path rejection."
+}

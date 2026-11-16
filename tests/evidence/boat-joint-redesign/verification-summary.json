@@ -1,0 +1,462 @@
+{
+  "updated_utc": "2026-11-07T14:33:25.552637+00:00",
+  "scope": "Second-level boat joint redesign and recoverable trial assembly. Historical failed jobs are preserved and superseded only by later matching jobs. Source hashes describe the delivery snapshot; runs are not claimed to cover unrelated project requirements.",
+  "runs": [
+    {
+      "name": "boat-redesign-geometry",
+      "started_utc": "2026-11-07T14:09:46.810996+00:00",
+      "summary": "logs/boat-redesign-geometry/summary.json",
+      "failed_jobs": [
+        "04-levels-level02_alignment_geometry_tests"
+      ]
+    },
+    {
+      "name": "boat-redesign-regression",
+      "started_utc": "2026-11-07T14:12:21.591177+00:00",
+      "summary": "logs/boat-redesign-regression/summary.json",
+      "failed_jobs": [
+        "09-levels-level02_alignment_tests",
+        "11-levels-level02_wrong_type_tests"
+      ]
+    },
+    {
+      "name": "boat-redesign-recheck",
+      "started_utc": "2026-11-07T14:17:50.541201+00:00",
+      "summary": "logs/boat-redesign-recheck/summary.json",
+      "failed_jobs": []
+    },
+    {
+      "name": "boat-redesign-final-gpu",
+      "started_utc": "2026-11-07T14:17:58.528988+00:00",
+      "summary": "logs/boat-redesign-final-gpu/summary.json",
+      "failed_jobs": []
+    },
+    {
+      "name": "boat-redesign-finish",
+      "started_utc": "2026-11-07T14:24:25.651342+00:00",
+      "summary": "logs/boat-redesign-finish/summary.json",
+      "failed_jobs": []
+    },
+    {
+      "name": "boat-redesign-integration",
+      "started_utc": "2026-11-07T14:24:53.437766+00:00",
+      "summary": "logs/boat-redesign-integration/summary.json",
+      "failed_jobs": []
+    },
+    {
+      "name": "boat-redesign-release-gpu",
+      "started_utc": "2026-11-07T14:24:41.173151+00:00",
+      "summary": "logs/boat-redesign-release-gpu/summary.json",
+      "failed_jobs": []
+    },
+    {
+      "name": "boat-redesign-acceptance-gpu",
+      "started_utc": "2026-11-07T14:29:12.401133+00:00",
+      "summary": "logs/boat-redesign-acceptance-gpu/summary.json",
+      "failed_jobs": [
+        "00-visual-boat_joint_interaction_tests"
+      ]
+    },
+    {
+      "name": "boat-redesign-small-window-gpu",
+      "started_utc": "2026-11-07T14:31:11.390155+00:00",
+      "summary": "logs/boat-redesign-small-window-gpu/summary.json",
+      "failed_jobs": []
+    },
+    {
+      "name": "boat-redesign-plank-sequences",
+      "started_utc": "2026-11-07T14:30:24.998378+00:00",
+      "summary": "logs/boat-redesign-plank-sequences/summary.json",
+      "failed_jobs": []
+    },
+    {
+      "name": "boat-redesign-ui-final",
+      "started_utc": "2026-11-07T14:31:12.557508+00:00",
+      "summary": "logs/boat-redesign-ui-final/summary.json",
+      "failed_jobs": []
+    }
+  ],
+  "pending_runs": [],
+  "latest_jobs": [
+    {
+      "key": "tests/auxiliary_panel_tests.gd",
+      "run": "boat-redesign-recheck",
+      "started_utc": "2026-11-07T14:17:50.541201+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-recheck/07-levels-auxiliary_panel_tests-engine.log"
+    },
+    {
+      "key": "tests/boat_joint_geometry_tests.gd",
+      "run": "boat-redesign-integration",
+      "started_utc": "2026-11-07T14:24:53.437766+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-integration/04-levels-boat_joint_geometry_tests-engine.log"
+    },
+    {
+      "key": "tests/boat_joint_interaction_tests.gd",
+      "run": "boat-redesign-ui-final",
+      "started_utc": "2026-11-07T14:31:12.557508+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-ui-final/00-levels-boat_joint_interaction_tests-engine.log"
+    },
+    {
+      "key": "tests/boat_joint_interaction_tests.gd --gpu",
+      "run": "boat-redesign-small-window-gpu",
+      "started_utc": "2026-11-07T14:31:11.390155+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-small-window-gpu/00-visual-boat_joint_interaction_tests-engine.log"
+    },
+    {
+      "key": "tests/boat_joint_loose_tests.gd",
+      "run": "boat-redesign-finish",
+      "started_utc": "2026-11-07T14:24:25.651342+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-finish/04-levels-boat_joint_loose_tests-engine.log"
+    },
+    {
+      "key": "tests/boat_joint_loose_tests.gd --gpu",
+      "run": "boat-redesign-acceptance-gpu",
+      "started_utc": "2026-11-07T14:29:12.401133+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-acceptance-gpu/01-visual-boat_joint_loose_tests-engine.log"
+    },
+    {
+      "key": "tests/boat_joint_recovery_tests.gd",
+      "run": "boat-redesign-integration",
+      "started_utc": "2026-11-07T14:24:53.437766+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-integration/05-levels-boat_joint_recovery_tests-engine.log"
+    },
+    {
+      "key": "tests/boat_joint_sweep_tests.gd",
+      "run": "boat-redesign-finish",
+      "started_utc": "2026-11-07T14:24:25.651342+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-finish/02-levels-boat_joint_sweep_tests-engine.log"
+    },
+    {
+      "key": "tests/campaign_loading_tests.gd",
+      "run": "boat-redesign-integration",
+      "started_utc": "2026-11-07T14:24:53.437766+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-integration/03-campaign-campaign_loading_tests-engine.log"
+    },
+    {
+      "key": "tests/campaign_reentry_tests.gd",
+      "run": "boat-redesign-integration",
+      "started_utc": "2026-11-07T14:24:53.437766+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-integration/02-campaign-campaign_reentry_tests-engine.log"
+    },
+    {
+      "key": "tests/campaign_tests.gd --phase=classroom",
+      "run": "boat-redesign-integration",
+      "started_utc": "2026-11-07T14:24:53.437766+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-integration/01-campaign-campaign_tests-engine.log"
+    },
+    {
+      "key": "tests/campaign_tests.gd --phase=full",
+      "run": "boat-redesign-integration",
+      "started_utc": "2026-11-07T14:24:53.437766+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-integration/00-campaign-campaign_tests-engine.log"
+    },
+    {
+      "key": "tests/hull_wood_normals_tests.gd",
+      "run": "boat-redesign-recheck",
+      "started_utc": "2026-11-07T14:17:50.541201+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-recheck/03-levels-hull_wood_normals_tests-engine.log"
+    },
+    {
+      "key": "tests/inspection_workspace_tests.gd",
+      "run": "boat-redesign-regression",
+      "started_utc": "2026-11-07T14:12:21.591177+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-regression/12-levels-inspection_workspace_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_alignment_geometry_tests.gd",
+      "run": "boat-redesign-regression",
+      "started_utc": "2026-11-07T14:12:21.591177+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-regression/04-levels-level02_alignment_geometry_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_alignment_tests.gd",
+      "run": "boat-redesign-ui-final",
+      "started_utc": "2026-11-07T14:31:12.557508+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-ui-final/01-levels-level02_alignment_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_assembly_outcome_tests.gd",
+      "run": "boat-redesign-finish",
+      "started_utc": "2026-11-07T14:24:25.651342+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-finish/00-levels-level02_assembly_outcome_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_clarity_zoom_tests.gd",
+      "run": "boat-redesign-ui-final",
+      "started_utc": "2026-11-07T14:31:12.557508+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-ui-final/02-levels-level02_clarity_zoom_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_contact_geometry_tests.gd",
+      "run": "boat-redesign-finish",
+      "started_utc": "2026-11-07T14:24:25.651342+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-finish/01-levels-level02_contact_geometry_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_drag_tests.gd",
+      "run": "boat-redesign-recheck",
+      "started_utc": "2026-11-07T14:17:50.541201+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-recheck/06-levels-level02_drag_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_geometry_tests.gd",
+      "run": "boat-redesign-integration",
+      "started_utc": "2026-11-07T14:24:53.437766+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-integration/07-levels-level02_geometry_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_input_tests.gd",
+      "run": "boat-redesign-regression",
+      "started_utc": "2026-11-07T14:12:21.591177+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-regression/13-levels-level02_input_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_plank_sequences_tests.gd",
+      "run": "boat-redesign-plank-sequences",
+      "started_utc": "2026-11-07T14:30:24.998378+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-plank-sequences/00-levels-level02_plank_sequences_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_rules_tests.gd",
+      "run": "boat-redesign-regression",
+      "started_utc": "2026-11-07T14:12:21.591177+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-regression/00-levels-level02_rules_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_structure_geometry_tests.gd",
+      "run": "boat-redesign-regression",
+      "started_utc": "2026-11-07T14:12:21.591177+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-regression/05-levels-level02_structure_geometry_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_structure_tests.gd",
+      "run": "boat-redesign-regression",
+      "started_utc": "2026-11-07T14:12:21.591177+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-regression/06-levels-level02_structure_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_structure_tests.gd --gpu",
+      "run": "boat-redesign-final-gpu",
+      "started_utc": "2026-11-07T14:17:58.528988+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-final-gpu/02-visual-level02_structure_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_wave_outcome_tests.gd",
+      "run": "boat-redesign-integration",
+      "started_utc": "2026-11-07T14:24:53.437766+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-integration/06-levels-level02_wave_outcome_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_wrong_type_tests.gd",
+      "run": "boat-redesign-ui-final",
+      "started_utc": "2026-11-07T14:31:12.557508+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-ui-final/03-levels-level02_wrong_type_tests-engine.log"
+    },
+    {
+      "key": "tests/level02_wrong_type_tests.gd --gpu",
+      "run": "boat-redesign-final-gpu",
+      "started_utc": "2026-11-07T14:17:58.528988+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-final-gpu/01-visual-level02_wrong_type_tests-engine.log"
+    },
+    {
+      "key": "tests/observation_repeat_tests.gd",
+      "run": "boat-redesign-regression",
+      "started_utc": "2026-11-07T14:12:21.591177+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-regression/07-levels-observation_repeat_tests-engine.log"
+    },
+    {
+      "key": "tests/opening_geometry_tests.gd",
+      "run": "boat-redesign-integration",
+      "started_utc": "2026-11-07T14:24:53.437766+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-integration/08-levels-opening_geometry_tests-engine.log"
+    },
+    {
+      "key": "tests/repeat_lifecycle_tests.gd",
+      "run": "boat-redesign-regression",
+      "started_utc": "2026-11-07T14:12:21.591177+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-regression/08-levels-repeat_lifecycle_tests-engine.log"
+    },
+    {
+      "key": "tests/sea_trial_presentation_tests.gd",
+      "run": "boat-redesign-geometry",
+      "started_utc": "2026-11-07T14:09:46.810996+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-geometry/05-levels-sea_trial_presentation_tests-engine.log"
+    },
+    {
+      "key": "tests/trial_contact_tests.gd",
+      "run": "boat-redesign-integration",
+      "started_utc": "2026-11-07T14:24:53.437766+00:00",
+      "status": "passed",
+      "log": "logs/boat-redesign-integration/09-levels-trial_contact_tests-engine.log"
+    }
+  ],
+  "latest_job_count": 35,
+  "latest_nonpassing": [],
+  "requirements": [
+    {
+      "requirement": "Two-member opposed half-lap; shallow real contact and wide supported seating, no tipping or temporary shelf",
+      "evidence": [
+        "tests/boat_joint_geometry_tests.gd",
+        "tests/boat_joint_sweep_tests.gd",
+        "wide-cross-seated-with-clearance.png",
+        "wide-cross-rotated-clearance.png"
+      ]
+    },
+    {
+      "requirement": "Three-member lower/middle/top dependency; wrong middle seats but top is physically blocked; only C/A fully mates",
+      "evidence": [
+        "tests/boat_joint_sweep_tests.gd",
+        "tests/boat_joint_geometry_tests.gd",
+        "middle-fits-lower-leaves-wrong-channel.png",
+        "top-meets-wrong-middle-channel.png"
+      ]
+    },
+    {
+      "requirement": "Actual entry and first solid contact, no mesh penetration for wrong type, later stock or automatic repeat",
+      "evidence": [
+        "tests/level02_wrong_type_tests.gd",
+        "tests/trial_contact_tests.gd",
+        "tests/boat_joint_recovery_tests.gd",
+        "tests/level02_plank_sequences_tests.gd"
+      ]
+    },
+    {
+      "requirement": "First and repeated contact are recoverable; orbit, partial withdrawal, change stock, undo middle and same-run completion",
+      "evidence": [
+        "tests/boat_joint_interaction_tests.gd",
+        "gpu.json",
+        "recovered-build-completes.png"
+      ]
+    },
+    {
+      "requirement": "Explicitly ending impossible assembly reports failure; directory preserves state; restart is local",
+      "evidence": [
+        "tests/boat_joint_interaction_tests.gd",
+        "tests/boat_joint_recovery_tests.gd",
+        "tests/campaign_reentry_tests.gd"
+      ]
+    },
+    {
+      "requirement": "Credible loose fit can finish and fail at wave; cross B slides only inside actual notch, no invented hull leak",
+      "evidence": [
+        "tests/boat_joint_loose_tests.gd",
+        "loose-gpu.json",
+        "tests/level02_wave_outcome_tests.gd"
+      ]
+    },
+    {
+      "requirement": "Correct final assembly, all chapters and classroom/directory integration",
+      "evidence": [
+        "tests/campaign_tests.gd --phase=full",
+        "tests/campaign_tests.gd --phase=classroom",
+        "tests/campaign_loading_tests.gd",
+        "tests/level02_structure_tests.gd --gpu"
+      ]
+    },
+    {
+      "requirement": "Readable actual rendered mating members and recovery controls at 1440x900,1100x800,960x600",
+      "evidence": [
+        "gpu.json",
+        "top-obstruction-960.png",
+        "top-obstruction-1100.png",
+        "tests/level02_structure_tests.gd --gpu"
+      ]
+    },
+    {
+      "requirement": "Boat-specific model changes preserve teaching geometry and existing support geometry",
+      "evidence": [
+        "models/ship/hull/boat_joints.gd",
+        "baseline_comparison"
+      ]
+    }
+  ],
+  "baseline_comparison": {
+    "models/ship/hull/ship_geometry.gd": true,
+    "models/ship/hull/support_geometry.gd": true
+  },
+  "source_sha256": {
+    "levels/level02/assembly_alignment.gd": "b936d20befb229a07e4740fbdc5eba3f75bd331b682b335631ddac5ebdb17000",
+    "levels/level02/assembly_policy.gd": "5c6a9143ffb67df413a692df88913bb8324615260babea6f65648b60a0be9a01",
+    "levels/level02/bulkhead_diagram.gd": "a78b5a3da460ce89263490e55f91bf9290bc18af1f06b5a9e737b4fe36e3a7dc",
+    "levels/level02/bulkhead_lesson.gd": "cae641934e3e297731d15d24aa8b4a942fd53152379d3dc527168259faa63337",
+    "levels/level02/connection_rules.gd": "985958516f9aeb9677c3d4357652f6a334fb9684344914054afaa51cfcc13c83",
+    "levels/level02/contact_cells.gd": "2c8b38eaff5cde01ec04e9dab9c08b4d0a4d04838fc4d2d7555a21280ee2f975",
+    "levels/level02/drag_guide.gd": "6fe5be891b0e6ae26b7c623c2891c27d383fb39d62181d46027686f53d867c6a",
+    "levels/level02/hull_backdrop.gd": "5466440da3bcc96c5484955ec9cf7d51908440dbcc3df8b74c2011104742feac",
+    "levels/level02/hull_drag_interaction.gd": "9fbcdc3e33ab241b2413e714f79d4982aad794bca4d0d7c0c2b5969c60d99490",
+    "levels/level02/hull_view.gd": "ab66e720f481baabd29e50e7e638250695e0831e9948b048dc7081fc176c9469",
+    "levels/level02/inspection_camera.gd": "40c648313cb0e0e3e4f41bcdc241e3e0f9f5aa6b977d9f287615751b76091b4a",
+    "levels/level02/inspection_context.gd": "aff28f32c134717e492ce87402c4634592bdef168d77b18e2dc96e3356be12bb",
+    "levels/level02/joint_gallery.gd": "da56c775a7031db334378588b2f07cd2310f908423635e3937062a6794a516d1",
+    "levels/level02/level02.gd": "6f1e1ca593f5bc5fb9fa0fd1540d35fde8c024537f30aad3ddc160a281b4970e",
+    "levels/level02/level_state.gd": "1eba0c3bcb7e7b89181b20d8f92586cab4faba59cc6f0e8290ea97e19dbcbda7",
+    "levels/level02/level_ui.gd": "aaf452ffe824471e13b0f075350ec2d8382810c78e4513518425ae1c0a245236",
+    "levels/level02/model_seam_guides.gd": "816e34f52928ee59d6c6bfe6ad25dd5025bc08ce0081991a68e2bc01512ed11f",
+    "levels/level02/opening_gallery.gd": "d0c129731c98e88e381a767eb149b64b49ecd572ec134825f16100f87d0302c6",
+    "levels/level02/opening_rules.gd": "315e059de5a854d3c61f08ffa478dce0beaf113fe46cf934f8c2041b556d10cb",
+    "levels/level02/sea_trial.gd": "6f1f400bd2ecdf3793e40aeca76c4e27c7247183a2ed8c80364e8fabab15a34f",
+    "levels/level02/trial_contact.gd": "c2c99b31c05120896d12474e34d0d895d47b46dbdb3e5dd0455dfb85528f66b2",
+    "levels/level02/trial_presentation.gd": "5fa2f41c390abd695cbb6280870e44ea7ddefc8e4afe1713e0b5226f99382025",
+    "levels/level02/wood_appearance.gd": "824f4ec79e721ad216aeb6c6cb04f4e350172e2e10a274daba3d2eb742a5fa82",
+    "models/ship/hull/boat_joints.gd": "a70e4e10f88beda0719c9b41ef5aeb3981dfb390e8a0d9464cfd87f1aa2190e4",
+    "models/ship/hull/ship_geometry.gd": "d36141d8fbb94d30ecaa9bb9ac25a10a042ac8453c70ee2e439a6598a00816c4",
+    "models/ship/hull/support_geometry.gd": "d5e9cb9737319b221ec6648ab367229f10381d79588fe5b81c23f93d02c96894",
+    "tests/boat_joint_geometry_tests.gd": "b574035c0be3e4880d5aeff0cb7a7331f21c3e80b2bdffd46de1fe2ba77ebaa7",
+    "tests/boat_joint_interaction_tests.gd": "e7234a1a5787f0e191b2566428e7a71a80373be524a65c7323c5240913b2db68",
+    "tests/boat_joint_loose_tests.gd": "ce62f67e393dbd3c6e047bddd2e59700a6822de6eecfdb49c24b0c66199deb90",
+    "tests/boat_joint_recovery_tests.gd": "8115764f571b9081e9f674a46d2bf3815fefef0f73e16d7ba7917705b62be873",
+    "tests/boat_joint_sweep_tests.gd": "9dfccb423ac7c31658287011bda480d862f4ed67bc693bd9810b166f80a9407d",
+    "tests/run_suite.py": "aa764b94d2d507e6d4401e65f3ef6197bac6064254344a3b6dcdf4ddfb68d154"
+  },
+  "image_sha256": {
+    "bulkhead-shallow-mouth-stops.png": "f2d7e352f1a4c27cb834f1ff2927d5f1c9039896caef4906afe64568f84edba7",
+    "middle-fits-lower-leaves-wrong-channel.png": "7ab2760b3ecfc6d4db254ed970104dd0a672643aaf6e03d5a46ae4e562c15a5e",
+    "recovered-build-completes.png": "2f51e0fe6f08266665ef1faab02b48aaea5972546d5f6ff61b58378c09054827",
+    "top-meets-wrong-middle-channel.png": "10246ba04f3e7a1b6852126fdffc39e95064930408a93f830dc0463e148c292c",
+    "top-obstruction-1100.png": "25e599fdf1cdb31c2cc6bcadec656b122ed67c3f72c0bb491f33c7782b25179d",
+    "top-obstruction-960.png": "6e82ae7c096b758ab2dea29df4fb285d8b69a5702d7c7062a81aacb2578d5c93",
+    "wide-cross-rotated-clearance.png": "b7f376529f4847e1ed6660e52a86bbf107d3f701eae0bb3a57a63792d4d6fa51",
+    "wide-cross-seated-with-clearance.png": "1c6b6327ef6bc858c3187eba452709d624643720dead12d344bdb078a44f78dd",
+    "wide-cross-structural-verdict.png": "68c6475af918b2dee11b889d4d1b5b5217f74237fab31b4e077c6483e2906cf0",
+    "wide-cross-wave.png": "9ebb673dfec2b653139d874fa14eeae66ef0d2162662be3707c53de743e3b02f",
+    "wrong-type-stops-without-failure.png": "7ebb053250d4437e9357690c76ec560d3e8f27e2c5aed7f91197c4af915e7895"
+  },
+  "limits": [
+    "Fixed teaching meshes and authored wave animation, not structural or fluid dynamics.",
+    "Viewport mouse and simulated touch plus actual macOS GPU; human hardware and subjective final visual acceptance remain with user."
+  ]
+}

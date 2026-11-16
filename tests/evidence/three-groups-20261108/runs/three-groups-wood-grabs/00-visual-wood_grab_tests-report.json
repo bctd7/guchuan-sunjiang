@@ -1,0 +1,82 @@
+{
+  "failed": 0,
+  "failures": [],
+  "grabs": [
+    {
+      "distinct_surface_grabs": 4,
+      "size": "(1440, 900)",
+      "type": "tongue_groove",
+      "zoom": 1.0
+    },
+    {
+      "distinct_surface_grabs": 8,
+      "size": "(1440, 900)",
+      "type": "tongue_groove",
+      "zoom": 0.25
+    },
+    {
+      "distinct_surface_grabs": 2,
+      "size": "(1440, 900)",
+      "type": "cross_lap",
+      "zoom": 1.0
+    },
+    {
+      "distinct_surface_grabs": 5,
+      "size": "(1440, 900)",
+      "type": "cross_lap",
+      "zoom": 0.25
+    },
+    {
+      "distinct_surface_grabs": 4,
+      "size": "(1440, 900)",
+      "type": "three_way_lap",
+      "zoom": 1.0
+    },
+    {
+      "distinct_surface_grabs": 5,
+      "size": "(1440, 900)",
+      "type": "three_way_lap",
+      "zoom": 0.25
+    },
+    {
+      "distinct_surface_grabs": 4,
+      "size": "(960, 600)",
+      "type": "tongue_groove",
+      "zoom": 1.0
+    },
+    {
+      "distinct_surface_grabs": 8,
+      "size": "(960, 600)",
+      "type": "tongue_groove",
+      "zoom": 0.25
+    },
+    {
+      "distinct_surface_grabs": 2,
+      "size": "(960, 600)",
+      "type": "cross_lap",
+      "zoom": 1.0
+    },
+    {
+      "distinct_surface_grabs": 5,
+      "size": "(960, 600)",
+      "type": "cross_lap",
+      "zoom": 0.25
+    },
+    {
+      "distinct_surface_grabs": 4,
+      "size": "(960, 600)",
+      "type": "three_way_lap",
+      "zoom": 1.0
+    },
+    {
+      "distinct_surface_grabs": 5,
+      "size": "(960, 600)",
+      "type": "three_way_lap",
+      "zoom": 0.25
+    }
+  ],
+  "host_had_focus": false,
+  "method": "Real GUI input at projected actual triangle centres and near-edge points, not only the preferred grab point; two sizes, three families, two zooms.",
+  "passed": 275,
+  "renderer": "macOS"
+}

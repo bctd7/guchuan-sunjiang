@@ -1,0 +1,358 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+  "started_utc": "2026-11-01T10:41:40.892462+00:00",
+  "groups": [
+    "core",
+    "classroom",
+    "campaign"
+  ],
+  "results": [
+    {
+      "name": "00-core-run_tests",
+      "status": "script_error",
+      "exit_code": 1,
+      "seconds": 1.92,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/00-core-run_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/00-core-run_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/00-core-run_tests-engine.log",
+        "--script",
+        "tests/run_tests.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-core-collision_tests",
+      "status": "script_error",
+      "exit_code": 1,
+      "seconds": 1.26,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/01-core-collision_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/01-core-collision_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/01-core-collision_tests-engine.log",
+        "--script",
+        "tests/collision_tests.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "02-core-drag_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 20.07,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/02-core-drag_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/02-core-drag_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/02-core-drag_input_tests-engine.log",
+        "--script",
+        "tests/drag_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-core-camera_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.65,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/03-core-camera_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/03-core-camera_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/03-core-camera_tests-engine.log",
+        "--script",
+        "tests/camera_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-classroom-chapter_learning_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.27,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/04-classroom-chapter_learning_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/04-classroom-chapter_learning_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/04-classroom-chapter_learning_tests-engine.log",
+        "--script",
+        "tests/chapter_learning_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "05-classroom-wood_material_entry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.64,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/05-classroom-wood_material_entry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/05-classroom-wood_material_entry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/05-classroom-wood_material_entry_tests-engine.log",
+        "--script",
+        "tests/wood_material_entry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "06-classroom-chinese_font_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.8,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/06-classroom-chinese_font_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/06-classroom-chinese_font_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/06-classroom-chinese_font_tests-engine.log",
+        "--script",
+        "tests/chinese_font_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "07-classroom-dynamic_integration_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.53,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/07-classroom-dynamic_integration_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/07-classroom-dynamic_integration_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/07-classroom-dynamic_integration_tests-engine.log",
+        "--script",
+        "tests/dynamic_integration_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "08-classroom-force_gallery_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 21.76,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/08-classroom-force_gallery_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/08-classroom-force_gallery_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/08-classroom-force_gallery_tests-engine.log",
+        "--script",
+        "tests/force_gallery_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "09-classroom-force_sequence_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.94,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/09-classroom-force_sequence_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/09-classroom-force_sequence_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/09-classroom-force_sequence_tests-engine.log",
+        "--script",
+        "tests/force_sequence_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "10-classroom-test_education",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.79,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/10-classroom-test_education.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/10-classroom-test_education-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/10-classroom-test_education-engine.log",
+        "--script",
+        "classroom/science/test_education.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "11-classroom-test_dynamic",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.51,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/11-classroom-test_dynamic.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/11-classroom-test_dynamic-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/11-classroom-test_dynamic-engine.log",
+        "--script",
+        "classroom/science/dynamic/test_dynamic.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "12-campaign-campaign_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 90.22,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/12-campaign-campaign_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/12-campaign-campaign_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/12-campaign-campaign_tests-engine.log",
+        "--script",
+        "tests/campaign_tests.gd",
+        "--",
+        "--phase=full"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "13-campaign-campaign_tests",
+      "status": "script_error",
+      "exit_code": 1,
+      "seconds": 15.73,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/13-campaign-campaign_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/13-campaign-campaign_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/13-campaign-campaign_tests-engine.log",
+        "--script",
+        "tests/campaign_tests.gd",
+        "--",
+        "--phase=classroom"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "14-campaign-campaign_reentry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.29,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/14-campaign-campaign_reentry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/14-campaign-campaign_reentry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/14-campaign-campaign_reentry_tests-engine.log",
+        "--script",
+        "tests/campaign_reentry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "15-campaign-campaign_loading_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.89,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/15-campaign-campaign_loading_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/15-campaign-campaign_loading_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/15-campaign-campaign_loading_tests-engine.log",
+        "--script",
+        "tests/campaign_loading_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

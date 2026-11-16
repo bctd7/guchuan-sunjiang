@@ -1,0 +1,71 @@
+{
+  "project": "/private/tmp/guchuan-solid-stock-review",
+  "started_utc": "2026-11-08T05:38:12.988621+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-first_join_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 13.23,
+      "log": "/private/tmp/solid-stock-gpu/00-visual-first_join_tests.log",
+      "engine_log": "/private/tmp/solid-stock-gpu/00-visual-first_join_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-solid-stock-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/solid-stock-gpu/00-visual-first_join_tests-engine.log",
+        "--script",
+        "tests/first_join_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-continuable_joint_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 18.69,
+      "log": "/private/tmp/solid-stock-gpu/01-visual-continuable_joint_tests.log",
+      "engine_log": "/private/tmp/solid-stock-gpu/01-visual-continuable_joint_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-solid-stock-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/solid-stock-gpu/01-visual-continuable_joint_tests-engine.log",
+        "--script",
+        "tests/continuable_joint_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

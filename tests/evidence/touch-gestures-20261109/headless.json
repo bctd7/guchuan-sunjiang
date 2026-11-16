@@ -1,0 +1,9 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "passed": 150,
+  "renderer": "headless",
+  "scope": "Viewport ScreenTouch/ScreenDrag in chapters 1 and 2: assembly, candidates, magnifier, cross-card/third-finger rejection, park/resume, cancellation, resize, mouse emulation, 1440x900 and 960x600. Physical Windows touch unverified."
+}

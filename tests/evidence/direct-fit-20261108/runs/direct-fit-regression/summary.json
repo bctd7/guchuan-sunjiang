@@ -1,0 +1,119 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-08T04:53:35.598712+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-boat_joint_interaction_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 29.79,
+      "log": "/private/tmp/direct-fit-regression/00-levels-boat_joint_interaction_tests.log",
+      "engine_log": "/private/tmp/direct-fit-regression/00-levels-boat_joint_interaction_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-regression/00-levels-boat_joint_interaction_tests-engine.log",
+        "--script",
+        "tests/boat_joint_interaction_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-timber_rendering_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "log": "/private/tmp/direct-fit-regression/01-levels-timber_rendering_tests.log",
+      "engine_log": "/private/tmp/direct-fit-regression/01-levels-timber_rendering_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-regression/01-levels-timber_rendering_tests-engine.log",
+        "--script",
+        "tests/timber_rendering_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-level02_alignment_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.34,
+      "log": "/private/tmp/direct-fit-regression/02-levels-level02_alignment_tests.log",
+      "engine_log": "/private/tmp/direct-fit-regression/02-levels-level02_alignment_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-regression/02-levels-level02_alignment_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-level02_clarity_zoom_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 16.84,
+      "log": "/private/tmp/direct-fit-regression/03-levels-level02_clarity_zoom_tests.log",
+      "engine_log": "/private/tmp/direct-fit-regression/03-levels-level02_clarity_zoom_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-regression/03-levels-level02_clarity_zoom_tests-engine.log",
+        "--script",
+        "tests/level02_clarity_zoom_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 27.28,
+      "log": "/private/tmp/direct-fit-regression/04-levels-level02_wrong_type_tests.log",
+      "engine_log": "/private/tmp/direct-fit-regression/04-levels-level02_wrong_type_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-regression/04-levels-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

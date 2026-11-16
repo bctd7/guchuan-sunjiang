@@ -1,0 +1,71 @@
+{
+  "project": "/private/tmp/guchuan-comparison-selfcheck-20261109",
+  "started_utc": "2026-11-08T16:11:28.821559+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-opening_dimensions_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 14.74,
+      "log": "/private/tmp/comparison-selfcheck-fixed-gpu-20261109/00-visual-opening_dimensions_tests.log",
+      "engine_log": "/private/tmp/comparison-selfcheck-fixed-gpu-20261109/00-visual-opening_dimensions_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-comparison-selfcheck-20261109",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/comparison-selfcheck-fixed-gpu-20261109/00-visual-opening_dimensions_tests-engine.log",
+        "--script",
+        "tests/opening_dimensions_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-opening_navigation_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 19.81,
+      "log": "/private/tmp/comparison-selfcheck-fixed-gpu-20261109/01-visual-opening_navigation_tests.log",
+      "engine_log": "/private/tmp/comparison-selfcheck-fixed-gpu-20261109/01-visual-opening_navigation_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-comparison-selfcheck-20261109",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/comparison-selfcheck-fixed-gpu-20261109/01-visual-opening_navigation_tests-engine.log",
+        "--script",
+        "tests/opening_navigation_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "method": "actual Viewport mouse and simulated touch; no gameplay state mutation; not human hardware validation",
+  "passed": 629,
+  "renderer": "headless",
+  "revision": "level02-model-seams-20261101"
+}

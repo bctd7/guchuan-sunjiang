@@ -1,0 +1,72 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-08T05:36:10.096045+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-starter_joint_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.18,
+      "log": "/private/tmp/solid-stock-initial/00-levels-starter_joint_tests.log",
+      "engine_log": "/private/tmp/solid-stock-initial/00-levels-starter_joint_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-initial/00-levels-starter_joint_tests-engine.log",
+        "--script",
+        "tests/starter_joint_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-boat_joint_recovery_tests",
+      "status": "script_error",
+      "exit_code": 1,
+      "seconds": 9.55,
+      "log": "/private/tmp/solid-stock-initial/01-levels-boat_joint_recovery_tests.log",
+      "engine_log": "/private/tmp/solid-stock-initial/01-levels-boat_joint_recovery_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-initial/01-levels-boat_joint_recovery_tests-engine.log",
+        "--script",
+        "tests/boat_joint_recovery_tests.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "02-levels-continuable_joint_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 14.65,
+      "log": "/private/tmp/solid-stock-initial/02-levels-continuable_joint_tests.log",
+      "engine_log": "/private/tmp/solid-stock-initial/02-levels-continuable_joint_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-initial/02-levels-continuable_joint_tests-engine.log",
+        "--script",
+        "tests/continuable_joint_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "passed": 345,
+  "renderer": "headless",
+  "scope": "Real UI after a correct first row: middle/shear views retain actual hull framing and installed lower boards, hide uninstalled companion, expose mating face, support both seam layouts and two resolutions, and complete via real pointer input."
+}

@@ -1,0 +1,53 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-work",
+  "started_utc": "2026-11-01T11:59:19.145152+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-hull_wood_normals_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.2,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-feature/00-levels-hull_wood_normals_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-feature/00-levels-hull_wood_normals_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-feature/00-levels-hull_wood_normals_tests-engine.log",
+        "--script",
+        "tests/hull_wood_normals_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_clarity_zoom_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 15.7,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-feature/01-levels-level02_clarity_zoom_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-feature/01-levels-level02_clarity_zoom_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/clarity-zoom-feature/01-levels-level02_clarity_zoom_tests-engine.log",
+        "--script",
+        "tests/level02_clarity_zoom_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

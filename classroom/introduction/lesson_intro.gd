@@ -75,6 +75,7 @@ func _ready() -> void:
 	start_button.pressed.connect(func(): start_requested.emit())
 	footer.add_child(start_button)
 	get_viewport().size_changed.connect(_layout_cards)
+	tree_entered.connect(_layout_cards.call_deferred)
 	_layout_cards()
 
 func _build_cards() -> void:
@@ -119,6 +120,7 @@ func _build_cards() -> void:
 	_layout_cards()
 
 func _layout_cards() -> void:
+	if not is_inside_tree():return
 	if not is_instance_valid(_cards): return
 	var dimensions:=get_viewport().get_visible_rect().size
 	var wide:=dimensions.x>=900

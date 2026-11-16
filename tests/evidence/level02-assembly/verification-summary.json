@@ -1,0 +1,888 @@
+{
+  "date": "2026-11-07",
+  "latest_registered_cases": [
+    {
+      "case": "levels/level02_rules_tests",
+      "status": "passed",
+      "seconds": 0.29,
+      "logs": [
+        "logs/level02-rework-ui-regression/00-levels-level02_rules_tests.log",
+        "logs/level02-rework-ui-regression/00-levels-level02_rules_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/level02_assembly_outcome_tests",
+      "status": "passed",
+      "seconds": 0.3,
+      "logs": [
+        "logs/level02-rework-contact-regression/01-levels-level02_assembly_outcome_tests.log",
+        "logs/level02-rework-contact-regression/01-levels-level02_assembly_outcome_tests-engine.log"
+      ],
+      "run": "level02-rework-contact-regression"
+    },
+    {
+      "case": "levels/level02_contact_geometry_tests",
+      "status": "passed",
+      "seconds": 2.39,
+      "logs": [
+        "logs/level02-rework-contact-regression/02-levels-level02_contact_geometry_tests.log",
+        "logs/level02-rework-contact-regression/02-levels-level02_contact_geometry_tests-engine.log"
+      ],
+      "run": "level02-rework-contact-regression"
+    },
+    {
+      "case": "levels/level02_wave_outcome_tests",
+      "status": "passed",
+      "seconds": 1.54,
+      "logs": [
+        "logs/level02-rework-contact-regression/03-levels-level02_wave_outcome_tests.log",
+        "logs/level02-rework-contact-regression/03-levels-level02_wave_outcome_tests-engine.log"
+      ],
+      "run": "level02-rework-contact-regression"
+    },
+    {
+      "case": "levels/level02_alignment_geometry_tests",
+      "status": "passed",
+      "seconds": 4.18,
+      "logs": [
+        "logs/level02-rework-contact-regression/04-levels-level02_alignment_geometry_tests.log",
+        "logs/level02-rework-contact-regression/04-levels-level02_alignment_geometry_tests-engine.log"
+      ],
+      "run": "level02-rework-contact-regression"
+    },
+    {
+      "case": "levels/trial_contact_tests",
+      "status": "passed",
+      "seconds": 13.95,
+      "logs": [
+        "logs/level02-rework-last-headless/01-levels-trial_contact_tests.log",
+        "logs/level02-rework-last-headless/01-levels-trial_contact_tests-engine.log"
+      ],
+      "run": "level02-rework-last-headless"
+    },
+    {
+      "case": "core/collision_tests",
+      "status": "passed",
+      "seconds": 1.38,
+      "logs": [
+        "logs/level02-rework-core-recheck/00-core-collision_tests.log",
+        "logs/level02-rework-core-recheck/00-core-collision_tests-engine.log"
+      ],
+      "run": "level02-rework-core-recheck"
+    },
+    {
+      "case": "levels/level02_assembly_failure_input_tests",
+      "status": "passed",
+      "seconds": 34.91,
+      "logs": [
+        "logs/level02-rework-last-headless/00-levels-level02_assembly_failure_input_tests.log",
+        "logs/level02-rework-last-headless/00-levels-level02_assembly_failure_input_tests-engine.log"
+      ],
+      "run": "level02-rework-last-headless"
+    },
+    {
+      "case": "levels/inspection_workspace_tests",
+      "status": "passed",
+      "seconds": 31.69,
+      "logs": [
+        "logs/level02-rework-followup/03-levels-inspection_workspace_tests.log",
+        "logs/level02-rework-followup/03-levels-inspection_workspace_tests-engine.log"
+      ],
+      "run": "level02-rework-followup"
+    },
+    {
+      "case": "visual/level02_assembly_failure_input_tests",
+      "status": "passed",
+      "seconds": 37.37,
+      "logs": [
+        "logs/level02-rework-gpu/00-visual-level02_assembly_failure_input_tests.log",
+        "logs/level02-rework-gpu/00-visual-level02_assembly_failure_input_tests-engine.log"
+      ],
+      "run": "level02-rework-gpu"
+    },
+    {
+      "case": "visual/inspection_workspace_tests",
+      "status": "passed",
+      "seconds": 36.99,
+      "logs": [
+        "logs/level02-rework-gpu-recheck/00-visual-inspection_workspace_tests.log",
+        "logs/level02-rework-gpu-recheck/00-visual-inspection_workspace_tests-engine.log"
+      ],
+      "run": "level02-rework-gpu-recheck"
+    },
+    {
+      "case": "visual/level02_wrong_type_tests",
+      "status": "passed",
+      "seconds": 89.76,
+      "logs": [
+        "logs/level02-rework-gpu/02-visual-level02_wrong_type_tests.log",
+        "logs/level02-rework-gpu/02-visual-level02_wrong_type_tests-engine.log"
+      ],
+      "run": "level02-rework-gpu"
+    },
+    {
+      "case": "visual/level02_drag_tests",
+      "status": "passed",
+      "seconds": 45.55,
+      "logs": [
+        "logs/level02-rework-gpu/03-visual-level02_drag_tests.log",
+        "logs/level02-rework-gpu/03-visual-level02_drag_tests-engine.log"
+      ],
+      "run": "level02-rework-gpu"
+    },
+    {
+      "case": "visual/level02_structure_tests",
+      "status": "passed",
+      "seconds": 29.59,
+      "logs": [
+        "logs/level02-rework-gpu/04-visual-level02_structure_tests.log",
+        "logs/level02-rework-gpu/04-visual-level02_structure_tests-engine.log"
+      ],
+      "run": "level02-rework-gpu"
+    },
+    {
+      "case": "levels/level02_geometry_tests",
+      "status": "passed",
+      "seconds": 0.77,
+      "logs": [
+        "logs/level02-rework-regression/00-levels-level02_geometry_tests.log",
+        "logs/level02-rework-regression/00-levels-level02_geometry_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/opening_geometry_tests",
+      "status": "passed",
+      "seconds": 0.68,
+      "logs": [
+        "logs/level02-rework-regression/01-levels-opening_geometry_tests.log",
+        "logs/level02-rework-regression/01-levels-opening_geometry_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/hull_wood_normals_tests",
+      "status": "passed",
+      "seconds": 0.19,
+      "logs": [
+        "logs/level02-rework-regression/02-levels-hull_wood_normals_tests.log",
+        "logs/level02-rework-regression/02-levels-hull_wood_normals_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/level02_structure_geometry_tests",
+      "status": "passed",
+      "seconds": 0.79,
+      "logs": [
+        "logs/level02-rework-ui-regression/01-levels-level02_structure_geometry_tests.log",
+        "logs/level02-rework-ui-regression/01-levels-level02_structure_geometry_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/level02_structure_tests",
+      "status": "passed",
+      "seconds": 25.64,
+      "logs": [
+        "logs/level02-rework-ui-regression/02-levels-level02_structure_tests.log",
+        "logs/level02-rework-ui-regression/02-levels-level02_structure_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/repeat_lifecycle_tests",
+      "status": "passed",
+      "seconds": 6.35,
+      "logs": [
+        "logs/level02-rework-regression/05-levels-repeat_lifecycle_tests.log",
+        "logs/level02-rework-regression/05-levels-repeat_lifecycle_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/level02_clarity_zoom_tests",
+      "status": "passed",
+      "seconds": 16.8,
+      "logs": [
+        "logs/level02-rework-regression/06-levels-level02_clarity_zoom_tests.log",
+        "logs/level02-rework-regression/06-levels-level02_clarity_zoom_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/sea_trial_presentation_tests",
+      "status": "passed",
+      "seconds": 1.37,
+      "logs": [
+        "logs/level02-rework-regression/07-levels-sea_trial_presentation_tests.log",
+        "logs/level02-rework-regression/07-levels-sea_trial_presentation_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/stock_clearance_tests",
+      "status": "passed",
+      "seconds": 0.19,
+      "logs": [
+        "logs/level02-rework-regression/08-levels-stock_clearance_tests.log",
+        "logs/level02-rework-regression/08-levels-stock_clearance_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/level02_drag_tests",
+      "status": "passed",
+      "seconds": 38.7,
+      "logs": [
+        "logs/level02-rework-regression/10-levels-level02_drag_tests.log",
+        "logs/level02-rework-regression/10-levels-level02_drag_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/auxiliary_panel_tests",
+      "status": "passed",
+      "seconds": 2.85,
+      "logs": [
+        "logs/level02-rework-regression/11-levels-auxiliary_panel_tests.log",
+        "logs/level02-rework-regression/11-levels-auxiliary_panel_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/level01_rules_tests",
+      "status": "passed",
+      "seconds": 0.29,
+      "logs": [
+        "logs/level02-rework-shared-regression/00-levels-level01_rules_tests.log",
+        "logs/level02-rework-shared-regression/00-levels-level01_rules_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "levels/level01_input_tests",
+      "status": "passed",
+      "seconds": 42.19,
+      "logs": [
+        "logs/level02-rework-shared-regression/01-levels-level01_input_tests.log",
+        "logs/level02-rework-shared-regression/01-levels-level01_input_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "levels/level03_input_tests",
+      "status": "passed",
+      "seconds": 21.17,
+      "logs": [
+        "logs/level02-rework-shared-regression/02-levels-level03_input_tests.log",
+        "logs/level02-rework-shared-regression/02-levels-level03_input_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "levels/level01_failure_tests",
+      "status": "passed",
+      "seconds": 92.58,
+      "logs": [
+        "logs/level02-rework-shared-regression/03-levels-level01_failure_tests.log",
+        "logs/level02-rework-shared-regression/03-levels-level01_failure_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "campaign/campaign_tests/--phase=full",
+      "status": "passed",
+      "seconds": 87.48,
+      "logs": [
+        "logs/level02-rework-shared-regression/04-campaign-campaign_tests.log",
+        "logs/level02-rework-shared-regression/04-campaign-campaign_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "campaign/campaign_tests/--phase=classroom",
+      "status": "passed",
+      "seconds": 19.23,
+      "logs": [
+        "logs/level02-rework-shared-regression/05-campaign-campaign_tests.log",
+        "logs/level02-rework-shared-regression/05-campaign-campaign_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "campaign/campaign_reentry_tests",
+      "status": "passed",
+      "seconds": 10.59,
+      "logs": [
+        "logs/level02-rework-shared-regression/06-campaign-campaign_reentry_tests.log",
+        "logs/level02-rework-shared-regression/06-campaign-campaign_reentry_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "campaign/campaign_loading_tests",
+      "status": "passed",
+      "seconds": 0.91,
+      "logs": [
+        "logs/level02-rework-shared-regression/07-campaign-campaign_loading_tests.log",
+        "logs/level02-rework-shared-regression/07-campaign-campaign_loading_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "levels/observation_repeat_tests",
+      "status": "passed",
+      "seconds": 50.37,
+      "logs": [
+        "logs/level02-rework-ui-regression/03-levels-observation_repeat_tests.log",
+        "logs/level02-rework-ui-regression/03-levels-observation_repeat_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/level02_alignment_tests",
+      "status": "passed",
+      "seconds": 7.38,
+      "logs": [
+        "logs/level02-rework-ui-regression/04-levels-level02_alignment_tests.log",
+        "logs/level02-rework-ui-regression/04-levels-level02_alignment_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/level02_wrong_type_tests",
+      "status": "passed",
+      "seconds": 83.62,
+      "logs": [
+        "logs/level02-rework-ui-regression/05-levels-level02_wrong_type_tests.log",
+        "logs/level02-rework-ui-regression/05-levels-level02_wrong_type_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/level02_input_tests",
+      "status": "passed",
+      "seconds": 25.13,
+      "logs": [
+        "logs/level02-rework-ui-regression/06-levels-level02_input_tests.log",
+        "logs/level02-rework-ui-regression/06-levels-level02_input_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    }
+  ],
+  "all_latest_passed": true,
+  "registered_case_count": 37,
+  "gpu_case_count": 5,
+  "additional_checks": {
+    "plank_sequences": {
+      "cases": 108,
+      "passed": 2052,
+      "failed": 0
+    },
+    "independent_clearance_oracle": {
+      "passed": 9,
+      "failed": 0
+    },
+    "runner_contracts": {
+      "passed": 6,
+      "failed": 0
+    }
+  },
+  "protected_sources": [
+    {
+      "path": "models/ship/hull/ship_geometry.gd",
+      "sha256": "d36141d8fbb94d30ecaa9bb9ac25a10a042ac8453c70ee2e439a6598a00816c4",
+      "unchanged_from_implementation_baseline": true
+    },
+    {
+      "path": "models/ship/hull/support_geometry.gd",
+      "sha256": "d5e9cb9737319b221ec6648ab367229f10381d79588fe5b81c23f93d02c96894",
+      "unchanged_from_implementation_baseline": true
+    },
+    {
+      "path": "levels/level02/assembly_alignment.gd",
+      "sha256": "b936d20befb229a07e4740fbdc5eba3f75bd331b682b335631ddac5ebdb17000",
+      "unchanged_from_implementation_baseline": true
+    },
+    {
+      "path": "levels/level02/wood_appearance.gd",
+      "sha256": "824f4ec79e721ad216aeb6c6cb04f4e350172e2e10a274daba3d2eb742a5fa82",
+      "unchanged_from_implementation_baseline": true
+    },
+    {
+      "path": "levels/level02/connection_rules.gd",
+      "sha256": "985958516f9aeb9677c3d4357652f6a334fb9684344914054afaa51cfcc13c83",
+      "unchanged_from_implementation_baseline": true
+    },
+    {
+      "path": "levels/level02/opening_rules.gd",
+      "sha256": "13fdf0e55fccc1170ee63b9152ac24f680b36101fb772ae5932c27bc1287d535",
+      "unchanged_from_implementation_baseline": true
+    }
+  ],
+  "scope": "Production project. Pointer events are injected into actual Godot Viewports; GPU captures use macOS Apple M1 Compatibility renderer, minimized and unfocused. Educational geometry checks, not engineering physics or physical-device QA.",
+  "attempt_history": [
+    {
+      "case": "levels/level02_rules_tests",
+      "status": "script_error",
+      "seconds": 0.18,
+      "logs": [
+        "logs/level02-rework-contact-regression/00-levels-level02_rules_tests.log",
+        "logs/level02-rework-contact-regression/00-levels-level02_rules_tests-engine.log"
+      ],
+      "run": "level02-rework-contact-regression"
+    },
+    {
+      "case": "levels/level02_assembly_outcome_tests",
+      "status": "passed",
+      "seconds": 0.3,
+      "logs": [
+        "logs/level02-rework-contact-regression/01-levels-level02_assembly_outcome_tests.log",
+        "logs/level02-rework-contact-regression/01-levels-level02_assembly_outcome_tests-engine.log"
+      ],
+      "run": "level02-rework-contact-regression"
+    },
+    {
+      "case": "levels/level02_contact_geometry_tests",
+      "status": "passed",
+      "seconds": 2.39,
+      "logs": [
+        "logs/level02-rework-contact-regression/02-levels-level02_contact_geometry_tests.log",
+        "logs/level02-rework-contact-regression/02-levels-level02_contact_geometry_tests-engine.log"
+      ],
+      "run": "level02-rework-contact-regression"
+    },
+    {
+      "case": "levels/level02_wave_outcome_tests",
+      "status": "passed",
+      "seconds": 1.54,
+      "logs": [
+        "logs/level02-rework-contact-regression/03-levels-level02_wave_outcome_tests.log",
+        "logs/level02-rework-contact-regression/03-levels-level02_wave_outcome_tests-engine.log"
+      ],
+      "run": "level02-rework-contact-regression"
+    },
+    {
+      "case": "levels/level02_alignment_geometry_tests",
+      "status": "passed",
+      "seconds": 4.18,
+      "logs": [
+        "logs/level02-rework-contact-regression/04-levels-level02_alignment_geometry_tests.log",
+        "logs/level02-rework-contact-regression/04-levels-level02_alignment_geometry_tests-engine.log"
+      ],
+      "run": "level02-rework-contact-regression"
+    },
+    {
+      "case": "levels/trial_contact_tests",
+      "status": "engine_error",
+      "seconds": 14.04,
+      "logs": [
+        "logs/level02-rework-contact-regression/05-levels-trial_contact_tests.log",
+        "logs/level02-rework-contact-regression/05-levels-trial_contact_tests-engine.log"
+      ],
+      "run": "level02-rework-contact-regression"
+    },
+    {
+      "case": "core/collision_tests",
+      "status": "passed",
+      "seconds": 1.38,
+      "logs": [
+        "logs/level02-rework-core-recheck/00-core-collision_tests.log",
+        "logs/level02-rework-core-recheck/00-core-collision_tests-engine.log"
+      ],
+      "run": "level02-rework-core-recheck"
+    },
+    {
+      "case": "core/collision_tests",
+      "status": "engine_error",
+      "seconds": 1.32,
+      "logs": [
+        "logs/level02-rework-followup/00-core-collision_tests.log",
+        "logs/level02-rework-followup/00-core-collision_tests-engine.log"
+      ],
+      "run": "level02-rework-followup"
+    },
+    {
+      "case": "levels/level02_assembly_failure_input_tests",
+      "status": "passed",
+      "seconds": 22.28,
+      "logs": [
+        "logs/level02-rework-followup/01-levels-level02_assembly_failure_input_tests.log",
+        "logs/level02-rework-followup/01-levels-level02_assembly_failure_input_tests-engine.log"
+      ],
+      "run": "level02-rework-followup"
+    },
+    {
+      "case": "levels/trial_contact_tests",
+      "status": "engine_error",
+      "seconds": 13.89,
+      "logs": [
+        "logs/level02-rework-followup/02-levels-trial_contact_tests.log",
+        "logs/level02-rework-followup/02-levels-trial_contact_tests-engine.log"
+      ],
+      "run": "level02-rework-followup"
+    },
+    {
+      "case": "levels/inspection_workspace_tests",
+      "status": "passed",
+      "seconds": 31.69,
+      "logs": [
+        "logs/level02-rework-followup/03-levels-inspection_workspace_tests.log",
+        "logs/level02-rework-followup/03-levels-inspection_workspace_tests-engine.log"
+      ],
+      "run": "level02-rework-followup"
+    },
+    {
+      "case": "visual/level02_assembly_failure_input_tests",
+      "status": "passed",
+      "seconds": 37.37,
+      "logs": [
+        "logs/level02-rework-gpu/00-visual-level02_assembly_failure_input_tests.log",
+        "logs/level02-rework-gpu/00-visual-level02_assembly_failure_input_tests-engine.log"
+      ],
+      "run": "level02-rework-gpu"
+    },
+    {
+      "case": "visual/inspection_workspace_tests",
+      "status": "engine_error",
+      "seconds": 1.49,
+      "logs": [
+        "logs/level02-rework-gpu/01-visual-inspection_workspace_tests.log",
+        "logs/level02-rework-gpu/01-visual-inspection_workspace_tests-engine.log"
+      ],
+      "run": "level02-rework-gpu"
+    },
+    {
+      "case": "visual/level02_wrong_type_tests",
+      "status": "passed",
+      "seconds": 89.76,
+      "logs": [
+        "logs/level02-rework-gpu/02-visual-level02_wrong_type_tests.log",
+        "logs/level02-rework-gpu/02-visual-level02_wrong_type_tests-engine.log"
+      ],
+      "run": "level02-rework-gpu"
+    },
+    {
+      "case": "visual/level02_drag_tests",
+      "status": "passed",
+      "seconds": 45.55,
+      "logs": [
+        "logs/level02-rework-gpu/03-visual-level02_drag_tests.log",
+        "logs/level02-rework-gpu/03-visual-level02_drag_tests-engine.log"
+      ],
+      "run": "level02-rework-gpu"
+    },
+    {
+      "case": "visual/level02_structure_tests",
+      "status": "passed",
+      "seconds": 29.59,
+      "logs": [
+        "logs/level02-rework-gpu/04-visual-level02_structure_tests.log",
+        "logs/level02-rework-gpu/04-visual-level02_structure_tests-engine.log"
+      ],
+      "run": "level02-rework-gpu"
+    },
+    {
+      "case": "visual/inspection_workspace_tests",
+      "status": "passed",
+      "seconds": 36.99,
+      "logs": [
+        "logs/level02-rework-gpu-recheck/00-visual-inspection_workspace_tests.log",
+        "logs/level02-rework-gpu-recheck/00-visual-inspection_workspace_tests-engine.log"
+      ],
+      "run": "level02-rework-gpu-recheck"
+    },
+    {
+      "case": "levels/level02_assembly_failure_input_tests",
+      "status": "passed",
+      "seconds": 34.91,
+      "logs": [
+        "logs/level02-rework-last-headless/00-levels-level02_assembly_failure_input_tests.log",
+        "logs/level02-rework-last-headless/00-levels-level02_assembly_failure_input_tests-engine.log"
+      ],
+      "run": "level02-rework-last-headless"
+    },
+    {
+      "case": "levels/trial_contact_tests",
+      "status": "passed",
+      "seconds": 13.95,
+      "logs": [
+        "logs/level02-rework-last-headless/01-levels-trial_contact_tests.log",
+        "logs/level02-rework-last-headless/01-levels-trial_contact_tests-engine.log"
+      ],
+      "run": "level02-rework-last-headless"
+    },
+    {
+      "case": "levels/level02_geometry_tests",
+      "status": "passed",
+      "seconds": 0.77,
+      "logs": [
+        "logs/level02-rework-regression/00-levels-level02_geometry_tests.log",
+        "logs/level02-rework-regression/00-levels-level02_geometry_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/opening_geometry_tests",
+      "status": "passed",
+      "seconds": 0.68,
+      "logs": [
+        "logs/level02-rework-regression/01-levels-opening_geometry_tests.log",
+        "logs/level02-rework-regression/01-levels-opening_geometry_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/hull_wood_normals_tests",
+      "status": "passed",
+      "seconds": 0.19,
+      "logs": [
+        "logs/level02-rework-regression/02-levels-hull_wood_normals_tests.log",
+        "logs/level02-rework-regression/02-levels-hull_wood_normals_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/level02_structure_geometry_tests",
+      "status": "engine_error",
+      "seconds": 0.79,
+      "logs": [
+        "logs/level02-rework-regression/03-levels-level02_structure_geometry_tests.log",
+        "logs/level02-rework-regression/03-levels-level02_structure_geometry_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/level02_structure_tests",
+      "status": "engine_error",
+      "seconds": 22.58,
+      "logs": [
+        "logs/level02-rework-regression/04-levels-level02_structure_tests.log",
+        "logs/level02-rework-regression/04-levels-level02_structure_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/repeat_lifecycle_tests",
+      "status": "passed",
+      "seconds": 6.35,
+      "logs": [
+        "logs/level02-rework-regression/05-levels-repeat_lifecycle_tests.log",
+        "logs/level02-rework-regression/05-levels-repeat_lifecycle_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/level02_clarity_zoom_tests",
+      "status": "passed",
+      "seconds": 16.8,
+      "logs": [
+        "logs/level02-rework-regression/06-levels-level02_clarity_zoom_tests.log",
+        "logs/level02-rework-regression/06-levels-level02_clarity_zoom_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/sea_trial_presentation_tests",
+      "status": "passed",
+      "seconds": 1.37,
+      "logs": [
+        "logs/level02-rework-regression/07-levels-sea_trial_presentation_tests.log",
+        "logs/level02-rework-regression/07-levels-sea_trial_presentation_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/stock_clearance_tests",
+      "status": "passed",
+      "seconds": 0.19,
+      "logs": [
+        "logs/level02-rework-regression/08-levels-stock_clearance_tests.log",
+        "logs/level02-rework-regression/08-levels-stock_clearance_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/inspection_workspace_tests",
+      "status": "engine_error",
+      "seconds": 28.31,
+      "logs": [
+        "logs/level02-rework-regression/09-levels-inspection_workspace_tests.log",
+        "logs/level02-rework-regression/09-levels-inspection_workspace_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/level02_drag_tests",
+      "status": "passed",
+      "seconds": 38.7,
+      "logs": [
+        "logs/level02-rework-regression/10-levels-level02_drag_tests.log",
+        "logs/level02-rework-regression/10-levels-level02_drag_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/auxiliary_panel_tests",
+      "status": "passed",
+      "seconds": 2.85,
+      "logs": [
+        "logs/level02-rework-regression/11-levels-auxiliary_panel_tests.log",
+        "logs/level02-rework-regression/11-levels-auxiliary_panel_tests-engine.log"
+      ],
+      "run": "level02-rework-regression"
+    },
+    {
+      "case": "levels/level01_rules_tests",
+      "status": "passed",
+      "seconds": 0.29,
+      "logs": [
+        "logs/level02-rework-shared-regression/00-levels-level01_rules_tests.log",
+        "logs/level02-rework-shared-regression/00-levels-level01_rules_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "levels/level01_input_tests",
+      "status": "passed",
+      "seconds": 42.19,
+      "logs": [
+        "logs/level02-rework-shared-regression/01-levels-level01_input_tests.log",
+        "logs/level02-rework-shared-regression/01-levels-level01_input_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "levels/level03_input_tests",
+      "status": "passed",
+      "seconds": 21.17,
+      "logs": [
+        "logs/level02-rework-shared-regression/02-levels-level03_input_tests.log",
+        "logs/level02-rework-shared-regression/02-levels-level03_input_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "levels/level01_failure_tests",
+      "status": "passed",
+      "seconds": 92.58,
+      "logs": [
+        "logs/level02-rework-shared-regression/03-levels-level01_failure_tests.log",
+        "logs/level02-rework-shared-regression/03-levels-level01_failure_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "campaign/campaign_tests/--phase=full",
+      "status": "passed",
+      "seconds": 87.48,
+      "logs": [
+        "logs/level02-rework-shared-regression/04-campaign-campaign_tests.log",
+        "logs/level02-rework-shared-regression/04-campaign-campaign_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "campaign/campaign_tests/--phase=classroom",
+      "status": "passed",
+      "seconds": 19.23,
+      "logs": [
+        "logs/level02-rework-shared-regression/05-campaign-campaign_tests.log",
+        "logs/level02-rework-shared-regression/05-campaign-campaign_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "campaign/campaign_reentry_tests",
+      "status": "passed",
+      "seconds": 10.59,
+      "logs": [
+        "logs/level02-rework-shared-regression/06-campaign-campaign_reentry_tests.log",
+        "logs/level02-rework-shared-regression/06-campaign-campaign_reentry_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "campaign/campaign_loading_tests",
+      "status": "passed",
+      "seconds": 0.91,
+      "logs": [
+        "logs/level02-rework-shared-regression/07-campaign-campaign_loading_tests.log",
+        "logs/level02-rework-shared-regression/07-campaign-campaign_loading_tests-engine.log"
+      ],
+      "run": "level02-rework-shared-regression"
+    },
+    {
+      "case": "levels/level02_rules_tests",
+      "status": "passed",
+      "seconds": 0.29,
+      "logs": [
+        "logs/level02-rework-ui-regression/00-levels-level02_rules_tests.log",
+        "logs/level02-rework-ui-regression/00-levels-level02_rules_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/level02_structure_geometry_tests",
+      "status": "passed",
+      "seconds": 0.79,
+      "logs": [
+        "logs/level02-rework-ui-regression/01-levels-level02_structure_geometry_tests.log",
+        "logs/level02-rework-ui-regression/01-levels-level02_structure_geometry_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/level02_structure_tests",
+      "status": "passed",
+      "seconds": 25.64,
+      "logs": [
+        "logs/level02-rework-ui-regression/02-levels-level02_structure_tests.log",
+        "logs/level02-rework-ui-regression/02-levels-level02_structure_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/observation_repeat_tests",
+      "status": "passed",
+      "seconds": 50.37,
+      "logs": [
+        "logs/level02-rework-ui-regression/03-levels-observation_repeat_tests.log",
+        "logs/level02-rework-ui-regression/03-levels-observation_repeat_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/level02_alignment_tests",
+      "status": "passed",
+      "seconds": 7.38,
+      "logs": [
+        "logs/level02-rework-ui-regression/04-levels-level02_alignment_tests.log",
+        "logs/level02-rework-ui-regression/04-levels-level02_alignment_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/level02_wrong_type_tests",
+      "status": "passed",
+      "seconds": 83.62,
+      "logs": [
+        "logs/level02-rework-ui-regression/05-levels-level02_wrong_type_tests.log",
+        "logs/level02-rework-ui-regression/05-levels-level02_wrong_type_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    },
+    {
+      "case": "levels/level02_input_tests",
+      "status": "passed",
+      "seconds": 25.13,
+      "logs": [
+        "logs/level02-rework-ui-regression/06-levels-level02_input_tests.log",
+        "logs/level02-rework-ui-regression/06-levels-level02_input_tests-engine.log"
+      ],
+      "run": "level02-rework-ui-regression"
+    }
+  ]
+}

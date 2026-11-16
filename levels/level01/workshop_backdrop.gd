@@ -1,6 +1,6 @@
 extends CanvasLayer
 ## Chapter-one-only image treatment; ship materials and lighting stay unchanged.
-const IMAGE=preload("res://levels/level01/assets/shipyard_background.png")
+const IMAGE=preload("res://shared/assets/shipyard_background.png")
 func _ready() -> void:
 	layer=-10
 	var image:=TextureRect.new()

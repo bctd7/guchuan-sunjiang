@@ -1,0 +1,141 @@
+{
+  "project": "/private/tmp/guchuan-starter-finish-failure-review",
+  "started_utc": "2026-11-08T06:57:12.547014+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "import",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.98,
+      "log": "/private/tmp/starter-finish-integration/import.log",
+      "engine_log": null,
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-finish-failure-review",
+        "--headless",
+        "--editor",
+        "--import",
+        "--quit"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Cannot save file '/Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres'.",
+        "ERROR: Error saving editor settings to /Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres"
+      ]
+    },
+    {
+      "name": "00-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "/private/tmp/starter-finish-integration/00-levels-level02_rules_tests.log",
+      "engine_log": "/private/tmp/starter-finish-integration/00-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-finish-failure-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-finish-integration/00-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_assembly_outcome_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "log": "/private/tmp/starter-finish-integration/01-levels-level02_assembly_outcome_tests.log",
+      "engine_log": "/private/tmp/starter-finish-integration/01-levels-level02_assembly_outcome_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-finish-failure-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-finish-integration/01-levels-level02_assembly_outcome_tests-engine.log",
+        "--script",
+        "tests/level02_assembly_outcome_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-starter_lock_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 9.91,
+      "log": "/private/tmp/starter-finish-integration/02-levels-starter_lock_tests.log",
+      "engine_log": "/private/tmp/starter-finish-integration/02-levels-starter_lock_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-finish-failure-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-finish-integration/02-levels-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-plank_context_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.8,
+      "log": "/private/tmp/starter-finish-integration/03-levels-plank_context_tests.log",
+      "engine_log": "/private/tmp/starter-finish-integration/03-levels-plank_context_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-finish-failure-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-finish-integration/03-levels-plank_context_tests-engine.log",
+        "--script",
+        "tests/plank_context_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-continuable_joint_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.7,
+      "log": "/private/tmp/starter-finish-integration/04-levels-continuable_joint_tests.log",
+      "engine_log": "/private/tmp/starter-finish-integration/04-levels-continuable_joint_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-finish-failure-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-finish-integration/04-levels-continuable_joint_tests-engine.log",
+        "--script",
+        "tests/continuable_joint_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

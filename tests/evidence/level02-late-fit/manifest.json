@@ -1,0 +1,98 @@
+{
+  "created_utc": "2026-11-01T09:07:48.345577+00:00",
+  "source_sha256": {
+    "README.md": "c73b287620b806aedefa196f807a4e0cff600dcbd87b0e48457bb982ef3ff077",
+    "docs/current/LEVEL02_REQUIREMENTS.md": "5f0608f76100159fa64141a4cf2377128b71e2c490ce96db59038fb109109b35",
+    "docs/current/TECHNICAL_ARCHITECTURE.md": "d3d04b22c5072f42b671d5f0073e99bbc96738f5e7b3ea750c7a353e4249717b",
+    "levels/level02/README.md": "9499f7fe2b1f69c4d0818a8acb03c8a09b91792a57595e7829ff68e71a47efe9",
+    "levels/level02/hull_drag_interaction.gd": "9ddd8a5e1778dfff09b5167a255844897261b9a9e081cf6aa79d491a91e60d41",
+    "levels/level02/hull_view.gd": "16b476a5aa8b98902a3bacfff7ff4edd179dc6fb12847b2ec863dcad87630daf",
+    "levels/level02/level02.gd": "f598103e4abc0be6aac27bdd399ddfdc6e0178b487784bb4d26d1ff1ba1c9c0c",
+    "levels/level02/level_state.gd": "1e5c1f6166d132a8f2816b6feae0efe84ac5ebafb8fcf192d0e358c118ba68aa",
+    "levels/level02/level_ui.gd": "967f8273151cf0f294918615f592b4f9bbaa54ac70074675ff5a5cf4e6c1c35a",
+    "levels/level02/sea_trial.gd": "bd54aca7e7b522da2d7db0988fa96602165cd08cd023d0e4d84f8cd6fc46273f",
+    "tests/INSPECTION_WORKSPACE_VERIFICATION.md": "c5ca77938e4c861aed2191564cb41c604445d436501a44cbb271adaffbcba90b",
+    "tests/LEVEL02_MARKER_REMOVAL_VERIFICATION.md": "5f83792cc27b98bcb7bddb9385a6ab332e04bc7b9aadcd2adcc626cfd708a9db",
+    "tests/README.md": "707849cb9fb8f0edf2b3395c09b76efbe5adcf12982ac4aeac81c1ba651312eb",
+    "tests/hull_navigation.gd": "2d53a7cbab96671b9e47e800d1d5dbbc4e097ec66c7c7a44ceed7bc5ba3fb860",
+    "tests/level02_drag_tests.gd": "908b78215675caa06bcde86784d4245d3b86b03e3abc751b750c67848e270b2c",
+    "tests/level02_input_tests.gd": "8a97825a1cbe71d050588a5588c300cf9fa1cca6325389077b204ac33b597012",
+    "tests/level02_rules_tests.gd": "cf94dec047686d6bbe7752c0b1249eced49d1d3c9c4105336c4e0814173cc633",
+    "tests/level02_wrong_type_tests.gd": "9e7d36eca61cd3fa19b522c936ec2c95c4ce019683b0fcfdde3f8877f4f1be54",
+    "tests/level02_wrong_type_tests.gd.uid": "980164d1024e1451d941d6ed161986c438270c4c52909520ed7f6bbcc0c74dd2",
+    "tests/run_suite.py": "55d43cdea9871970a8bb193cffc3cbbb466f6e8e3a6f352dbb6abea8895b30e8"
+  },
+  "retained_concurrent_files": [
+    {
+      "path": "levels/level02/bulkhead_diagram.gd",
+      "sha256": "a78b5a3da460ce89263490e55f91bf9290bc18af1f06b5a9e737b4fe36e3a7dc",
+      "mode": "copied concurrent story update; not part of this task write set"
+    },
+    {
+      "path": "levels/level02/bulkhead_lesson.gd",
+      "sha256": "3202e897de4d5a8f442c930cd3c9e2b0b465306c565e300dc7643ff7f371cfaf",
+      "mode": "copied concurrent story update; not part of this task write set"
+    },
+    {
+      "path": "levels/level02/assets/watertight_bulkhead_story.png",
+      "sha256": "1e61732c9bbf7cec01290dc4ca23ee014a8f77e132e879a322ebf0e82825a1fa",
+      "mode": "preserved concurrent story illustration"
+    },
+    {
+      "path": "levels/level02/assets/watertight_bulkhead_story.png.import",
+      "sha256": "4ecda513c893301eba0b595b701190b7d4442c4026a85896fe8072d4dd9aafc1",
+      "mode": "preserved concurrent story illustration"
+    }
+  ],
+  "first_chapter_source_unchanged": true,
+  "first_chapter_source_sha256": {
+    "levels/level01/level_ui.gd": "71d32e54c92562c25cd066a67a831bc3406f15af917b7e356d678e4c0836ecca",
+    "levels/level01/inspection_orbit.gd.uid": "2a0f7fe99ec0e93a3d4d6d835c0f3326bc97910b5b106d4c03f31e541b97f8a9",
+    "levels/level01/assembly_drag_surface.gd.uid": "e001b3444ddfac55544b64cf2c22c4c59ce8e2b046a0a5077f8e7a60df9ef813",
+    "levels/level01/candidate_geometry.gd": "6b3d59511ca2c8e92ff1e93f60f46f95aa65291d731855ef96e23b6119215bca",
+    "levels/level01/type_gallery.gd.uid": "14b6f2361e42e5e04b84803ab2ba0df2ba1c68a5c1cba3056237ab82d850ae48",
+    "levels/level01/candidate_geometry.gd.uid": "c8101b92394799134a07d7e568f25b9f473dbb5e6615ab3a3b0a19ee67e8f361",
+    "levels/level01/joint_inspector.gd.uid": "8047e0868a3dac051b94c3aa72faadab17a5eff87f2bd1b75721edb37b7fdefb",
+    "levels/level01/level_ui.gd.uid": "f9d3ebd38dfb5773c9d2e1aea8515935ca586e067e2778beb5a488b1965bdfe3",
+    "levels/level01/skeleton_geometry_probe.gd": "59394252acad767a14fdd241532adb57c22a296a5ed9185489b12dbf370d3417",
+    "levels/level01/level_state.gd": "6094299735892f0eca5213086ef377a0cc3e39976800631477e29bb3993883be",
+    "levels/level01/shipwright_story.gd.uid": "8248db7a4a5d9ca592cdd1d4e246b523eaf5f6d9d66895c3175fff2563725080",
+    "levels/level01/level_state.gd.uid": "99ed100bbc34e4c18af5db71237554d4215376d0b17e4737fb91461b09c043b1",
+    "levels/level01/assembly_drag_surface.gd": "b2ec346621a4318d7b5801d1aac005c2b61688b9a929a2bfbe8c32666c506e9c",
+    "levels/level01/level01.gd": "0e7741325b29d595cf1fabbe13386868d012f3354ce93d9e8b91b4836685328f",
+    "levels/level01/seven_stars_illustration.gd": "2dd4396a7f96efbb02f1123e6c0c3c4b32ae0a22670fffe5763468ea2a68125c",
+    "levels/level01/joint_inspector.gd": "8356c2b367a7345e70a60dbd603b2333ee7b15a5ae98f6539f37473679cb1abf",
+    "levels/level01/candidate_preview.gd": "41f8189fc9164174bdc1dec9fc2af240532dd10fa10ee7a57fa420eba7a9b5e4",
+    "levels/level01/shipwright_story.gd": "3910a2107eed7ae2aa1a763154e943032af67fa55f86bdea3fb0fe3bab6bc520",
+    "levels/level01/length_measure_panel.gd.uid": "019a8d6d5fffd39fe693f982d1a8386c4b407128d48c7a33bfe3cd22c41833e8",
+    "levels/level01/level01.gd.uid": "6da418930b2d54474ea672d97e0d1fe03e95cb76fcf86b283a609025a27ae56c",
+    "levels/level01/skeleton_view.gd": "8c19b881be613154abdca4a94d0187d696dcbcbee81c88b2fe16e60ef6965027",
+    "levels/level01/workshop_backdrop.gd.uid": "eb5b4489c3b6c1bfa73a2289ce020b58e9a464febe184404717f261dd661e9d9",
+    "levels/level01/length_measure_panel.gd": "d3990449a1414dae31273f1f8046e83e4ba15a34c81aa71b4f7971061a3adcb8",
+    "levels/level01/length_comparison.gd": "783fbf252e7dcac8eaa07a9b387cf3298a7790a0fcc117fead2000613688115a",
+    "levels/level01/type_gallery.gd": "0161d1fba7d89c7c1209ab79a0b65a8cc2e794082724f4c1f1997447cadfce37",
+    "levels/level01/skeleton_geometry_probe.gd.uid": "1e4634cc0107169d7bdfba18d470539ca3f44ae797bfd6dc4ad96db28b9f1c02",
+    "levels/level01/length_comparison.gd.uid": "f07dd0d2374e69f5f1be27ec44675a86aaab70872d2ec84e9187356659d173e8",
+    "levels/level01/candidate_preview.gd.uid": "3a6d2e09ebe4b40fc219cb66cb987ce2a53cd7569dc510c961d5356273cd7a87",
+    "levels/level01/length_candidate_gallery.gd": "640f1e5dbc7a44fe09b50c6c50c52e3e39fa7542b998d52cb79ede478fd49523",
+    "levels/level01/connection_rules.gd.uid": "34470613fdfbc7bfd112a56e06b687d500edb2e6c376405ca0a02e152a425705",
+    "levels/level01/workshop_backdrop.gd": "9ed974ec833a6c98a10225a209b557ba792e173d0571c997f2b406b16650d849",
+    "levels/level01/connection_rules.gd": "f8ea6bb7cf9106efa26b4098cb5f267056a9c55deb444d13067218e93a99d09e",
+    "levels/level01/inspection_orbit.gd": "c310ff250dc8789da6b694bafad52d6d6b97892b1a7b00e9df8f39e916b7a44e",
+    "levels/level01/seven_stars_illustration.gd.uid": "9bc9a7f2fb92d1f8ccc59e54e03b55ca713cca1a8632cbdc906ae4a414ab833b",
+    "levels/level01/length_candidate_gallery.gd.uid": "3563bf596808f336efd5cc9524e5055c667d60c029ad8e82abea42fea0248e7d",
+    "levels/level01/skeleton_view.gd.uid": "3bda69e1ded445c4652ffce146a46b64a6b2618b69dddc46befeb95c67ff0271",
+    "levels/level01/inspector/inspection_geometry.gd": "0ebb1b0e9f510c272781e48372e3dae1bd448f559214959720fed0b6864b9ed5",
+    "levels/level01/inspector/inspection_geometry.gd.uid": "1c09a24b742c0785e0fdc44045ff30455105ca17e516ac989352648a7a952e5f"
+  },
+  "user_window_operated": false,
+  "committed": false,
+  "pushed": false,
+  "latest_diagnostic_guard_verified_by": [
+    "rules",
+    "wrong_type_headless",
+    "wrong_type_gpu",
+    "drag_headless"
+  ],
+  "other_regression_scope": "Eight groups and correct/opening GPU before the final actual-plank-row diagnosis guard; correct paths unchanged."
+}

@@ -1,0 +1,28 @@
+{
+  "project": "/private/tmp/guchuan-direct-comparison-review",
+  "started_utc": "2026-11-08T15:42:11.149352+00:00",
+  "results": [
+    {
+      "name": "01-levels-boat_joint_interaction_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 33.41,
+      "log": "/private/tmp/direct-comparison-final-headless/01-levels-boat_joint_interaction_tests.log",
+      "engine_log": "/private/tmp/direct-comparison-final-headless/01-levels-boat_joint_interaction_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-comparison-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-comparison-final-headless/01-levels-boat_joint_interaction_tests-engine.log",
+        "--script",
+        "tests/boat_joint_interaction_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

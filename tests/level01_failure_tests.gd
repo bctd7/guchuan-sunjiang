@@ -51,8 +51,7 @@ func failure_is_locked() -> void:
 		level.panel.inspect_requested.emit()
 		level.inspector.install_requested.emit()
 	else:
-		level.panel.repair_requested.emit()
-		level.panel.piece_selected.emit("plank_0a")
+		level.panel.group_selected.emit(0)
 	level.interaction.socket_requested.emit(level.state.selected)
 	var escape=InputEventKey.new()
 	escape.keycode=KEY_ESCAPE
@@ -163,17 +162,18 @@ func cancellation_and_directory() -> void:
 	check(not level.busy and level.view.animations.is_empty() and not level.panel.failure_overlay.visible,"restart during shake cancels old failure callbacks")
 
 func hull_piece(id: String, aligned: bool) -> void:
-	await button(level.panel.piece_buttons[id])
-	await button(level.panel.observe_button)
+	if level.state.placed.has(id) and level.state.placed[id].get("automatic",false):return
+	await HullNavigation.open_local(root,level,id)
 	await button(level.panel.joint_buttons[level.Rules.expected(id)])
+	await button(level.panel.opening_buttons[level.state.Openings.target(id)])
 	var row: int=level.Rules.row_for(id)
 	if row>0 and id.ends_with("a"):
 		await button(level.panel.layout_buttons["A" if aligned or row==2 else "B"])
-	await button(level.panel.overview_button)
 	await settle(.5)
 	await HullPointer.drag(root,level.view,1.0)
 	check(level.busy and not level.state.failed and not level.state.completed,"hull does not judge before real insertion finishes "+id)
 	await finish_motion()
+	if level.view.inspected:await button(level.panel.overview_button)
 	if id!="bulkhead":
 		check(not level.state.failed and not level.state.checked and not level.panel.failure_overlay.visible,"unfinished hull defers leak verdict "+id)
 

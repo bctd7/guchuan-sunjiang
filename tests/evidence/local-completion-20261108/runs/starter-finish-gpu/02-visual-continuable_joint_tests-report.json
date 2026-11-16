@@ -1,0 +1,20 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/continuable-joints/cross_lap-A-waiting.png",
+    "res://tests/evidence/continuable-joints/cross_lap-A-approach.png",
+    "res://tests/evidence/continuable-joints/cross_lap-A-assembled-error.png",
+    "res://tests/evidence/continuable-joints/cross_lap-B-waiting.png",
+    "res://tests/evidence/continuable-joints/cross_lap-B-approach.png",
+    "res://tests/evidence/continuable-joints/cross_lap-B-assembled-error.png",
+    "res://tests/evidence/continuable-joints/cross_lap-C-waiting.png",
+    "res://tests/evidence/continuable-joints/cross_lap-C-approach.png",
+    "res://tests/evidence/continuable-joints/cross_lap-C-assembled-error.png",
+    "res://tests/evidence/continuable-joints/tongue-groove-candidate-cuts.png"
+  ],
+  "passed": 94,
+  "renderer": "macOS",
+  "scope": "ABC cross stock via real pointer: neutral shallow motion, completed physical seating then local assembly_mismatch dialog, no automatic companion/next-row advance, restart. Three-part locks are covered by starter_lock_tests."
+}

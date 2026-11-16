@@ -1,0 +1,75 @@
+{
+  "project": "/private/tmp/guchuan-first-style-review",
+  "started_utc": "2026-11-08T14:36:48.713294+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-three_group_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 50.39,
+      "log": "/private/tmp/first-style-regression/00-levels-three_group_tests.log",
+      "engine_log": "/private/tmp/first-style-regression/00-levels-three_group_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-first-style-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-style-regression/00-levels-three_group_tests-engine.log",
+        "--script",
+        "tests/three_group_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-boat_joint_interaction_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 33.4,
+      "log": "/private/tmp/first-style-regression/01-levels-boat_joint_interaction_tests.log",
+      "engine_log": "/private/tmp/first-style-regression/01-levels-boat_joint_interaction_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-first-style-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-style-regression/01-levels-boat_joint_interaction_tests-engine.log",
+        "--script",
+        "tests/boat_joint_interaction_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-starter_lock_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 9.92,
+      "log": "/private/tmp/first-style-regression/02-levels-starter_lock_tests.log",
+      "engine_log": "/private/tmp/first-style-regression/02-levels-starter_lock_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-first-style-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-style-regression/02-levels-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

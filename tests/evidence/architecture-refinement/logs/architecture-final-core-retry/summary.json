@@ -1,0 +1,47 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+  "started_utc": "2026-11-01T10:42:27.329824+00:00",
+  "groups": [
+    "core"
+  ],
+  "results": [
+    {
+      "name": "00-core-run_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.39,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/00-core-run_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/00-core-run_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/00-core-run_tests-engine.log",
+        "--script",
+        "tests/run_tests.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-core-collision_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.42,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/01-core-collision_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/01-core-collision_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/01-core-collision_tests-engine.log",
+        "--script",
+        "tests/collision_tests.gd"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

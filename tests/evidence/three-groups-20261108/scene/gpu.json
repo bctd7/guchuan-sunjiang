@@ -1,0 +1,20 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/three-groups/01-three-group-overview.png",
+    "res://tests/evidence/three-groups/02-board-group-A.png",
+    "res://tests/evidence/three-groups/02-board-group-C.png",
+    "res://tests/evidence/three-groups/02-board-group-B.png",
+    "res://tests/evidence/three-groups/03-frame-and-bulkhead.png",
+    "res://tests/evidence/three-groups/04-side-member-seated.png",
+    "res://tests/evidence/three-groups/05-completed-hull.png",
+    "res://tests/evidence/three-groups/wrong-openings-A-B.png",
+    "res://tests/evidence/three-groups/wrong-openings-B-A.png",
+    "res://tests/evidence/three-groups/06-wrong-family-local-error.png"
+  ],
+  "method": "Real Viewport buttons and mouse/touch drags; three-group repeat, exact wrong choices, undo, reentry, cancellation and full wave trial",
+  "passed": 173,
+  "renderer": "macOS"
+}

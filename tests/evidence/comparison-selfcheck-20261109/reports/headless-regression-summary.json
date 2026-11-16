@@ -1,0 +1,75 @@
+{
+  "project": "/private/tmp/guchuan-comparison-selfcheck-20261109",
+  "started_utc": "2026-11-08T16:06:42.258020+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-opening_dimensions_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.72,
+      "log": "/private/tmp/comparison-selfcheck-fixed-headless-20261109/00-levels-opening_dimensions_tests.log",
+      "engine_log": "/private/tmp/comparison-selfcheck-fixed-headless-20261109/00-levels-opening_dimensions_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-comparison-selfcheck-20261109",
+        "--headless",
+        "--log-file",
+        "/private/tmp/comparison-selfcheck-fixed-headless-20261109/00-levels-opening_dimensions_tests-engine.log",
+        "--script",
+        "tests/opening_dimensions_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-opening_navigation_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 9.45,
+      "log": "/private/tmp/comparison-selfcheck-fixed-headless-20261109/01-levels-opening_navigation_tests.log",
+      "engine_log": "/private/tmp/comparison-selfcheck-fixed-headless-20261109/01-levels-opening_navigation_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-comparison-selfcheck-20261109",
+        "--headless",
+        "--log-file",
+        "/private/tmp/comparison-selfcheck-fixed-headless-20261109/01-levels-opening_navigation_tests-engine.log",
+        "--script",
+        "tests/opening_navigation_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 30.42,
+      "log": "/private/tmp/comparison-selfcheck-fixed-headless-20261109/02-levels-inspection_workspace_tests.log",
+      "engine_log": "/private/tmp/comparison-selfcheck-fixed-headless-20261109/02-levels-inspection_workspace_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-comparison-selfcheck-20261109",
+        "--headless",
+        "--log-file",
+        "/private/tmp/comparison-selfcheck-fixed-headless-20261109/02-levels-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

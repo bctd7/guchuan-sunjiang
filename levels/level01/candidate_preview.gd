@@ -1,4 +1,13 @@
 extends SubViewportContainer
+signal activated
+const Orbit=preload("res://levels/shared/selectable_orbit.gd")
+var orbit: Control
+var model_root: Node3D
+var zoom_factor:=1.0
+var _height: float:
+	get:return _frame_height
+var _width: float:
+	get:return _frame_width
 ## Real part clone, framed at its joint. Grain, tenon and shoulder stay together.
 const Candidate = preload("res://levels/level01/candidate_geometry.gd")
 const Lengths = preload("res://models/ship/keel/length_geometry.gd")
@@ -20,6 +29,18 @@ func _init() -> void:
 	add_child(viewport)
 	resized.connect(_resize_camera)
 
+func _ready() -> void:
+	orbit=Orbit.new();add_child(orbit)
+	orbit.activated.connect(func():activated.emit())
+	orbit.zoom_requested.connect(func(factor: float):zoom_factor=clampf(zoom_factor*factor,.30,1.6);_resize_camera())
+	visibility_changed.connect(_sync_activity)
+	_sync_activity()
+func _sync_activity() -> void:
+	if not is_instance_valid(orbit):return
+	var enabled:=is_visible_in_tree()
+	orbit.set_process(enabled);orbit.set_process_input(enabled)
+	viewport.render_target_update_mode=SubViewport.UPDATE_WHEN_VISIBLE
+	if not enabled:orbit.suspend_gesture()
 func configure(source: Node3D, piece_id: String, kind: String, length: String = "correct", compare_lengths: bool = false) -> void:
 	for child in viewport.get_children():
 		viewport.remove_child(child)
@@ -33,7 +54,7 @@ func configure(source: Node3D, piece_id: String, kind: String, length: String = 
 	# Empty kind is an explicitly labelled physical length reference, not a pick.
 	if not kind.is_empty(): Candidate.apply(specimen,piece_id,kind,source)
 	solidify(specimen)
-	viewport.add_child(specimen)
+	model_root=Node3D.new();viewport.add_child(model_root);model_root.add_child(specimen)
 	_add_lighting()
 	_frame_joint(piece_id,compare_lengths)
 	viewport.set_meta("comparison_kind",kind)
@@ -163,8 +184,9 @@ func _frame_joint(piece_id: String, compare_lengths: bool) -> void:
 	camera.near = .01
 	camera.far = 100.0
 	viewport.add_child(camera)
-	camera.position = target+direction.normalized()*8.0
-	camera.look_at(target)
+	var elevation:=asin(direction.normalized().y)
+	orbit.yaw_limit=PI;orbit.pitch_min=elevation-deg_to_rad(75);orbit.pitch_max=elevation+deg_to_rad(75)
+	zoom_factor=1.0;orbit.configure(camera,target,direction.normalized()*8.0,true)
 	camera.current = true
 	_resize_camera()
 	viewport.set_meta("focus",target)
@@ -172,4 +194,4 @@ func _frame_joint(piece_id: String, compare_lengths: bool) -> void:
 func _resize_camera() -> void:
 	if not is_instance_valid(camera): return
 	var aspect := maxf(size.x,120.0)/maxf(size.y,66.0)
-	camera.size = maxf(_frame_height,_frame_width/aspect)
+	camera.size = maxf(_frame_height,_frame_width/aspect)*zoom_factor

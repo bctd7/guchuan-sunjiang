@@ -1,0 +1,53 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-08T06:13:15.461824+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-starter_joint_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.29,
+      "log": "/private/tmp/first-lock-wiring/00-levels-starter_joint_tests.log",
+      "engine_log": "/private/tmp/first-lock-wiring/00-levels-starter_joint_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-lock-wiring/00-levels-starter_joint_tests-engine.log",
+        "--script",
+        "tests/starter_joint_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-receiving_edge_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.39,
+      "log": "/private/tmp/first-lock-wiring/01-levels-receiving_edge_tests.log",
+      "engine_log": "/private/tmp/first-lock-wiring/01-levels-receiving_edge_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-lock-wiring/01-levels-receiving_edge_tests-engine.log",
+        "--script",
+        "tests/receiving_edge_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

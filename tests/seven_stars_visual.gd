@@ -70,7 +70,7 @@ func run() -> void:
 	surface.push_input(escape, true)
 	await process_frame
 	check(not level.story.opened, "Escape closes story after reopening")
-	var report := {"passed": passed, "failed": failures.size(), "failures": failures, "images": images, "host_minimized": root.mode == Window.MODE_MINIMIZED, "host_focus_reported": root.has_focus(), "no_focus_flag": root.get_flag(Window.FLAG_NO_FOCUS), "method": "Minimized GPU and Viewport GUI events; not native mouse."}
+	var report := {"renderer": DisplayServer.get_name(), "passed": passed, "failed": failures.size(), "failures": failures, "images": images, "host_minimized": root.mode == Window.MODE_MINIMIZED, "host_focus_reported": root.has_focus(), "no_focus_flag": root.get_flag(Window.FLAG_NO_FOCUS), "method": "Minimized GPU and Viewport GUI events; not native mouse."}
 	FileAccess.open(out + "report.json", FileAccess.WRITE).store_string(JSON.stringify(report, "  "))
 	print("SEVEN_STARS_GPU ", passed, " passed; ", failures.size(), " failed")
 	surface.free()

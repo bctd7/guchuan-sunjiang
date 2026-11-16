@@ -1,0 +1,75 @@
+{
+  "project": "/private/tmp/guchuan-opening-comparison-review",
+  "started_utc": "2026-11-08T14:10:01.318738+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-opening_dimensions_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 8.53,
+      "log": "/private/tmp/opening-comparison-regression/00-levels-opening_dimensions_tests.log",
+      "engine_log": "/private/tmp/opening-comparison-regression/00-levels-opening_dimensions_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-opening-comparison-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/opening-comparison-regression/00-levels-opening_dimensions_tests-engine.log",
+        "--script",
+        "tests/opening_dimensions_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-three_group_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 50.99,
+      "log": "/private/tmp/opening-comparison-regression/01-levels-three_group_tests.log",
+      "engine_log": "/private/tmp/opening-comparison-regression/01-levels-three_group_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-opening-comparison-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/opening-comparison-regression/01-levels-three_group_tests-engine.log",
+        "--script",
+        "tests/three_group_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-starter_lock_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.17,
+      "log": "/private/tmp/opening-comparison-regression/02-levels-starter_lock_tests.log",
+      "engine_log": "/private/tmp/opening-comparison-regression/02-levels-starter_lock_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-opening-comparison-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/opening-comparison-regression/02-levels-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "project": "/private/tmp/guchuan-three-groups-review",
+  "started_utc": "2026-11-08T09:10:24.001924+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-boat_joint_sweep_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.46,
+      "log": "/private/tmp/three-groups-final-checks/00-levels-boat_joint_sweep_tests.log",
+      "engine_log": "/private/tmp/three-groups-final-checks/00-levels-boat_joint_sweep_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-final-checks/00-levels-boat_joint_sweep_tests-engine.log",
+        "--script",
+        "tests/boat_joint_sweep_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-boat_joint_recovery_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.83,
+      "log": "/private/tmp/three-groups-final-checks/01-levels-boat_joint_recovery_tests.log",
+      "engine_log": "/private/tmp/three-groups-final-checks/01-levels-boat_joint_recovery_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-final-checks/01-levels-boat_joint_recovery_tests-engine.log",
+        "--script",
+        "tests/boat_joint_recovery_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-plank_context_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.13,
+      "log": "/private/tmp/three-groups-final-checks/02-levels-plank_context_tests.log",
+      "engine_log": "/private/tmp/three-groups-final-checks/02-levels-plank_context_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-final-checks/02-levels-plank_context_tests-engine.log",
+        "--script",
+        "tests/plank_context_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

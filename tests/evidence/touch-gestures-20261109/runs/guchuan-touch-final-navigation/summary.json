@@ -1,0 +1,31 @@
+{
+  "project": "/private/tmp/guchuan-touch-gestures-20261109",
+  "started_utc": "2026-11-09T15:17:42.363845+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-opening_navigation_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 15.3,
+      "log": "/private/tmp/guchuan-touch-final-navigation/00-levels-opening_navigation_tests.log",
+      "engine_log": "/private/tmp/guchuan-touch-final-navigation/00-levels-opening_navigation_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-touch-gestures-20261109",
+        "--headless",
+        "--log-file",
+        "/private/tmp/guchuan-touch-final-navigation/00-levels-opening_navigation_tests-engine.log",
+        "--script",
+        "tests/opening_navigation_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

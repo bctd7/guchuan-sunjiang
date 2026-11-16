@@ -1,0 +1,136 @@
+{
+  "revision": "level02-model-seams-20261101",
+  "checked_utc": "2026-11-01T07:19:29.558241+00:00",
+  "source_sha256": {
+    "levels/level02/connection_rules.gd": "4dde8a91d161072aabab70bec7bc7b5923e0da9ec05381fd339d680bbb7cfe4d",
+    "levels/level02/level_state.gd": "5bc05519293b618621482e897281b5c9b826ad53559d96e49c7e22b28f12c3a6",
+    "levels/level02/level_ui.gd": "13e02da1ed9dd47c3f10424482dc584c58d4592fbc7fc4045fe12f0509a0fc7d",
+    "levels/level02/level02.gd": "f7da5581efb22e3a71baee7c91490a38b6dc51224323d835d3df765f8f127513",
+    "levels/level02/hull_view.gd": "f2d66925fc82ecbc90024bbbb39dc10631e0af87f8e0e2c710eb7c5c6cc07cdb",
+    "levels/level02/model_seam_guides.gd": "294ef430d0382f03d4f9b0665e825b638e7c3f34eee78d14486f8b876234c509",
+    "levels/level02/model_seam_guides.gd.uid": "3054f4cbffdc3c9d890a84843e3f4c5ae8bdf6e2d362c809660f39e4463803f7",
+    "tests/hull_navigation.gd": "2c6049d4dceb5e33d6dd73ca67d2d96f73dff59a595c559ce7fdb2beea4943d9",
+    "tests/level02_input_tests.gd": "63e646c7158352f0857cb85d57f85f5cef77025b73153702ed4cf3ce32a19514",
+    "tests/level02_drag_tests.gd": "80ea14dd19c1ac9eed4bb2095e82bdbacb1a69a1a9f1853645c53b5dfa30cd49",
+    "tests/campaign_tests.gd": "67a88b61bf621480b94c21df225d54addbe1df84e0259d85706c4d2e07a378cf",
+    "tests/level01_failure_tests.gd": "52fb0e242660b705db5918db51a614daeb34f498d63163a105f5243ecd92a118",
+    "tests/auxiliary_panel_tests.gd": "e8eae6f6ecfafacfd03c138d3c31aee7b26feedd80a2e49d7f96c029cd1476a9",
+    "tests/level02_rules_tests.gd": "910395821ce1f72965c68c6b561c6e83694b5982eb6a87df3cc23a08097a2a56"
+  },
+  "removed_modules": [
+    "levels/level02/seam_diagram.gd",
+    "levels/level02/seam_diagram.gd.uid"
+  ],
+  "protected_files_unchanged": 264,
+  "headless": {
+    "failed": 0,
+    "failures": [],
+    "host_had_focus": false,
+    "images": [],
+    "method": "actual Viewport mouse and simulated touch; no gameplay state mutation; not human hardware validation",
+    "passed": 594,
+    "renderer": "headless",
+    "revision": "level02-model-seams-20261101"
+  },
+  "gpu": {
+    "failed": 0,
+    "failures": [],
+    "host_had_focus": false,
+    "images": [
+      "res://tests/evidence/level02-model-seams/00-overview.png",
+      "res://tests/evidence/level02-model-seams/01-observe-and-choose.png",
+      "res://tests/evidence/level02-model-seams/02-shallow-push.png",
+      "res://tests/evidence/level02-model-seams/local-seated-before-return.png",
+      "res://tests/evidence/level02-model-seams/local-plank_0b.png",
+      "res://tests/evidence/level02-model-seams/local-cross_upper.png",
+      "res://tests/evidence/level02-model-seams/local-three_middle.png",
+      "res://tests/evidence/level02-model-seams/local-bulkhead.png",
+      "res://tests/evidence/level02-model-seams/wave-approaching.png",
+      "res://tests/evidence/level02-model-seams/wave-impact-dry.png",
+      "res://tests/evidence/level02-model-seams/03-successful-sea-trial.png",
+      "res://tests/evidence/level02-model-seams/04-six-groups.png",
+      "res://tests/evidence/level02-model-seams/05-waterproof-compartments.png",
+      "res://tests/evidence/level02-model-seams/wave-impact-leaking.png",
+      "res://tests/evidence/level02-model-seams/06-leaking-hull-failure.png",
+      "res://tests/evidence/level02-model-seams/07-aligned-model-1440.png",
+      "res://tests/evidence/level02-model-seams/08-staggered-model-1440.png",
+      "res://tests/evidence/level02-model-seams/09-receiver-reveal-1440.png",
+      "res://tests/evidence/level02-model-seams/07-aligned-model-1100.png",
+      "res://tests/evidence/level02-model-seams/08-staggered-model-1100.png",
+      "res://tests/evidence/level02-model-seams/09-receiver-reveal-1100.png",
+      "res://tests/evidence/level02-model-seams/07-aligned-model-960.png",
+      "res://tests/evidence/level02-model-seams/08-staggered-model-960.png",
+      "res://tests/evidence/level02-model-seams/09-receiver-reveal-960.png"
+    ],
+    "method": "actual Viewport mouse and simulated touch; no gameplay state mutation; not human hardware validation",
+    "passed": 598,
+    "renderer": "macOS",
+    "revision": "level02-model-seams-20261101"
+  },
+  "final_regressions": [
+    {
+      "name": "rules",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.2,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/simplify-final-regression/rules.log"
+    },
+    {
+      "name": "geometry",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.6,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/simplify-final-regression/geometry.log"
+    },
+    {
+      "name": "chapter_tools",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 2.66,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/simplify-final-regression/chapter_tools.log"
+    },
+    {
+      "name": "level02",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 24.21,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/simplify-final-regression/level02.log"
+    },
+    {
+      "name": "classroom",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 1.28,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/simplify-final-regression/classroom.log"
+    },
+    {
+      "name": "reentry",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 10.34,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/simplify-final-regression/reentry.log"
+    },
+    {
+      "name": "fonts",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 3.77,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/simplify-final-regression/fonts.log"
+    },
+    {
+      "name": "campaign",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 88.25,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/simplify-final-regression/campaign.log"
+    },
+    {
+      "name": "failure",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 94.12,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/simplify-final-regression/failure.log"
+    }
+  ],
+  "note": "Actual engine Viewport mouse/simulated touch and Mac GPU, not human or target-device acceptance. Existing user window not operated."
+}

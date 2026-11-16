@@ -1,0 +1,163 @@
+{
+  "project": "/private/tmp/guchuan-three-groups-review",
+  "started_utc": "2026-11-08T08:59:16.081553+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-drag_consistency_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 68.74,
+      "log": "/private/tmp/three-groups-regression/00-levels-drag_consistency_tests.log",
+      "engine_log": "/private/tmp/three-groups-regression/00-levels-drag_consistency_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-regression/00-levels-drag_consistency_tests-engine.log",
+        "--script",
+        "tests/drag_consistency_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-three_group_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 26.62,
+      "log": "/private/tmp/three-groups-regression/01-levels-three_group_tests.log",
+      "engine_log": "/private/tmp/three-groups-regression/01-levels-three_group_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-regression/01-levels-three_group_tests-engine.log",
+        "--script",
+        "tests/three_group_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "log": "/private/tmp/three-groups-regression/02-levels-level02_rules_tests.log",
+      "engine_log": "/private/tmp/three-groups-regression/02-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-regression/02-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-level02_assembly_outcome_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.26,
+      "log": "/private/tmp/three-groups-regression/03-levels-level02_assembly_outcome_tests.log",
+      "engine_log": "/private/tmp/three-groups-regression/03-levels-level02_assembly_outcome_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-regression/03-levels-level02_assembly_outcome_tests-engine.log",
+        "--script",
+        "tests/level02_assembly_outcome_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-boat_joint_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.55,
+      "log": "/private/tmp/three-groups-regression/04-levels-boat_joint_geometry_tests.log",
+      "engine_log": "/private/tmp/three-groups-regression/04-levels-boat_joint_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-regression/04-levels-boat_joint_geometry_tests-engine.log",
+        "--script",
+        "tests/boat_joint_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "05-levels-receiving_edge_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.52,
+      "log": "/private/tmp/three-groups-regression/05-levels-receiving_edge_tests.log",
+      "engine_log": "/private/tmp/three-groups-regression/05-levels-receiving_edge_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-regression/05-levels-receiving_edge_tests-engine.log",
+        "--script",
+        "tests/receiving_edge_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "06-levels-starter_lock_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 9.9,
+      "log": "/private/tmp/three-groups-regression/06-levels-starter_lock_tests.log",
+      "engine_log": "/private/tmp/three-groups-regression/06-levels-starter_lock_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-regression/06-levels-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

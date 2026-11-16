@@ -1,6 +1,8 @@
 extends VBoxContainer
 ## Whole-row buttons with actual connected timber previews; no default choice.
 signal chosen(id: String)
+signal inspect_requested(id: String)
+var inspect_buttons: Dictionary={}
 const Preview = preload("res://levels/level01/candidate_preview.gd")
 const Lengths = preload("res://models/ship/keel/length_geometry.gd")
 const ORDER := ["long","short","correct"]
@@ -40,14 +42,18 @@ func _build() -> void:
 		preview.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(preview)
 		previews[length] = preview
+		preview.activated.connect(func():
+			if not button.disabled:chosen.emit(length))
 		viewports[length] = preview.viewport
 		var caption := Label.new()
-		caption.custom_minimum_size.x = 110
+		caption.custom_minimum_size.x = 76
 		caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		caption.add_theme_font_size_override("font_size",15)
 		row.add_child(caption)
 		captions[length] = caption
+		var inspect:=Button.new();inspect.text="放大";inspect.custom_minimum_size=Vector2(56,44);inspect.add_theme_font_size_override("font_size",16);row.add_child(inspect);inspect_buttons[length]=inspect
+		inspect.pressed.connect(func():inspect_requested.emit(length))
 
 func configure(source: Node3D, piece_id: String, kind: String = "") -> void:
 	_build()

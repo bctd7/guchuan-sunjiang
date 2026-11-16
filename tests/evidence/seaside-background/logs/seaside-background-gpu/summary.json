@@ -1,0 +1,102 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-work",
+  "started_utc": "2026-11-01T11:20:26.889666+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 39.46,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-gpu/00-visual-inspection_workspace_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-gpu/00-visual-inspection_workspace_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-gpu/00-visual-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-auxiliary_panel_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.72,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-gpu/01-visual-auxiliary_panel_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-gpu/01-visual-auxiliary_panel_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-gpu/01-visual-auxiliary_panel_tests-engine.log",
+        "--script",
+        "tests/auxiliary_panel_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "02-visual-backdrop_probe",
+      "status": "engine_error",
+      "exit_code": 0,
+      "seconds": 7.65,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-gpu/02-visual-backdrop_probe.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-gpu/02-visual-backdrop_probe-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-gpu/02-visual-backdrop_probe-engine.log",
+        "--script",
+        "tests/evidence/seaside-background/backdrop_probe.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

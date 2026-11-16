@@ -1,0 +1,18 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_focus_reported": false,
+  "host_minimized": true,
+  "images": [
+    "res://tests/evidence/seven-stars/story-1440.png",
+    "res://tests/evidence/seven-stars/story-1440-bottom.png",
+    "res://tests/evidence/seven-stars/story-1100.png",
+    "res://tests/evidence/seven-stars/story-1100-bottom.png",
+    "res://tests/evidence/seven-stars/story-960.png",
+    "res://tests/evidence/seven-stars/story-960-bottom.png"
+  ],
+  "method": "Minimized GPU and Viewport GUI events; not native mouse.",
+  "no_focus_flag": true,
+  "passed": 32,
+  "renderer": "macOS"
+}

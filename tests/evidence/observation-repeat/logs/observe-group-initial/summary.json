@@ -1,0 +1,53 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+  "started_utc": "2026-11-01T15:56:07.571735+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level01_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 42.19,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-group-initial/00-levels-level01_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-group-initial/00-levels-level01_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-group-initial/00-levels-level01_input_tests-engine.log",
+        "--script",
+        "tests/level01_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-group-initial/01-levels-level02_rules_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-group-initial/01-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-group-initial/01-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

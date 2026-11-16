@@ -12,8 +12,17 @@ var lesson_button: Button
 var install_button: Button
 var retry_button: Button
 var _review_only:=false
+var magnifier: Control
+var zoom_bar: Control
+var zoom_factor:=1.0
+var _zoom_base_size:=4.0
+var _zoom_center:=Vector3.ZERO
+var _zoom_direction:=Vector3.ONE
 var length_gallery: Control
 var stage_surface: Control
+const Magnifier=preload("res://levels/shared/model_magnifier.gd")
+const ZoomBar=preload("res://levels/shared/inspection_zoom_bar.gd")
+const Workspace=preload("res://levels/shared/inspection_workspace.gd")
 const LengthComparison=preload("res://levels/level01/length_measure_panel.gd")
 const Trial=preload("res://models/ship/keel/trial_fit.gd")
 const TrialReceiver=preload("res://models/ship/keel/trial_receiver.gd")
@@ -67,73 +76,44 @@ func _ready() -> void:
 	layer = 20
 	_build()
 	hide()
+	get_viewport().size_changed.connect(_fit_observation_layout)
+	tree_entered.connect(_fit_observation_layout.call_deferred)
+	_fit_observation_layout()
 
 func configure(skeleton: Node3D) -> void:
 	source_view=skeleton
 
 func _build() -> void:
-	root = Control.new()
-	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	root.theme = Friendly.make_theme(true)
+	root=Workspace.new()
 	add_child(root)
-	var shade := ColorRect.new()
-	shade.color = Color("e9dcc2")
-	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	root.add_child(shade)
-	var panel := PanelContainer.new()
-	root.add_child(panel)
-	panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	panel.offset_left=24
-	panel.offset_right=-24
-	panel.offset_top=24
-	panel.offset_bottom=-24
-	panel.add_theme_stylebox_override("panel",Friendly.block(Color("fff8e8"),Color("c8b895"),2))
-	var stack := VBoxContainer.new()
-	stack.add_theme_constant_override("separation",8)
-	panel.add_child(stack)
-	var head := HBoxContainer.new()
-	stack.add_child(head)
-	title = _label(head,"看清榫头与槽口",27)
-	title.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	var head: HBoxContainer=root.header
+	title=root.title
+	title.text="看清榫头与槽口"
 	lesson_button=_button(head,"本关榫卯讲解")
-	lesson_button.pressed.connect(func(): lesson_requested.emit())
+	lesson_button.pressed.connect(func():lesson_requested.emit())
 	retry_button=_button(head,"取回调整")
-	retry_button.pressed.connect(func(): retry_requested.emit())
-	close_button = _button(head,"返回骨架")
+	retry_button.pressed.connect(func():retry_requested.emit())
+	close_button=_button(head,"返回骨架")
 	close_button.pressed.connect(close)
-	explanation = _label(stack,"",20)
-	explanation.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	explanation=root.explanation
 	joint_choices=TypeGallery.new()
-	stack.add_child(joint_choices)
+	root.candidates.add_child(joint_choices)
 	joint_buttons=joint_choices.buttons
 	for candidate in joint_buttons.values():
 		candidate.custom_minimum_size.y=40
 		_style_neutral_selection(candidate)
 	joint_choices.chosen.connect(_choose_joint)
-	var middle := HBoxContainer.new()
-	middle.size_flags_vertical=Control.SIZE_EXPAND_FILL
-	middle.add_theme_constant_override("separation",16)
-	stack.add_child(middle)
-	stage_surface=Control.new()
-	stage_surface.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	stage_surface.size_flags_vertical=Control.SIZE_EXPAND_FILL
-	stage_surface.custom_minimum_size=Vector2(0,330)
-	middle.add_child(stage_surface)
-	var container := SubViewportContainer.new()
-	container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	container.stretch=true
-	container.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	stage_surface.add_child(container)
-	candidate_panel=VBoxContainer.new()
-	candidate_panel.custom_minimum_size.x=345
-	candidate_panel.add_theme_constant_override("separation",6)
-	middle.add_child(candidate_panel)
+	joint_choices.inspect_requested.connect(func(id: String):_magnify(joint_choices.previews[id],TypeGallery.TYPES[id]))
+	stage_surface=root.stage_surface
+	var container: SubViewportContainer=root.viewport_container
+	candidate_panel=root.options
 	comparison=LengthComparison.new()
 	candidate_panel.add_child(comparison)
 	length_gallery=LengthGallery.new()
 	candidate_panel.add_child(length_gallery)
 	length_buttons=length_gallery.buttons
 	length_gallery.chosen.connect(_choose_length)
+	length_gallery.inspect_requested.connect(func(id: String):_magnify(length_gallery.previews[id],"长度候选 · 木料 "+LengthComparison.LABELS[id]))
 	viewport=SubViewport.new()
 	viewport.own_world_3d=true
 	viewport.size=Vector2i(1000,490)
@@ -151,17 +131,14 @@ func _build() -> void:
 	orbit=InspectionOrbit.new()
 	orbit.name="InspectionOrbit"
 	stage_surface.add_child(orbit)
+	orbit.zoom_requested.connect(_zoom_observation)
 	orbit.assembly_requested.connect(func(): install_requested.emit())
 	orbit.insertion_progress_changed.connect(_sync_trial_receiver)
 	orbit.selection_required.connect(_show_choice_hint)
 	orbit.drag_feedback.connect(func(message: String):
 		if observation_mode:status.text=message)
-	var actions := HBoxContainer.new()
-	actions.add_theme_constant_override("separation",12)
-	stack.add_child(actions)
-	status=_label(actions,"",19)
-	status.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	status.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	var actions: HBoxContainer=root.actions
+	status=root.status
 	install_button=_button(actions,"准备试装")
 	install_button.pressed.connect(_prepare_install)
 	xray_button=_button(actions,"看孔内")
@@ -169,8 +146,12 @@ func _build() -> void:
 	xray_button.toggled.connect(_set_cutaway)
 	replay_button=_button(actions,"再看插入")
 	replay_button.pressed.connect(func(): show_connection(animated_piece_id,_length,not observation_mode,selected_joint,_review_only))
-	var note := _label(stack,"转一转，看清榫头和槽口。",15)
-	note.modulate=Color("73806d")
+	zoom_bar=ZoomBar.new();stage_surface.add_child(zoom_bar)
+	zoom_bar.zoom_requested.connect(_zoom_observation);zoom_bar.reset_requested.connect(_reset_observation_zoom)
+	magnifier=Magnifier.new();root.add_child(magnifier)
+	magnifier.closed.connect(func():
+		if opened:orbit.set_process_input(true))
+	root.note.text="拖空白处旋转 · 双指、滚轮或按钮缩放 · 候选可放大查看"
 
 func show_connection(piece_id: String, length: String = "", animate: bool = false, joint_type: String = "", review_installed: bool = false, released_pose: Variant = null) -> void:
 	if not is_instance_valid(source_view) or not source_view.pieces.has(piece_id) or piece_id == "keel": return
@@ -198,7 +179,7 @@ func show_connection(piece_id: String, length: String = "", animate: bool = fals
 	explanation.text=COPY[joint_id][1]
 	if not observation_mode:
 		title.text="试装 · "+str(TypeGallery.TYPES.get(joint_type,"木料"))
-		explanation.text="装入后会自动检查配合；榫型或长度不合，本关就需要重新开始。"
+		explanation.text="这一处先保留试装，整段骨架装齐后统一检查。"
 	if observation_mode:
 		title.text="观察船肋与龙骨" if piece_id.begins_with("rib_") else ("观察横撑与船肋" if piece_id.begins_with("beam") else "观察龙骨端接")
 		if piece_id.begins_with("rib_"):
@@ -258,6 +239,8 @@ func show_connection(piece_id: String, length: String = "", animate: bool = fals
 	install_button.visible=observation_mode
 	install_button.disabled=false
 	install_button.text="先选榫头" if selected_joint.is_empty() else ("先选木料" if selected_length.is_empty() else "准备试装")
+	_remember_zoom_frame()
+	_fit_observation_layout()
 	if animate:
 		var final: Transform3D=source_view.trial_pose(piece_id,length,joint_type)
 		animated_piece.transform=_safe_trial_entry(final)
@@ -272,11 +255,6 @@ func show_connection(piece_id: String, length: String = "", animate: bool = fals
 		if released_pose is Transform3D:slide_time=clampf(released_pose.origin.distance_to(final.origin)*.24,.12,.55)
 		_motion.tween_interval(.04 if released_pose is Transform3D else .3)
 		_motion.tween_property(animated_piece,"transform",final,slide_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		if not Trial.is_stable(piece_id,length,joint_type):
-			var outward: Vector3=source_view.insertion_offset(piece_id).normalized()*.055
-			for pulse in 3:
-				_motion.tween_property(animated_piece,"position",final.origin+outward,.10)
-				_motion.tween_property(animated_piece,"position",final.origin,.10)
 		_motion.tween_callback(_finish_trial_review)
 	elif not observation_mode:_finish_trial_review()
 
@@ -304,12 +282,9 @@ func _finish_trial_review() -> void:
 	# the final joint is not left at the edge of its approach framing.
 	if selected_joint!=joint_id_for(animated_piece_id) and not _keep_drag_framing:_frame_trial_candidate()
 	Lengths.set_fasteners_visible(animated_piece,selected_joint==joint_id_for(animated_piece_id))
-	if Trial.is_stable(animated_piece_id,_length,selected_joint):
-		title.text="这一处接好了！"
-		status.text="接上了！继续搭建，最后再检查整段骨架。"
-	else:
-		title.text="接合处有点松"
-		status.text="连接出现松动，本关未通过，请重新开始。"
+	title.text="这一处已试装"
+	status.text="木料已试装，整段骨架装齐后统一检查。"
+	_remember_zoom_frame()
 	close_button.text="返回船架" if _review_only else "继续搭建"
 	trial_finished.emit()
 
@@ -476,6 +451,7 @@ func _set_transparent(node: Node, enabled: bool) -> void:
 	InspectionGeometry.set_transparent(node,enabled)
 
 func close() -> void:
+	magnifier.close()
 	if is_instance_valid(_motion): _motion.kill()
 	if is_instance_valid(orbit): orbit.deactivate()
 	_animating=false
@@ -486,7 +462,8 @@ func close() -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if opened and event.is_action_pressed("ui_cancel"):
-		close()
+		if magnifier.visible:magnifier.close()
+		else:close()
 		get_viewport().set_input_as_handled()
 
 func _label(parent: Node, words: String, size: int) -> Label:
@@ -504,5 +481,34 @@ func _button(parent: Node, words: String) -> Button:
 	return button
 
 func _style_neutral_selection(button: Button) -> void:
-	for state in ["pressed","hover_pressed"]:
-		button.add_theme_stylebox_override(state,Friendly.block(Color("dbe4e5"),Color("7b9098"),2))
+	Workspace.neutral_selection(button)
+
+func _remember_zoom_frame() -> void:
+	zoom_factor=1.0;_zoom_base_size=camera.size;_zoom_center=orbit._center;_zoom_direction=orbit._direction
+	zoom_bar.update_zoom(zoom_factor)
+func _zoom_observation(factor: float) -> void:
+	if not opened or _animating or orbit.assembly_dragging or magnifier.visible:return
+	zoom_factor=clampf(zoom_factor*factor,.25,1.6)
+	orbit._center=_zoom_center.lerp(_entry_mouth(),clampf((1.0-zoom_factor)/.75,0.0,1.0))
+	orbit._apply_camera();camera.size=_zoom_base_size*zoom_factor;zoom_bar.update_zoom(zoom_factor)
+func _reset_observation_zoom() -> void:
+	if not opened or _animating or orbit.assembly_dragging or magnifier.visible:return
+	zoom_factor=1.0;orbit._center=_zoom_center;orbit._direction=_zoom_direction
+	orbit.angles=Vector2.ZERO;orbit.target_angles=Vector2.ZERO;orbit._apply_camera()
+	camera.size=_zoom_base_size;zoom_bar.update_zoom(zoom_factor)
+func _magnify(source: Control,caption: String) -> void:
+	if not opened or _animating or orbit.assembly_dragging:return
+	orbit.suspend_gesture()
+	orbit.set_process_input(false)
+	magnifier.open(source,caption)
+func _fit_observation_layout() -> void:
+	if not is_inside_tree() or not is_instance_valid(root) or not is_instance_valid(zoom_bar):return
+	var dimensions:=get_viewport().get_visible_rect().size
+	var factor:=minf(dimensions.x/1440.0,dimensions.y/900.0)
+	root.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT);root.size=Vector2(1440,900)
+	root.scale=Vector2.ONE*factor;root.position=(dimensions-root.size*factor)*.5
+	zoom_bar.set_display_scale(factor);magnifier.set_display_scale(factor)
+	for id in joint_choices.inspect_buttons:
+		joint_choices.inspect_buttons[id].custom_minimum_size=Vector2(maxf(56,44/factor),44/factor)
+		joint_choices.previews[id].custom_minimum_size.y=maxf(88,164-joint_choices.inspect_buttons[id].custom_minimum_size.y)
+	for button in length_gallery.inspect_buttons.values():button.custom_minimum_size=Vector2(maxf(56,44/factor),44/factor)

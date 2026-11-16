@@ -94,7 +94,7 @@ func _ready() -> void:
 	main_viewport.gui_disable_input = true
 	main_viewport.msaa_3d = Viewport.MSAA_2X
 	container.add_child(main_viewport)
-	var assumption := _label(root,"教学假设 · 局部架空装配，角腿下方留空；尺寸非施工图。",18)
+	var assumption := _label(root,"观察接头 · 角腿下方留空，便于看清榫卯。",18)
 	assumption.position = Vector2(355,149)
 	assumption.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var gallery_panel := _panel(Rect2(345,598,1075,160))
@@ -124,7 +124,7 @@ func _ready() -> void:
 	var victory := VBoxContainer.new()
 	success_panel.add_child(victory)
 	_label(victory,"第三关完成 · 帆樯与舵架就位",28)
-	_label(victory,"粽角锁框，夹头承托，L 穿榫固定横撑。\n圆舵轴和舵叶已通过左右 ±30° 实测。",21)
+	_label(victory,"粽角锁框，夹头承托，L 穿榫固定横撑。\n左右操舵完成，舵角达到 ±30°。",21)
 	_button(victory,"收起卡片 · 继续操舵").pressed.connect(func(): success_panel.hide())
 	success_panel.hide()
 func refresh(state, busy: bool) -> void:
@@ -133,7 +133,7 @@ func refresh(state, busy: bool) -> void:
 	stage_label.text = "%02d / 03  %s" % [state.stage_idx+1,["桅座三向框","桅顶帆桁夹座","船尾舵架"][state.stage_idx]]
 	part_label.text = Rules.SPECS[state.selected].label
 	hint_label.text = Rules.SPECS[state.selected].hint
-	progress_label.text = "%d / 8 木件装好  ·  舵角范围 ±30°（游戏约定）" % state.placed.size()
+	progress_label.text = "%d / 8 木件装好  ·  舵角范围 ±30°" % state.placed.size()
 	gallery.configure(state.selected)
 	gallery.select(state.candidate)
 	for b in candidate_buttons.values(): b.disabled = busy or state.placed.has(state.selected)

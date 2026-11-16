@@ -2,19 +2,28 @@ extends Node3D
 ## Bounded visual pressure-test story, not hydrodynamics or a strength calculation.
 signal phase_changed(message: String)
 const G=preload("res://models/ship/hull/ship_geometry.gd")
-var hull: Node3D
+const Presentation=preload("res://levels/level02/trial_presentation.gd")
+var _presentation=Presentation.new()
 var motion: Tween
 var phase := "idle"
 var elapsed := 0.0
-var leak_rows: Array[int]=[]
+# Compatibility queries return copies; effects consume the isolated presentation only.
+var leak_rows: Array[int]:
+	get:return _presentation.seam_rows.duplicate()
+var opening_points: Array[Vector3]:
+	get:return _presentation.connection_points.duplicate()
+var loose_ids: Array[String]:
+	get:
+		var ids: Array[String]=[]
+		for part in _presentation.loose_parts:ids.append(part.id)
+		return ids
 var crest: Node3D
 var drops: Node3D
 var cracks: Node3D
 var sea: MeshInstance3D
 var _drop_starts: Array[Vector3]=[]
 var impact_count := 0
-func setup(ship: Node3D) -> void:
-	hull=ship
+func setup() -> void:
 	crest=Node3D.new()
 	add_child(crest)
 	drops=Node3D.new()
@@ -53,9 +62,9 @@ func setup(ship: Node3D) -> void:
 		bubble.position=Vector3(x,.43,.04*sin(x*1.7))
 		crest.add_child(bubble)
 	hide()
-func play(rows: Array[int]) -> Tween:
+func play(presentation: Presentation) -> Tween:
 	cancel()
-	leak_rows.assign(rows)
+	_presentation=presentation.snapshot()
 	impact_count=0
 	elapsed=0.0
 	phase="approach"
@@ -67,23 +76,24 @@ func play(rows: Array[int]) -> Tween:
 	motion.tween_method(_pressure,0.0,1.0,1.15)
 	motion.tween_method(_recede,0.0,1.0,.65)
 	motion.tween_callback(func():
-		phase="leaking" if not leak_rows.is_empty() else "passed"
+		_settle_loose_parts()
+		var wet: bool=not leak_rows.is_empty() or not opening_points.is_empty()
+		var loose: bool=not _presentation.structural_ids.is_empty()
+		phase="leaking" if wet else ("loose" if loose else "passed")
 		crest.hide()
-		phase_changed.emit("试浪发现端缝漏水，正在检查整关连接。" if not leak_rows.is_empty() else "试浪未见漏水，正在检查整关连接。"))
+		phase_changed.emit("试浪发现船板漏水、内部支撑松动。" if wet and loose else ("试浪发现船板接缝漏水。" if wet else ("试浪发现内部支撑松动，搭扣没有扣牢。" if loose else "试浪未见漏水或支撑松动，正在检查整关连接。"))))
 	return motion
 func _approach(value: float) -> void:
 	crest.position=Vector3(0,.23+sin(value*PI)*.28,lerpf(4.4,1.2,value))
 func _impact() -> void:
 	phase="impact"
 	impact_count+=1
-	phase_changed.emit("海浪冲击 · 观察板端接缝。")
+	phase_changed.emit("海浪冲击 · 木料松动，观察榫型与接合处。" if not _presentation.type_error_ids.is_empty() else "海浪冲击 · 观察连接处。")
 	var teal=G.material(Color("4c9caa"))
 	var red=G.material(Color("b6543f"))
-	for row in leak_rows:
-		var x: float=hull.Rules.seam(str(hull.current.layouts[row]))
+	for pose in _presentation.seam_poses:
 		var crack=G.box(cracks,Vector3(.055,.032,.75),Vector3.ZERO,red)
-		crack.transform=hull.panel_transform()
-		crack.position=hull.panel_transform()*Vector3(x,-.115,row*.78+.39)
+		crack.transform=pose
 		for j in 5:
 			var drop:=MeshInstance3D.new()
 			var mesh:=SphereMesh.new()
@@ -91,9 +101,14 @@ func _impact() -> void:
 			mesh.height=.15
 			drop.mesh=mesh
 			drop.material_override=teal
-			drop.position=hull.panel_transform()*Vector3(x+.03,-.17,row*.78+.10+float(j)*.14)
+			drop.position=pose*Vector3(.03,-.055,-.29+float(j)*.14)
 			drops.add_child(drop)
 			_drop_starts.append(drop.position)
+	for point in opening_points:
+		G.box(cracks,Vector3(.13,.035,.13),point,red)
+		for j in 5:
+			var drop:=MeshInstance3D.new();var mesh:=SphereMesh.new();mesh.radius=.045;mesh.height=.15;drop.mesh=mesh;drop.material_override=teal
+			drop.position=point+Vector3((j-2)*.06,-.08,0);drops.add_child(drop);_drop_starts.append(drop.position)
 func _pressure(value: float) -> void:
 	crest.position=Vector3(0,.52+sin(value*PI*4)*.10,1.2+sin(value*PI*4)*.12)
 	cracks.scale.x=1.0+sin(value*PI)*.03
@@ -102,16 +117,28 @@ func _recede(value: float) -> void:
 func _process(delta: float) -> void:
 	if not visible: return
 	elapsed+=delta
+	if phase=="impact":
+		# Loosen outward, never push farther into an obstructed joint. A shared
+		# phase preserves clearance between supported pieces; no sideways yaw.
+		var travel:=absf(sin(elapsed*12.0))*.025
+		for part in _presentation.loose_parts:
+			if is_instance_valid(part.node):
+				part.node.transform=part.rest
+				part.node.position+=part.withdraw*travel
 	for i in drops.get_child_count():
 		var cycle: float=fposmod(elapsed*1.4+float(i)*.18,1.0)
 		var drop: Node3D=drops.get_child(i)
 		drop.position=_drop_starts[i]+Vector3(.03*sin(elapsed*4+i),-.62*cycle,.16*cycle)
 		drop.scale=Vector3.ONE*(1.0-.35*cycle)
+func _settle_loose_parts() -> void:
+	for part in _presentation.loose_parts:
+		if is_instance_valid(part.node):part.node.transform=part.rest
 func cancel() -> void:
+	_settle_loose_parts()
+	_presentation=Presentation.new()
 	if is_instance_valid(motion): motion.kill()
 	motion=null
 	phase="idle"
-	leak_rows.clear()
 	_drop_starts.clear()
 	for container in [drops,cracks]:
 		if is_instance_valid(container):

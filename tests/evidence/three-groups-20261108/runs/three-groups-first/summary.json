@@ -1,0 +1,75 @@
+{
+  "project": "/private/tmp/guchuan-three-groups-review",
+  "started_utc": "2026-11-08T08:55:53.222190+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "import",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.76,
+      "log": "/private/tmp/three-groups-first/import.log",
+      "engine_log": null,
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--editor",
+        "--import",
+        "--quit"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Cannot save file '/Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres'.",
+        "ERROR: Error saving editor settings to /Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres"
+      ]
+    },
+    {
+      "name": "00-levels-drag_consistency_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 59.51,
+      "log": "/private/tmp/three-groups-first/00-levels-drag_consistency_tests.log",
+      "engine_log": "/private/tmp/three-groups-first/00-levels-drag_consistency_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-first/00-levels-drag_consistency_tests-engine.log",
+        "--script",
+        "tests/drag_consistency_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-three_group_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 26.53,
+      "log": "/private/tmp/three-groups-first/01-levels-three_group_tests.log",
+      "engine_log": "/private/tmp/three-groups-first/01-levels-three_group_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-three-groups-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/three-groups-first/01-levels-three_group_tests-engine.log",
+        "--script",
+        "tests/three_group_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

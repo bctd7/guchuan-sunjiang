@@ -1,0 +1,18 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/level02-assembly/contact-plank_0a.png",
+    "res://tests/evidence/level02-assembly/failure-plank_0a.png",
+    "res://tests/evidence/level02-assembly/contact-three_middle.png",
+    "res://tests/evidence/level02-assembly/failure-three_middle.png",
+    "res://tests/evidence/level02-assembly/contact-three_upper.png",
+    "res://tests/evidence/level02-assembly/failure-three_upper.png",
+    "res://tests/evidence/level02-assembly/contact-bulkhead.png",
+    "res://tests/evidence/level02-assembly/failure-bulkhead.png"
+  ],
+  "passed": 1158,
+  "renderer": "macOS",
+  "scope": "Actual Viewport input on production game: wrong type, middle/top/bulkhead wrong openings, shallow/full drag, contact animation, modal, no repeat/wave, stale release and restart. Separate controlled extra geometry verifies automatic-half path rejection."
+}

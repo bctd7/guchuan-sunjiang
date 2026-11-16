@@ -1,0 +1,22 @@
+[
+  {
+    "path": "levels/level02/bulkhead_diagram.gd",
+    "sha256": "a78b5a3da460ce89263490e55f91bf9290bc18af1f06b5a9e737b4fe36e3a7dc",
+    "mode": "copied concurrent story update; not part of this task write set"
+  },
+  {
+    "path": "levels/level02/bulkhead_lesson.gd",
+    "sha256": "3202e897de4d5a8f442c930cd3c9e2b0b465306c565e300dc7643ff7f371cfaf",
+    "mode": "copied concurrent story update; not part of this task write set"
+  },
+  {
+    "path": "levels/level02/assets/watertight_bulkhead_story.png",
+    "sha256": "1e61732c9bbf7cec01290dc4ca23ee014a8f77e132e879a322ebf0e82825a1fa",
+    "mode": "preserved concurrent story illustration"
+  },
+  {
+    "path": "levels/level02/assets/watertight_bulkhead_story.png.import",
+    "sha256": "4ecda513c893301eba0b595b701190b7d4442c4026a85896fe8072d4dd9aafc1",
+    "mode": "preserved concurrent story illustration"
+  }
+]

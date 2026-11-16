@@ -1,0 +1,31 @@
+{
+  "project": "/private/tmp/guchuan-key-comparison-review",
+  "started_utc": "2026-11-08T15:46:37.546014+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-inspection_workspace_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 30.51,
+      "log": "/private/tmp/direct-comparison-baseline-workspace/00-levels-inspection_workspace_tests.log",
+      "engine_log": "/private/tmp/direct-comparison-baseline-workspace/00-levels-inspection_workspace_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-key-comparison-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-comparison-baseline-workspace/00-levels-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "clearance_samples": 3300,
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "method": "Actual Viewport mouse and simulated touch, original geometry and full trial paths; not human hardware validation",
+  "passed": 1285,
+  "renderer": "headless",
+  "revision": "inspection-workspace-20261101"
+}

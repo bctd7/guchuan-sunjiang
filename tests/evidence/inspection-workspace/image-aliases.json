@@ -1,0 +1,122 @@
+[
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/00-overview.png",
+    "review_copy": "seams/00-overview.png",
+    "sha256": "9cdc246e292e76f7aba4d586c1913bb0b0cccf924a4f45b62ba5ee9ff412c50f"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/01-observe-and-choose.png",
+    "review_copy": "seams/01-observe-and-choose.png",
+    "sha256": "01f02181b68065e0e2c01d40d9ebc4afcb245950b75a3d053ecb9e4cc17f2d1c"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/02-shallow-push.png",
+    "review_copy": "seams/02-shallow-push.png",
+    "sha256": "26d9a6deb8921f36121f52813472234e80f7e026afa2fd54de41af6869cd01a9"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/local-seated-before-return.png",
+    "review_copy": "seams/local-seated-before-return.png",
+    "sha256": "3b4a7c6d90b58bd8d7e4452a16cc55c3756763a1082ba249979ca85eb9bb9acb"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/local-plank_0b.png",
+    "review_copy": "seams/local-plank_0b.png",
+    "sha256": "ccfdbbfcd0b3cc128d1a5b9a1b6aa67dd512dd9f88ed5eba6a250c4af986681d"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/local-cross_upper.png",
+    "review_copy": "seams/local-cross_upper.png",
+    "sha256": "2b14dcd66696af11e79c201508b1be801f704650ba8c0860eb00c8badceb1197"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/local-three_middle.png",
+    "review_copy": "seams/local-three_middle.png",
+    "sha256": "6fe790c320f8fd0336046aac8b5fa81cd145ab4ee988e1eb71091514a74b86b4"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/local-bulkhead.png",
+    "review_copy": "seams/local-bulkhead.png",
+    "sha256": "99362726c70fb07a47a930c457094a1ea3256221d4d45c4d6eb8464c094bf621"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/wave-approaching.png",
+    "review_copy": "seams/wave-approaching.png",
+    "sha256": "37774a23d18b25fffdf025b57d0fc5f64d1604930ebead159dba712764e664dc"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/wave-impact-dry.png",
+    "review_copy": "seams/wave-impact-dry.png",
+    "sha256": "b38efcb1ada38f7ce2954bed7f1de95c18b8cf1c1154a0ae7053962d3f46b9cb"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/03-successful-sea-trial.png",
+    "review_copy": "seams/03-successful-sea-trial.png",
+    "sha256": "adf781471331f6a3ea4c3fbe815d1987e038717c94f2ad3eb535c956851816e8"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/04-six-groups.png",
+    "review_copy": "seams/04-six-groups.png",
+    "sha256": "aeafbf3b9c656581981a7b88213b0261aabed1894546f8e18b0a52599df682cf"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/05-waterproof-compartments.png",
+    "review_copy": "seams/05-waterproof-compartments.png",
+    "sha256": "4121e07349de1002df0464fc79f4707e8e015d69ebff9690b093085612ed0aea"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/wave-impact-leaking.png",
+    "review_copy": "seams/wave-impact-leaking.png",
+    "sha256": "57545a8e92473c1c3ef2c027c8a0da06c56355b1e93fb8f77789a72ea595ad92"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/06-leaking-hull-failure.png",
+    "review_copy": "seams/06-leaking-hull-failure.png",
+    "sha256": "e17161b22b00200a554f944a14af1dbbaf3835d1f1fc4b7fe67efb79a201ab9b"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/07-aligned-model-1440.png",
+    "review_copy": "seams/07-aligned-model-1440.png",
+    "sha256": "644f4786d70923c2a35d5dd7c0d4d4686fae201874d1fe89bf313fa9b742fa52"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/08-staggered-model-1440.png",
+    "review_copy": "seams/08-staggered-model-1440.png",
+    "sha256": "aaa6c8be4fd8b3b50a6c9ed3775adece66db812a4820cb3a2b8ad60db2d3c27c"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/09-receiver-reveal-1440.png",
+    "review_copy": "seams/09-receiver-reveal-1440.png",
+    "sha256": "4e7067e6db2ee532fbb8f57c0ab62dc9bbf01ab78cb7828590ff9471b224b636"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/07-aligned-model-1100.png",
+    "review_copy": "seams/07-aligned-model-1100.png",
+    "sha256": "6925d8d20061fd119e317f0818f7d307665a91a45a9cd91b47b2833ee5160a1c"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/08-staggered-model-1100.png",
+    "review_copy": "seams/08-staggered-model-1100.png",
+    "sha256": "91b051393888e2155d5f68092292cfd1d85967dfd0fe636b148116a378457ac5"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/09-receiver-reveal-1100.png",
+    "review_copy": "seams/09-receiver-reveal-1100.png",
+    "sha256": "922379f2df963574e71190b68723832947bf2329e9b883e5f9ce4b5ca3217dee"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/07-aligned-model-960.png",
+    "review_copy": "seams/07-aligned-model-960.png",
+    "sha256": "89842b25f9df139f7f20260196dac7c80607affa6f5d0a1c991824e46d0caa0d"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/08-staggered-model-960.png",
+    "review_copy": "seams/08-staggered-model-960.png",
+    "sha256": "5c43e37ba3fab35141ddff5aa2f9683bda35bd0ea4118956303f699c3c79f762"
+  },
+  {
+    "original_capture": "res://tests/evidence/level02-model-seams/09-receiver-reveal-960.png",
+    "review_copy": "seams/09-receiver-reveal-960.png",
+    "sha256": "5fc958ed50ac53dd691f1f23afc7e23ca68a28180ede6a7297ddd4a9078b25d4"
+  }
+]

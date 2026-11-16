@@ -1,0 +1,119 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T14:24:25.651342+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level02_assembly_outcome_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.19,
+      "log": "logs/boat-redesign-finish/00-levels-level02_assembly_outcome_tests.log",
+      "engine_log": "logs/boat-redesign-finish/00-levels-level02_assembly_outcome_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-finish/00-levels-level02_assembly_outcome_tests-engine.log",
+        "--script",
+        "tests/level02_assembly_outcome_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_contact_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.35,
+      "log": "logs/boat-redesign-finish/01-levels-level02_contact_geometry_tests.log",
+      "engine_log": "logs/boat-redesign-finish/01-levels-level02_contact_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-finish/01-levels-level02_contact_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_contact_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-boat_joint_sweep_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.62,
+      "log": "logs/boat-redesign-finish/02-levels-boat_joint_sweep_tests.log",
+      "engine_log": "logs/boat-redesign-finish/02-levels-boat_joint_sweep_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-finish/02-levels-boat_joint_sweep_tests-engine.log",
+        "--script",
+        "tests/boat_joint_sweep_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-boat_joint_interaction_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 19.78,
+      "log": "logs/boat-redesign-finish/03-levels-boat_joint_interaction_tests.log",
+      "engine_log": "logs/boat-redesign-finish/03-levels-boat_joint_interaction_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-finish/03-levels-boat_joint_interaction_tests-engine.log",
+        "--script",
+        "tests/boat_joint_interaction_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-boat_joint_loose_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 12.58,
+      "log": "logs/boat-redesign-finish/04-levels-boat_joint_loose_tests.log",
+      "engine_log": "logs/boat-redesign-finish/04-levels-boat_joint_loose_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-finish/04-levels-boat_joint_loose_tests-engine.log",
+        "--script",
+        "tests/boat_joint_loose_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

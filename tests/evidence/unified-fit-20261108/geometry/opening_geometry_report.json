@@ -1,0 +1,6 @@
+{
+  "failed": 0,
+  "failures": [],
+  "method": "Actual BoxMesh intersections, clipped layer polygon intersections, and all ten preview stock bounds/mesh signatures; no physics simulation claim",
+  "passed": 41
+}

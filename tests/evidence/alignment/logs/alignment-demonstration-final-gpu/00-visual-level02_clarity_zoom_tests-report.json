@@ -1,0 +1,22 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/clarity-zoom/opaque-local-default.png",
+    "res://tests/evidence/clarity-zoom/connection-400-percent.png",
+    "res://tests/evidence/clarity-zoom/opening-enlarged.png",
+    "res://tests/evidence/clarity-zoom/three-way-type-enlarged.png",
+    "res://tests/evidence/clarity-zoom/local-1100.png",
+    "res://tests/evidence/clarity-zoom/enlarged-1100.png",
+    "res://tests/evidence/clarity-zoom/local-960.png",
+    "res://tests/evidence/clarity-zoom/enlarged-960.png",
+    "res://tests/evidence/clarity-zoom/opaque-cross_upper.png",
+    "res://tests/evidence/clarity-zoom/opaque-three_middle.png",
+    "res://tests/evidence/clarity-zoom/opaque-bulkhead.png",
+    "res://tests/evidence/clarity-zoom/correct-hull-complete.png"
+  ],
+  "method": "Actual Viewport mouse/simulated touch and real geometry; no business state writes; no human hardware validation",
+  "passed": 651,
+  "renderer": "macOS"
+}

@@ -1,0 +1,22 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/starter-lock/A-two-waiting-parts.png",
+    "res://tests/evidence/starter-lock/A-middle-seated-top-waiting.png",
+    "res://tests/evidence/starter-lock/A-top-at-contact.png",
+    "res://tests/evidence/starter-lock/A-assembled-error.png",
+    "res://tests/evidence/starter-lock/B-two-waiting-parts.png",
+    "res://tests/evidence/starter-lock/B-middle-seated-top-waiting.png",
+    "res://tests/evidence/starter-lock/B-top-at-contact.png",
+    "res://tests/evidence/starter-lock/B-assembled-error.png",
+    "res://tests/evidence/starter-lock/C-two-waiting-parts.png",
+    "res://tests/evidence/starter-lock/C-middle-seated-top-waiting.png",
+    "res://tests/evidence/starter-lock/C-top-at-contact.png",
+    "res://tests/evidence/starter-lock/C-assembled-error.png"
+  ],
+  "passed": 143,
+  "renderer": "macOS",
+  "scope": "Actual pointer strokes: ABC retain paired geometry, seat middle then top, and open the local wrong-family dialog only after the last seating tween. Held contact, shallow motion and the middle stage stay neutral. No automatic companion or next-row navigation; pending undo/reentry and failure restart remain usable."
+}

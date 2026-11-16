@@ -1,0 +1,31 @@
+{
+  "project": "/private/tmp/guchuan-first-style-review",
+  "started_utc": "2026-11-08T14:43:43.285239+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-opening_dimensions_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 9.0,
+      "log": "/private/tmp/first-style-final-layout-headless/00-levels-opening_dimensions_tests.log",
+      "engine_log": "/private/tmp/first-style-final-layout-headless/00-levels-opening_dimensions_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-first-style-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-style-final-layout-headless/00-levels-opening_dimensions_tests-engine.log",
+        "--script",
+        "tests/opening_dimensions_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

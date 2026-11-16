@@ -1,0 +1,9 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "method": "Actual Viewport mouse/simulated touch and real geometry; no business state writes; no human hardware validation",
+  "passed": 806,
+  "renderer": "headless"
+}

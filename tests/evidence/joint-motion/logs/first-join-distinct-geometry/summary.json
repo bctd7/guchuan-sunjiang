@@ -1,0 +1,97 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T15:46:43.363650+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-boat_joint_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.21,
+      "log": "/private/tmp/first-join-distinct-geometry/00-levels-boat_joint_geometry_tests.log",
+      "engine_log": "/private/tmp/first-join-distinct-geometry/00-levels-boat_joint_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-join-distinct-geometry/00-levels-boat_joint_geometry_tests-engine.log",
+        "--script",
+        "tests/boat_joint_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-boat_joint_sweep_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.49,
+      "log": "/private/tmp/first-join-distinct-geometry/01-levels-boat_joint_sweep_tests.log",
+      "engine_log": "/private/tmp/first-join-distinct-geometry/01-levels-boat_joint_sweep_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-join-distinct-geometry/01-levels-boat_joint_sweep_tests-engine.log",
+        "--script",
+        "tests/boat_joint_sweep_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-boat_joint_interaction_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 20.23,
+      "log": "/private/tmp/first-join-distinct-geometry/02-levels-boat_joint_interaction_tests.log",
+      "engine_log": "/private/tmp/first-join-distinct-geometry/02-levels-boat_joint_interaction_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-join-distinct-geometry/02-levels-boat_joint_interaction_tests-engine.log",
+        "--script",
+        "tests/boat_joint_interaction_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-trial_contact_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 15.72,
+      "log": "/private/tmp/first-join-distinct-geometry/03-levels-trial_contact_tests.log",
+      "engine_log": "/private/tmp/first-join-distinct-geometry/03-levels-trial_contact_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-join-distinct-geometry/03-levels-trial_contact_tests-engine.log",
+        "--script",
+        "tests/trial_contact_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "cases": 14,
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/level02-late-fit/blocked-plank_0a-cross_lap.png",
+    "res://tests/evidence/level02-late-fit/blocked-plank_0a-three_way_lap.png",
+    "res://tests/evidence/level02-late-fit/blocked-cross_upper-tongue_groove.png",
+    "res://tests/evidence/level02-late-fit/blocked-cross_upper-three_way_lap.png",
+    "res://tests/evidence/level02-late-fit/blocked-three_middle-tongue_groove.png",
+    "res://tests/evidence/level02-late-fit/blocked-three_middle-cross_lap.png",
+    "res://tests/evidence/level02-late-fit/blocked-bulkhead-tongue_groove.png",
+    "res://tests/evidence/level02-late-fit/blocked-bulkhead-three_way_lap.png"
+  ],
+  "method": "14 committed wrong-type cases via actual Viewport mouse/simulated touch; correct prefixes, shallow exploration, contact failure, no auto/wave, directory reentry and restart. Not physical-device QA.",
+  "passed": 3945,
+  "renderer": "macOS"
+}

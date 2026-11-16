@@ -1,0 +1,190 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T13:36:39.370201+00:00",
+  "groups": [
+    "levels",
+    "campaign"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level01_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "log": "/private/tmp/level02-rework-shared-regression/00-levels-level01_rules_tests.log",
+      "engine_log": "/private/tmp/level02-rework-shared-regression/00-levels-level01_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-shared-regression/00-levels-level01_rules_tests-engine.log",
+        "--script",
+        "tests/level01_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level01_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 42.19,
+      "log": "/private/tmp/level02-rework-shared-regression/01-levels-level01_input_tests.log",
+      "engine_log": "/private/tmp/level02-rework-shared-regression/01-levels-level01_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-shared-regression/01-levels-level01_input_tests-engine.log",
+        "--script",
+        "tests/level01_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-level03_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 21.17,
+      "log": "/private/tmp/level02-rework-shared-regression/02-levels-level03_input_tests.log",
+      "engine_log": "/private/tmp/level02-rework-shared-regression/02-levels-level03_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-shared-regression/02-levels-level03_input_tests-engine.log",
+        "--script",
+        "tests/level03_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-level01_failure_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 92.58,
+      "log": "/private/tmp/level02-rework-shared-regression/03-levels-level01_failure_tests.log",
+      "engine_log": "/private/tmp/level02-rework-shared-regression/03-levels-level01_failure_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-shared-regression/03-levels-level01_failure_tests-engine.log",
+        "--script",
+        "tests/level01_failure_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-campaign-campaign_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 87.48,
+      "log": "/private/tmp/level02-rework-shared-regression/04-campaign-campaign_tests.log",
+      "engine_log": "/private/tmp/level02-rework-shared-regression/04-campaign-campaign_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-shared-regression/04-campaign-campaign_tests-engine.log",
+        "--script",
+        "tests/campaign_tests.gd",
+        "--",
+        "--phase=full"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "05-campaign-campaign_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 19.23,
+      "log": "/private/tmp/level02-rework-shared-regression/05-campaign-campaign_tests.log",
+      "engine_log": "/private/tmp/level02-rework-shared-regression/05-campaign-campaign_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-shared-regression/05-campaign-campaign_tests-engine.log",
+        "--script",
+        "tests/campaign_tests.gd",
+        "--",
+        "--phase=classroom"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "06-campaign-campaign_reentry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.59,
+      "log": "/private/tmp/level02-rework-shared-regression/06-campaign-campaign_reentry_tests.log",
+      "engine_log": "/private/tmp/level02-rework-shared-regression/06-campaign-campaign_reentry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-shared-regression/06-campaign-campaign_reentry_tests-engine.log",
+        "--script",
+        "tests/campaign_reentry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "07-campaign-campaign_loading_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.91,
+      "log": "/private/tmp/level02-rework-shared-regression/07-campaign-campaign_loading_tests.log",
+      "engine_log": "/private/tmp/level02-rework-shared-regression/07-campaign-campaign_loading_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-shared-regression/07-campaign-campaign_loading_tests-engine.log",
+        "--script",
+        "tests/campaign_loading_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

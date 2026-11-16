@@ -1,0 +1,11 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "passed": 623,
+  "peak_side_travel": 0.0249999929219484,
+  "renderer": "headless",
+  "scope": "Actual Viewport input builds all ten members with cross B, then observes real sea-trial frames with independent mesh clearance; distinguishes side play, no invented leak, final structural verdict and restart.",
+  "wave_frames": 259
+}

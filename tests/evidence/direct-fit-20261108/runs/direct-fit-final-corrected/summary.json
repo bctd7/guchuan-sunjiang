@@ -1,0 +1,53 @@
+{
+  "project": "/private/tmp/guchuan-direct-fit-review",
+  "started_utc": "2026-11-08T05:01:51.322689+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-boat_joint_loose_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 12.95,
+      "log": "/private/tmp/direct-fit-final-corrected/00-levels-boat_joint_loose_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-corrected/00-levels-boat_joint_loose_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-final-corrected/00-levels-boat_joint_loose_tests-engine.log",
+        "--script",
+        "tests/boat_joint_loose_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_alignment_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.2,
+      "log": "/private/tmp/direct-fit-final-corrected/01-levels-level02_alignment_geometry_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-corrected/01-levels-level02_alignment_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-final-corrected/01-levels-level02_alignment_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-08T04:53:05.823270+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-starter_joint_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.6,
+      "log": "/private/tmp/direct-fit-physical/00-levels-starter_joint_tests.log",
+      "engine_log": "/private/tmp/direct-fit-physical/00-levels-starter_joint_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-physical/00-levels-starter_joint_tests-engine.log",
+        "--script",
+        "tests/starter_joint_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_plank_sequences_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 119.67,
+      "log": "/private/tmp/direct-fit-physical/01-levels-level02_plank_sequences_tests.log",
+      "engine_log": "/private/tmp/direct-fit-physical/01-levels-level02_plank_sequences_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-physical/01-levels-level02_plank_sequences_tests-engine.log",
+        "--script",
+        "tests/level02_plank_sequences_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

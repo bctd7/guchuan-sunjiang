@@ -1,0 +1,71 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T15:48:42.546407+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-first_join_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 8.75,
+      "log": "/private/tmp/first-join-centered-gpu/00-visual-first_join_tests.log",
+      "engine_log": "/private/tmp/first-join-centered-gpu/00-visual-first_join_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/first-join-centered-gpu/00-visual-first_join_tests-engine.log",
+        "--script",
+        "tests/first_join_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-level02_alignment_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 11.01,
+      "log": "/private/tmp/first-join-centered-gpu/01-visual-level02_alignment_tests.log",
+      "engine_log": "/private/tmp/first-join-centered-gpu/01-visual-level02_alignment_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/first-join-centered-gpu/01-visual-level02_alignment_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/key-comparison/chapter-1-reference.png",
+    "res://tests/evidence/key-comparison/plank_0a-1440.png",
+    "res://tests/evidence/key-comparison/plank_0a-960.png",
+    "res://tests/evidence/key-comparison/cross_upper-1440.png",
+    "res://tests/evidence/key-comparison/cross_upper-960.png",
+    "res://tests/evidence/key-comparison/three_middle-1440.png",
+    "res://tests/evidence/key-comparison/three_middle-960.png",
+    "res://tests/evidence/key-comparison/three_upper-1440.png",
+    "res://tests/evidence/key-comparison/three_upper-960.png",
+    "res://tests/evidence/key-comparison/first-cross_lap.png",
+    "res://tests/evidence/key-comparison/first-cross_lap-960.png",
+    "res://tests/evidence/key-comparison/first-three_way_lap.png",
+    "res://tests/evidence/key-comparison/first-three_way_lap-960.png",
+    "res://tests/evidence/key-comparison/first-tongue_groove.png",
+    "res://tests/evidence/key-comparison/first-tongue_groove-960.png",
+    "res://tests/evidence/key-comparison/top-reference-middle-A.png",
+    "res://tests/evidence/key-comparison/top-reference-middle-B.png",
+    "res://tests/evidence/key-comparison/top-reference-middle-C.png"
+  ],
+  "passed": 727,
+  "renderer": "macOS",
+  "scope": "Actual chapter-one reference and rows; chapter-two decision-relevant width/depth/location only, upright board-end target, real pointer selection/magnification, seven stages, two viewport sizes, geometry/data fidelity and retained wrong middle. Presentation only."
+}

@@ -1,0 +1,22 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/first-join/cross_lap-paired-before.png",
+    "res://tests/evidence/first-join/cross_lap-paired-partway.png",
+    "res://tests/evidence/first-join/cross_lap-paired-seated.png",
+    "res://tests/evidence/first-join/three_way_lap-paired-before.png",
+    "res://tests/evidence/first-join/three_way_lap-paired-partway.png",
+    "res://tests/evidence/first-join/three_way_lap-paired-seated.png",
+    "res://tests/evidence/first-join/plank-context-before.png",
+    "res://tests/evidence/first-join/plank-slot-detail.png",
+    "res://tests/evidence/first-join/plank-context-960.png",
+    "res://tests/evidence/first-join/plank-context-1440.png",
+    "res://tests/evidence/first-join/plank-context-halfway.png",
+    "res://tests/evidence/first-join/correct-pair-overview.png"
+  ],
+  "passed": 136,
+  "renderer": "macOS",
+  "scope": "First plank actual selection, paired cross/three-family comparisons without mutating fixed receiver, return and detail camera restoration, touch and mouse insertion at two resolutions, correct automatic repeat."
+}

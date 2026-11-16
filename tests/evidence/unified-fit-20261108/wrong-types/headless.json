@@ -1,0 +1,17 @@
+{
+  "cases": 8,
+  "failed": 6,
+  "failures": [
+    "failed stock stays at the actual contact pose behind the dialog",
+    "failed stock stays at the actual contact pose behind the dialog",
+    "failed stock stays at the actual contact pose behind the dialog",
+    "failed stock stays at the actual contact pose behind the dialog",
+    "failed stock stays at the actual contact pose behind the dialog",
+    "failed stock stays at the actual contact pose behind the dialog"
+  ],
+  "host_had_focus": false,
+  "images": [],
+  "method": "All eight off-type choices at four manual steps via mouse/touch. Shallow exploration is neutral; committed impossible contact fails automatically; first wrong joints finish locally before failure.",
+  "passed": 3285,
+  "renderer": "headless"
+}

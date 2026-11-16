@@ -1,0 +1,53 @@
+{
+  "project": "/private/tmp/guchuan-touch-gestures-20261109",
+  "started_utc": "2026-11-09T15:14:40.795142+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "import",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.27,
+      "log": "/private/tmp/guchuan-touch-final-headless-v2/import.log",
+      "engine_log": null,
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-touch-gestures-20261109",
+        "--headless",
+        "--editor",
+        "--import",
+        "--quit"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Cannot save file '/Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres'.",
+        "ERROR: Error saving editor settings to /Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres"
+      ]
+    },
+    {
+      "name": "00-levels-touch_gesture_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 32.84,
+      "log": "/private/tmp/guchuan-touch-final-headless-v2/00-levels-touch_gesture_tests.log",
+      "engine_log": "/private/tmp/guchuan-touch-final-headless-v2/00-levels-touch_gesture_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-touch-gestures-20261109",
+        "--headless",
+        "--log-file",
+        "/private/tmp/guchuan-touch-final-headless-v2/00-levels-touch_gesture_tests-engine.log",
+        "--script",
+        "tests/touch_gesture_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "project": "/private/tmp/guchuan-key-comparison-review",
+  "started_utc": "2026-11-08T15:09:11.446842+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-boat_joint_interaction_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 33.35,
+      "log": "/private/tmp/key-comparison-flow/00-levels-boat_joint_interaction_tests.log",
+      "engine_log": "/private/tmp/key-comparison-flow/00-levels-boat_joint_interaction_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-key-comparison-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/key-comparison-flow/00-levels-boat_joint_interaction_tests-engine.log",
+        "--script",
+        "tests/boat_joint_interaction_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-starter_lock_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 9.84,
+      "log": "/private/tmp/key-comparison-flow/01-levels-starter_lock_tests.log",
+      "engine_log": "/private/tmp/key-comparison-flow/01-levels-starter_lock_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-key-comparison-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/key-comparison-flow/01-levels-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

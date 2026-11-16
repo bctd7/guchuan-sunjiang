@@ -1,0 +1,237 @@
+{
+  "revision": "level02-ui-20261101",
+  "checked_utc": "2026-11-01T06:24:05.931539+00:00",
+  "source_sha256": {
+    "levels/level02/level_ui.gd": "e87dddff8a472c66393e8439d8d9f138019c88b54711614aec08cf6dcfbc7052",
+    "levels/level02/joint_gallery.gd": "7370e5796d92fd4b1761fbfe41e21af00c814543ea0bd842d909ab1a9b833b33",
+    "levels/level02/hull_view.gd": "24b76309e9232678c95443ebe65ce34847e407c9dcef853bfbde9b939d7443cb",
+    "levels/level02/level02.gd": "9d24a8b2a0e85cbe41fad679a6759394378977d57b88acba64106c102bdb4a44",
+    "levels/level02/hull_drag_interaction.gd": "8978551a66c4809a33d1233de862253b14c9a8072bd584a8f427bb72d7fb4500",
+    "tests/campaign_tests.gd": "32fcaf3ba4f73b07ab980dd7ec965e8a68b151add9ad8791c8e925de7e5e7a13",
+    "tests/level01_failure_tests.gd": "2b70ef80ed666106756317a83c8ed17632718283edfa2bdaf695dc2bbfc01022",
+    "tests/level02_drag_tests.gd": "6bdd468bc5fef2e3b83efd474ea8da92c18402884a8b1e71259935ba6bba3c34",
+    "tests/level02_input_tests.gd": "80aa730b6982ce96d3cdd0d1067eb7018e57604579ba47ca70fe7b2cd9e170cb",
+    "tests/hull_navigation.gd": "6e8c4c42c5dd3fc18b02fe5d227e28b80c84dd399c2593a7e0d3bf9303f88b05",
+    "tests/hull_navigation.gd.uid": "3af360a5f22e1d14ffb7a0fdd216276b2302c0cfd9f426039d1192c068262c74"
+  },
+  "unchanged_scope_files": 111,
+  "headless": {
+    "failed": 0,
+    "failures": [],
+    "host_had_focus": false,
+    "images": [],
+    "method": "actual Viewport mouse and simulated touch; no gameplay state mutation; not human hardware validation",
+    "passed": 540,
+    "renderer": "headless",
+    "revision": "level02-ui-20261101"
+  },
+  "gpu": {
+    "failed": 0,
+    "failures": [],
+    "host_had_focus": false,
+    "images": [
+      "res://tests/evidence/level02-ui/00-overview.png",
+      "res://tests/evidence/level02-ui/01-observe-and-choose.png",
+      "res://tests/evidence/level02-ui/02-shallow-push.png",
+      "res://tests/evidence/level02-ui/local-seated-before-return.png",
+      "res://tests/evidence/level02-ui/local-plank_0b.png",
+      "res://tests/evidence/level02-ui/local-cross_upper.png",
+      "res://tests/evidence/level02-ui/local-three_middle.png",
+      "res://tests/evidence/level02-ui/local-bulkhead.png",
+      "res://tests/evidence/level02-ui/wave-approaching.png",
+      "res://tests/evidence/level02-ui/wave-impact-dry.png",
+      "res://tests/evidence/level02-ui/03-successful-sea-trial.png",
+      "res://tests/evidence/level02-ui/04-live-staggered-map.png",
+      "res://tests/evidence/level02-ui/05-waterproof-compartments.png",
+      "res://tests/evidence/level02-ui/wave-impact-leaking.png",
+      "res://tests/evidence/level02-ui/06-leaking-hull-failure.png",
+      "res://tests/evidence/level02-ui/07-map-1100.png",
+      "res://tests/evidence/level02-ui/08-lesson-1100.png",
+      "res://tests/evidence/level02-ui/09-drag-1100.png",
+      "res://tests/evidence/level02-ui/07-map-960.png",
+      "res://tests/evidence/level02-ui/08-lesson-960.png",
+      "res://tests/evidence/level02-ui/09-drag-960.png"
+    ],
+    "method": "actual Viewport mouse and simulated touch; no gameplay state mutation; not human hardware validation",
+    "passed": 539,
+    "renderer": "macOS",
+    "revision": "level02-ui-20261101"
+  },
+  "final_regressions": [
+    {
+      "name": "rules",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.26,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-final-regression/rules.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-work",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-final-regression/rules-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ]
+    },
+    {
+      "name": "geometry",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.6,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-final-regression/geometry.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-work",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-final-regression/geometry-engine.log",
+        "--script",
+        "tests/level02_geometry_tests.gd"
+      ]
+    },
+    {
+      "name": "input",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 24.25,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-final-regression/input.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-work",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-final-regression/input-engine.log",
+        "--script",
+        "tests/level02_input_tests.gd"
+      ]
+    },
+    {
+      "name": "campaign",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 88.66,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-final-regression/campaign.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-work",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-final-regression/campaign-engine.log",
+        "--script",
+        "tests/campaign_tests.gd",
+        "--",
+        "--phase=full"
+      ]
+    },
+    {
+      "name": "failure",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 95.02,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-final-regression/failure.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-work",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-final-regression/failure-engine.log",
+        "--script",
+        "tests/level01_failure_tests.gd"
+      ]
+    }
+  ],
+  "other_regressions": [
+    {
+      "name": "reentry",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.38,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-regression/reentry.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-work",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-regression/reentry-engine.log",
+        "--script",
+        "tests/campaign_reentry_tests.gd"
+      ]
+    },
+    {
+      "name": "level01",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 42.13,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-regression/level01.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-work",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-regression/level01-engine.log",
+        "--script",
+        "tests/level01_input_tests.gd"
+      ]
+    },
+    {
+      "name": "level03",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 21.25,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-regression/level03.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-work",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-regression/level03-engine.log",
+        "--script",
+        "tests/level03_input_tests.gd"
+      ]
+    },
+    {
+      "name": "classroom",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.26,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-regression/classroom.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-work",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-regression/classroom-engine.log",
+        "--script",
+        "tests/chapter_learning_tests.gd"
+      ]
+    },
+    {
+      "name": "fonts",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.79,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-regression/fonts.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-work",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/ui-regression/fonts-engine.log",
+        "--script",
+        "tests/chinese_font_tests.gd"
+      ]
+    }
+  ],
+  "note": "Automated Viewport mouse/simulated touch; no human hardware acceptance. Existing user Godot window not controlled."
+}

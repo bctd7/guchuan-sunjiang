@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "id": "plank_0a",
+      "option": "A",
+      "path_clear": true,
+      "stop_height": 0.160180102539062
+    },
+    {
+      "id": "plank_0a",
+      "option": "B",
+      "path_clear": true,
+      "stop_height": 0.160180102539062
+    },
+    {
+      "id": "plank_0a",
+      "option": "C",
+      "path_clear": true,
+      "stop_height": 0.0
+    },
+    {
+      "id": "plank_0b",
+      "option": "A",
+      "path_clear": true,
+      "stop_height": 0.160180102539062
+    },
+    {
+      "id": "plank_0b",
+      "option": "B",
+      "path_clear": true,
+      "stop_height": 0.160180102539062
+    },
+    {
+      "id": "plank_0b",
+      "option": "C",
+      "path_clear": true,
+      "stop_height": 0.0
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "passed": 24,
+  "scope": "Independent triangle/containment oracle: both starter locations, ABC top descent against actual complete fixed hull plus middle; free middle before top, locked middle after top, top-to-rail anchoring and downward bearing."
+}

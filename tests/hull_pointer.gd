@@ -2,7 +2,7 @@ extends RefCounted
 ## Shared real pointer gesture for chapter-two regressions. Never mutates gameplay state.
 static func drag(surface: Viewport,view: Node3D,fraction:=1.0,touch:=false) -> void:
 	var origin: Vector2=view.drag_grab_screen()
-	var travel: Vector2=view.drag_path_screen()*fraction
+	var travel: Vector2=view.drag_input_path_screen()*fraction
 	if touch:
 		var start:=InputEventScreenTouch.new()
 		start.index=0

@@ -1,0 +1,71 @@
+{
+  "project": "/private/tmp/guchuan-continuable-review",
+  "started_utc": "2026-11-08T05:17:01.144279+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-first_join_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 13.25,
+      "log": "/private/tmp/continuable-gpu/00-visual-first_join_tests.log",
+      "engine_log": "/private/tmp/continuable-gpu/00-visual-first_join_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-continuable-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/continuable-gpu/00-visual-first_join_tests-engine.log",
+        "--script",
+        "tests/first_join_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-continuable_joint_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 32.44,
+      "log": "/private/tmp/continuable-gpu/01-visual-continuable_joint_tests.log",
+      "engine_log": "/private/tmp/continuable-gpu/01-visual-continuable_joint_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-continuable-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/continuable-gpu/01-visual-continuable_joint_tests-engine.log",
+        "--script",
+        "tests/continuable_joint_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

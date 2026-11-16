@@ -1,0 +1,71 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T15:46:46.964312+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-boat_joint_motion_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 31.75,
+      "log": "/private/tmp/first-join-distinct-gpu/00-visual-boat_joint_motion_tests.log",
+      "engine_log": "/private/tmp/first-join-distinct-gpu/00-visual-boat_joint_motion_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/first-join-distinct-gpu/00-visual-boat_joint_motion_tests-engine.log",
+        "--script",
+        "tests/boat_joint_motion_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-first_join_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 8.77,
+      "log": "/private/tmp/first-join-distinct-gpu/01-visual-first_join_tests.log",
+      "engine_log": "/private/tmp/first-join-distinct-gpu/01-visual-first_join_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/first-join-distinct-gpu/01-visual-first_join_tests-engine.log",
+        "--script",
+        "tests/first_join_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

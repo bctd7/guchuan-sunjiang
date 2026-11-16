@@ -1,0 +1,190 @@
+{
+  "date": "2026-11-08",
+  "issue": "Wrong local receiver reference after selecting an adapted joint; excessive repeated candidate parameters",
+  "changed_gd_from_turn_baseline": [
+    "levels/level02/level_ui.gd",
+    "levels/level02/opening_measure_panel.gd",
+    "levels/level02/opening_reference.gd",
+    "levels/level02/opening_dimensions.gd",
+    "tests/opening_dimensions_tests.gd"
+  ],
+  "root_matches_test_copy_gd_count": 235,
+  "actual_mesh_reference": {
+    "starter_cross_width_grid": 33.2553,
+    "starter_housing_depth_grid": 9.062,
+    "display": "约33格宽，开槽约9格深",
+    "candidate_cut_width_grid": [
+      36.4,
+      58,
+      36.4
+    ],
+    "candidate_cut_depth_grid": [
+      3,
+      9,
+      9
+    ]
+  },
+  "runtime_scope": "Four presentation scripts; mesh builders, assembly policy/state and input unchanged against this turn baseline",
+  "headless_fixture": {
+    "failed": 0,
+    "failures": [],
+    "host_had_focus": false,
+    "images": [],
+    "passed": 681,
+    "renderer": "headless",
+    "scope": "Actual chapter-one reference and rows; chapter-two decision-relevant width/depth/location only, upright board-end target, real pointer selection/magnification, seven stages, two viewport sizes, geometry/data fidelity and retained wrong middle. Presentation only."
+  },
+  "gpu_fixture": {
+    "failed": 0,
+    "failures": [],
+    "host_had_focus": false,
+    "images": [
+      "res://tests/evidence/key-comparison/chapter-1-reference.png",
+      "res://tests/evidence/key-comparison/plank_0a-1440.png",
+      "res://tests/evidence/key-comparison/plank_0a-960.png",
+      "res://tests/evidence/key-comparison/cross_upper-1440.png",
+      "res://tests/evidence/key-comparison/cross_upper-960.png",
+      "res://tests/evidence/key-comparison/three_middle-1440.png",
+      "res://tests/evidence/key-comparison/three_middle-960.png",
+      "res://tests/evidence/key-comparison/three_upper-1440.png",
+      "res://tests/evidence/key-comparison/three_upper-960.png",
+      "res://tests/evidence/key-comparison/first-cross_lap.png",
+      "res://tests/evidence/key-comparison/first-cross_lap-960.png",
+      "res://tests/evidence/key-comparison/first-three_way_lap.png",
+      "res://tests/evidence/key-comparison/first-three_way_lap-960.png",
+      "res://tests/evidence/key-comparison/first-tongue_groove.png",
+      "res://tests/evidence/key-comparison/first-tongue_groove-960.png",
+      "res://tests/evidence/key-comparison/top-reference-middle-A.png",
+      "res://tests/evidence/key-comparison/top-reference-middle-B.png",
+      "res://tests/evidence/key-comparison/top-reference-middle-C.png"
+    ],
+    "passed": 727,
+    "renderer": "macOS",
+    "scope": "Actual chapter-one reference and rows; chapter-two decision-relevant width/depth/location only, upright board-end target, real pointer selection/magnification, seven stages, two viewport sizes, geometry/data fidelity and retained wrong middle. Presentation only."
+  },
+  "runner_results": {
+    "headless": [
+      {
+        "name": "00-levels-opening_dimensions_tests",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 10.7,
+        "log": "/private/tmp/key-comparison-final-headless/00-levels-opening_dimensions_tests.log",
+        "engine_log": "/private/tmp/key-comparison-final-headless/00-levels-opening_dimensions_tests-engine.log",
+        "command": [
+          "/Applications/Godot.app/Contents/MacOS/Godot",
+          "--path",
+          "/private/tmp/guchuan-key-comparison-review",
+          "--headless",
+          "--log-file",
+          "/private/tmp/key-comparison-final-headless/00-levels-opening_dimensions_tests-engine.log",
+          "--script",
+          "tests/opening_dimensions_tests.gd"
+        ],
+        "environment_warnings": [
+          "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+          "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        ]
+      }
+    ],
+    "gpu": [
+      {
+        "name": "00-visual-opening_dimensions_tests",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 14.48,
+        "log": "/private/tmp/key-comparison-final-gpu/00-visual-opening_dimensions_tests.log",
+        "engine_log": "/private/tmp/key-comparison-final-gpu/00-visual-opening_dimensions_tests-engine.log",
+        "command": [
+          "open",
+          "-g",
+          "-n",
+          "-W",
+          "-a",
+          "/Applications/Godot.app",
+          "--args",
+          "--path",
+          "/private/tmp/guchuan-key-comparison-review",
+          "--minimized",
+          "--rendering-method",
+          "gl_compatibility",
+          "--audio-driver",
+          "Dummy",
+          "--log-file",
+          "/private/tmp/key-comparison-final-gpu/00-visual-opening_dimensions_tests-engine.log",
+          "--script",
+          "tests/opening_dimensions_tests.gd",
+          "--",
+          "--gpu"
+        ],
+        "environment_warnings": []
+      }
+    ],
+    "flow": [
+      {
+        "name": "00-levels-boat_joint_interaction_tests",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 33.35,
+        "log": "/private/tmp/key-comparison-flow/00-levels-boat_joint_interaction_tests.log",
+        "engine_log": "/private/tmp/key-comparison-flow/00-levels-boat_joint_interaction_tests-engine.log",
+        "command": [
+          "/Applications/Godot.app/Contents/MacOS/Godot",
+          "--path",
+          "/private/tmp/guchuan-key-comparison-review",
+          "--headless",
+          "--log-file",
+          "/private/tmp/key-comparison-flow/00-levels-boat_joint_interaction_tests-engine.log",
+          "--script",
+          "tests/boat_joint_interaction_tests.gd"
+        ],
+        "environment_warnings": [
+          "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+          "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        ]
+      },
+      {
+        "name": "01-levels-starter_lock_tests",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 9.84,
+        "log": "/private/tmp/key-comparison-flow/01-levels-starter_lock_tests.log",
+        "engine_log": "/private/tmp/key-comparison-flow/01-levels-starter_lock_tests-engine.log",
+        "command": [
+          "/Applications/Godot.app/Contents/MacOS/Godot",
+          "--path",
+          "/private/tmp/guchuan-key-comparison-review",
+          "--headless",
+          "--log-file",
+          "/private/tmp/key-comparison-flow/01-levels-starter_lock_tests-engine.log",
+          "--script",
+          "tests/starter_lock_tests.gd"
+        ],
+        "environment_warnings": [
+          "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+          "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        ]
+      }
+    ]
+  },
+  "images": [
+    "chapter-1-reference.png",
+    "cross_upper-1440.png",
+    "cross_upper-960.png",
+    "first-cross_lap-960.png",
+    "first-cross_lap.png",
+    "first-three_way_lap-960.png",
+    "first-three_way_lap.png",
+    "first-tongue_groove-960.png",
+    "first-tongue_groove.png",
+    "plank_0a-1440.png",
+    "plank_0a-960.png",
+    "three_middle-1440.png",
+    "three_middle-960.png",
+    "three_upper-1440.png",
+    "three_upper-960.png",
+    "top-reference-middle-A.png",
+    "top-reference-middle-B.png",
+    "top-reference-middle-C.png"
+  ]
+}

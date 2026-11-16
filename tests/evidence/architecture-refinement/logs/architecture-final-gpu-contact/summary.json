@@ -1,0 +1,71 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+  "started_utc": "2026-11-01T10:41:55.082275+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 38.61,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/00-visual-inspection_workspace_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/00-visual-inspection_workspace_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/00-visual-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 35.99,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/01-visual-level02_wrong_type_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/01-visual-level02_wrong_type_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/01-visual-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

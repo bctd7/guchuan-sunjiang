@@ -1,0 +1,53 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T13:33:04.445315+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level02_assembly_failure_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 34.91,
+      "log": "/private/tmp/level02-rework-last-headless/00-levels-level02_assembly_failure_input_tests.log",
+      "engine_log": "/private/tmp/level02-rework-last-headless/00-levels-level02_assembly_failure_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-last-headless/00-levels-level02_assembly_failure_input_tests-engine.log",
+        "--script",
+        "tests/level02_assembly_failure_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-trial_contact_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 13.95,
+      "log": "/private/tmp/level02-rework-last-headless/01-levels-trial_contact_tests.log",
+      "engine_log": "/private/tmp/level02-rework-last-headless/01-levels-trial_contact_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/level02-rework-last-headless/01-levels-trial_contact_tests-engine.log",
+        "--script",
+        "tests/trial_contact_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

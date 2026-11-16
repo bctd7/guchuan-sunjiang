@@ -1,0 +1,9 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "method": "Actual Viewport mouse/simulated touch through correct and mixed wrong full hulls, ship-connected local context, rotation, zoom, 3 sizes, science return. Not human hardware QA.",
+  "passed": 1485,
+  "renderer": "headless"
+}

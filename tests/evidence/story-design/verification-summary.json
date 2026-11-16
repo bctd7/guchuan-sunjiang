@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-01",
+  "isolated_copy": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-story-design-5qfshgpz",
+  "files": [
+    "levels/level01/shipwright_story.gd",
+    "tests/shipwright_story_tests.gd",
+    "tests/seven_stars_visual.gd"
+  ],
+  "story_paragraphs_unchanged": true,
+  "existing_image_assets_unchanged": true,
+  "new_image_assets": false,
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      1100,
+      700
+    ],
+    [
+      960,
+      600
+    ],
+    [
+      768,
+      900
+    ]
+  ],
+  "tests": [
+    {
+      "name": "story lifecycle and responsive bounds",
+      "passed": 108,
+      "failed": 0
+    },
+    {
+      "name": "minimized no-focus GPU story rendering and scrolling",
+      "passed": 71,
+      "failed": 0
+    },
+    {
+      "name": "Chinese font coverage and actual campaign UI faces",
+      "passed": 3465,
+      "failed": 0,
+      "glyphs": 685,
+      "screens": 22
+    }
+  ],
+  "integration": "Three source files compared byte-for-byte with their initial snapshots before integration; integrated versions match tested copy. No chapter-two files changed.",
+  "blockers": []
+}

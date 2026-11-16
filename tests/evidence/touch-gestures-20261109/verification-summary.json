@@ -1,0 +1,145 @@
+{
+  "recorded_at": "2026-11-09T15:18:54.720926+00:00",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "isolated_test_project": "/private/tmp/guchuan-touch-gestures-20261109",
+  "final_touch_results": {
+    "headless": {
+      "failed": 0,
+      "failures": [],
+      "host_had_focus": false,
+      "images": [],
+      "passed": 150,
+      "renderer": "headless",
+      "scope": "Viewport ScreenTouch/ScreenDrag in chapters 1 and 2: assembly, candidates, magnifier, cross-card/third-finger rejection, park/resume, cancellation, resize, mouse emulation, 1440x900 and 960x600. Physical Windows touch unverified."
+    },
+    "gpu": {
+      "failed": 0,
+      "failures": [],
+      "host_had_focus": false,
+      "images": [
+        "res://tests/evidence/touch-gestures/chapter-1-1440-main.png",
+        "res://tests/evidence/touch-gestures/chapter-1-1440-candidates.png",
+        "res://tests/evidence/touch-gestures/chapter-1-1440-magnifier.png",
+        "res://tests/evidence/touch-gestures/chapter-1-960-main.png",
+        "res://tests/evidence/touch-gestures/chapter-1-960-candidates.png",
+        "res://tests/evidence/touch-gestures/chapter-1-960-magnifier.png",
+        "res://tests/evidence/touch-gestures/chapter-2-1440-main.png",
+        "res://tests/evidence/touch-gestures/chapter-2-1440-candidates.png",
+        "res://tests/evidence/touch-gestures/chapter-2-1440-magnifier.png",
+        "res://tests/evidence/touch-gestures/chapter-2-960-main.png",
+        "res://tests/evidence/touch-gestures/chapter-2-960-candidates.png",
+        "res://tests/evidence/touch-gestures/chapter-2-960-magnifier.png"
+      ],
+      "passed": 164,
+      "renderer": "macOS",
+      "scope": "Viewport ScreenTouch/ScreenDrag in chapters 1 and 2: assembly, candidates, magnifier, cross-card/third-finger rejection, park/resume, cancellation, resize, mouse emulation, 1440x900 and 960x600. Physical Windows touch unverified."
+    }
+  },
+  "files_sha256": {
+    "levels/shared/touch_pinch.gd": "ecc67a4882460f3b02120b4f42afe54c80e2a222a06327b329ddfe2c98356b06",
+    "levels/shared/touch_pinch.gd.uid": "288fdb24a33f2055ecddf3a865c2f06b98f13dfac5a883823420d0fdc509d391",
+    "levels/shared/selectable_orbit.gd": "3f626e67af956ea2ae375118c6c9c615cd4e1f6f0938ed0e586edb48810cfd35",
+    "levels/shared/inspection_orbit.gd": "ceb66402245bf04289afa198bfdb59fa2353c4e0f0a5fbabfa0279388a804b92",
+    "levels/level01/assembly_drag_surface.gd": "4fe18dcf14d23cf1b56c8f285dac1f74f15e5a7826eee4c81cd15d87353a9bae",
+    "levels/level01/joint_inspector.gd": "acd375d7f2e1dc39ac6f2e42f0aa09e8d2b063ba0d22835c79cbae63277345ce",
+    "levels/level02/hull_drag_interaction.gd": "1e27f8d61a64f5c21a55e00e5d3b2304b481da5a24cc1c3fa390cd8abef94294",
+    "levels/level02/level02.gd": "15cedbc9206e6bc67dafb18ce432224179cea87960234cad62ed20eda06b0c7b",
+    "levels/level02/level_ui.gd": "d8724d9a05f415d121c01ced5b6db50d141d2291bf23355d5b6366a56fd99376",
+    "levels/shared/model_magnifier.gd": "a14a5e3bc45091c951e4298c39fa59c3b7832dc3deac68821e1f0573f2ebe8d1",
+    "tests/touch_gesture_tests.gd": "b665b66aacb60f6914d08e52ddbf51ee9a289be7c196f43f3695f030c9aab1aa",
+    "tests/touch_gesture_tests.gd.uid": "47600eccbb6296c1811b963bc002aeb457d82c1ed3c894d363d5e856ab94bcad",
+    "tests/run_suite.py": "bffbe33b41923f6718814f96c77486d7d9dab953ae909871ee4ffee0b7635c04",
+    "tests/README.md": "328675ef415b8de354d3fdf76bd7dea49ce4095d3a9393662d071ef99a773a9f",
+    "docs/current/TECHNICAL_ARCHITECTURE.md": "2335f45f29e5258dc9cda2a02ffc624f6e08fa6b4c4a7a5cc1b95259d198dd89",
+    "tests/TOUCH_GESTURES_VERIFICATION.md": "fbac181256fb9c21927d29ee61d12d828a4de8ba62c7954d7a1e341d64a49439"
+  },
+  "matching_runtime_gd_files": 123,
+  "runs": [
+    {
+      "folder": "runs/guchuan-touch-final-headless-v2",
+      "results": [
+        {
+          "name": "import",
+          "status": "passed",
+          "seconds": 3.27
+        },
+        {
+          "name": "00-levels-touch_gesture_tests",
+          "status": "passed",
+          "seconds": 32.84
+        }
+      ]
+    },
+    {
+      "folder": "runs/guchuan-touch-final-gpu",
+      "results": [
+        {
+          "name": "00-visual-touch_gesture_tests",
+          "status": "passed",
+          "seconds": 36.45
+        }
+      ]
+    },
+    {
+      "folder": "runs/guchuan-touch-check-initial",
+      "results": [
+        {
+          "name": "import",
+          "status": "passed",
+          "seconds": 3.07
+        },
+        {
+          "name": "00-levels-level01_orbit_tests",
+          "status": "passed",
+          "seconds": 7.05
+        },
+        {
+          "name": "01-levels-level02_drag_tests",
+          "status": "passed",
+          "seconds": 41.19
+        }
+      ]
+    },
+    {
+      "folder": "runs/guchuan-touch-regression",
+      "results": [
+        {
+          "name": "00-levels-touch_gesture_tests",
+          "status": "passed",
+          "seconds": 32.72
+        },
+        {
+          "name": "01-levels-opening_navigation_tests",
+          "status": "passed",
+          "seconds": 15.61
+        },
+        {
+          "name": "02-levels-drag_consistency_tests",
+          "status": "passed",
+          "seconds": 68.94
+        },
+        {
+          "name": "03-levels-inspection_workspace_tests",
+          "status": "passed",
+          "seconds": 30.35
+        }
+      ]
+    },
+    {
+      "folder": "runs/guchuan-touch-final-navigation",
+      "results": [
+        {
+          "name": "00-levels-opening_navigation_tests",
+          "status": "passed",
+          "seconds": 15.3
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Windows physical touch, its driver and multi-touch capability have not been tested.",
+    "Tests exercise chapters 1 and 2 observation, candidates and shared magnifier; chapter 3 and legacy classrooms are not included.",
+    "UI text remains proportional to the existing design canvas; no minimum-font or narrow-screen reflow was added."
+  ]
+}

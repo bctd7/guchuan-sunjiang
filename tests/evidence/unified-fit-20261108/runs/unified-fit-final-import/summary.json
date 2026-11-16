@@ -1,0 +1,53 @@
+{
+  "project": "/private/tmp/guchuan-unified-fit-review",
+  "started_utc": "2026-11-08T13:44:26.606316+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "import",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.81,
+      "log": "/private/tmp/unified-fit-final-import/import.log",
+      "engine_log": null,
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--editor",
+        "--import",
+        "--quit"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Cannot save file '/Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres'.",
+        "ERROR: Error saving editor settings to /Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres"
+      ]
+    },
+    {
+      "name": "00-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "/private/tmp/unified-fit-final-import/00-levels-level02_rules_tests.log",
+      "engine_log": "/private/tmp/unified-fit-final-import/00-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/unified-fit-final-import/00-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

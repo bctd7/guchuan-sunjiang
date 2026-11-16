@@ -1,0 +1,98 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "measurements": [
+    {
+      "final_scale": "(0.666667, 0.666667)",
+      "requested": "(960, 600)",
+      "sample_pixels": "[P: (64.0, 194.6667), S: (253.3333, 74.66667)]",
+      "scale_aspect": 1,
+      "scale_mode": 1,
+      "scale_size": "(1440, 900)",
+      "stage": "menu",
+      "viewport": "[P: (0.0, 0.0), S: (1440.0, 900.0)]",
+      "window": "(960, 600)"
+    },
+    {
+      "final_scale": "(1.0, 1.0)",
+      "requested": "(1440, 900)",
+      "sample_pixels": "[P: (96.0, 292.0), S: (380.0, 112.0)]",
+      "scale_aspect": 1,
+      "scale_mode": 1,
+      "scale_size": "(1440, 900)",
+      "stage": "menu",
+      "viewport": "[P: (0.0, 0.0), S: (1440.0, 900.0)]",
+      "window": "(1440, 900)"
+    },
+    {
+      "final_scale": "(1.2, 1.2)",
+      "requested": "(1920, 1080)",
+      "sample_pixels": "[P: (211.2, 350.4), S: (456.0001, 134.4)]",
+      "scale_aspect": 1,
+      "scale_mode": 1,
+      "scale_size": "(1440, 900)",
+      "stage": "menu",
+      "viewport": "[P: (0.0, 0.0), S: (1440.0, 900.0)]",
+      "window": "(1920, 1080)"
+    },
+    {
+      "final_scale": "(1.6, 1.6)",
+      "requested": "(2560, 1440)",
+      "sample_pixels": "[P: (281.6, 467.2), S: (608.0, 179.2)]",
+      "scale_aspect": 1,
+      "scale_mode": 1,
+      "scale_size": "(1440, 900)",
+      "stage": "menu",
+      "viewport": "[P: (0.0, 0.0), S: (1440.0, 900.0)]",
+      "window": "(2560, 1440)"
+    },
+    {
+      "final_scale": "(0.666667, 0.666667)",
+      "requested": "(960, 600)",
+      "sample_pixels": "[P: (703.3334, 370.0), S: (230.0, 48.0)]",
+      "scale_aspect": 1,
+      "scale_mode": 1,
+      "scale_size": "(1440, 900)",
+      "stage": "level02",
+      "viewport": "[P: (0.0, 0.0), S: (1440.0, 900.0)]",
+      "window": "(960, 600)"
+    },
+    {
+      "final_scale": "(1.0, 1.0)",
+      "requested": "(1440, 900)",
+      "sample_pixels": "[P: (1055.0, 555.0), S: (345.0, 72.0)]",
+      "scale_aspect": 1,
+      "scale_mode": 1,
+      "scale_size": "(1440, 900)",
+      "stage": "level02",
+      "viewport": "[P: (0.0, 0.0), S: (1440.0, 900.0)]",
+      "window": "(1440, 900)"
+    },
+    {
+      "final_scale": "(1.2, 1.2)",
+      "requested": "(1920, 1080)",
+      "sample_pixels": "[P: (1362.0, 666.0), S: (414.0, 86.40002)]",
+      "scale_aspect": 1,
+      "scale_mode": 1,
+      "scale_size": "(1440, 900)",
+      "stage": "level02",
+      "viewport": "[P: (0.0, 0.0), S: (1440.0, 900.0)]",
+      "window": "(1920, 1080)"
+    },
+    {
+      "final_scale": "(1.6, 1.6)",
+      "requested": "(2560, 1440)",
+      "sample_pixels": "[P: (1816.0, 888.0), S: (552.0, 115.2)]",
+      "scale_aspect": 1,
+      "scale_mode": 1,
+      "scale_size": "(1440, 900)",
+      "stage": "level02",
+      "viewport": "[P: (0.0, 0.0), S: (1440.0, 900.0)]",
+      "window": "(2560, 1440)"
+    }
+  ],
+  "method": "Native root Window with actual project content scaling, not a synthetic SubViewport; minimized, no focus.",
+  "passed": 8,
+  "renderer": "macOS"
+}

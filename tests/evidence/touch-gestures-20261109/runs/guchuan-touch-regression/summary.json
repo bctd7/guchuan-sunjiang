@@ -1,0 +1,97 @@
+{
+  "project": "/private/tmp/guchuan-touch-gestures-20261109",
+  "started_utc": "2026-11-09T15:08:43.133037+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-touch_gesture_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 32.72,
+      "log": "/private/tmp/guchuan-touch-regression/00-levels-touch_gesture_tests.log",
+      "engine_log": "/private/tmp/guchuan-touch-regression/00-levels-touch_gesture_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-touch-gestures-20261109",
+        "--headless",
+        "--log-file",
+        "/private/tmp/guchuan-touch-regression/00-levels-touch_gesture_tests-engine.log",
+        "--script",
+        "tests/touch_gesture_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-opening_navigation_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 15.61,
+      "log": "/private/tmp/guchuan-touch-regression/01-levels-opening_navigation_tests.log",
+      "engine_log": "/private/tmp/guchuan-touch-regression/01-levels-opening_navigation_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-touch-gestures-20261109",
+        "--headless",
+        "--log-file",
+        "/private/tmp/guchuan-touch-regression/01-levels-opening_navigation_tests-engine.log",
+        "--script",
+        "tests/opening_navigation_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-drag_consistency_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 68.94,
+      "log": "/private/tmp/guchuan-touch-regression/02-levels-drag_consistency_tests.log",
+      "engine_log": "/private/tmp/guchuan-touch-regression/02-levels-drag_consistency_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-touch-gestures-20261109",
+        "--headless",
+        "--log-file",
+        "/private/tmp/guchuan-touch-regression/02-levels-drag_consistency_tests-engine.log",
+        "--script",
+        "tests/drag_consistency_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 30.35,
+      "log": "/private/tmp/guchuan-touch-regression/03-levels-inspection_workspace_tests.log",
+      "engine_log": "/private/tmp/guchuan-touch-regression/03-levels-inspection_workspace_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-touch-gestures-20261109",
+        "--headless",
+        "--log-file",
+        "/private/tmp/guchuan-touch-regression/03-levels-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

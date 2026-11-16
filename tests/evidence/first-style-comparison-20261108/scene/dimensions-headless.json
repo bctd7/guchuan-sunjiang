@@ -1,0 +1,9 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "passed": 593,
+  "renderer": "headless",
+  "scope": "Actual chapter-one reference and rows; chapter-two fixed target rulers, simultaneously visible A/B/C measurements, real pointer selections and magnification, seven stages, two viewport sizes, geometry/data fidelity, retained wrong middle. Presentation only."
+}

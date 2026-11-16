@@ -1,0 +1,62 @@
+[
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/chapter-1-overview.png",
+    "review_copy": "workspace/chapter-1-overview.png",
+    "sha256": "4130196f02a393f1e8159532997854a048501ef845d4a9d58d44a975b44a1338"
+  },
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/chapter-1-local.png",
+    "review_copy": "workspace/chapter-1-local.png",
+    "sha256": "69605d09de2a570d4a80b0c8b97fa4d268eca6f87c8357010e99e22cf34c73fd"
+  },
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/chapter-1-selected.png",
+    "review_copy": "workspace/chapter-1-selected.png",
+    "sha256": "3ed8d12fc1a2ba55ad8b68760e93e62e9cd17b39b0eeb443a171b1afa8d2ac80"
+  },
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/chapter-2-overview.png",
+    "review_copy": "workspace/chapter-2-overview.png",
+    "sha256": "b071660a7fb339ab7bb1e46ab7e08d4e120e0d17ca091eb9a680b3f36d6b3b5f"
+  },
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/chapter-2-local.png",
+    "review_copy": "workspace/chapter-2-local.png",
+    "sha256": "0d916498bb30f39613f7098a31c22d80a71218fd573e805795cd43182d1e4769"
+  },
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/chapter-2-rotated.png",
+    "review_copy": "workspace/chapter-2-rotated.png",
+    "sha256": "8ec27ba18a811f0b2f08b81363a5bea1dd1cf3917adbf77d24d7a070acf0d48c"
+  },
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/chapter-2-selected.png",
+    "review_copy": "workspace/chapter-2-selected.png",
+    "sha256": "65bcbb2a1613ebd4f8aeb872ab936b9d7e3558007513e442cacf0a8f35cf9955"
+  },
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/opening-mismatch-wave-impact.png",
+    "review_copy": "workspace/opening-mismatch-wave-impact.png",
+    "sha256": "0a0a8f1b7830a3d6a21ccbc4590bb0d08c2c116af7a4667f7fd3685c255fde32"
+  },
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/wrong-openings-final-trial.png",
+    "review_copy": "workspace/wrong-openings-final-trial.png",
+    "sha256": "df8cd11cdd2085f3e2eed5e04f38d89c6f5d194b46cc4a87550a837da2dbb486"
+  },
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/matching-openings-complete.png",
+    "review_copy": "workspace/matching-openings-complete.png",
+    "sha256": "504f30e20a0dc0792ab30a237eb8c44a7f1e6d156b5e3e132ca1c0156c1b22af"
+  },
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/bulkhead-local-1100.png",
+    "review_copy": "workspace/bulkhead-local-1100.png",
+    "sha256": "4b7c65b6633b118d3f544a795271c753e1dfaf1c0bdb6d80f59e5040684299d4"
+  },
+  {
+    "original_capture": "res://tests/evidence/inspection-workspace/bulkhead-local-960.png",
+    "review_copy": "workspace/bulkhead-local-960.png",
+    "sha256": "664a2eda8c5f979e58ffe8e74489d73ac9d967a34098df5d937ff4a53d12d4df"
+  }
+]

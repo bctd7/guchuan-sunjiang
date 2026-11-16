@@ -1,0 +1,40 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T13:37:21.617825+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 36.99,
+      "log": "/private/tmp/level02-rework-gpu-recheck/00-visual-inspection_workspace_tests.log",
+      "engine_log": "/private/tmp/level02-rework-gpu-recheck/00-visual-inspection_workspace_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/level02-rework-gpu-recheck/00-visual-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

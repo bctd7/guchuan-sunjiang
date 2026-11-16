@@ -1,0 +1,13 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/level02-late-fit/merged-story-1440.png",
+    "res://tests/evidence/level02-late-fit/merged-story-1100.png",
+    "res://tests/evidence/level02-late-fit/merged-story-960.png"
+  ],
+  "passed": 43,
+  "renderer": "macOS",
+  "scope": "Concurrent bulkhead lesson/story merge: GPU three viewport sizes, enter/close/input restore, wrong-type touch installation"
+}

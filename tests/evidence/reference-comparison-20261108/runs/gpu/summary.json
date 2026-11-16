@@ -1,0 +1,40 @@
+{
+  "project": "/private/tmp/guchuan-opening-comparison-review",
+  "started_utc": "2026-11-08T14:12:23.734298+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-opening_dimensions_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 12.25,
+      "log": "/private/tmp/opening-comparison-final/00-visual-opening_dimensions_tests.log",
+      "engine_log": "/private/tmp/opening-comparison-final/00-visual-opening_dimensions_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-opening-comparison-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/opening-comparison-final/00-visual-opening_dimensions_tests-engine.log",
+        "--script",
+        "tests/opening_dimensions_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

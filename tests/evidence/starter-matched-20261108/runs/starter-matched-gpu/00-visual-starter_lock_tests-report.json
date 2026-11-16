@@ -1,0 +1,25 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/starter-lock/A-two-waiting-parts.png",
+    "res://tests/evidence/starter-lock/A-middle-seated-top-waiting.png",
+    "res://tests/evidence/starter-lock/A-top-at-contact.png",
+    "res://tests/evidence/starter-lock/A-complete-pair.png",
+    "res://tests/evidence/starter-lock/A-next-board-failure.png",
+    "res://tests/evidence/starter-lock/B-two-waiting-parts.png",
+    "res://tests/evidence/starter-lock/B-middle-seated-top-waiting.png",
+    "res://tests/evidence/starter-lock/B-top-at-contact.png",
+    "res://tests/evidence/starter-lock/B-complete-pair.png",
+    "res://tests/evidence/starter-lock/B-next-board-failure.png",
+    "res://tests/evidence/starter-lock/C-two-waiting-parts.png",
+    "res://tests/evidence/starter-lock/C-middle-seated-top-waiting.png",
+    "res://tests/evidence/starter-lock/C-top-at-contact.png",
+    "res://tests/evidence/starter-lock/C-complete-pair.png",
+    "res://tests/evidence/starter-lock/C-next-board-failure.png"
+  ],
+  "passed": 686,
+  "renderer": "macOS",
+  "scope": "Actual pointer strokes: ABC supply their matched top before assembly, retain identical geometry during activation, complete both three-part locks, and fail only on the following board's missing receiver. Includes shallow gestures, pending undo/reentry and both repeat strokes. No state mutation."
+}

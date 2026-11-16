@@ -120,7 +120,7 @@ func check_chapter_group_and_round_trip(chapter: int) -> void:
 	check(root.get_camera_3d() == view.camera and view.camera.transform == camera_pose, "current source camera pose restored without reset")
 	check(view.state == state_before and view.piece.get_instance_id() == piece_id and view.piece.transform == pose_before, "start modifies no source state or piece")
 	learning.show_intro()
-	check(learning.start_button.text == "返回船体局部", "revisit offers return to ship detail")
+	check(learning.start_button.text == "返回本关搭建", "revisit accurately offers return to chapter assembly")
 	learning.start_button.pressed.emit()
 	check(view.state == state_before and view.piece.transform == pose_before, "revisit round trip is read only")
 	level.free()

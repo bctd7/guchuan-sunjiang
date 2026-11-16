@@ -1,0 +1,38 @@
+{
+  "cases": [
+    {
+      "drops": 0,
+      "mode": "correct",
+      "phase": "passed",
+      "structural_ids": [],
+      "water_points": 0
+    },
+    {
+      "drops": 0,
+      "mode": "frame",
+      "phase": "loose",
+      "structural_ids": [
+        "cross_upper"
+      ],
+      "water_points": 0
+    },
+    {
+      "drops": 10,
+      "mode": "plank",
+      "phase": "leaking",
+      "structural_ids": [],
+      "water_points": 2
+    },
+    {
+      "drops": 10,
+      "mode": "both",
+      "phase": "leaking",
+      "structural_ids": [
+        "cross_upper"
+      ],
+      "water_points": 2
+    }
+  ],
+  "failures": [],
+  "scope": "Actual sea_trial tween and effects with controlled complete states. Verifies source categories, droplets, terminal phase and cancel; checks points at actual plank front edge and exterior face; not hydrodynamics."
+}

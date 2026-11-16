@@ -1,0 +1,75 @@
+{
+  "project": "/private/tmp/guchuan-solid-stock-review",
+  "started_utc": "2026-11-08T05:39:03.619290+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level02_contact_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.3,
+      "log": "/private/tmp/solid-stock-regression/00-levels-level02_contact_geometry_tests.log",
+      "engine_log": "/private/tmp/solid-stock-regression/00-levels-level02_contact_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-solid-stock-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-regression/00-levels-level02_contact_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_contact_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 28.72,
+      "log": "/private/tmp/solid-stock-regression/01-levels-level02_wrong_type_tests.log",
+      "engine_log": "/private/tmp/solid-stock-regression/01-levels-level02_wrong_type_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-solid-stock-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-regression/01-levels-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-level02_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 25.7,
+      "log": "/private/tmp/solid-stock-regression/02-levels-level02_input_tests.log",
+      "engine_log": "/private/tmp/solid-stock-regression/02-levels-level02_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-solid-stock-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-regression/02-levels-level02_input_tests-engine.log",
+        "--script",
+        "tests/level02_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

@@ -163,7 +163,7 @@ func _place_auto_batch(representative: String, ids: Array) -> void:
 			return
 		view.animate_place(id,str(state.placed[id].length),str(state.placed[id].joint))
 		names.append(Rules.SPECS[id].label)
-	panel.show_feedback("自动装配（非手动步骤）："+"、".join(names))
+	panel.show_feedback("同类木料已补齐："+"、".join(names))
 
 func _finish_automatic() -> void:
 	var result: Dictionary=state.finish_automatic()

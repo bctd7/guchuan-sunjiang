@@ -1,0 +1,71 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+  "started_utc": "2026-11-01T14:52:07.456713+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-level02_clarity_zoom_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 23.0,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/00-visual-level02_clarity_zoom_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/00-visual-level02_clarity_zoom_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/00-visual-level02_clarity_zoom_tests-engine.log",
+        "--script",
+        "tests/level02_clarity_zoom_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-level02_alignment_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.28,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/01-visual-level02_alignment_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/01-visual-level02_alignment_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/01-visual-level02_alignment_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

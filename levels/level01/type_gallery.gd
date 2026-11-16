@@ -1,6 +1,8 @@
 extends HBoxContainer
 ## Three actual connected wooden ends, visible before choosing.
 signal chosen(type: String)
+signal inspect_requested(id: String)
+var inspect_buttons: Dictionary={}
 const Preview = preload("res://levels/level01/candidate_preview.gd")
 const TYPES := {"blind_tenon":"半榫", "dovetail":"燕尾榫", "through_tenon":"透榫"}
 var buttons: Dictionary = {}
@@ -35,18 +37,23 @@ func _build() -> void:
 		column.add_theme_constant_override("separation",2)
 		button.add_child(column)
 		var preview:=Preview.new()
-		preview.custom_minimum_size=Vector2(100,132)
+		preview.custom_minimum_size=Vector2(100,120)
 		preview.size_flags_vertical=Control.SIZE_EXPAND_FILL
 		column.add_child(preview)
 		previews[kind]=preview
+		preview.activated.connect(func():
+			if not button.disabled:chosen.emit(kind))
 		viewports[kind]=preview.viewport
+		var footer:=HBoxContainer.new();footer.mouse_filter=Control.MOUSE_FILTER_IGNORE;column.add_child(footer)
 		var caption:=Label.new()
 		caption.text="选"+TYPES[kind]
 		caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		caption.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
 		caption.custom_minimum_size.y=32
 		caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		column.add_child(caption)
+		caption.size_flags_horizontal=Control.SIZE_EXPAND_FILL;footer.add_child(caption)
+		var inspect:=Button.new();inspect.text="放大";inspect.custom_minimum_size=Vector2(56,44);inspect.add_theme_font_size_override("font_size",16);footer.add_child(inspect);inspect_buttons[kind]=inspect
+		inspect.pressed.connect(func():inspect_requested.emit(kind))
 
 func configure(source_view: Node3D, piece_id: String, length: String = "correct") -> void:
 	_build()

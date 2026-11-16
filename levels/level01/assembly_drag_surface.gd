@@ -1,5 +1,6 @@
 extends "res://levels/level01/inspection_orbit.gd"
 ## Preview-only insertion. The owner decides whether an assembly request is valid.
+signal zoom_requested(factor: float)
 signal assembly_requested
 ## A visible reference part was pressed before explicit type/length selection.
 signal selection_required
@@ -8,6 +9,8 @@ signal insertion_progress_changed(progress: float)
 
 enum Gesture { NONE, ORBIT, PART }
 const SNAP_DEPTH := .72
+const Pinch = preload("res://levels/shared/touch_pinch.gd")
+var pinch = Pinch.new()
 var assembly_enabled := false
 var assembly_dragging := false
 var drag_progress := 0.0
@@ -26,8 +29,6 @@ var _guide_axis:=Vector2.LEFT
 var _travel_pixels:=120.0
 var _mouth_world:=Vector3.ZERO
 var _tip_local:=Vector3.ZERO
-var _touches: Dictionary = {}
-var _multiple_touches := false
 var _gesture := Gesture.NONE
 # Immutable mesh topology is reused while checking the visible scene.
 var _mesh_faces: Dictionary = {}
@@ -36,8 +37,6 @@ var _mesh_faces: Dictionary = {}
 ## and after setting the displayed candidate's separated starting transform.
 func configure_assembly(part: Node3D, seated_pose: Transform3D, grab_point_local: Vector3, enabled: bool, mouth_world: Variant = null, tip_local: Variant = null) -> void:
 	cancel()
-	_touches.clear()
-	_multiple_touches = false
 	_mesh_faces.clear()
 	_part = part
 	_seated_pose = seated_pose
@@ -48,17 +47,13 @@ func configure_assembly(part: Node3D, seated_pose: Transform3D, grab_point_local
 	_mouth_world=mouth_world if mouth_world is Vector3 else _parent_world()*(seated_pose*grab_point_local)
 	_tip_local=tip_local if tip_local is Vector3 else grab_point_local
 
-func configure(view_camera: Camera3D, center: Vector3, direction: Vector3, reset: bool) -> void:
-	super.configure(view_camera, center, direction, reset)
-	_touches.clear()
-	_multiple_touches = false
-
-func deactivate() -> void:
-	super.deactivate()
-	_touches.clear()
-	_multiple_touches = false
+func _ready() -> void:
+	super._ready()
+	resized.connect(cancel)
+	get_viewport().size_changed.connect(cancel)
 
 func cancel() -> void:
+	pinch.reset()
 	if (assembly_dragging or drag_progress>0) and is_instance_valid(_part): _part.transform = _rest_pose
 	assembly_dragging = false
 	_gesture = Gesture.NONE
@@ -70,9 +65,6 @@ func cancel() -> void:
 func _notification(what: int) -> void:
 	super._notification(what)
 	if what == NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree(): cancel()
-	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
-		_touches.clear()
-		_multiple_touches = false
 
 func _process(delta: float) -> void:
 	if _gesture != Gesture.PART: super._process(delta)
@@ -90,8 +82,27 @@ func _draw() -> void:
 	draw_line(end,end-direction.rotated(.55)*12,ink,2,true)
 	draw_line(end,end-direction.rotated(-.55)*12,ink,2,true)
 
+func _park_for_pinch() -> void:
+	# Changing finger count cancels the pending release, not the real shallow pose.
+	assembly_dragging = false
+	_gesture = Gesture.NONE
+	_moved = false
+	super.cancel()
+
+func suspend_gesture() -> void:
+	_park_for_pinch()
+	pinch.reset()
+
 func _input(event: InputEvent) -> void:
-	if not active: return
+	if not active or not is_visible_in_tree(): return
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+		_last_touch_ms = Time.get_ticks_msec()
+		var action: Dictionary = pinch.feed(event)
+		if action.interrupt: _park_for_pinch()
+		if not is_equal_approx(action.factor, 1.0): zoom_requested.emit(action.factor)
+		if action.suppress: return
+		if event is InputEventScreenTouch and event.canceled:
+			cancel(); return
 	# A held part can be released over another GUI control. Process that raw
 	# release only if normal GUI delivery did not already finish the gesture.
 	if assembly_dragging and _gesture==Gesture.PART:
@@ -99,24 +110,24 @@ func _input(event: InputEvent) -> void:
 		release=release or (event is InputEventScreenTouch and not event.pressed and not event.canceled and event.index==_touch_index)
 		if release:
 			call_deferred("_release_from_viewport",_generation,get_global_transform_with_canvas().affine_inverse()*event.position)
-	if event is InputEventScreenTouch:
-		if event.pressed: _touches[event.index] = true
-		else: _touches.erase(event.index)
-		if _touches.size() > 1:
-			_multiple_touches = true
-			cancel()
-		if event.canceled: cancel()
-		if _touches.is_empty(): _multiple_touches = false
 	# Base release fallback cancels a gesture whose release never reaches the GUI.
 	super._input(event)
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE: cancel()
 
 func _gui_input(event: InputEvent) -> void:
 	if not active: return
+	if event is InputEventScreenTouch and event.pressed: pinch.claim(event.index)
+	if (event is InputEventScreenTouch or event is InputEventScreenDrag) and pinch.suppress_current:
+		accept_event(); return
+	if event is InputEventMouse and pinch.blocked:
+		accept_event(); return
+	if event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
+		if not assembly_dragging:zoom_requested.emit(.85 if event.button_index==MOUSE_BUTTON_WHEEL_UP else 1.15)
+		accept_event();return
 	if event is InputEventScreenTouch:
 		_last_touch_ms = Time.get_ticks_msec()
 		_mouse_down = false
-		if event.canceled or _multiple_touches:
+		if event.canceled:
 			cancel()
 		elif event.pressed and _touch_index < 0:
 			super.cancel()
@@ -127,12 +138,12 @@ func _gui_input(event: InputEvent) -> void:
 			_release_preview(event.position)
 		accept_event()
 	elif event is InputEventScreenDrag:
-		if event.index == _touch_index and not _multiple_touches:
+		if event.index == _touch_index:
 			_move_pointer(event.position, event.relative)
 		accept_event()
 	elif event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.device != InputEvent.DEVICE_ID_EMULATION and Time.get_ticks_msec() - _last_touch_ms >= 450:
-			if event.pressed and _touch_index < 0 and _touches.is_empty():
+			if event.pressed and _touch_index < 0 and pinch.points.is_empty():
 				super.cancel()
 				_mouse_down = true
 				_origin = event.position
@@ -177,7 +188,7 @@ func _move_pointer(point: Vector2, relative: Vector2) -> void:
 		return
 	if _gesture!=Gesture.PART or not assembly_dragging:return
 	if not is_instance_valid(_part):cancel();return
-	if point.distance_to(_press_point)<=DRAG_SLOP and not _moved:return
+	if point.distance_to(_press_point)<=(TOUCH_DRAG_SLOP if _touch_index>=0 else DRAG_SLOP) and not _moved:return
 	drag_progress=clampf(drag_progress+(point-_last_point).dot(_guide_axis)/_travel_pixels,0,preview_limit)
 	_last_point=point
 	_part.transform=_rest_pose.interpolate_with(_seated_pose,drag_progress)

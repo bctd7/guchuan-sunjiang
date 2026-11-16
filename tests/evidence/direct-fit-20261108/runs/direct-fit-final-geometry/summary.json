@@ -1,0 +1,204 @@
+{
+  "project": "/private/tmp/guchuan-direct-fit-review",
+  "started_utc": "2026-11-08T04:56:03.633037+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level02_contact_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.89,
+      "log": "/private/tmp/direct-fit-final-geometry/00-levels-level02_contact_geometry_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-geometry/00-levels-level02_contact_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-final-geometry/00-levels-level02_contact_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_contact_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-starter_joint_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.99,
+      "log": "/private/tmp/direct-fit-final-geometry/01-levels-starter_joint_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-geometry/01-levels-starter_joint_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-final-geometry/01-levels-starter_joint_tests-engine.log",
+        "--script",
+        "tests/starter_joint_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-boat_joint_sweep_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.46,
+      "log": "/private/tmp/direct-fit-final-geometry/02-levels-boat_joint_sweep_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-geometry/02-levels-boat_joint_sweep_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-final-geometry/02-levels-boat_joint_sweep_tests-engine.log",
+        "--script",
+        "tests/boat_joint_sweep_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-boat_joint_recovery_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.59,
+      "log": "/private/tmp/direct-fit-final-geometry/03-levels-boat_joint_recovery_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-geometry/03-levels-boat_joint_recovery_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-final-geometry/03-levels-boat_joint_recovery_tests-engine.log",
+        "--script",
+        "tests/boat_joint_recovery_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-boat_joint_loose_tests",
+      "status": "timeout",
+      "exit_code": null,
+      "seconds": 240.02,
+      "log": "/private/tmp/direct-fit-final-geometry/04-levels-boat_joint_loose_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-geometry/04-levels-boat_joint_loose_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-final-geometry/04-levels-boat_joint_loose_tests-engine.log",
+        "--script",
+        "tests/boat_joint_loose_tests.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "05-levels-opening_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.68,
+      "log": "/private/tmp/direct-fit-final-geometry/05-levels-opening_geometry_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-geometry/05-levels-opening_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-final-geometry/05-levels-opening_geometry_tests-engine.log",
+        "--script",
+        "tests/opening_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "06-levels-level02_alignment_geometry_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 4.17,
+      "log": "/private/tmp/direct-fit-final-geometry/06-levels-level02_alignment_geometry_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-geometry/06-levels-level02_alignment_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-final-geometry/06-levels-level02_alignment_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "07-levels-level02_structure_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.79,
+      "log": "/private/tmp/direct-fit-final-geometry/07-levels-level02_structure_geometry_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-geometry/07-levels-level02_structure_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-final-geometry/07-levels-level02_structure_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_structure_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "08-levels-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 27.51,
+      "log": "/private/tmp/direct-fit-final-geometry/08-levels-level02_wrong_type_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-geometry/08-levels-level02_wrong_type_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-fit-final-geometry/08-levels-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

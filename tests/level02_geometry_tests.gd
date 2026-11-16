@@ -87,6 +87,7 @@ func run() -> void:
 		level.state.select(id)
 		level.state.observe()
 		level.state.choose_joint(Rules.expected(id))
+		level.state.choose_opening(level.state.Openings.target(id))
 		if Rules.row_for(id)>0: level.state.choose_layout("B" if Rules.row_for(id)==1 else "A")
 		level.state.attempt(id)
 	check(level.state.validate().ok,"geometry fixture completes with staggered end seams")

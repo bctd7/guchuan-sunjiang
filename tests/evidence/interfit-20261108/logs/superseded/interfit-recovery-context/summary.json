@@ -1,0 +1,116 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-08T04:26:12.045805+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-boat_joint_interaction_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 30.09,
+      "log": "/private/tmp/interfit-recovery-context/00-levels-boat_joint_interaction_tests.log",
+      "engine_log": "/private/tmp/interfit-recovery-context/00-levels-boat_joint_interaction_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-recovery-context/00-levels-boat_joint_interaction_tests-engine.log",
+        "--script",
+        "tests/boat_joint_interaction_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_structure_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.79,
+      "log": "/private/tmp/interfit-recovery-context/01-levels-level02_structure_geometry_tests.log",
+      "engine_log": "/private/tmp/interfit-recovery-context/01-levels-level02_structure_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-recovery-context/01-levels-level02_structure_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_structure_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-level02_structure_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 25.26,
+      "log": "/private/tmp/interfit-recovery-context/02-levels-level02_structure_tests.log",
+      "engine_log": "/private/tmp/interfit-recovery-context/02-levels-level02_structure_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-recovery-context/02-levels-level02_structure_tests-engine.log",
+        "--script",
+        "tests/level02_structure_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-observation_repeat_tests",
+      "status": "script_error",
+      "exit_code": 1,
+      "seconds": 50.67,
+      "log": "/private/tmp/interfit-recovery-context/03-levels-observation_repeat_tests.log",
+      "engine_log": "/private/tmp/interfit-recovery-context/03-levels-observation_repeat_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-recovery-context/03-levels-observation_repeat_tests-engine.log",
+        "--script",
+        "tests/observation_repeat_tests.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "04-levels-repeat_lifecycle_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.39,
+      "log": "/private/tmp/interfit-recovery-context/04-levels-repeat_lifecycle_tests.log",
+      "engine_log": "/private/tmp/interfit-recovery-context/04-levels-repeat_lifecycle_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-recovery-context/04-levels-repeat_lifecycle_tests-engine.log",
+        "--script",
+        "tests/repeat_lifecycle_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

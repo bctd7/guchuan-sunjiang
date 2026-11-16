@@ -1,0 +1,97 @@
+{
+  "project": "/private/tmp/guchuan-continuable-review",
+  "started_utc": "2026-11-08T05:17:32.261730+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "/private/tmp/continuable-final-corrected/00-levels-level02_rules_tests.log",
+      "engine_log": "/private/tmp/continuable-final-corrected/00-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-continuable-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/continuable-final-corrected/00-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_assembly_outcome_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "/private/tmp/continuable-final-corrected/01-levels-level02_assembly_outcome_tests.log",
+      "engine_log": "/private/tmp/continuable-final-corrected/01-levels-level02_assembly_outcome_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-continuable-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/continuable-final-corrected/01-levels-level02_assembly_outcome_tests-engine.log",
+        "--script",
+        "tests/level02_assembly_outcome_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-boat_joint_loose_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 13.01,
+      "log": "/private/tmp/continuable-final-corrected/02-levels-boat_joint_loose_tests.log",
+      "engine_log": "/private/tmp/continuable-final-corrected/02-levels-boat_joint_loose_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-continuable-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/continuable-final-corrected/02-levels-boat_joint_loose_tests-engine.log",
+        "--script",
+        "tests/boat_joint_loose_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-boat_joint_motion_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 24.55,
+      "log": "/private/tmp/continuable-final-corrected/03-levels-boat_joint_motion_tests.log",
+      "engine_log": "/private/tmp/continuable-final-corrected/03-levels-boat_joint_motion_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-continuable-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/continuable-final-corrected/03-levels-boat_joint_motion_tests-engine.log",
+        "--script",
+        "tests/boat_joint_motion_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

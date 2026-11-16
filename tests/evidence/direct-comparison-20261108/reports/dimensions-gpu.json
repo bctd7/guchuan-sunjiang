@@ -1,0 +1,28 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/direct-comparison/chapter-1-reference.png",
+    "res://tests/evidence/direct-comparison/plank_0a-1440.png",
+    "res://tests/evidence/direct-comparison/plank_0a-960.png",
+    "res://tests/evidence/direct-comparison/cross_upper-1440.png",
+    "res://tests/evidence/direct-comparison/cross_upper-960.png",
+    "res://tests/evidence/direct-comparison/three_middle-1440.png",
+    "res://tests/evidence/direct-comparison/three_middle-960.png",
+    "res://tests/evidence/direct-comparison/three_upper-1440.png",
+    "res://tests/evidence/direct-comparison/three_upper-960.png",
+    "res://tests/evidence/direct-comparison/first-cross_lap.png",
+    "res://tests/evidence/direct-comparison/first-cross_lap-960.png",
+    "res://tests/evidence/direct-comparison/first-three_way_lap.png",
+    "res://tests/evidence/direct-comparison/first-three_way_lap-960.png",
+    "res://tests/evidence/direct-comparison/first-tongue_groove.png",
+    "res://tests/evidence/direct-comparison/first-tongue_groove-960.png",
+    "res://tests/evidence/direct-comparison/top-reference-middle-A.png",
+    "res://tests/evidence/direct-comparison/top-reference-middle-B.png",
+    "res://tests/evidence/direct-comparison/top-reference-middle-C.png"
+  ],
+  "passed": 854,
+  "renderer": "macOS",
+  "scope": "Actual chapter-one reference and rows; face-on real candidate wood, shared reference/candidate pixel scale and datum, measured brackets, complete foreground rendering after type switches, seven stages, two viewport sizes, retained wrong middle profiles and full-model magnifier. Presentation only."
+}

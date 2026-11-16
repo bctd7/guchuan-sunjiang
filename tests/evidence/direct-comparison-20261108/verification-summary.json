@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-08",
+  "isolated_project": "/private/tmp/guchuan-direct-comparison-review",
+  "changed_existing_gd": [
+    "levels/level02/level_ui.gd",
+    "levels/level02/opening_gallery.gd",
+    "levels/level02/opening_measure_panel.gd",
+    "levels/level02/opening_reference.gd",
+    "levels/level02/opening_dimensions.gd",
+    "tests/opening_dimensions_tests.gd",
+    "tests/inspection_workspace_tests.gd"
+  ],
+  "new_gd": [
+    "levels/level02/opening_measure_marks.gd",
+    "levels/level02/opening_section.gd"
+  ],
+  "source_hashes": {
+    "levels/level02/level_ui.gd": "b01395ab3b31eb8c3cb4296d9bf0cd1be9d51b0999bc5e7f318cc53792a041ed",
+    "levels/level02/opening_gallery.gd": "b5c0f9baa8834e83d20588ced16512c010284abdd33fdf20473d5d6118e637bc",
+    "levels/level02/opening_measure_panel.gd": "7cfde6662b4adb9951a3d9a363d4a152ef9d6b40d8258c0a6614ca83ea1d5597",
+    "levels/level02/opening_reference.gd": "82ad896e11d2822dc0246bac73f877789fb8e9c24acf639ec9bb2f6bb5b85348",
+    "levels/level02/opening_dimensions.gd": "d83ceb91d25039f9e46aef6e281c65c513dc5d4d6db7860673f3a89e27391f24",
+    "tests/opening_dimensions_tests.gd": "2a975ccf54c28c320a1197680153f8ce3e200447d06a34b8a9d35ed9444f0b15",
+    "tests/inspection_workspace_tests.gd": "875721030705bde18be14dac6207c9b6fb5f1300be646813e47069983f4d6868",
+    "levels/level02/opening_measure_marks.gd": "8a3dab40b8caf0c6696eb29065fe75a3f11c18a8e62cb75bd1215dd96009c597",
+    "levels/level02/opening_section.gd": "3d2b36a15a8f04bdd3bf06e673b1a77a73726de9f4f8d5b527682f06d57a40cc",
+    "tests/run_suite.py": "90174e59eb72ff9dfe859b94e1b7cd8b52fb53a2ebc27a2f4e2e4444783bcebd",
+    "levels/level02/opening_measure_marks.gd.uid": "3516c905179c5e7d4f8d4a10d0c194c04de676692e83c1cfd29a0980a09b9ac8",
+    "levels/level02/opening_section.gd.uid": "e3a47e1f175be2047896e1881cefc35631ab6585188457c8b3b467be71713cfd"
+  },
+  "root_matches_tested_source": true,
+  "unchanged_baseline_gd_count": 228,
+  "screenshots": 18,
+  "final_runs": {
+    "dimensions_headless": "passed",
+    "dimensions_gpu": "passed",
+    "inspection_workspace": "passed",
+    "boat_joint_interaction": "passed"
+  },
+  "fixture_note": "Broad workspace fixture had 13 stale expectations also reproduced in the pre-change copy; adjusted automatic-group counts and last-piece undo test, then passed. Gameplay scripts unchanged."
+}

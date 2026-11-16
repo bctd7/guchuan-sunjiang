@@ -1,0 +1,687 @@
+{
+  "completed_utc": "2026-11-01T14:56:11.487857+00:00",
+  "headless_passed": 16,
+  "gpu_passed": 6,
+  "python_passed": 6,
+  "headless": [
+    {
+      "suite": "alignment-geometry",
+      "name": "00-levels-level02_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.18,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-geometry/00-levels-level02_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-geometry/00-levels-level02_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-geometry/00-levels-level02_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-geometry",
+      "name": "01-levels-opening_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.57,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-geometry/01-levels-opening_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-geometry/01-levels-opening_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-geometry/01-levels-opening_geometry_tests-engine.log",
+        "--script",
+        "tests/opening_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-clearance-fixed",
+      "name": "01-levels-trial_contact_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 20.25,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-clearance-fixed/01-levels-trial_contact_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-clearance-fixed/01-levels-trial_contact_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-clearance-fixed/01-levels-trial_contact_tests-engine.log",
+        "--script",
+        "tests/trial_contact_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-clearance-fixed",
+      "name": "00-levels-level02_alignment_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.57,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-clearance-fixed/00-levels-level02_alignment_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-clearance-fixed/00-levels-level02_alignment_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-clearance-fixed/00-levels-level02_alignment_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-demo-feature",
+      "name": "00-levels-level02_alignment_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.77,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demo-feature/00-levels-level02_alignment_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demo-feature/00-levels-level02_alignment_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demo-feature/00-levels-level02_alignment_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-verified-headless",
+      "name": "00-levels-level01_orbit_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.14,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/00-levels-level01_orbit_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/00-levels-level01_orbit_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/00-levels-level01_orbit_tests-engine.log",
+        "--script",
+        "tests/level01_orbit_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-verified-headless",
+      "name": "01-levels-level01_inspector_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 22.5,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/01-levels-level01_inspector_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/01-levels-level01_inspector_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/01-levels-level01_inspector_tests-engine.log",
+        "--script",
+        "tests/level01_inspector_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-verified-headless",
+      "name": "02-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/02-levels-level02_rules_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/02-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/02-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-verified-headless",
+      "name": "04-levels-level02_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 25.76,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/04-levels-level02_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/04-levels-level02_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/04-levels-level02_input_tests-engine.log",
+        "--script",
+        "tests/level02_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-verified-headless",
+      "name": "05-levels-level03_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.6,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/05-levels-level03_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/05-levels-level03_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/05-levels-level03_geometry_tests-engine.log",
+        "--script",
+        "tests/level03_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-verified-headless",
+      "name": "06-levels-level03_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 21.16,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/06-levels-level03_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/06-levels-level03_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/06-levels-level03_input_tests-engine.log",
+        "--script",
+        "tests/level03_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-verified-headless",
+      "name": "07-classroom-chapter_learning_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.28,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/07-classroom-chapter_learning_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/07-classroom-chapter_learning_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/07-classroom-chapter_learning_tests-engine.log",
+        "--script",
+        "tests/chapter_learning_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-verified-headless",
+      "name": "08-classroom-wood_material_entry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.67,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/08-classroom-wood_material_entry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/08-classroom-wood_material_entry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/08-classroom-wood_material_entry_tests-engine.log",
+        "--script",
+        "tests/wood_material_entry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-verified-headless",
+      "name": "09-campaign-campaign_reentry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.39,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/09-campaign-campaign_reentry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/09-campaign-campaign_reentry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/09-campaign-campaign_reentry_tests-engine.log",
+        "--script",
+        "tests/campaign_reentry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-verified-headless",
+      "name": "10-campaign-campaign_loading_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.91,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/10-campaign-campaign_loading_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/10-campaign-campaign_loading_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/10-campaign-campaign_loading_tests-engine.log",
+        "--script",
+        "tests/campaign_loading_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "alignment-stock-oracle",
+      "name": "00-levels-stock_clearance_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-stock-oracle/00-levels-stock_clearance_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-stock-oracle/00-levels-stock_clearance_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-stock-oracle/00-levels-stock_clearance_tests-engine.log",
+        "--script",
+        "tests/stock_clearance_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ],
+  "gpu": [
+    {
+      "suite": "alignment-verified-gpu",
+      "name": "00-visual-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 38.48,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/00-visual-inspection_workspace_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/00-visual-inspection_workspace_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/00-visual-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "alignment-verified-gpu",
+      "name": "01-visual-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 43.25,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/01-visual-level02_wrong_type_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/01-visual-level02_wrong_type_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/01-visual-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "alignment-verified-gpu",
+      "name": "02-visual-level02_drag_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 49.41,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/02-visual-level02_drag_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/02-visual-level02_drag_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/02-visual-level02_drag_tests-engine.log",
+        "--script",
+        "tests/level02_drag_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "alignment-verified-gpu",
+      "name": "03-visual-auxiliary_panel_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.55,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/03-visual-auxiliary_panel_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/03-visual-auxiliary_panel_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-gpu/03-visual-auxiliary_panel_tests-engine.log",
+        "--script",
+        "tests/auxiliary_panel_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "alignment-demonstration-final-gpu",
+      "name": "00-visual-level02_clarity_zoom_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 23.0,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/00-visual-level02_clarity_zoom_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/00-visual-level02_clarity_zoom_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/00-visual-level02_clarity_zoom_tests-engine.log",
+        "--script",
+        "tests/level02_clarity_zoom_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "alignment-demonstration-final-gpu",
+      "name": "01-visual-level02_alignment_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.28,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/01-visual-level02_alignment_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/01-visual-level02_alignment_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-demonstration-final-gpu/01-visual-level02_alignment_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ],
+  "images": [
+    "aligned-local-1100.png",
+    "aligned-local-960.png",
+    "correct-tongue-facing-receiver.png",
+    "images/chapter-tools/chapter-1-1100.png",
+    "images/chapter-tools/chapter-1-1440.png",
+    "images/chapter-tools/chapter-1-960.png",
+    "images/chapter-tools/chapter-2-1100.png",
+    "images/chapter-tools/chapter-2-1440.png",
+    "images/chapter-tools/chapter-2-960.png",
+    "images/clarity-zoom/connection-400-percent.png",
+    "images/clarity-zoom/correct-hull-complete.png",
+    "images/clarity-zoom/enlarged-1100.png",
+    "images/clarity-zoom/enlarged-960.png",
+    "images/clarity-zoom/local-1100.png",
+    "images/clarity-zoom/local-960.png",
+    "images/clarity-zoom/opaque-bulkhead.png",
+    "images/clarity-zoom/opaque-cross_upper.png",
+    "images/clarity-zoom/opaque-local-default.png",
+    "images/clarity-zoom/opaque-three_middle.png",
+    "images/clarity-zoom/opening-enlarged.png",
+    "images/clarity-zoom/three-way-type-enlarged.png",
+    "images/inspection-workspace/bulkhead-local-1100.png",
+    "images/inspection-workspace/bulkhead-local-960.png",
+    "images/inspection-workspace/chapter-1-local.png",
+    "images/inspection-workspace/chapter-1-overview.png",
+    "images/inspection-workspace/chapter-1-selected.png",
+    "images/inspection-workspace/chapter-2-local.png",
+    "images/inspection-workspace/chapter-2-overview.png",
+    "images/inspection-workspace/chapter-2-rotated.png",
+    "images/inspection-workspace/chapter-2-selected.png",
+    "images/inspection-workspace/matching-openings-complete.png",
+    "images/inspection-workspace/opening-mismatch-wave-impact.png",
+    "images/inspection-workspace/wrong-openings-final-trial.png",
+    "images/level02-late-fit/middle-0-plank_0a.png",
+    "images/level02-late-fit/middle-0-plank_0b.png",
+    "images/level02-late-fit/middle-0-plank_1a.png",
+    "images/level02-late-fit/middle-0-plank_1b.png",
+    "images/level02-late-fit/middle-1-plank_0a.png",
+    "images/level02-late-fit/middle-1-plank_1a.png",
+    "images/level02-late-fit/middle-1-plank_1b.png",
+    "images/level02-late-fit/overview-without-circle.png",
+    "images/level02-late-fit/supported-0-cross_upper.png",
+    "images/level02-late-fit/supported-0-plank_0a.png",
+    "images/level02-late-fit/supported-0-three_middle.png",
+    "images/level02-late-fit/supported-1-cross_upper.png",
+    "images/level02-late-fit/supported-1-plank_0a.png",
+    "images/level02-late-fit/supported-1-three_middle.png",
+    "images/level02-late-fit/wrong-0-bulkhead.png",
+    "images/level02-late-fit/wrong-0-cross_upper.png",
+    "images/level02-late-fit/wrong-0-final-result.png",
+    "images/level02-late-fit/wrong-0-plank_0a.png",
+    "images/level02-late-fit/wrong-0-three_middle.png",
+    "images/level02-late-fit/wrong-0-wave-impact.png",
+    "images/level02-late-fit/wrong-1-bulkhead.png",
+    "images/level02-late-fit/wrong-1-cross_upper.png",
+    "images/level02-late-fit/wrong-1-final-result.png",
+    "images/level02-late-fit/wrong-1-plank_0a.png",
+    "images/level02-late-fit/wrong-1-three_middle.png",
+    "images/level02-late-fit/wrong-1-wave-impact.png",
+    "images/level02-model-seams/00-overview.png",
+    "images/level02-model-seams/01-observe-and-choose.png",
+    "images/level02-model-seams/02-shallow-push.png",
+    "images/level02-model-seams/03-successful-sea-trial.png",
+    "images/level02-model-seams/04-six-groups.png",
+    "images/level02-model-seams/05-waterproof-compartments.png",
+    "images/level02-model-seams/06-leaking-hull-failure.png",
+    "images/level02-model-seams/07-aligned-model-1100.png",
+    "images/level02-model-seams/07-aligned-model-1440.png",
+    "images/level02-model-seams/07-aligned-model-960.png",
+    "images/level02-model-seams/08-staggered-model-1100.png",
+    "images/level02-model-seams/08-staggered-model-1440.png",
+    "images/level02-model-seams/08-staggered-model-960.png",
+    "images/level02-model-seams/09-receiver-reveal-1100.png",
+    "images/level02-model-seams/09-receiver-reveal-1440.png",
+    "images/level02-model-seams/09-receiver-reveal-960.png",
+    "images/level02-model-seams/local-bulkhead.png",
+    "images/level02-model-seams/local-cross_upper.png",
+    "images/level02-model-seams/local-plank_0b.png",
+    "images/level02-model-seams/local-seated-before-return.png",
+    "images/level02-model-seams/local-three_middle.png",
+    "images/level02-model-seams/wave-approaching.png",
+    "images/level02-model-seams/wave-impact-dry.png",
+    "images/level02-model-seams/wave-impact-leaking.png",
+    "three-middle-bottom-pocket.png",
+    "three-middle-top-pocket.png",
+    "three-upper-pocket-1100.png",
+    "three-upper-pocket-960.png",
+    "type-cross_lap-closed.png",
+    "type-cross_lap-exploded.png",
+    "type-cross_lap-upper-pocket.png",
+    "type-three_way_lap-closed.png",
+    "type-three_way_lap-exploded.png",
+    "type-three_way_lap-upper-pocket.png",
+    "wrong-cross-aligned-100.png",
+    "wrong-cross-aligned-249.png",
+    "wrong-cross-contact-249.png"
+  ],
+  "input_reference": {
+    "library_file_id": "libfile_fb6edadda2208191b69ff7568913ae36",
+    "name": "截屏2026-11-01 晚上9.47.46.png",
+    "reviewed": true,
+    "observation": "Bottom-row tail target, cross_lap selected, opening C, approximately 249 percent. Desktop pixels are not redistributed."
+  },
+  "scope": "Mac automated Viewport mouse/simulated touch and GPU; three sizes. Not human hardware, other OS or engineering physics.",
+  "demonstration": {
+    "real_component_isolation": true,
+    "middle_piece_flip": true,
+    "cross_lap_steps": [
+      "UpperStock"
+    ],
+    "three_way_steps": [
+      "MiddleStock",
+      "UpperStock"
+    ],
+    "read_only": true
+  }
+}

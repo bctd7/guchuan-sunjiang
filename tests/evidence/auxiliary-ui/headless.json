@@ -1,0 +1,10 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": true,
+  "images": [],
+  "method": "Actual Viewport mouse events; not human hardware validation",
+  "passed": 127,
+  "renderer": "headless",
+  "revision": "auxiliary-ui-20261101"
+}

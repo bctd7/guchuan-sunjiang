@@ -1,0 +1,53 @@
+{
+  "project": "/private/tmp/guchuan-starter-matched-review",
+  "started_utc": "2026-11-08T06:36:47.223828+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-starter_lock_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.89,
+      "log": "/private/tmp/starter-matched-integration/00-levels-starter_lock_geometry_tests.log",
+      "engine_log": "/private/tmp/starter-matched-integration/00-levels-starter_lock_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-matched-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-matched-integration/00-levels-starter_lock_geometry_tests-engine.log",
+        "--script",
+        "tests/starter_lock_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-starter_lock_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 20.21,
+      "log": "/private/tmp/starter-matched-integration/01-levels-starter_lock_tests.log",
+      "engine_log": "/private/tmp/starter-matched-integration/01-levels-starter_lock_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-starter-matched-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/starter-matched-integration/01-levels-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

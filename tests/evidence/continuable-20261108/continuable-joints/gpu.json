@@ -1,0 +1,28 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/continuable-joints/cross_lap-candidate-cuts.png",
+    "res://tests/evidence/continuable-joints/cross_lap-A-waiting.png",
+    "res://tests/evidence/continuable-joints/cross_lap-B-waiting.png",
+    "res://tests/evidence/continuable-joints/cross_lap-C-waiting.png",
+    "res://tests/evidence/continuable-joints/cross_lap-approach.png",
+    "res://tests/evidence/continuable-joints/cross_lap-seated-pair.png",
+    "res://tests/evidence/continuable-joints/cross_lap-next-row.png",
+    "res://tests/evidence/continuable-joints/opening-mismatch-wave-impact.png",
+    "res://tests/evidence/continuable-joints/cross_lap-wave-failure.png",
+    "res://tests/evidence/continuable-joints/three_way_lap-candidate-cuts.png",
+    "res://tests/evidence/continuable-joints/three_way_lap-A-waiting.png",
+    "res://tests/evidence/continuable-joints/three_way_lap-B-waiting.png",
+    "res://tests/evidence/continuable-joints/three_way_lap-C-waiting.png",
+    "res://tests/evidence/continuable-joints/three_way_lap-approach.png",
+    "res://tests/evidence/continuable-joints/three_way_lap-seated-pair.png",
+    "res://tests/evidence/continuable-joints/three_way_lap-next-row.png",
+    "res://tests/evidence/continuable-joints/three_way_lap-wave-failure.png",
+    "res://tests/evidence/continuable-joints/tongue-groove-candidate-cuts.png"
+  ],
+  "passed": 1747,
+  "renderer": "macOS",
+  "scope": "Both wrong first-row joint families via actual pointer: full plank, automatic exact copy, subsequent real rows, complete wrong hull and final wave failure. ABC real model evidence, no state mutation."
+}

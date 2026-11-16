@@ -1,0 +1,288 @@
+{
+  "scope": "source, docs and asset checksums before integration; evidence files excluded to avoid recursive hashes",
+  "records": [
+    {
+      "action": "write",
+      "path": "README.md",
+      "before": "c73b287620b806aedefa196f807a4e0cff600dcbd87b0e48457bb982ef3ff077",
+      "after": "5406f7f4f1e528bdd4b5ebf09ec922f8682e4366200acfcc27049883984f6bd2"
+    },
+    {
+      "action": "write",
+      "path": "campaign/campaign.gd",
+      "before": "f5656ac92e694e93811d0835b7e3a3eb4b649b101dc80ef8860d454f18ad7b48",
+      "after": "f4dc45767f3285abf962352cf58f7fe2dab8213679b8b29f706c79a91aec019a"
+    },
+    {
+      "action": "write",
+      "path": "docs/current/LEVEL02_REQUIREMENTS.md",
+      "before": "5f0608f76100159fa64141a4cf2377128b71e2c490ce96db59038fb109109b35",
+      "after": "4c5baf2befc180c5e33695e2c80df7ee7bc1f2e942b993473cc56b5b1fb7e25b"
+    },
+    {
+      "action": "write",
+      "path": "docs/current/TECHNICAL_ARCHITECTURE.md",
+      "before": "d3d04b22c5072f42b671d5f0073e99bbc96738f5e7b3ea750c7a353e4249717b",
+      "after": "fe4551297ab74a25a8404283b2c7906369c0bd9203d1bbc3e79798d152ac89d2"
+    },
+    {
+      "action": "write",
+      "path": "levels/level01/workshop_backdrop.gd",
+      "before": "9ed974ec833a6c98a10225a209b557ba792e173d0571c997f2b406b16650d849",
+      "after": "129da2e5daa186bcee44b501bb916c48036e00bbd8b70e76dd1597d9a78ddb55"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/README.md",
+      "before": "9499f7fe2b1f69c4d0818a8acb03c8a09b91792a57595e7829ff68e71a47efe9",
+      "after": "03691a7fbde406fb549c831dd5cd350ff9327736b1e7274257f88563d0ba8659"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/bulkhead_lesson.gd",
+      "before": "3202e897de4d5a8f442c930cd3c9e2b0b465306c565e300dc7643ff7f371cfaf",
+      "after": "cae641934e3e297731d15d24aa8b4a942fd53152379d3dc527168259faa63337"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/hull_view.gd",
+      "before": "16b476a5aa8b98902a3bacfff7ff4edd179dc6fb12847b2ec863dcad87630daf",
+      "after": "4944ac79741863df5105de38a5894ad1d2768c23c369b196eaecbe0712cde7f4"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/inspection_camera.gd",
+      "before": null,
+      "after": "7f35615fdb2d4465ed1505e1fd136997a56cb08f0403d5e081916b5b9b81f7c6"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/inspection_camera.gd.uid",
+      "before": null,
+      "after": "ebd106b49dce24c0a919ab4926f571e4759245c26a8f71b913a602813eaa7815"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/joint_gallery.gd",
+      "before": "693a804712e31be78fd9629180bc0a3701bcefe5a4c81e71d132499b497ab8b6",
+      "after": "8ccaff7f817f7aff60d5f75518fca28d7639b10ddf99786a9a45eb7e4c255c03"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/level02.gd",
+      "before": "f598103e4abc0be6aac27bdd399ddfdc6e0178b487784bb4d26d1ff1ba1c9c0c",
+      "after": "c0a3c7ff42f646ff7e7b3cd4c65de01406bbf8e7219574eba8479c65119bdcbb"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/level_state.gd",
+      "before": "1e5c1f6166d132a8f2816b6feae0efe84ac5ebafb8fcf192d0e358c118ba68aa",
+      "after": "1ea02f0f37a3c5821a20943490702edf700b77c0d01a0c0ec9ba43986dc6f029"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/level_ui.gd",
+      "before": "967f8273151cf0f294918615f592b4f9bbaa54ac70074675ff5a5cf4e6c1c35a",
+      "after": "cc775fda94d463a113214ceb8c556f0edaf6cad55c0dff24f3a26e96876b37bf"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/sea_trial.gd",
+      "before": "bd54aca7e7b522da2d7db0988fa96602165cd08cd023d0e4d84f8cd6fc46273f",
+      "after": "7c5c3060015570bed84aa0a537e00bdb97b9cb97810bf4b186e90eaaa44c1e5f"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/trial_contact.gd",
+      "before": null,
+      "after": "da904ccafb2eb42e8bbef451ba7b67caca6578eb4bf337e3587fe55b322f3b55"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/trial_contact.gd.uid",
+      "before": null,
+      "after": "75ad56788bb3c75aee45bcc8bc65aea81c2f6ece52eeda3bae86584da6b32f4b"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/trial_presentation.gd",
+      "before": null,
+      "after": "663c16d3c9f96a1da70ddee7e0da78a03de47b156fbc84429ef24c7fc7186013"
+    },
+    {
+      "action": "write",
+      "path": "levels/level02/trial_presentation.gd.uid",
+      "before": null,
+      "after": "4a9e6fcd773cbcaa78c1d34ee19e7ef85283d47552d777b6e59797483ac722f7"
+    },
+    {
+      "action": "write",
+      "path": "levels/shared/rotatable_preview.gd",
+      "before": "9671cab7cc8475722472231422d2c687544ca8b4701f7e405a994ae3759dd55e",
+      "after": "1c6dbf1aeb02b2b9abe4a788c79ba4d459d85cba1a91eaa5408ff3fca3b6c16b"
+    },
+    {
+      "action": "write",
+      "path": "levels/shared/selectable_orbit.gd",
+      "before": "6542b91ebf86fe5027002e98aa1f8fa865cc1316d6113a600cf3635c110c4ddc",
+      "after": "566b1160764b8381147d2f1fa49a6f6e1bbbd1538eb3891929c797d3ec326329"
+    },
+    {
+      "action": "write",
+      "path": "shared/assets/shipyard_background.png",
+      "before": null,
+      "after": "1304797432822982952ecc4c3e5a00b72abb837b6f2de16c48c26e4c136f31aa"
+    },
+    {
+      "action": "write",
+      "path": "shared/assets/shipyard_background.png.import",
+      "before": null,
+      "after": "fac98537f20ed1d69b25d66714c9e5ac7f533511e7e0838241a65fde5a48acd2"
+    },
+    {
+      "action": "write",
+      "path": "tests/ARCHITECTURE_REFINEMENT_VERIFICATION.md",
+      "before": null,
+      "after": "21e974e28ddfd2ad60242594ac9985044a4962bb280ae30633100f62216d008d"
+    },
+    {
+      "action": "write",
+      "path": "tests/README.md",
+      "before": "707849cb9fb8f0edf2b3395c09b76efbe5adcf12982ac4aeac81c1ba651312eb",
+      "after": "62ac77f31d2dbaa74582d9813179e374895a7de840542d7371833d2a8fd31262"
+    },
+    {
+      "action": "write",
+      "path": "tests/campaign_loading_tests.gd",
+      "before": null,
+      "after": "d30b8ae8a2cb9e908613c34b7952b70c7aad1e5f2324b11bb08d6cece55a2ccb"
+    },
+    {
+      "action": "write",
+      "path": "tests/campaign_loading_tests.gd.uid",
+      "before": null,
+      "after": "091d2555154e590a25623c6730a2178451fe279ea44322dbc88293362cbaa7f7"
+    },
+    {
+      "action": "write",
+      "path": "tests/campaign_tests.gd",
+      "before": "bc03e234bed851a435829e33f61b67bc37c97081ab2c788f213c27dc00e3828e",
+      "after": "0a86f8235d8a7d857294fb47885594b6c7407945e838ae73125535640994a8a8"
+    },
+    {
+      "action": "write",
+      "path": "tests/inspection_workspace_tests.gd",
+      "before": "7516b03f41eea1d1a38d808753c792b22b42381372b6ceb0c58ca4fd373133ad",
+      "after": "45470f147cb67eaabd2d4efd134c53d4b81cdb8f17772185cf22054447b68cdc"
+    },
+    {
+      "action": "write",
+      "path": "tests/level01_failure_tests.gd",
+      "before": "8b071bcfb918e6af3623b309224b0c3e4f2f1e71985f77206eef235886bfbb8f",
+      "after": "54f0a987e8ecfef2502eb622ecbbbd38a11415acd688f3ae8814c74a91b739b2"
+    },
+    {
+      "action": "write",
+      "path": "tests/level02_rules_tests.gd",
+      "before": "cf94dec047686d6bbe7752c0b1249eced49d1d3c9c4105336c4e0814173cc633",
+      "after": "268380263a73969fb48d79edccccbae1115747de8c0eb69a5c2ecc311be0816f"
+    },
+    {
+      "action": "write",
+      "path": "tests/level02_wrong_type_tests.gd",
+      "before": "9e7d36eca61cd3fa19b522c936ec2c95c4ce019683b0fcfdde3f8877f4f1be54",
+      "after": "57efad0e124a82533e2b8ff27adce070f1506607aae7925503300c1afda859bf"
+    },
+    {
+      "action": "write",
+      "path": "tests/run_suite.py",
+      "before": "55d43cdea9871970a8bb193cffc3cbbb466f6e8e3a6f352dbb6abea8895b30e8",
+      "after": "c600ecc0a1e2e9275b2c0741b250cc898f92d2eaea95ec9adf048da40636ea13"
+    },
+    {
+      "action": "write",
+      "path": "tests/sea_trial_presentation_tests.gd",
+      "before": null,
+      "after": "00bb9de8f4c2b2bd62cc10d2740c3c7c45806d1baa79dd3110bb89b0ca6a5502"
+    },
+    {
+      "action": "write",
+      "path": "tests/sea_trial_presentation_tests.gd.uid",
+      "before": null,
+      "after": "a68a0f02da67e8b524e36cf55b24a988b8b0eb10733ef34236aed252904a1885"
+    },
+    {
+      "action": "write",
+      "path": "tests/seven_stars_visual.gd",
+      "before": "bbef075ee53ffd0b037303f985ca1d46a23ec82bab5843199da9c2be9975c96d",
+      "after": "d2198f524a15239adf5470c48829ce1a947a9c619fda8f9ab83f83dca51c4b24"
+    },
+    {
+      "action": "write",
+      "path": "tests/stock_clearance.gd",
+      "before": null,
+      "after": "0c41255d2976921c974d515521783e4a2f986198db3ad47a324682b3e91d4fd5"
+    },
+    {
+      "action": "write",
+      "path": "tests/stock_clearance.gd.uid",
+      "before": null,
+      "after": "91100390af011456e07f7be854dfc742f4efca41470d51ce56bbf82507177a36"
+    },
+    {
+      "action": "write",
+      "path": "tests/stock_clearance_tests.gd",
+      "before": null,
+      "after": "411d658c35680c05075fca21038bff100954285bdbd41d8907bfe9ae968043de"
+    },
+    {
+      "action": "write",
+      "path": "tests/stock_clearance_tests.gd.uid",
+      "before": null,
+      "after": "f59cbd52503153651ff45dc605ef1f9b2197b231f3a6d8d2e2b6f678ef922b44"
+    },
+    {
+      "action": "write",
+      "path": "tests/test_suite_runner.py",
+      "before": null,
+      "after": "421eadaa08994437826375daf50f4e1daffa73342b58af7f838e0f98c3b5d8a9"
+    },
+    {
+      "action": "write",
+      "path": "tests/trial_contact_tests.gd",
+      "before": null,
+      "after": "a78ade7abb176d1f7076a0f5f02a805bf83873b8603281c59348f476930dda87"
+    },
+    {
+      "action": "write",
+      "path": "tests/trial_contact_tests.gd.uid",
+      "before": null,
+      "after": "d1a2f7a481039d772a2658aaa58ece50e46d4b267fe4ebe6d6a6ac85bb4a5ab9"
+    },
+    {
+      "action": "delete",
+      "path": "levels/level01/assets/shipyard_background.png",
+      "before": "1304797432822982952ecc4c3e5a00b72abb837b6f2de16c48c26e4c136f31aa",
+      "after": null
+    },
+    {
+      "action": "delete",
+      "path": "levels/level01/assets/shipyard_background.png.import",
+      "before": "c4ca9b1d805f9e51005eed33ec4c8ee4b2cd4859bfd40905a994ec8442bf34fc",
+      "after": null
+    },
+    {
+      "action": "delete",
+      "path": "levels/shared/workshop_auxiliary.gd",
+      "before": "7cf127b6a134bd0f9b75f076ad4d31106b8811dc8b3b1b7647670e6ccfa4e787",
+      "after": null
+    },
+    {
+      "action": "delete",
+      "path": "levels/shared/workshop_auxiliary.gd.uid",
+      "before": "da26e9760e1545014c9a6eab2b2f9cbb5712ecff46cfc43228f793cb9624e26b",
+      "after": null
+    }
+  ],
+  "concurrent_source_conflicts": []
+}

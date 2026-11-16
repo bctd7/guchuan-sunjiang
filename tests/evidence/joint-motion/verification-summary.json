@@ -1,0 +1,132 @@
+{
+  "date": "2026-11-07",
+  "scope": "First board type distinction, retained side-entry middle, vertical half lap and locking top, actual GPU input/rendering. User visual acceptance remains pending.",
+  "runs": [
+    {
+      "run": "first-join-distinct-geometry",
+      "results": [
+        {
+          "name": "00-levels-boat_joint_geometry_tests",
+          "status": "passed",
+          "seconds": 2.21
+        },
+        {
+          "name": "01-levels-boat_joint_sweep_tests",
+          "status": "passed",
+          "seconds": 0.49
+        },
+        {
+          "name": "02-levels-boat_joint_interaction_tests",
+          "status": "passed",
+          "seconds": 20.23
+        },
+        {
+          "name": "03-levels-trial_contact_tests",
+          "status": "passed",
+          "seconds": 15.72
+        }
+      ],
+      "summary": "tests/evidence/joint-motion/logs/first-join-distinct-geometry/summary.json"
+    },
+    {
+      "run": "first-join-distinct-gpu",
+      "results": [
+        {
+          "name": "00-visual-boat_joint_motion_tests",
+          "status": "passed",
+          "seconds": 31.75
+        },
+        {
+          "name": "01-visual-first_join_tests",
+          "status": "passed",
+          "seconds": 8.77
+        }
+      ],
+      "summary": "tests/evidence/joint-motion/logs/first-join-distinct-gpu/summary.json"
+    },
+    {
+      "run": "first-join-final-regression",
+      "results": [
+        {
+          "name": "00-levels-boat_joint_recovery_tests",
+          "status": "passed",
+          "seconds": 10.67
+        },
+        {
+          "name": "01-levels-level02_alignment_geometry_tests",
+          "status": "passed",
+          "seconds": 3.54
+        },
+        {
+          "name": "02-levels-level02_alignment_tests",
+          "status": "passed",
+          "seconds": 7.47
+        },
+        {
+          "name": "03-levels-level02_clarity_zoom_tests",
+          "status": "passed",
+          "seconds": 16.96
+        },
+        {
+          "name": "04-levels-level02_wrong_type_tests",
+          "status": "passed",
+          "seconds": 83.01
+        }
+      ],
+      "summary": "tests/evidence/joint-motion/logs/first-join-final-regression/summary.json"
+    },
+    {
+      "run": "first-join-centered-gpu",
+      "results": [
+        {
+          "name": "00-visual-first_join_tests",
+          "status": "passed",
+          "seconds": 8.75
+        },
+        {
+          "name": "01-visual-level02_alignment_tests",
+          "status": "passed",
+          "seconds": 11.01
+        }
+      ],
+      "summary": "tests/evidence/joint-motion/logs/first-join-centered-gpu/summary.json"
+    },
+    {
+      "run": "first-join-sweep-final",
+      "results": [
+        {
+          "name": "00-levels-boat_joint_sweep_tests",
+          "status": "passed",
+          "seconds": 0.49
+        }
+      ],
+      "summary": "tests/evidence/joint-motion/logs/first-join-sweep-final/summary.json"
+    }
+  ],
+  "source_sha256": {
+    "models/ship/hull/boat_joints.gd": "514a16bc66560c05d1b07df51297e9171d8bb6aafc79bcc880b49378f16f7da1",
+    "levels/level02/hull_view.gd": "6ebbd6ad4007269ec14af29afd302add88a66be09d79c62ac9a21cdea41091dc",
+    "levels/level02/assembly_alignment.gd": "ec9fc53545c059152d687365351cbf0f12101faa8760146f6b35daf60f47a77e",
+    "levels/level02/inspection_camera.gd": "59550713e971b4951cfa1955997bdb628e84c528b17d722975b890f3f6690a46",
+    "levels/level02/inspection_context.gd": "2eca40696c8fc37f6b31e00a9de3987b5947884ed1c489e391c10a81c70d8fbf",
+    "levels/level02/wood_appearance.gd": "587edb0a76d032dde2773f4e6a9af0b94ebeb765271b0b0ea485a622efef8dec",
+    "levels/level02/joint_gallery.gd": "3cf9bc3988109fa40f8d3addd263a98aa102e09a32fa96171932747d9eef2e62",
+    "levels/level02/level_ui.gd": "31a7ce2db553ac0ec6900dd7fbb82616ef6aa09ede65f1bb0d852f318a1d6086",
+    "levels/shared/joint_demonstration.gd": "190e608d7a074cc0ecc731d925889280d4b9d52686ad0ddda4ce178c6505a07a",
+    "tests/first_join_tests.gd": "5a93e9e484adc34b2ceba22f3c697992b63ef960b9c5743ffc8e505f2baf85eb",
+    "tests/boat_joint_motion_tests.gd": "1991884888154c845efce4cbdc64990f74c27de742d53f8284f2051dfe50ec37",
+    "tests/boat_joint_sweep_tests.gd": "a8cb96f4294b2cb41aac457353756d1412eba016140e174dff515bb5f356cf93",
+    "tests/level02_alignment_geometry_tests.gd": "d83147824819e4563f2820cf4e019573a8296eeba01d33e2ff278ed18d6b5abe"
+  },
+  "evidence": {
+    "first_join": "../first-join/gpu.json",
+    "motion": "gpu.json",
+    "video": "assembly-motion.mp4"
+  },
+  "limits": [
+    "Motion recording precedes final first-row camera centering; internal joint geometry and camera are unchanged by that centering. Final first-row centering is covered by first-join-centered-gpu.",
+    "Older boat-joint-redesign evidence is historical; it does not certify this revision.",
+    "Earlier first-row camera experiments exposed offscreen grab coordinates and pre-layout negative Rect bounds. Guarded real-mesh picking fixed them; final centered GPU input tests pass.",
+    "Fixed teaching geometry checks are not manufacturing or engineering dynamics validation."
+  ]
+}

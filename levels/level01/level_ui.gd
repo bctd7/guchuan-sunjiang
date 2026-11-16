@@ -23,6 +23,7 @@ var selection_label: Label
 var guidance: Label
 var feedback_label: Label
 var count_label: Label
+var return_button: Button
 var inspect_button: Button
 var undo_button: Button
 var restart_button: Button
@@ -43,7 +44,7 @@ var length_buttons: Dictionary={}
 func _ready() -> void:
 	layer=5
 	root=Control.new()
-	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	root.size=Vector2(1440,900)
 	root.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	root.theme=Friendly.make_theme(true)
 	add_child(root)
@@ -81,6 +82,11 @@ func _ready() -> void:
 	navigation_space.custom_minimum_size.x=180
 	navigation_space.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	heading.add_child(navigation_space)
+	return_button=Controls.button(main_chrome,"‹ 关卡目录")
+	return_button.position=Vector2(1244,34)
+	return_button.size=Vector2(160,48)
+	MainStyle.button(return_button)
+	return_button.pressed.connect(func():return_requested.emit())
 	var side=Controls.panel(main_chrome,Rect2(20,144,310,405))
 	main_sidebar=side
 	side.add_theme_stylebox_override("panel",MainStyle.card())
@@ -114,7 +120,7 @@ func _ready() -> void:
 	lesson_button=Controls.button(stack,"船匠的小故事")
 	lesson_button.custom_minimum_size.y=52
 	MainStyle.button(lesson_button)
-	lesson_button.pressed.connect(func(): lesson_requested.emit())
+	lesson_button.pressed.connect(func():lesson_requested.emit())
 	var note=Controls.label(stack,"每种连接亲手装一次，其余同类木料会逐件补齐。",16)
 	note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	note.add_theme_constant_override("line_spacing",3)
@@ -163,7 +169,7 @@ func _ready() -> void:
 	Controls.label(success,"第一关完成 · 龙骨立架成功！",30)
 	Controls.label(success,"你完成了三种不同示范；七件同构木件自动补齐。\n固定龙骨与完整左右骨架已正确咬合。",23)
 	Controls.label(success,"小小船匠知识",21)
-	var facts=Controls.label(success,"半榫进入有底盲槽，透榫穿过通孔并露出背面。\n燕尾沿开放端滑入，宽头窄颈限制脱开方向。\n本关连接布置为教学设计，并非古船历史复原。",19)
+	var facts=Controls.label(success,"半榫进入有底盲槽，透榫穿过通孔并露出背面。\n燕尾沿开放端滑入，宽头窄颈限制脱开方向。",19)
 	facts.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	success_close_button=Controls.button(success,"收起卡片 · 欣赏骨架")
 	success_close_button.pressed.connect(func(): success_panel.hide())
@@ -176,6 +182,9 @@ func _ready() -> void:
 	failure_return_button=failure_overlay.return_button
 	failure_overlay.restart_requested.connect(func(): restart_requested.emit())
 	failure_overlay.return_requested.connect(func(): return_requested.emit())
+	get_viewport().size_changed.connect(_fit_layout)
+	tree_entered.connect(_fit_layout.call_deferred)
+	_fit_layout()
 
 func refresh(state, _joint: String, _length: String, busy := false, checking := false) -> void:
 	var step: int=Rules.REPRESENTATIVE_IDS.find(state.selected)
@@ -196,6 +205,7 @@ func refresh(state, _joint: String, _length: String, busy := false, checking := 
 	count_label.text=" · ".join(progress_words)
 	undo_button.disabled=state.failed or state.placement_order.is_empty()
 	restart_button.disabled=state.failed
+	return_button.disabled=busy
 	inspect_button.disabled=busy or state.failed
 	inspect_button.text="看看这处连接" if state.placed.has(state.selected) else "看榫头，挑木料"
 	lesson_button.disabled=busy or state.failed
@@ -211,3 +221,10 @@ func hide_failure() -> void:
 
 func show_feedback(message: String, error := false) -> void:
 	Controls.feedback(feedback_label,message,error)
+
+func _fit_layout() -> void:
+	if not is_inside_tree():return
+	var viewport_size:=get_viewport().get_visible_rect().size
+	var factor:=minf(viewport_size.x/1440.0,viewport_size.y/900.0)
+	root.scale=Vector2.ONE*factor
+	root.position=(viewport_size-Vector2(1440,900)*factor)*.5

@@ -1,0 +1,65 @@
+{
+  "records": [
+    {
+      "path": "docs/current/LEVEL02_REQUIREMENTS.md",
+      "before": "4c5baf2befc180c5e33695e2c80df7ee7bc1f2e942b993473cc56b5b1fb7e25b",
+      "after": "383ec780773f22e7c65b3e5f7a0dfd2539855eea5fc8d53d6a75aeb4594c2cc7"
+    },
+    {
+      "path": "docs/current/TECHNICAL_ARCHITECTURE.md",
+      "before": "fe4551297ab74a25a8404283b2c7906369c0bd9203d1bbc3e79798d152ac89d2",
+      "after": "85dc37bd020ad1022341d02abeac33f76824913902771277588922700146002e"
+    },
+    {
+      "path": "levels/level02/README.md",
+      "before": "03691a7fbde406fb549c831dd5cd350ff9327736b1e7274257f88563d0ba8659",
+      "after": "1fbb0dd3080821794f6756ad9cdc9fa9e06007e9fc3a191330d211e9f1b6a083"
+    },
+    {
+      "path": "levels/level02/assets/seaside_background.gdshader",
+      "before": null,
+      "after": "187033d54721ec4995cc6c9ef8679704a06570f9e3a97c6a977cfc8996c1f2e7"
+    },
+    {
+      "path": "levels/level02/assets/seaside_background.gdshader.uid",
+      "before": null,
+      "after": "b2ce07ed463666c5727e39720c498279adb79019b215f21d811578d6e6d682d6"
+    },
+    {
+      "path": "levels/level02/assets/seaside_shipyard.generation.json",
+      "before": null,
+      "after": "7951eb6768a5238e282b3810eb17685d9fb33f883d1c3b25b62c8412b1622cd6"
+    },
+    {
+      "path": "levels/level02/assets/seaside_shipyard.png",
+      "before": null,
+      "after": "efeff8daf68368e327082cc4a4701a1abcb6c4a108c513cb199562ebdfb83fb3"
+    },
+    {
+      "path": "levels/level02/assets/seaside_shipyard.png.import",
+      "before": null,
+      "after": "3f0283fe365b066527b30d19412b7b508dc7cccb5dfb462472047e4928222e49"
+    },
+    {
+      "path": "levels/level02/hull_backdrop.gd",
+      "before": "15d212287ee0d93f76e43aa220a2cc668516da65c209fb28b0194244e1ac9568",
+      "after": "5466440da3bcc96c5484955ec9cf7d51908440dbcc3df8b74c2011104742feac"
+    },
+    {
+      "path": "tests/LEVEL02_SEASIDE_BACKGROUND_VERIFICATION.md",
+      "before": null,
+      "after": "02f92aa8bf9119659ecaa7802b0041e5848129e83656d1265caef9b154067095"
+    },
+    {
+      "path": "tests/README.md",
+      "before": "62ac77f31d2dbaa74582d9813179e374895a7de840542d7371833d2a8fd31262",
+      "after": "c512d07b460dca5dc47cbae77bb78aca01278839a8ed7af55956754f59db55b2"
+    }
+  ],
+  "conflicts": [],
+  "protected_originals": [
+    "levels/level01/workshop_backdrop.gd",
+    "shared/assets/shipyard_background.png",
+    "levels/level02/assets/tidal_shipyard.svg"
+  ]
+}

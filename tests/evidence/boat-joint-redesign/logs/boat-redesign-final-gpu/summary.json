@@ -1,0 +1,102 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T14:17:58.528988+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-boat_joint_interaction_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 22.85,
+      "log": "logs/boat-redesign-final-gpu/00-visual-boat_joint_interaction_tests.log",
+      "engine_log": "logs/boat-redesign-final-gpu/00-visual-boat_joint_interaction_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/boat-redesign-final-gpu/00-visual-boat_joint_interaction_tests-engine.log",
+        "--script",
+        "tests/boat_joint_interaction_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 87.04,
+      "log": "logs/boat-redesign-final-gpu/01-visual-level02_wrong_type_tests.log",
+      "engine_log": "logs/boat-redesign-final-gpu/01-visual-level02_wrong_type_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/boat-redesign-final-gpu/01-visual-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "02-visual-level02_structure_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 29.41,
+      "log": "logs/boat-redesign-final-gpu/02-visual-level02_structure_tests.log",
+      "engine_log": "logs/boat-redesign-final-gpu/02-visual-level02_structure_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/boat-redesign-final-gpu/02-visual-level02_structure_tests-engine.log",
+        "--script",
+        "tests/level02_structure_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/touch-gestures/chapter-1-1440-main.png",
+    "res://tests/evidence/touch-gestures/chapter-1-1440-candidates.png",
+    "res://tests/evidence/touch-gestures/chapter-1-1440-magnifier.png",
+    "res://tests/evidence/touch-gestures/chapter-1-960-main.png",
+    "res://tests/evidence/touch-gestures/chapter-1-960-candidates.png",
+    "res://tests/evidence/touch-gestures/chapter-1-960-magnifier.png",
+    "res://tests/evidence/touch-gestures/chapter-2-1440-main.png",
+    "res://tests/evidence/touch-gestures/chapter-2-1440-candidates.png",
+    "res://tests/evidence/touch-gestures/chapter-2-1440-magnifier.png",
+    "res://tests/evidence/touch-gestures/chapter-2-960-main.png",
+    "res://tests/evidence/touch-gestures/chapter-2-960-candidates.png",
+    "res://tests/evidence/touch-gestures/chapter-2-960-magnifier.png"
+  ],
+  "passed": 164,
+  "renderer": "macOS",
+  "scope": "Viewport ScreenTouch/ScreenDrag in chapters 1 and 2: assembly, candidates, magnifier, cross-card/third-finger rejection, park/resume, cancellation, resize, mouse emulation, 1440x900 and 960x600. Physical Windows touch unverified."
+}

@@ -1,0 +1,17 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/chapter-tools/chapter-1-1440.png",
+    "res://tests/evidence/chapter-tools/chapter-1-1100.png",
+    "res://tests/evidence/chapter-tools/chapter-1-960.png",
+    "res://tests/evidence/chapter-tools/chapter-2-1440.png",
+    "res://tests/evidence/chapter-tools/chapter-2-1100.png",
+    "res://tests/evidence/chapter-tools/chapter-2-960.png"
+  ],
+  "method": "Actual Viewport mouse events; not human hardware validation",
+  "passed": 106,
+  "renderer": "macOS",
+  "revision": "chapter-tools-20261101"
+}

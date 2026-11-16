@@ -1,0 +1,18 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/alignment/wrong-cross-aligned-100.png",
+    "res://tests/evidence/alignment/wrong-cross-aligned-249.png",
+    "res://tests/evidence/alignment/wrong-cross-contact-249.png",
+    "res://tests/evidence/alignment/correct-tongue-facing-receiver.png",
+    "res://tests/evidence/alignment/type-cross_lap-exploded.png",
+    "res://tests/evidence/alignment/type-three_way_lap-exploded.png",
+    "res://tests/evidence/alignment/aligned-local-1100.png",
+    "res://tests/evidence/alignment/aligned-local-960.png"
+  ],
+  "method": "Actual Viewport mouse and simulated touch; user's wrong cross-lap at bottom-row tail, 249 percent approach, accepted misfit, withdrawal, correct stock, three-size framing and distinct type models.",
+  "passed": 70,
+  "renderer": "macOS"
+}

@@ -1,4 +1,8 @@
 extends Node
+signal load_failed(chapter: int,reason: String)
+const MENU_HINT := "走近船的各个部位，看清连接，再亲手搭建。"
+var menu_status: Label
+var last_load_error: Dictionary={}
 ## Navigation owns no joinery rules; each chapter retains its own state instance.
 const Friendly = preload("res://shared/ui/friendly_theme.gd")
 const CHAPTERS := [
@@ -54,7 +58,7 @@ func _build_menu() -> void:
 		chapter_buttons[index+1]=button
 		var description:=_label(row,CHAPTERS[index].description,23)
 		description.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	_label(stack,"教学连接与运动范围为游戏设计；各关呈现船体局部。",17)
+	menu_status=_label(stack,MENU_HINT,17)
 
 func _build_navigation() -> void:
 	navigation=CanvasLayer.new()
@@ -78,23 +82,49 @@ func _build_navigation() -> void:
 	navigation.add_child(next_button)
 	navigation.hide()
 
+func _load_chapter(number: int) -> PackedScene:
+	var path: String=CHAPTERS[number-1].scene
+	return load(path) as PackedScene if ResourceLoader.exists(path,"PackedScene") else null
+
+func _supports_chapter(level: Node) -> bool:
+	if not is_instance_valid(level):return false
+	for method in ["enter","leave","is_completed","navigation_status"]:
+		if not level.has_method(method):return false
+	return level.has_signal("return_requested") and level.has_signal("progress_changed")
+
+func _load_failure(number: int,reason: String) -> void:
+	last_load_error={"chapter":number,"reason":reason}
+	menu_status.text="这一关暂时无法打开，请重试。"
+	next_button.tooltip_text=menu_status.text
+	load_failed.emit(number,reason)
+	push_warning("Chapter %d was not opened: %s"%[number,reason])
+
 func open_level(number: int) -> void:
 	if number < 1 or number > CHAPTERS.size(): return
+	var current: Node=instances.get(number)
+	var created:=not is_instance_valid(current)
+	if created:
+		var packed:=_load_chapter(number)
+		if packed==null:
+			_load_failure(number,"scene_unavailable")
+			return
+		current=packed.instantiate()
+	if not _supports_chapter(current):
+		if created and is_instance_valid(current):current.free()
+		_load_failure(number,"invalid_chapter_contract")
+		return
+	# Prepare and validate first: failure retains the current chapter/menu exactly.
 	_detach_active()
-	if not instances.has(number):
-		var packed=load(CHAPTERS[number-1].scene) as PackedScene
-		if packed == null: return
-		var level=packed.instantiate()
-		instances[number]=level
-		if level.has_signal("return_requested"): level.return_requested.connect(_show_menu)
-		level.progress_changed.connect(func(): _chapter_changed(number))
-		add_child(level)
-	else:
-		add_child(instances[number])
-	# Directory visits always present the same lesson doorway, while retaining progress.
-	var current=instances[number]
+	if created:
+		instances[number]=current
+		current.connect("return_requested",_show_menu)
+		current.connect("progress_changed",func(): _chapter_changed(number))
+	add_child(current)
 	current.enter()
 	active_level=number
+	last_load_error.clear()
+	menu_status.text=MENU_HINT
+	next_button.tooltip_text=""
 	menu.hide()
 	navigation.show()
 	_chapter_changed(number)

@@ -1,0 +1,136 @@
+{
+  "records": [
+    {
+      "path": "docs/current/LEVEL02_REQUIREMENTS.md",
+      "before": "383ec780773f22e7c65b3e5f7a0dfd2539855eea5fc8d53d6a75aeb4594c2cc7",
+      "after": "269aaa251c20e522773fa9bcb3a7f9d6481b0b5140eade5b6a2fcc2ef3d89525"
+    },
+    {
+      "path": "docs/current/TECHNICAL_ARCHITECTURE.md",
+      "before": "85dc37bd020ad1022341d02abeac33f76824913902771277588922700146002e",
+      "after": "d602cfaac218cbfc4c0fede3d4a152303b3ffd5af1080d98d49b6b24a2e7b709"
+    },
+    {
+      "path": "levels/level02/README.md",
+      "before": "1fbb0dd3080821794f6756ad9cdc9fa9e06007e9fc3a191330d211e9f1b6a083",
+      "after": "705b680a1e9360e1208d2bd969d3b2c6133e7e0bed617204be73a2aac9bc08f2"
+    },
+    {
+      "path": "levels/level02/hull_drag_interaction.gd",
+      "before": "9ddd8a5e1778dfff09b5167a255844897261b9a9e081cf6aa79d491a91e60d41",
+      "after": "9fbcdc3e33ab241b2413e714f79d4982aad794bca4d0d7c0c2b5969c60d99490"
+    },
+    {
+      "path": "levels/level02/hull_view.gd",
+      "before": "4944ac79741863df5105de38a5894ad1d2768c23c369b196eaecbe0712cde7f4",
+      "after": "4793ffe4b36ddede230d6c057740c67d74d9989516a7bb6641ffe6083eb76af7"
+    },
+    {
+      "path": "levels/level02/inspection_camera.gd",
+      "before": "7f35615fdb2d4465ed1505e1fd136997a56cb08f0403d5e081916b5b9b81f7c6",
+      "after": "40c648313cb0e0e3e4f41bcdc241e3e0f9f5aa6b977d9f287615751b76091b4a"
+    },
+    {
+      "path": "levels/level02/joint_gallery.gd",
+      "before": "8ccaff7f817f7aff60d5f75518fca28d7639b10ddf99786a9a45eb7e4c255c03",
+      "after": "afd2dfdcb13736338923075e582358763b376a373af4285a52590686463ff21a"
+    },
+    {
+      "path": "levels/level02/level02.gd",
+      "before": "c0a3c7ff42f646ff7e7b3cd4c65de01406bbf8e7219574eba8479c65119bdcbb",
+      "after": "7360a1e3825f7596f8de3c6187160557b915e518488e03833787d7499b2aa860"
+    },
+    {
+      "path": "levels/level02/level_ui.gd",
+      "before": "cc775fda94d463a113214ceb8c556f0edaf6cad55c0dff24f3a26e96876b37bf",
+      "after": "b621864f4ef6bc12858b8f031eb8edbf687741a7933ec4ed34134dee34ba1283"
+    },
+    {
+      "path": "levels/level02/model_seam_guides.gd",
+      "before": "294ef430d0382f03d4f9b0665e825b638e7c3f34eee78d14486f8b876234c509",
+      "after": "816e34f52928ee59d6c6bfe6ad25dd5025bc08ce0081991a68e2bc01512ed11f"
+    },
+    {
+      "path": "levels/level02/opening_gallery.gd",
+      "before": "bad16d7f053b8357f0889dc2df41ee19adf1ec9a864c5ad207b91a16cac5d96d",
+      "after": "ed2b89314fa158df4604ecc36feae257d7d31f50e3303ddebfd548a0da5dbd02"
+    },
+    {
+      "path": "levels/level02/wood_appearance.gd",
+      "before": null,
+      "after": "055cbf5b57290c583513287f8c81d787c23916017aaa23b1e57db16ab5d9a8ef"
+    },
+    {
+      "path": "levels/level02/wood_appearance.gd.uid",
+      "before": null,
+      "after": "8a167b7d79163adda5152b0f1fbf47281cdd21fc86bd15607c08d43d9adf6f41"
+    },
+    {
+      "path": "levels/shared/model_magnifier.gd",
+      "before": null,
+      "after": "949c6003ca9ae6163c0337e31177f57f59d9021c36f611f23e9456a991261659"
+    },
+    {
+      "path": "levels/shared/model_magnifier.gd.uid",
+      "before": null,
+      "after": "dac0254d393ae7960df96bd28476ec64154acd150b9269d8453117e7917d02a9"
+    },
+    {
+      "path": "levels/shared/rotatable_preview.gd",
+      "before": "1c6dbf1aeb02b2b9abe4a788c79ba4d459d85cba1a91eaa5408ff3fca3b6c16b",
+      "after": "60b39a3e03a0934269dd8edce359a8b317eb42e0646342463b348fdfffe273eb"
+    },
+    {
+      "path": "levels/shared/selectable_orbit.gd",
+      "before": "566b1160764b8381147d2f1fa49a6f6e1bbbd1538eb3891929c797d3ec326329",
+      "after": "df135932ebffd9fc67b1706e79ca546fc529be566450307c99f87c26f1c4b174"
+    },
+    {
+      "path": "models/ship/hull/ship_geometry.gd",
+      "before": "cdba8996b429f227f929a111daed7e3371f40063c87fc2b44a4d0114a89392a9",
+      "after": "d36141d8fbb94d30ecaa9bb9ac25a10a042ac8453c70ee2e439a6598a00816c4"
+    },
+    {
+      "path": "tests/LEVEL02_CLARITY_ZOOM_VERIFICATION.md",
+      "before": null,
+      "after": "267603a56426a325ce84047c1e4536b1784ed88540a7d628b6888be9d95f7e3b"
+    },
+    {
+      "path": "tests/README.md",
+      "before": "c512d07b460dca5dc47cbae77bb78aca01278839a8ed7af55956754f59db55b2",
+      "after": "968f7410926bc0a24b1a04680fbf3eb2cc443864aa735bd9b5bc2af228050d56"
+    },
+    {
+      "path": "tests/hull_wood_normals_tests.gd",
+      "before": null,
+      "after": "afe900bea05f91dd357fb3a930b976bc38a678625f16bbf12a608e76c65749c7"
+    },
+    {
+      "path": "tests/hull_wood_normals_tests.gd.uid",
+      "before": null,
+      "after": "0ea5d46ac50f5025a14276003ff8c3af904a5f276ba1f84446049165d48c8bb8"
+    },
+    {
+      "path": "tests/level02_clarity_zoom_tests.gd",
+      "before": null,
+      "after": "34ea61148fd11120a3a3436b581e828e4c4c23c3974f3fb7ae43b395b98ef4cb"
+    },
+    {
+      "path": "tests/level02_clarity_zoom_tests.gd.uid",
+      "before": null,
+      "after": "5df77f90ea762df1f5ee7458e0399f02d2eed0bad2c5417cd794008b4801232e"
+    },
+    {
+      "path": "tests/run_suite.py",
+      "before": "c600ecc0a1e2e9275b2c0741b250cc898f92d2eaea95ec9adf048da40636ea13",
+      "after": "38fe69b5a34399e733fd9ec2565af91b507524109a12f049925cecafaf029c5c"
+    },
+    {
+      "path": "tests/test_suite_runner.py",
+      "before": "421eadaa08994437826375daf50f4e1daffa73342b58af7f838e0f98c3b5d8a9",
+      "after": "93fe39121d36ec7b2e7050a26da8175b743ef5fc9c2063e69fa6b2069c6d52fb"
+    }
+  ],
+  "conflicts": [],
+  "scope": "source/docs only; evidence hashes excluded to avoid recursion"
+}

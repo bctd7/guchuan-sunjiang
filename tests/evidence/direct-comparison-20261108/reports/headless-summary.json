@@ -1,0 +1,53 @@
+{
+  "project": "/private/tmp/guchuan-direct-comparison-review",
+  "started_utc": "2026-11-08T15:47:54.667425+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-opening_dimensions_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.95,
+      "log": "/private/tmp/direct-comparison-final-headless-r2/00-levels-opening_dimensions_tests.log",
+      "engine_log": "/private/tmp/direct-comparison-final-headless-r2/00-levels-opening_dimensions_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-comparison-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-comparison-final-headless-r2/00-levels-opening_dimensions_tests-engine.log",
+        "--script",
+        "tests/opening_dimensions_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 30.46,
+      "log": "/private/tmp/direct-comparison-final-headless-r2/01-levels-inspection_workspace_tests.log",
+      "engine_log": "/private/tmp/direct-comparison-final-headless-r2/01-levels-inspection_workspace_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-direct-comparison-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/direct-comparison-final-headless-r2/01-levels-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

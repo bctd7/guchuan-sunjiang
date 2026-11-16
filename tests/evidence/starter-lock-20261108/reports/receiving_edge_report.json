@@ -1,0 +1,6 @@
+{
+  "failed": 0,
+  "failures": [],
+  "passed": 17,
+  "scope": "All actual correct receiver spans, both wrong first-row member families, unchanged answer records with removed/shortened/displaced real tongue controls. Numeric tolerance covers float32 board endpoints, not missing spans."
+}

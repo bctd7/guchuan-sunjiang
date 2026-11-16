@@ -1,0 +1,40 @@
+{
+  "project": "/private/tmp/guchuan-continuable-review",
+  "started_utc": "2026-11-08T05:19:03.544533+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-continuable_joint_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 39.93,
+      "log": "/private/tmp/continuable-gpu-final/00-visual-continuable_joint_tests.log",
+      "engine_log": "/private/tmp/continuable-gpu-final/00-visual-continuable_joint_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-continuable-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/continuable-gpu-final/00-visual-continuable_joint_tests-engine.log",
+        "--script",
+        "tests/continuable_joint_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

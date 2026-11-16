@@ -1,0 +1,253 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+  "started_utc": "2026-11-01T14:37:27.282685+00:00",
+  "groups": [
+    "levels",
+    "classroom",
+    "campaign"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level01_orbit_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.14,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/00-levels-level01_orbit_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/00-levels-level01_orbit_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/00-levels-level01_orbit_tests-engine.log",
+        "--script",
+        "tests/level01_orbit_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level01_inspector_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 22.5,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/01-levels-level01_inspector_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/01-levels-level01_inspector_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/01-levels-level01_inspector_tests-engine.log",
+        "--script",
+        "tests/level01_inspector_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/02-levels-level02_rules_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/02-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/02-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-level02_alignment_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.11,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/03-levels-level02_alignment_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/03-levels-level02_alignment_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/03-levels-level02_alignment_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-level02_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 25.76,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/04-levels-level02_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/04-levels-level02_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/04-levels-level02_input_tests-engine.log",
+        "--script",
+        "tests/level02_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "05-levels-level03_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.6,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/05-levels-level03_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/05-levels-level03_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/05-levels-level03_geometry_tests-engine.log",
+        "--script",
+        "tests/level03_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "06-levels-level03_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 21.16,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/06-levels-level03_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/06-levels-level03_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/06-levels-level03_input_tests-engine.log",
+        "--script",
+        "tests/level03_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "07-classroom-chapter_learning_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.28,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/07-classroom-chapter_learning_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/07-classroom-chapter_learning_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/07-classroom-chapter_learning_tests-engine.log",
+        "--script",
+        "tests/chapter_learning_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "08-classroom-wood_material_entry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.67,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/08-classroom-wood_material_entry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/08-classroom-wood_material_entry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/08-classroom-wood_material_entry_tests-engine.log",
+        "--script",
+        "tests/wood_material_entry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "09-campaign-campaign_reentry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.39,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/09-campaign-campaign_reentry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/09-campaign-campaign_reentry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/09-campaign-campaign_reentry_tests-engine.log",
+        "--script",
+        "tests/campaign_reentry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "10-campaign-campaign_loading_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.91,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/10-campaign-campaign_loading_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/10-campaign-campaign_loading_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/alignment-verified-headless/10-campaign-campaign_loading_tests-engine.log",
+        "--script",
+        "tests/campaign_loading_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T14:24:41.173151+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-boat_joint_interaction_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 22.84,
+      "log": "logs/boat-redesign-release-gpu/00-visual-boat_joint_interaction_tests.log",
+      "engine_log": "logs/boat-redesign-release-gpu/00-visual-boat_joint_interaction_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/boat-redesign-release-gpu/00-visual-boat_joint_interaction_tests-engine.log",
+        "--script",
+        "tests/boat_joint_interaction_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-boat_joint_loose_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 15.28,
+      "log": "logs/boat-redesign-release-gpu/01-visual-boat_joint_loose_tests.log",
+      "engine_log": "logs/boat-redesign-release-gpu/01-visual-boat_joint_loose_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/boat-redesign-release-gpu/01-visual-boat_joint_loose_tests-engine.log",
+        "--script",
+        "tests/boat_joint_loose_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

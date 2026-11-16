@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-01",
+  "isolated_copy": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-story-copy-cwtbkwbe",
+  "files": [
+    "levels/level01/shipwright_story.gd",
+    "levels/level01/level_ui.gd",
+    "levels/level02/bulkhead_lesson.gd",
+    "levels/level03/level_ui.gd",
+    "campaign/campaign.gd",
+    "levels/level02/level_ui.gd",
+    "levels/level02/level_state.gd",
+    "levels/level01/level01.gd"
+  ],
+  "tests": [
+    {
+      "test": "shipwright_story_tests",
+      "passed": 89,
+      "failed": 0
+    },
+    {
+      "test": "seven_stars_visual",
+      "passed": 32,
+      "failed": 0
+    },
+    {
+      "test": "chinese_font_tests",
+      "passed": 3417,
+      "failed": 0
+    },
+    {
+      "test": "chapter_learning_tests",
+      "passed": 410,
+      "failed": 0
+    },
+    {
+      "test": "campaign_tests --phase=full",
+      "passed": 425,
+      "failed": 0
+    },
+    {
+      "test": "level02_rules_tests",
+      "passed": 35,
+      "failed": 0
+    },
+    {
+      "test": "level03_input_tests",
+      "passed": 155,
+      "failed": 0
+    },
+    {
+      "test": "auxiliary_panel_tests",
+      "passed": 99,
+      "failed": 0
+    }
+  ],
+  "story_paragraphs_unchanged": true,
+  "artwork_unchanged": true,
+  "integration": "Exact text replacement; all eight integrated scripts matched tested copy; existing first/second chapter UI edits retained.",
+  "blockers": []
+}

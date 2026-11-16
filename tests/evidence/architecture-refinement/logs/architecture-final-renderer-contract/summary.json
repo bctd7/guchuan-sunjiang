@@ -1,0 +1,38 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+  "started_utc": "2026-11-01T10:49:04.719240+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-seven_stars_visual",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 5.25,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-renderer-contract/00-visual-seven_stars_visual.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-renderer-contract/00-visual-seven_stars_visual-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-renderer-contract/00-visual-seven_stars_visual-engine.log",
+        "--script",
+        "tests/seven_stars_visual.gd"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

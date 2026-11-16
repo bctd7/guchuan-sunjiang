@@ -1,0 +1,15 @@
+{
+  "failed": 5,
+  "failures": [
+    "enlarging another length does not select or install",
+    "first candidate clone supports touch rotation and visible zoom",
+    "operable 返回选材",
+    "operable 返回选材",
+    "operable 返回选材"
+  ],
+  "host_had_focus": false,
+  "images": [],
+  "method": "Actual Viewport mouse/simulated touch: first candidate orbit/magnifier/zoom, neutral wrong review then whole verdict, 3 sizes; second 7 manual/3 repeated boards, exact wrong propagation, undo, correct/type/opening/aligned full trials. Not physical touchscreen QA.",
+  "passed": 2411,
+  "renderer": "headless"
+}

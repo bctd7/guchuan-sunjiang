@@ -1,0 +1,42 @@
+[
+  {
+    "path": "campaign/campaign.gd",
+    "formal_sha256": "f5656ac92e694e93811d0835b7e3a3eb4b649b101dc80ef8860d454f18ad7b48",
+    "mode": "copied concurrent change"
+  },
+  {
+    "path": "levels/level01/level_ui.gd",
+    "formal_sha256": "32a0013bac109cd0f054f50a486f9a0759ba44c91f9cae448adec404edb74184",
+    "mode": "three-way merged"
+  },
+  {
+    "path": "levels/level01/level01.gd",
+    "formal_sha256": "0e7741325b29d595cf1fabbe13386868d012f3354ce93d9e8b91b4836685328f",
+    "mode": "copied concurrent change"
+  },
+  {
+    "path": "levels/level01/shipwright_story.gd",
+    "formal_sha256": "3910a2107eed7ae2aa1a763154e943032af67fa55f86bdea3fb0fe3bab6bc520",
+    "mode": "copied concurrent change"
+  },
+  {
+    "path": "levels/level03/level_ui.gd",
+    "formal_sha256": "de75437d92f682c2a43254537372c892044478b910fe20e5c2a97d3079bfde2d",
+    "mode": "copied concurrent change"
+  },
+  {
+    "path": "levels/level02/level_ui.gd",
+    "formal_sha256": "10ca68b4ce46d6d55e9c3fc089d998d0a05fca05be5a6f59dc7653e46dea996f",
+    "mode": "copied concurrent change"
+  },
+  {
+    "path": "levels/level02/level_state.gd",
+    "formal_sha256": "3374c9d5499a7ea137aa9ab3f9810d32ca2686b7132287e0d348ee4f7ae8ba78",
+    "mode": "three-way merged"
+  },
+  {
+    "path": "levels/level02/bulkhead_lesson.gd",
+    "formal_sha256": "8b8e44bd8463b42df09786acab7ed27df6f8e7996595bb6d887567a284f1f0ea",
+    "mode": "copied concurrent change"
+  }
+]

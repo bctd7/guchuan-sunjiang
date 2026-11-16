@@ -1,0 +1,31 @@
+{
+  "project": "/private/tmp/guchuan-first-lock-review",
+  "started_utc": "2026-11-08T06:19:49.039149+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-starter_lock_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.24,
+      "log": "/private/tmp/first-lock-clearance/00-levels-starter_lock_geometry_tests.log",
+      "engine_log": "/private/tmp/first-lock-clearance/00-levels-starter_lock_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-first-lock-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-lock-clearance/00-levels-starter_lock_geometry_tests-engine.log",
+        "--script",
+        "tests/starter_lock_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

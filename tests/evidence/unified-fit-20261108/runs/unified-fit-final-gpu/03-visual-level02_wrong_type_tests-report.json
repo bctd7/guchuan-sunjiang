@@ -1,0 +1,19 @@
+{
+  "cases": 8,
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/level02-late-fit/direct-plank_0a-cross_lap.png",
+    "res://tests/evidence/level02-late-fit/direct-plank_0a-three_way_lap.png",
+    "res://tests/evidence/level02-late-fit/direct-cross_upper-tongue_groove.png",
+    "res://tests/evidence/level02-late-fit/direct-cross_upper-three_way_lap.png",
+    "res://tests/evidence/level02-late-fit/direct-three_middle-tongue_groove.png",
+    "res://tests/evidence/level02-late-fit/direct-three_middle-cross_lap.png",
+    "res://tests/evidence/level02-late-fit/direct-three_upper-tongue_groove.png",
+    "res://tests/evidence/level02-late-fit/direct-three_upper-cross_lap.png"
+  ],
+  "method": "All eight off-type choices at four manual steps via mouse/touch. Shallow exploration is neutral; committed impossible contact fails automatically; first wrong joints finish locally before failure.",
+  "passed": 3227,
+  "renderer": "macOS"
+}

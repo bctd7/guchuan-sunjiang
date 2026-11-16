@@ -1,0 +1,9 @@
+{
+	"failed": 0,
+	"failures": [],
+	"method": "Actual Godot Viewport mouse events injected by automation; no direct business state mutation; not human hardware input",
+	"passed": 391,
+	"phase": "full",
+	"renderer": "headless",
+	"screenshots": []
+}

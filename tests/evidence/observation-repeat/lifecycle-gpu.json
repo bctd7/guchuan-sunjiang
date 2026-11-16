@@ -1,0 +1,12 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/observation-repeat/second-automatic-board-mid-motion.png",
+    "res://tests/evidence/observation-repeat/second-one-operation-two-boards-final.png"
+  ],
+  "method": "Actual Viewport GUI: restart during automatic board tween, exact provenance across directory, undo later wrong pair, no gameplay state writes",
+  "passed": 249,
+  "renderer": "macOS"
+}

@@ -1,0 +1,1132 @@
+{
+  "completed_utc": "2026-11-01T10:49:14.476926+00:00",
+  "headless_passed": 38,
+  "gpu_passed": 8,
+  "python_passed": 6,
+  "headless": [
+    {
+      "suite": "architecture-final-core-retry",
+      "name": "00-core-run_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.39,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/00-core-run_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/00-core-run_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/00-core-run_tests-engine.log",
+        "--script",
+        "tests/run_tests.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "architecture-final-core-retry",
+      "name": "01-core-collision_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.42,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/01-core-collision_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/01-core-collision_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-core-retry/01-core-collision_tests-engine.log",
+        "--script",
+        "tests/collision_tests.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "02-core-drag_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 20.07,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/02-core-drag_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/02-core-drag_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/02-core-drag_input_tests-engine.log",
+        "--script",
+        "tests/drag_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "03-core-camera_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.65,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/03-core-camera_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/03-core-camera_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/03-core-camera_tests-engine.log",
+        "--script",
+        "tests/camera_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "04-classroom-chapter_learning_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.27,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/04-classroom-chapter_learning_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/04-classroom-chapter_learning_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/04-classroom-chapter_learning_tests-engine.log",
+        "--script",
+        "tests/chapter_learning_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "05-classroom-wood_material_entry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.64,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/05-classroom-wood_material_entry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/05-classroom-wood_material_entry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/05-classroom-wood_material_entry_tests-engine.log",
+        "--script",
+        "tests/wood_material_entry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "06-classroom-chinese_font_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.8,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/06-classroom-chinese_font_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/06-classroom-chinese_font_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/06-classroom-chinese_font_tests-engine.log",
+        "--script",
+        "tests/chinese_font_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "07-classroom-dynamic_integration_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.53,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/07-classroom-dynamic_integration_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/07-classroom-dynamic_integration_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/07-classroom-dynamic_integration_tests-engine.log",
+        "--script",
+        "tests/dynamic_integration_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "08-classroom-force_gallery_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 21.76,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/08-classroom-force_gallery_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/08-classroom-force_gallery_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/08-classroom-force_gallery_tests-engine.log",
+        "--script",
+        "tests/force_gallery_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "09-classroom-force_sequence_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.94,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/09-classroom-force_sequence_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/09-classroom-force_sequence_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/09-classroom-force_sequence_tests-engine.log",
+        "--script",
+        "tests/force_sequence_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "10-classroom-test_education",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.79,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/10-classroom-test_education.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/10-classroom-test_education-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/10-classroom-test_education-engine.log",
+        "--script",
+        "classroom/science/test_education.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "11-classroom-test_dynamic",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.51,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/11-classroom-test_dynamic.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/11-classroom-test_dynamic-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/11-classroom-test_dynamic-engine.log",
+        "--script",
+        "classroom/science/dynamic/test_dynamic.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-campaign-retry",
+      "name": "00-campaign-campaign_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 90.36,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/00-campaign-campaign_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/00-campaign-campaign_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/00-campaign-campaign_tests-engine.log",
+        "--script",
+        "tests/campaign_tests.gd",
+        "--",
+        "--phase=full"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-campaign-retry",
+      "name": "01-campaign-campaign_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 18.94,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/01-campaign-campaign_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/01-campaign-campaign_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-campaign-retry/01-campaign-campaign_tests-engine.log",
+        "--script",
+        "tests/campaign_tests.gd",
+        "--",
+        "--phase=classroom"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "14-campaign-campaign_reentry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.29,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/14-campaign-campaign_reentry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/14-campaign-campaign_reentry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/14-campaign-campaign_reentry_tests-engine.log",
+        "--script",
+        "tests/campaign_reentry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-cross",
+      "name": "15-campaign-campaign_loading_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.89,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/15-campaign-campaign_loading_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/15-campaign-campaign_loading_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-cross/15-campaign-campaign_loading_tests-engine.log",
+        "--script",
+        "tests/campaign_loading_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "00-levels-level01_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/00-levels-level01_rules_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/00-levels-level01_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/00-levels-level01_rules_tests-engine.log",
+        "--script",
+        "tests/level01_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "01-levels-level01_length_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/01-levels-level01_length_rules_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/01-levels-level01_length_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/01-levels-level01_length_rules_tests-engine.log",
+        "--script",
+        "tests/level01_length_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "02-levels-level01_trial_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.46,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/02-levels-level01_trial_rules_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/02-levels-level01_trial_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/02-levels-level01_trial_rules_tests-engine.log",
+        "--script",
+        "tests/level01_trial_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "03-levels-level01_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 42.05,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/03-levels-level01_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/03-levels-level01_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/03-levels-level01_input_tests-engine.log",
+        "--script",
+        "tests/level01_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "04-levels-level01_orbit_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.14,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/04-levels-level01_orbit_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/04-levels-level01_orbit_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/04-levels-level01_orbit_tests-engine.log",
+        "--script",
+        "tests/level01_orbit_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "05-levels-level01_inspector_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 22.45,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/05-levels-level01_inspector_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/05-levels-level01_inspector_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/05-levels-level01_inspector_tests-engine.log",
+        "--script",
+        "tests/level01_inspector_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "06-levels-bulkhead_story_visual",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.65,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/06-levels-bulkhead_story_visual.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/06-levels-bulkhead_story_visual-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/06-levels-bulkhead_story_visual-engine.log",
+        "--script",
+        "tests/bulkhead_story_visual.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "07-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/07-levels-level02_rules_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/07-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/07-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "08-levels-level02_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.78,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/08-levels-level02_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/08-levels-level02_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/08-levels-level02_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "09-levels-opening_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.56,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/09-levels-opening_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/09-levels-opening_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/09-levels-opening_geometry_tests-engine.log",
+        "--script",
+        "tests/opening_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "10-levels-sea_trial_presentation_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.35,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/10-levels-sea_trial_presentation_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/10-levels-sea_trial_presentation_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/10-levels-sea_trial_presentation_tests-engine.log",
+        "--script",
+        "tests/sea_trial_presentation_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "11-levels-level02_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 25.78,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/11-levels-level02_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/11-levels-level02_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/11-levels-level02_input_tests-engine.log",
+        "--script",
+        "tests/level02_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "12-levels-level02_drag_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 42.61,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/12-levels-level02_drag_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/12-levels-level02_drag_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/12-levels-level02_drag_tests-engine.log",
+        "--script",
+        "tests/level02_drag_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "13-levels-auxiliary_panel_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.8,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/13-levels-auxiliary_panel_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/13-levels-auxiliary_panel_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/13-levels-auxiliary_panel_tests-engine.log",
+        "--script",
+        "tests/auxiliary_panel_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "14-levels-level03_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.6,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/14-levels-level03_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/14-levels-level03_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/14-levels-level03_geometry_tests-engine.log",
+        "--script",
+        "tests/level03_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "15-levels-level03_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 21.16,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/15-levels-level03_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/15-levels-level03_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/15-levels-level03_input_tests-engine.log",
+        "--script",
+        "tests/level03_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-levels",
+      "name": "16-levels-shipwright_story_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.37,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/16-levels-shipwright_story_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/16-levels-shipwright_story_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-levels/16-levels-shipwright_story_tests-engine.log",
+        "--script",
+        "tests/shipwright_story_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-motion",
+      "name": "00-levels-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 31.52,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-motion/00-levels-level02_wrong_type_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-motion/00-levels-level02_wrong_type_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-motion/00-levels-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-motion",
+      "name": "01-levels-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 33.09,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-motion/01-levels-inspection_workspace_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-motion/01-levels-inspection_workspace_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-motion/01-levels-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-contact-final-matrix",
+      "name": "00-levels-trial_contact_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 13.23,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-contact-final-matrix/00-levels-trial_contact_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-contact-final-matrix/00-levels-trial_contact_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-contact-final-matrix/00-levels-trial_contact_tests-engine.log",
+        "--script",
+        "tests/trial_contact_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-failure-retry",
+      "name": "00-levels-stock_clearance_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.2,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-failure-retry/00-levels-stock_clearance_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-failure-retry/00-levels-stock_clearance_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-failure-retry/00-levels-stock_clearance_tests-engine.log",
+        "--script",
+        "tests/stock_clearance_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "architecture-final-failure-retry",
+      "name": "01-levels-level01_failure_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 97.33,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-failure-retry/01-levels-level01_failure_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-failure-retry/01-levels-level01_failure_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-failure-retry/01-levels-level01_failure_tests-engine.log",
+        "--script",
+        "tests/level01_failure_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ],
+  "gpu": [
+    {
+      "suite": "architecture-final-gpu-contact",
+      "name": "00-visual-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 38.61,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/00-visual-inspection_workspace_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/00-visual-inspection_workspace_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/00-visual-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "architecture-final-gpu-contact",
+      "name": "01-visual-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 35.99,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/01-visual-level02_wrong_type_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/01-visual-level02_wrong_type_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-contact/01-visual-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "architecture-final-gpu-regression",
+      "name": "00-visual-wood_material_entry_visual",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 9.68,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/00-visual-wood_material_entry_visual.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/00-visual-wood_material_entry_visual-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/00-visual-wood_material_entry_visual-engine.log",
+        "--script",
+        "tests/wood_material_entry_visual.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "architecture-final-gpu-regression",
+      "name": "01-visual-level01_failure_visual",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.82,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/01-visual-level01_failure_visual.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/01-visual-level01_failure_visual-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/01-visual-level01_failure_visual-engine.log",
+        "--script",
+        "tests/level01_failure_visual.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "architecture-final-renderer-contract",
+      "name": "00-visual-seven_stars_visual",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 5.25,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-renderer-contract/00-visual-seven_stars_visual.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-renderer-contract/00-visual-seven_stars_visual-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-renderer-contract/00-visual-seven_stars_visual-engine.log",
+        "--script",
+        "tests/seven_stars_visual.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "architecture-final-gpu-regression",
+      "name": "03-visual-bulkhead_story_visual",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.82,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/03-visual-bulkhead_story_visual.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/03-visual-bulkhead_story_visual-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/03-visual-bulkhead_story_visual-engine.log",
+        "--script",
+        "tests/bulkhead_story_visual.gd"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "architecture-final-gpu-regression",
+      "name": "04-visual-level02_drag_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 50.01,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/04-visual-level02_drag_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/04-visual-level02_drag_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/04-visual-level02_drag_tests-engine.log",
+        "--script",
+        "tests/level02_drag_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "architecture-final-gpu-regression",
+      "name": "05-visual-auxiliary_panel_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.13,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/05-visual-auxiliary_panel_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/05-visual-auxiliary_panel_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/architecture-final-gpu-regression/05-visual-auxiliary_panel_tests-engine.log",
+        "--script",
+        "tests/auxiliary_panel_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ],
+  "scope": "Mac automated Viewport mouse/simulated touch and background GPU; not human input, physical touch device, other OS or engineering physics",
+  "earlier_failures_retained": "logs/architecture-final-cross includes sandbox fixture writes and obsolete classroom route; logs/architecture-final-levels includes obsolete hidden repair signal. Corrected/retried suites above supersede those results; original logs remain."
+}

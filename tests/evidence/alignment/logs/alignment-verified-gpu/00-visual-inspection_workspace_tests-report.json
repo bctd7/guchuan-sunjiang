@@ -1,0 +1,24 @@
+{
+  "clearance_samples": 4193,
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/inspection-workspace/chapter-1-overview.png",
+    "res://tests/evidence/inspection-workspace/chapter-1-local.png",
+    "res://tests/evidence/inspection-workspace/chapter-1-selected.png",
+    "res://tests/evidence/inspection-workspace/chapter-2-overview.png",
+    "res://tests/evidence/inspection-workspace/chapter-2-local.png",
+    "res://tests/evidence/inspection-workspace/chapter-2-rotated.png",
+    "res://tests/evidence/inspection-workspace/chapter-2-selected.png",
+    "res://tests/evidence/inspection-workspace/opening-mismatch-wave-impact.png",
+    "res://tests/evidence/inspection-workspace/wrong-openings-final-trial.png",
+    "res://tests/evidence/inspection-workspace/matching-openings-complete.png",
+    "res://tests/evidence/inspection-workspace/bulkhead-local-1100.png",
+    "res://tests/evidence/inspection-workspace/bulkhead-local-960.png"
+  ],
+  "method": "Actual Viewport mouse and simulated touch, original geometry and full trial paths; not human hardware validation",
+  "passed": 1073,
+  "renderer": "macOS",
+  "revision": "inspection-workspace-20261101"
+}

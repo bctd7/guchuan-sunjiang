@@ -1,0 +1,71 @@
+{
+  "project": "/private/tmp/guchuan-starter-finish-failure-review",
+  "started_utc": "2026-11-08T07:00:09.070962+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-starter_lock_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 12.93,
+      "log": "/private/tmp/starter-finish-final-gpu/00-visual-starter_lock_tests.log",
+      "engine_log": "/private/tmp/starter-finish-final-gpu/00-visual-starter_lock_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-starter-finish-failure-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/starter-finish-final-gpu/00-visual-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-continuable_joint_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.22,
+      "log": "/private/tmp/starter-finish-final-gpu/01-visual-continuable_joint_tests.log",
+      "engine_log": "/private/tmp/starter-finish-final-gpu/01-visual-continuable_joint_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-starter-finish-failure-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/starter-finish-final-gpu/01-visual-continuable_joint_tests-engine.log",
+        "--script",
+        "tests/continuable_joint_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

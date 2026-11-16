@@ -1,4 +1,5 @@
 extends SceneTree
+const HullNavigation=preload("res://tests/hull_navigation.gd")
 const HullPointer=preload("res://tests/hull_pointer.gd")
 ## Independent campaign acceptance. All actions use Viewport pointer events.
 ## State properties are read only. This is automated injection, not human hardware.
@@ -156,22 +157,23 @@ func smoke_l1() -> void:
 	await snapshot("01-level01-progress-preserved")
 
 func place_l2(id: String) -> void:
-	await button(level.panel.piece_buttons[id])
-	await button(level.panel.observe_button)
+	if level.state.placed.has(id) and level.state.placed[id].get("automatic",false):return
+	await HullNavigation.open_local(root,level,id)
 	check(level.view.inspected and level.state.observed.has(id),"chapter two opens actual observed member: "+id)
 	check(not level.panel.observe_button.get_global_rect().intersects(campaign.back_button.get_global_rect()),"chapter two observation control clears campaign return")
 	await button(level.panel.joint_buttons[level.Rules.expected(id)])
+	await button(level.panel.opening_buttons[level.state.Openings.target(id)])
 	var row: int=level.Rules.row_for(id)
 	if row>0 and id.ends_with("a"):
 		await button(level.panel.layout_buttons["B" if row==1 else "A"])
-	await button(level.panel.overview_button)
 	var target: Vector2=level.view.drag_grab_screen()
 	check(level.view.pick_drag_piece(target)==id,"chapter two actual timber is pickable: "+id)
 	await settle(.5)
 	await HullPointer.drag(root,level.view,1.0)
 	var deadline:=Time.get_ticks_msec()+5000
 	while level.busy and Time.get_ticks_msec()<deadline: await process_frame
-	await settle(.06) # allow campaign navigation to reflect the finished tween
+	if level.view.inspected:await button(level.panel.overview_button)
+	await settle(.06) # allow campaign navigation to reflect the local-page return
 	check(not level.busy and not campaign.back_button.disabled,"chapter two finished motion restores navigation")
 	check(level.state.placed.has(id),"chapter two pointer places "+id)
 
@@ -193,15 +195,16 @@ func chapter_two() -> void:
 		var mesh: BoxMesh=marks[row].mesh
 		check(mesh.size.x<mesh.size.z*.2 and mesh.size.z>.7 and mesh.size.z<.8,"seam marker spans board width rather than long horizontal edge: "+str(row))
 		check(is_equal_approx(marks[row].position.x,level.Rules.seam(level.state.layouts[row])),"seam marker follows actual board end x: "+str(row))
-	await button(level.panel.check_button)
 	check(level.state.completed and campaign.completed.get(2,false),"chapter two UI inspection synchronizes campaign completion")
 	check(campaign.next_button.is_visible_in_tree(),"chapter two completion exposes chapter three action")
 	await snapshot("04-level02-completed-end-seams")
-	var close:=find_button(level.panel,"查看完成")
+	var close:=find_button(level.panel,"收起卡片")
 	if close!=null: await button(close)
 	await snapshot("05-level02-hull-unobstructed")
-	await button(level.panel.plan_button)
-	await snapshot("06-level02-board-end-map")
+	await button(level.panel.inventory_button)
+	check(level.panel.group_buttons.size()==6,"six display groups retain ten placed members")
+	await snapshot("06-level02-six-groups")
+	await button(level.panel.inventory_close_button)
 	await back()
 	check(campaign.chapter_buttons[2].text.begins_with("✓"),"chapter two directory badge records completion")
 	await enter(2)
@@ -210,7 +213,6 @@ func chapter_two() -> void:
 	check(not campaign.next_button.visible and not campaign.chapter_buttons[2].text.begins_with("✓"),"chapter two reset clears badge and next action")
 	if phase=="full":
 		for id in level.Rules.IDS: await place_l2(id)
-		await button(level.panel.check_button)
 		await button(campaign.next_button)
 		await settle(0.4)
 		level=campaign.instances[3]
@@ -306,6 +308,7 @@ func classroom_navigation() -> void:
 	for number in [1,2,3]:
 		await enter(number)
 		if number==1: await place_l1("rib_l1")
+		if number==2:await HullNavigation.open_local(root,level,level.state.selected)
 		var saved=level.state.placed.duplicate(true)
 		var camera_pose: Transform3D=level.view.camera.transform
 		if number==1:
@@ -329,6 +332,9 @@ func classroom_navigation() -> void:
 		await settle(.2)
 		check(not level.learning.modal_open() and level.state.placed==saved,"introduction return preserves chapter state: "+str(number))
 		check(level.view.visible and level.panel.visible and level.view.camera.transform.is_equal_approx(camera_pose),"source view, panel and camera pose restored: "+str(number))
+		if number==2:
+			check(level.view.inspected and not campaign.navigation.visible,"second chapter classroom returns to its exact local workspace")
+			await button(level.panel.overview_button)
 		check(campaign.back_button.is_visible_in_tree(),"campaign navigation returns after classroom closes: "+str(number))
 		await back()
 
@@ -376,17 +382,9 @@ func run() -> void:
 			await chapter_two()
 			await chapter_three()
 	var report: Dictionary={"phase":phase,"passed":passed,"failed":failed,"failures":failures,"screenshots":screenshots,"method":"Actual Godot Viewport mouse events injected by automation; no direct business state mutation; not human hardware input","renderer":DisplayServer.get_name()}
-	if phase in ["classroom","visual"] and FileAccess.file_exists("res://tests/campaign_report.json"):
-		var previous=JSON.parse_string(FileAccess.get_file_as_string("res://tests/campaign_report.json"))
-		if previous is Dictionary and previous.get("phase","")=="full":
-			previous["supplementary_"+phase]=report.duplicate(true)
-			previous["passed"]+=passed
-			previous["failed"]+=failed
-			previous["failures"].append_array(failures)
-			previous["screenshots"].append_array(screenshots)
-			report=previous
 	var file:=FileAccess.open("res://tests/campaign_report.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"\t"))
+	FileAccess.open("res://tests/campaign_"+phase+"_report.json",FileAccess.WRITE).store_string(JSON.stringify(report,"\t"))
 	print("CAMPAIGN ",JSON.stringify(report))
 	campaign.free()
 	quit(0 if failed==0 else 1)

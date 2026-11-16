@@ -1,0 +1,53 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-08T06:15:01.320987+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-starter_lock_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.03,
+      "log": "/private/tmp/first-lock-initial/00-levels-starter_lock_geometry_tests.log",
+      "engine_log": "/private/tmp/first-lock-initial/00-levels-starter_lock_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-lock-initial/00-levels-starter_lock_geometry_tests-engine.log",
+        "--script",
+        "tests/starter_lock_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-starter_lock_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 11.15,
+      "log": "/private/tmp/first-lock-initial/01-levels-starter_lock_tests.log",
+      "engine_log": "/private/tmp/first-lock-initial/01-levels-starter_lock_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/first-lock-initial/01-levels-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

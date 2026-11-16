@@ -1,0 +1,62 @@
+{
+  "failed": 0,
+  "failures": [],
+  "passed": 56,
+  "scope": "Actual generated boat meshes. 66 samples per vertical approach and 131 per horizontal middle approach; independent triangle/containment and horizontal-cap polygon oracle, retaining-lip and top-lock controls, plus downward penetration controls proving real contact. Not engineering dynamics.",
+  "three_piece_matrix": [
+    {
+      "full_fit": false,
+      "middle": "A",
+      "stop_height": 0.0811804687499999,
+      "top": "A"
+    },
+    {
+      "full_fit": false,
+      "middle": "A",
+      "stop_height": 0.16118046875,
+      "top": "B"
+    },
+    {
+      "full_fit": false,
+      "middle": "A",
+      "stop_height": 0.24118046875,
+      "top": "C"
+    },
+    {
+      "full_fit": false,
+      "middle": "B",
+      "stop_height": 0.0811804687499999,
+      "top": "A"
+    },
+    {
+      "full_fit": false,
+      "middle": "B",
+      "stop_height": 0.16118046875,
+      "top": "B"
+    },
+    {
+      "full_fit": false,
+      "middle": "B",
+      "stop_height": 0.24118046875,
+      "top": "C"
+    },
+    {
+      "full_fit": true,
+      "middle": "C",
+      "stop_height": 0.0,
+      "top": "A"
+    },
+    {
+      "full_fit": false,
+      "middle": "C",
+      "stop_height": 0.16118046875,
+      "top": "B"
+    },
+    {
+      "full_fit": false,
+      "middle": "C",
+      "stop_height": 0.16118046875,
+      "top": "C"
+    }
+  ]
+}

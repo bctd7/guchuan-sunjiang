@@ -176,7 +176,7 @@ func sync_state(placed: Dictionary, stage: String, selected: String) -> void:
 		if stage in ["complete", "failed"]: slots[id].visible = false
 		markers[id].modulate = Color("c29439") if placed.has(id) else (Color("29a79a") if id == selected else Color("507f88"))
 		labels[id].text = str(LABELS[id]) + (" ✓" if placed.has(id) else "")
-		if placed.has(id) and not TrialFit.is_stable(id,length,joint):
+		if stage=="failed" and placed.has(id) and not TrialFit.is_stable(id,length,joint):
 			markers[id].modulate = Color("ca6041")
 			labels[id].text = str(LABELS[id]) + " · 连接待检查"
 

@@ -1,0 +1,40 @@
+{
+  "project": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-work",
+  "started_utc": "2026-11-01T11:21:50.671188+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-backdrop_probe",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.42,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-probe-retry/00-visual-backdrop_probe.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-probe-retry/00-visual-backdrop_probe-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/seaside-background-probe-retry/00-visual-backdrop_probe-engine.log",
+        "--script",
+        "tests/evidence/seaside-background/backdrop_probe.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

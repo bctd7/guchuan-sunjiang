@@ -1,0 +1,15 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/boat-joint-redesign/wrong-type-stops-without-failure.png",
+    "res://tests/evidence/boat-joint-redesign/middle-fits-lower-leaves-wrong-channel.png",
+    "res://tests/evidence/boat-joint-redesign/top-meets-wrong-middle-channel.png",
+    "res://tests/evidence/boat-joint-redesign/bulkhead-shallow-mouth-stops.png",
+    "res://tests/evidence/boat-joint-redesign/recovered-build-completes.png"
+  ],
+  "passed": 934,
+  "renderer": "macOS",
+  "scope": "Production game using actual Viewport mouse events: repeated recoverable jam, orbit, withdrawal/replacement, wrong middle provisionally seats, top obstructed by its channel, preceding-piece repair, final bulkhead repair, same-run completion, explicit inspection failure and directory restart."
+}

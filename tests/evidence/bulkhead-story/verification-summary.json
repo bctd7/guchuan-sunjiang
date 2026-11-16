@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-01",
+  "first_chapter_visual_changes_reverted": true,
+  "first_chapter_copy_cleanup_retained": true,
+  "second_chapter_paragraphs_unchanged": true,
+  "second_chapter_interaction_lifecycle_unchanged": true,
+  "asset": "levels/level02/assets/watertight_bulkhead_story.png",
+  "generation": "Built-in image_gen with chapter-one image as style reference; full prompt in adjacent generation.json",
+  "tests": {
+    "first_story_lifecycle": [
+      89,
+      0
+    ],
+    "first_story_gpu": [
+      32,
+      0
+    ],
+    "second_story_headless": [
+      58,
+      0
+    ],
+    "second_story_gpu": [
+      69,
+      0
+    ],
+    "chinese_fonts": [
+      3471,
+      0
+    ],
+    "auxiliary_panels": [
+      99,
+      0
+    ]
+  },
+  "isolation_copy": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-bulkhead-story-bzqxtjur",
+  "blockers": []
+}

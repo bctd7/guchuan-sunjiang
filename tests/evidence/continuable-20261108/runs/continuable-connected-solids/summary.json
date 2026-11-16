@@ -1,0 +1,31 @@
+{
+  "project": "/private/tmp/guchuan-continuable-review",
+  "started_utc": "2026-11-08T05:19:34.928892+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-starter_joint_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.54,
+      "log": "/private/tmp/continuable-connected-solids/00-levels-starter_joint_tests.log",
+      "engine_log": "/private/tmp/continuable-connected-solids/00-levels-starter_joint_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-continuable-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/continuable-connected-solids/00-levels-starter_joint_tests-engine.log",
+        "--script",
+        "tests/starter_joint_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

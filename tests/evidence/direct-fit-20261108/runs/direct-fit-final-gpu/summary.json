@@ -1,0 +1,71 @@
+{
+  "project": "/private/tmp/guchuan-direct-fit-review",
+  "started_utc": "2026-11-08T04:56:02.456444+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-boat_joint_motion_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 28.59,
+      "log": "/private/tmp/direct-fit-final-gpu/00-visual-boat_joint_motion_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-gpu/00-visual-boat_joint_motion_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/direct-fit-final-gpu/00-visual-boat_joint_motion_tests-engine.log",
+        "--script",
+        "tests/boat_joint_motion_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-visual-first_join_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 11.11,
+      "log": "/private/tmp/direct-fit-final-gpu/01-visual-first_join_tests.log",
+      "engine_log": "/private/tmp/direct-fit-final-gpu/01-visual-first_join_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-direct-fit-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/direct-fit-final-gpu/01-visual-first_join_tests-engine.log",
+        "--script",
+        "tests/first_join_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "passed": 69,
+  "renderer": "headless",
+  "scope": "ABC cross stock via real pointer: neutral shallow motion, completed physical seating then local assembly_mismatch dialog, no automatic companion/next-row advance, restart. Three-part locks are covered by starter_lock_tests."
+}

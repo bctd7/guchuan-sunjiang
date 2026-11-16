@@ -14,43 +14,43 @@
       "intro_open": true,
       "intro_visible": true,
       "label": "01-first-entry",
-      "level_instance": 54005859900,
+      "level_instance": 56438556222,
       "previews": [
         {
           "camera_current": true,
           "joint": "dovetail",
           "mesh_count": 2,
-          "preview_instance": 70279760362,
+          "preview_instance": 74876717678,
           "resource_paths": [
-            "res://models/assets/dovetail_groove.obj",
-            "res://models/assets/dovetail_tail.obj"
+            "res://models/joinery/assets/dovetail_groove.obj",
+            "res://models/joinery/assets/dovetail_tail.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 70313314796
+          "viewport_instance": 74910272112
         },
         {
           "camera_current": true,
           "joint": "blind_tenon",
           "mesh_count": 2,
-          "preview_instance": 71286393362,
+          "preview_instance": 75883350678,
           "resource_paths": [
-            "res://models/assets/blind_tenon_post.obj",
-            "res://models/assets/blind_tenon_beam.obj"
+            "res://models/joinery/assets/blind_tenon_post.obj",
+            "res://models/joinery/assets/blind_tenon_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 71319947796
+          "viewport_instance": 75916905112
         },
         {
           "camera_current": true,
           "joint": "through_tenon",
           "mesh_count": 2,
-          "preview_instance": 72242694711,
+          "preview_instance": 76839652027,
           "resource_paths": [
-            "res://models/assets/through_tenon_post.obj",
-            "res://models/assets/through_tenon_beam.obj"
+            "res://models/joinery/assets/through_tenon_post.obj",
+            "res://models/joinery/assets/through_tenon_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 72276249145
+          "viewport_instance": 76873206461
         }
       ],
       "scene_path": "res://levels/level01/level01.tscn",
@@ -65,43 +65,43 @@
       "intro_open": true,
       "intro_visible": true,
       "label": "02-partial-reentry",
-      "level_instance": 54005859900,
+      "level_instance": 56438556222,
       "previews": [
         {
           "camera_current": true,
           "joint": "dovetail",
           "mesh_count": 2,
-          "preview_instance": 70279760362,
+          "preview_instance": 74876717678,
           "resource_paths": [
-            "res://models/assets/dovetail_groove.obj",
-            "res://models/assets/dovetail_tail.obj"
+            "res://models/joinery/assets/dovetail_groove.obj",
+            "res://models/joinery/assets/dovetail_tail.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 70313314796
+          "viewport_instance": 74910272112
         },
         {
           "camera_current": true,
           "joint": "blind_tenon",
           "mesh_count": 2,
-          "preview_instance": 71286393362,
+          "preview_instance": 75883350678,
           "resource_paths": [
-            "res://models/assets/blind_tenon_post.obj",
-            "res://models/assets/blind_tenon_beam.obj"
+            "res://models/joinery/assets/blind_tenon_post.obj",
+            "res://models/joinery/assets/blind_tenon_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 71319947796
+          "viewport_instance": 75916905112
         },
         {
           "camera_current": true,
           "joint": "through_tenon",
           "mesh_count": 2,
-          "preview_instance": 72242694711,
+          "preview_instance": 76839652027,
           "resource_paths": [
-            "res://models/assets/through_tenon_post.obj",
-            "res://models/assets/through_tenon_beam.obj"
+            "res://models/joinery/assets/through_tenon_post.obj",
+            "res://models/joinery/assets/through_tenon_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 72276249145
+          "viewport_instance": 76873206461
         }
       ],
       "scene_path": "res://levels/level01/level01.tscn",
@@ -116,43 +116,43 @@
       "intro_open": true,
       "intro_visible": true,
       "label": "03-completed-reentry",
-      "level_instance": 54005859900,
+      "level_instance": 56438556222,
       "previews": [
         {
           "camera_current": true,
           "joint": "dovetail",
           "mesh_count": 2,
-          "preview_instance": 70279760362,
+          "preview_instance": 74876717678,
           "resource_paths": [
-            "res://models/assets/dovetail_groove.obj",
-            "res://models/assets/dovetail_tail.obj"
+            "res://models/joinery/assets/dovetail_groove.obj",
+            "res://models/joinery/assets/dovetail_tail.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 70313314796
+          "viewport_instance": 74910272112
         },
         {
           "camera_current": true,
           "joint": "blind_tenon",
           "mesh_count": 2,
-          "preview_instance": 71286393362,
+          "preview_instance": 75883350678,
           "resource_paths": [
-            "res://models/assets/blind_tenon_post.obj",
-            "res://models/assets/blind_tenon_beam.obj"
+            "res://models/joinery/assets/blind_tenon_post.obj",
+            "res://models/joinery/assets/blind_tenon_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 71319947796
+          "viewport_instance": 75916905112
         },
         {
           "camera_current": true,
           "joint": "through_tenon",
           "mesh_count": 2,
-          "preview_instance": 72242694711,
+          "preview_instance": 76839652027,
           "resource_paths": [
-            "res://models/assets/through_tenon_post.obj",
-            "res://models/assets/through_tenon_beam.obj"
+            "res://models/joinery/assets/through_tenon_post.obj",
+            "res://models/joinery/assets/through_tenon_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 72276249145
+          "viewport_instance": 76873206461
         }
       ],
       "scene_path": "res://levels/level01/level01.tscn",
@@ -167,43 +167,43 @@
       "intro_open": true,
       "intro_visible": true,
       "label": "04-failed-reentry",
-      "level_instance": 54005859900,
+      "level_instance": 56438556222,
       "previews": [
         {
           "camera_current": true,
           "joint": "dovetail",
           "mesh_count": 2,
-          "preview_instance": 70279760362,
+          "preview_instance": 74876717678,
           "resource_paths": [
-            "res://models/assets/dovetail_groove.obj",
-            "res://models/assets/dovetail_tail.obj"
+            "res://models/joinery/assets/dovetail_groove.obj",
+            "res://models/joinery/assets/dovetail_tail.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 70313314796
+          "viewport_instance": 74910272112
         },
         {
           "camera_current": true,
           "joint": "blind_tenon",
           "mesh_count": 2,
-          "preview_instance": 71286393362,
+          "preview_instance": 75883350678,
           "resource_paths": [
-            "res://models/assets/blind_tenon_post.obj",
-            "res://models/assets/blind_tenon_beam.obj"
+            "res://models/joinery/assets/blind_tenon_post.obj",
+            "res://models/joinery/assets/blind_tenon_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 71319947796
+          "viewport_instance": 75916905112
         },
         {
           "camera_current": true,
           "joint": "through_tenon",
           "mesh_count": 2,
-          "preview_instance": 72242694711,
+          "preview_instance": 76839652027,
           "resource_paths": [
-            "res://models/assets/through_tenon_post.obj",
-            "res://models/assets/through_tenon_beam.obj"
+            "res://models/joinery/assets/through_tenon_post.obj",
+            "res://models/joinery/assets/through_tenon_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 72276249145
+          "viewport_instance": 76873206461
         }
       ],
       "scene_path": "res://levels/level01/level01.tscn",
@@ -218,43 +218,43 @@
       "intro_open": true,
       "intro_visible": true,
       "label": "05-restarted-reentry",
-      "level_instance": 54005859900,
+      "level_instance": 56438556222,
       "previews": [
         {
           "camera_current": true,
           "joint": "dovetail",
           "mesh_count": 2,
-          "preview_instance": 70279760362,
+          "preview_instance": 74876717678,
           "resource_paths": [
-            "res://models/assets/dovetail_groove.obj",
-            "res://models/assets/dovetail_tail.obj"
+            "res://models/joinery/assets/dovetail_groove.obj",
+            "res://models/joinery/assets/dovetail_tail.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 70313314796
+          "viewport_instance": 74910272112
         },
         {
           "camera_current": true,
           "joint": "blind_tenon",
           "mesh_count": 2,
-          "preview_instance": 71286393362,
+          "preview_instance": 75883350678,
           "resource_paths": [
-            "res://models/assets/blind_tenon_post.obj",
-            "res://models/assets/blind_tenon_beam.obj"
+            "res://models/joinery/assets/blind_tenon_post.obj",
+            "res://models/joinery/assets/blind_tenon_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 71319947796
+          "viewport_instance": 75916905112
         },
         {
           "camera_current": true,
           "joint": "through_tenon",
           "mesh_count": 2,
-          "preview_instance": 72242694711,
+          "preview_instance": 76839652027,
           "resource_paths": [
-            "res://models/assets/through_tenon_post.obj",
-            "res://models/assets/through_tenon_beam.obj"
+            "res://models/joinery/assets/through_tenon_post.obj",
+            "res://models/joinery/assets/through_tenon_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 72276249145
+          "viewport_instance": 76873206461
         }
       ],
       "scene_path": "res://levels/level01/level01.tscn",
@@ -269,44 +269,44 @@
       "intro_open": true,
       "intro_visible": true,
       "label": "06-chapter-2-first",
-      "level_instance": 176563422992,
+      "level_instance": 193223198484,
       "previews": [
         {
           "camera_current": true,
           "joint": "cross_lap",
           "mesh_count": 2,
-          "preview_instance": 188978564780,
+          "preview_instance": 219009782349,
           "resource_paths": [
-            "res://models/assets/cross_lap_lower.obj",
-            "res://models/assets/cross_lap_upper.obj"
+            "res://models/joinery/assets/cross_lap_lower.obj",
+            "res://models/joinery/assets/cross_lap_upper.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 189012119214
+          "viewport_instance": 219043336783
         },
         {
           "camera_current": true,
           "joint": "tongue_groove",
           "mesh_count": 2,
-          "preview_instance": 189934866129,
+          "preview_instance": 219966083698,
           "resource_paths": [
-            "res://models/assets/tongue_groove_groove.obj",
-            "res://models/assets/tongue_groove_tongue.obj"
+            "res://models/joinery/assets/tongue_groove_groove.obj",
+            "res://models/joinery/assets/tongue_groove_tongue.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 189968420563
+          "viewport_instance": 219999638132
         },
         {
           "camera_current": true,
           "joint": "three_way_lap",
           "mesh_count": 3,
-          "preview_instance": 190891167478,
+          "preview_instance": 220922385047,
           "resource_paths": [
-            "res://models/assets/three_way_lap_lower.obj",
-            "res://models/assets/three_way_lap_middle.obj",
-            "res://models/assets/three_way_lap_upper.obj"
+            "res://models/joinery/assets/three_way_lap_lower.obj",
+            "res://models/joinery/assets/three_way_lap_middle.obj",
+            "res://models/joinery/assets/three_way_lap_upper.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 190924721912
+          "viewport_instance": 220955939481
         }
       ],
       "scene_path": "res://levels/level02/level02.tscn",
@@ -321,44 +321,44 @@
       "intro_open": true,
       "intro_visible": true,
       "label": "07-chapter-2-reentry",
-      "level_instance": 176563422992,
+      "level_instance": 193223198484,
       "previews": [
         {
           "camera_current": true,
           "joint": "cross_lap",
           "mesh_count": 2,
-          "preview_instance": 188978564780,
+          "preview_instance": 219009782349,
           "resource_paths": [
-            "res://models/assets/cross_lap_lower.obj",
-            "res://models/assets/cross_lap_upper.obj"
+            "res://models/joinery/assets/cross_lap_lower.obj",
+            "res://models/joinery/assets/cross_lap_upper.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 189012119214
+          "viewport_instance": 219043336783
         },
         {
           "camera_current": true,
           "joint": "tongue_groove",
           "mesh_count": 2,
-          "preview_instance": 189934866129,
+          "preview_instance": 219966083698,
           "resource_paths": [
-            "res://models/assets/tongue_groove_groove.obj",
-            "res://models/assets/tongue_groove_tongue.obj"
+            "res://models/joinery/assets/tongue_groove_groove.obj",
+            "res://models/joinery/assets/tongue_groove_tongue.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 189968420563
+          "viewport_instance": 219999638132
         },
         {
           "camera_current": true,
           "joint": "three_way_lap",
           "mesh_count": 3,
-          "preview_instance": 190891167478,
+          "preview_instance": 220922385047,
           "resource_paths": [
-            "res://models/assets/three_way_lap_lower.obj",
-            "res://models/assets/three_way_lap_middle.obj",
-            "res://models/assets/three_way_lap_upper.obj"
+            "res://models/joinery/assets/three_way_lap_lower.obj",
+            "res://models/joinery/assets/three_way_lap_middle.obj",
+            "res://models/joinery/assets/three_way_lap_upper.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 190924721912
+          "viewport_instance": 220955939481
         }
       ],
       "scene_path": "res://levels/level02/level02.tscn",
@@ -373,45 +373,45 @@
       "intro_open": true,
       "intro_visible": true,
       "label": "06-chapter-3-first",
-      "level_instance": 198273141508,
+      "level_instance": 229663312757,
       "previews": [
         {
           "camera_current": true,
           "joint": "zong_corner",
           "mesh_count": 3,
-          "preview_instance": 207802601770,
+          "preview_instance": 239175996599,
           "resource_paths": [
-            "res://models/assets/zong_corner_xrail.obj",
-            "res://models/assets/zong_corner_zrail.obj",
-            "res://models/assets/zong_corner_leg.obj"
+            "res://models/joinery/assets/zong_corner_xrail.obj",
+            "res://models/joinery/assets/zong_corner_zrail.obj",
+            "res://models/joinery/assets/zong_corner_leg.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 207836156204
+          "viewport_instance": 239209551033
         },
         {
           "camera_current": true,
           "joint": "clamp_head",
           "mesh_count": 3,
-          "preview_instance": 209010561365,
+          "preview_instance": 240383956194,
           "resource_paths": [
-            "res://models/assets/clamp_head_leg.obj",
-            "res://models/assets/clamp_head_apron.obj",
-            "res://models/assets/clamp_head_top.obj"
+            "res://models/joinery/assets/clamp_head_leg.obj",
+            "res://models/joinery/assets/clamp_head_apron.obj",
+            "res://models/joinery/assets/clamp_head_top.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 209044115799
+          "viewport_instance": 240417510628
         },
         {
           "camera_current": true,
           "joint": "l_through",
           "mesh_count": 2,
-          "preview_instance": 210218520960,
+          "preview_instance": 241608693006,
           "resource_paths": [
-            "res://models/assets/l_through_post.obj",
-            "res://models/assets/l_through_beam.obj"
+            "res://models/joinery/assets/l_through_post.obj",
+            "res://models/joinery/assets/l_through_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 210252075394
+          "viewport_instance": 241642247440
         }
       ],
       "scene_path": "res://levels/level03/level03.tscn",
@@ -426,45 +426,45 @@
       "intro_open": true,
       "intro_visible": true,
       "label": "07-chapter-3-reentry",
-      "level_instance": 198273141508,
+      "level_instance": 229663312757,
       "previews": [
         {
           "camera_current": true,
           "joint": "zong_corner",
           "mesh_count": 3,
-          "preview_instance": 207802601770,
+          "preview_instance": 239175996599,
           "resource_paths": [
-            "res://models/assets/zong_corner_xrail.obj",
-            "res://models/assets/zong_corner_zrail.obj",
-            "res://models/assets/zong_corner_leg.obj"
+            "res://models/joinery/assets/zong_corner_xrail.obj",
+            "res://models/joinery/assets/zong_corner_zrail.obj",
+            "res://models/joinery/assets/zong_corner_leg.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 207836156204
+          "viewport_instance": 239209551033
         },
         {
           "camera_current": true,
           "joint": "clamp_head",
           "mesh_count": 3,
-          "preview_instance": 209010561365,
+          "preview_instance": 240383956194,
           "resource_paths": [
-            "res://models/assets/clamp_head_leg.obj",
-            "res://models/assets/clamp_head_apron.obj",
-            "res://models/assets/clamp_head_top.obj"
+            "res://models/joinery/assets/clamp_head_leg.obj",
+            "res://models/joinery/assets/clamp_head_apron.obj",
+            "res://models/joinery/assets/clamp_head_top.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 209044115799
+          "viewport_instance": 240417510628
         },
         {
           "camera_current": true,
           "joint": "l_through",
           "mesh_count": 2,
-          "preview_instance": 210218520960,
+          "preview_instance": 241608693006,
           "resource_paths": [
-            "res://models/assets/l_through_post.obj",
-            "res://models/assets/l_through_beam.obj"
+            "res://models/joinery/assets/l_through_post.obj",
+            "res://models/joinery/assets/l_through_beam.obj"
           ],
           "sample_visible_pixels": 0,
-          "viewport_instance": 210252075394
+          "viewport_instance": 241642247440
         }
       ],
       "scene_path": "res://levels/level03/level03.tscn",

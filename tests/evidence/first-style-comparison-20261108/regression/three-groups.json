@@ -1,0 +1,9 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "method": "Real Viewport buttons and mouse/touch drags; three-group repeat, exact wrong choices, undo, reentry, cancellation and full wave trial",
+  "passed": 162,
+  "renderer": "headless"
+}

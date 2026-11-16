@@ -1,0 +1,229 @@
+{
+  "project": "/private/tmp/guchuan-unified-fit-review",
+  "started_utc": "2026-11-08T13:36:48.805734+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-three_group_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 50.57,
+      "log": "/private/tmp/unified-fit-regression/00-levels-three_group_tests.log",
+      "engine_log": "/private/tmp/unified-fit-regression/00-levels-three_group_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/unified-fit-regression/00-levels-three_group_tests-engine.log",
+        "--script",
+        "tests/three_group_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "/private/tmp/unified-fit-regression/01-levels-level02_rules_tests.log",
+      "engine_log": "/private/tmp/unified-fit-regression/01-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/unified-fit-regression/01-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-level02_assembly_outcome_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.19,
+      "log": "/private/tmp/unified-fit-regression/02-levels-level02_assembly_outcome_tests.log",
+      "engine_log": "/private/tmp/unified-fit-regression/02-levels-level02_assembly_outcome_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/unified-fit-regression/02-levels-level02_assembly_outcome_tests-engine.log",
+        "--script",
+        "tests/level02_assembly_outcome_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-boat_joint_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.49,
+      "log": "/private/tmp/unified-fit-regression/03-levels-boat_joint_geometry_tests.log",
+      "engine_log": "/private/tmp/unified-fit-regression/03-levels-boat_joint_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/unified-fit-regression/03-levels-boat_joint_geometry_tests-engine.log",
+        "--script",
+        "tests/boat_joint_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-boat_joint_sweep_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.46,
+      "log": "/private/tmp/unified-fit-regression/04-levels-boat_joint_sweep_tests.log",
+      "engine_log": "/private/tmp/unified-fit-regression/04-levels-boat_joint_sweep_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/unified-fit-regression/04-levels-boat_joint_sweep_tests-engine.log",
+        "--script",
+        "tests/boat_joint_sweep_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "05-levels-boat_joint_recovery_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.64,
+      "log": "/private/tmp/unified-fit-regression/05-levels-boat_joint_recovery_tests.log",
+      "engine_log": "/private/tmp/unified-fit-regression/05-levels-boat_joint_recovery_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/unified-fit-regression/05-levels-boat_joint_recovery_tests-engine.log",
+        "--script",
+        "tests/boat_joint_recovery_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "06-levels-starter_lock_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 9.91,
+      "log": "/private/tmp/unified-fit-regression/06-levels-starter_lock_tests.log",
+      "engine_log": "/private/tmp/unified-fit-regression/06-levels-starter_lock_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/unified-fit-regression/06-levels-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "07-levels-opening_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.68,
+      "log": "/private/tmp/unified-fit-regression/07-levels-opening_geometry_tests.log",
+      "engine_log": "/private/tmp/unified-fit-regression/07-levels-opening_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/unified-fit-regression/07-levels-opening_geometry_tests-engine.log",
+        "--script",
+        "tests/opening_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "08-levels-level02_structure_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.28,
+      "log": "/private/tmp/unified-fit-regression/08-levels-level02_structure_geometry_tests.log",
+      "engine_log": "/private/tmp/unified-fit-regression/08-levels-level02_structure_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/unified-fit-regression/08-levels-level02_structure_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_structure_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "09-levels-trial_contact_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 31.39,
+      "log": "/private/tmp/unified-fit-regression/09-levels-trial_contact_tests.log",
+      "engine_log": "/private/tmp/unified-fit-regression/09-levels-trial_contact_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-unified-fit-review",
+        "--headless",
+        "--log-file",
+        "/private/tmp/unified-fit-regression/09-levels-trial_contact_tests-engine.log",
+        "--script",
+        "tests/trial_contact_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

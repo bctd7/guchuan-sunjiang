@@ -5,6 +5,7 @@ signal return_requested
 const Controls=preload("res://levels/shared/chapter_ui.gd")
 var panel: PanelContainer
 var title: Label
+var description: Label
 var restart_button: Button
 var return_button: Button
 
@@ -24,8 +25,8 @@ func _ready() -> void:
 	panel.add_child(stack)
 	title=Controls.label(stack,"拼接有错误哦",32)
 	title.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	var words=Controls.label(stack,"本关未通过，再观察一下榫头和木料，重新试试吧。",20)
-	words.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	description=Controls.label(stack,"本关未通过，再观察一下榫头和木料，重新试试吧。",20)
+	description.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	var actions=HBoxContainer.new()
 	actions.alignment=BoxContainer.ALIGNMENT_CENTER
 	actions.add_theme_constant_override("separation",20)

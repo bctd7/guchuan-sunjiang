@@ -1,0 +1,9 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "method": "Actual Viewport GUI: restart during automatic board tween, exact provenance across directory, undo later wrong pair, no gameplay state writes",
+  "passed": 216,
+  "renderer": "headless"
+}

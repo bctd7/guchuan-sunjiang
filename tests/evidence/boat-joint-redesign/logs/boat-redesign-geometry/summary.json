@@ -1,0 +1,163 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T14:09:46.810996+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level02_assembly_outcome_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.26,
+      "log": "logs/boat-redesign-geometry/00-levels-level02_assembly_outcome_tests.log",
+      "engine_log": "logs/boat-redesign-geometry/00-levels-level02_assembly_outcome_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-geometry/00-levels-level02_assembly_outcome_tests-engine.log",
+        "--script",
+        "tests/level02_assembly_outcome_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-level02_contact_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.45,
+      "log": "logs/boat-redesign-geometry/01-levels-level02_contact_geometry_tests.log",
+      "engine_log": "logs/boat-redesign-geometry/01-levels-level02_contact_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-geometry/01-levels-level02_contact_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_contact_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-boat_joint_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.21,
+      "log": "logs/boat-redesign-geometry/02-levels-boat_joint_geometry_tests.log",
+      "engine_log": "logs/boat-redesign-geometry/02-levels-boat_joint_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-geometry/02-levels-boat_joint_geometry_tests-engine.log",
+        "--script",
+        "tests/boat_joint_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-level02_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.73,
+      "log": "logs/boat-redesign-geometry/03-levels-level02_geometry_tests.log",
+      "engine_log": "logs/boat-redesign-geometry/03-levels-level02_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-geometry/03-levels-level02_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-level02_alignment_geometry_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 4.45,
+      "log": "logs/boat-redesign-geometry/04-levels-level02_alignment_geometry_tests.log",
+      "engine_log": "logs/boat-redesign-geometry/04-levels-level02_alignment_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-geometry/04-levels-level02_alignment_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "05-levels-sea_trial_presentation_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.4,
+      "log": "logs/boat-redesign-geometry/05-levels-sea_trial_presentation_tests.log",
+      "engine_log": "logs/boat-redesign-geometry/05-levels-sea_trial_presentation_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-geometry/05-levels-sea_trial_presentation_tests-engine.log",
+        "--script",
+        "tests/sea_trial_presentation_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "06-levels-trial_contact_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 14.08,
+      "log": "logs/boat-redesign-geometry/06-levels-trial_contact_tests.log",
+      "engine_log": "logs/boat-redesign-geometry/06-levels-trial_contact_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-geometry/06-levels-trial_contact_tests-engine.log",
+        "--script",
+        "tests/trial_contact_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

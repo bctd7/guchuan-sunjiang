@@ -1,0 +1,159 @@
+{
+  "date": "2026-11-08",
+  "status": "implementation_and_recorded_verification_complete_user_visual_acceptance_pending",
+  "isolated_project": "/private/tmp/guchuan-interfit-review-20261108",
+  "runs": [
+    {
+      "name": "interfit-final-headless",
+      "summary": "tests/evidence/interfit-20261108/logs/interfit-final-headless/summary.json",
+      "tests": [
+        {
+          "name": "00-levels-level02_contact_geometry_tests",
+          "status": "passed",
+          "seconds": 2.59
+        },
+        {
+          "name": "01-levels-boat_joint_geometry_tests",
+          "status": "passed",
+          "seconds": 2.29
+        },
+        {
+          "name": "02-levels-boat_joint_sweep_tests",
+          "status": "passed",
+          "seconds": 0.51
+        },
+        {
+          "name": "03-levels-boat_joint_recovery_tests",
+          "status": "passed",
+          "seconds": 10.63
+        },
+        {
+          "name": "04-levels-level02_plank_sequences_tests",
+          "status": "passed",
+          "seconds": 95.9
+        },
+        {
+          "name": "05-levels-boat_joint_loose_tests",
+          "status": "passed",
+          "seconds": 12.94
+        },
+        {
+          "name": "06-levels-level02_wave_outcome_tests",
+          "status": "passed",
+          "seconds": 1.65
+        },
+        {
+          "name": "07-levels-opening_geometry_tests",
+          "status": "passed",
+          "seconds": 0.67
+        },
+        {
+          "name": "08-levels-timber_rendering_tests",
+          "status": "passed",
+          "seconds": 0.29
+        },
+        {
+          "name": "09-levels-level02_alignment_geometry_tests",
+          "status": "passed",
+          "seconds": 3.67
+        },
+        {
+          "name": "10-levels-level02_structure_geometry_tests",
+          "status": "passed",
+          "seconds": 0.85
+        },
+        {
+          "name": "11-levels-level02_structure_tests",
+          "status": "passed",
+          "seconds": 25.32
+        },
+        {
+          "name": "12-levels-observation_repeat_tests",
+          "status": "passed",
+          "seconds": 50.7
+        },
+        {
+          "name": "13-levels-repeat_lifecycle_tests",
+          "status": "passed",
+          "seconds": 6.36
+        },
+        {
+          "name": "14-levels-level02_clarity_zoom_tests",
+          "status": "passed",
+          "seconds": 16.88
+        },
+        {
+          "name": "15-levels-sea_trial_presentation_tests",
+          "status": "passed",
+          "seconds": 1.41
+        },
+        {
+          "name": "16-levels-trial_contact_tests",
+          "status": "passed",
+          "seconds": 17.9
+        },
+        {
+          "name": "17-levels-level02_wrong_type_tests",
+          "status": "passed",
+          "seconds": 31.3
+        }
+      ]
+    },
+    {
+      "name": "interfit-final-gpu",
+      "summary": "tests/evidence/interfit-20261108/logs/interfit-final-gpu/summary.json",
+      "tests": [
+        {
+          "name": "00-visual-boat_joint_interaction_tests",
+          "status": "passed",
+          "seconds": 33.39
+        },
+        {
+          "name": "01-visual-boat_joint_motion_tests",
+          "status": "passed",
+          "seconds": 27.67
+        },
+        {
+          "name": "02-visual-first_join_tests",
+          "status": "passed",
+          "seconds": 12.26
+        },
+        {
+          "name": "03-visual-level02_alignment_tests",
+          "status": "passed",
+          "seconds": 10.78
+        }
+      ]
+    },
+    {
+      "name": "interfit-complete-hull-gpu",
+      "summary": "tests/evidence/interfit-20261108/logs/interfit-complete-hull-gpu/summary.json",
+      "tests": [
+        {
+          "name": "00-visual-boat_joint_motion_tests",
+          "status": "passed",
+          "seconds": 28.5
+        }
+      ]
+    }
+  ],
+  "requirements_evidence": {
+    "paired_structure": "boat_joint_sweep_tests: 66 vertical / 131 side positions, all nine middle/top combinations; independent retaining/locking and penetration controls; actual GPU matte and timber frames.",
+    "first_join_and_fixed_receiver": "first_join_tests GPU: 136 assertions, no receiver mutation; complete paired comparison; input/resume; auto repeat.",
+    "assembly_motion": "boat_joint_motion_tests GPU: actual mouse input, 24 independent full-hull collision checks per joint trajectory, complete correct run and unobscured overview.",
+    "recoverable_errors": "boat_joint_interaction_tests GPU: 1367 assertions including repeated jam, reverse withdrawal, replacement, predecessor repair, same-run completion, explicit end and directory/restart.",
+    "all_task_family_comparisons": "level02_wrong_type_tests: 14 comparisons, 502 assertions; fixed task state retained.",
+    "framing_and_input": "first_join_tests, level02_alignment_tests, level02_clarity_zoom_tests and level02_structure_tests: detail/restoration, actual input, 249% zoom and three display sizes.",
+    "light_and_material": "timber_rendering_tests: outward cap normals including mirrored sources, hard surfaces, local continuous UV phase and material/lighting equality; actual GPU images inspected.",
+    "cross_chapter_and_lifecycle": "observation_repeat_tests passes full first-chapter interaction and shared viewer, second-chapter correct/wrong runs; repeat_lifecycle_tests and boat_joint_recovery_tests.",
+    "whole_hull_and_waves": "level02_plank_sequences_tests, boat_joint_loose_tests, level02_wave_outcome_tests, sea_trial_presentation_tests and full GPU correct/recovered runs."
+  },
+  "source_hashes": "source-sha256.json",
+  "historical_failures": "logs/superseded: obsolete hidden undo-button sequence in fixture; first-chapter optional lighting property access. Both fixed and covered by final successful runs.",
+  "limits": [
+    "Physical-device touch/trackpad acceptance not performed; actual Viewport mouse and simulated touch were tested.",
+    "Teaching-model collision/animation, not manufacturing, engineering dynamics or fluid simulation.",
+    "Off-task type cards now compare complete matched examples instead of supplying incompatible single wood to a fixed socket; matching-family A/B/C still drives actual wrong assembly.",
+    "Visual acceptance remains the user’s judgment; tests are not a substitute."
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "project": "/private/tmp/guchuan-interfit-review-20261108",
+  "started_utc": "2026-11-08T04:28:18.252648+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level02_contact_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.59,
+      "log": "/private/tmp/interfit-final-headless/00-levels-level02_contact_geometry_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/00-levels-level02_contact_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/00-levels-level02_contact_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_contact_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-boat_joint_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.29,
+      "log": "/private/tmp/interfit-final-headless/01-levels-boat_joint_geometry_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/01-levels-boat_joint_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/01-levels-boat_joint_geometry_tests-engine.log",
+        "--script",
+        "tests/boat_joint_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-boat_joint_sweep_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.51,
+      "log": "/private/tmp/interfit-final-headless/02-levels-boat_joint_sweep_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/02-levels-boat_joint_sweep_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/02-levels-boat_joint_sweep_tests-engine.log",
+        "--script",
+        "tests/boat_joint_sweep_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-boat_joint_recovery_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.63,
+      "log": "/private/tmp/interfit-final-headless/03-levels-boat_joint_recovery_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/03-levels-boat_joint_recovery_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/03-levels-boat_joint_recovery_tests-engine.log",
+        "--script",
+        "tests/boat_joint_recovery_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-level02_plank_sequences_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 95.9,
+      "log": "/private/tmp/interfit-final-headless/04-levels-level02_plank_sequences_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/04-levels-level02_plank_sequences_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/04-levels-level02_plank_sequences_tests-engine.log",
+        "--script",
+        "tests/level02_plank_sequences_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "05-levels-boat_joint_loose_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 12.94,
+      "log": "/private/tmp/interfit-final-headless/05-levels-boat_joint_loose_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/05-levels-boat_joint_loose_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/05-levels-boat_joint_loose_tests-engine.log",
+        "--script",
+        "tests/boat_joint_loose_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "06-levels-level02_wave_outcome_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.65,
+      "log": "/private/tmp/interfit-final-headless/06-levels-level02_wave_outcome_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/06-levels-level02_wave_outcome_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/06-levels-level02_wave_outcome_tests-engine.log",
+        "--script",
+        "tests/level02_wave_outcome_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "07-levels-opening_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.67,
+      "log": "/private/tmp/interfit-final-headless/07-levels-opening_geometry_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/07-levels-opening_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/07-levels-opening_geometry_tests-engine.log",
+        "--script",
+        "tests/opening_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "08-levels-timber_rendering_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "log": "/private/tmp/interfit-final-headless/08-levels-timber_rendering_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/08-levels-timber_rendering_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/08-levels-timber_rendering_tests-engine.log",
+        "--script",
+        "tests/timber_rendering_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "09-levels-level02_alignment_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.67,
+      "log": "/private/tmp/interfit-final-headless/09-levels-level02_alignment_geometry_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/09-levels-level02_alignment_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/09-levels-level02_alignment_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "10-levels-level02_structure_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.85,
+      "log": "/private/tmp/interfit-final-headless/10-levels-level02_structure_geometry_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/10-levels-level02_structure_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/10-levels-level02_structure_geometry_tests-engine.log",
+        "--script",
+        "tests/level02_structure_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "11-levels-level02_structure_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 25.32,
+      "log": "/private/tmp/interfit-final-headless/11-levels-level02_structure_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/11-levels-level02_structure_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/11-levels-level02_structure_tests-engine.log",
+        "--script",
+        "tests/level02_structure_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "12-levels-observation_repeat_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 50.7,
+      "log": "/private/tmp/interfit-final-headless/12-levels-observation_repeat_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/12-levels-observation_repeat_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/12-levels-observation_repeat_tests-engine.log",
+        "--script",
+        "tests/observation_repeat_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "13-levels-repeat_lifecycle_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.36,
+      "log": "/private/tmp/interfit-final-headless/13-levels-repeat_lifecycle_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/13-levels-repeat_lifecycle_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/13-levels-repeat_lifecycle_tests-engine.log",
+        "--script",
+        "tests/repeat_lifecycle_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "14-levels-level02_clarity_zoom_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 16.88,
+      "log": "/private/tmp/interfit-final-headless/14-levels-level02_clarity_zoom_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/14-levels-level02_clarity_zoom_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/14-levels-level02_clarity_zoom_tests-engine.log",
+        "--script",
+        "tests/level02_clarity_zoom_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "15-levels-sea_trial_presentation_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.41,
+      "log": "/private/tmp/interfit-final-headless/15-levels-sea_trial_presentation_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/15-levels-sea_trial_presentation_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/15-levels-sea_trial_presentation_tests-engine.log",
+        "--script",
+        "tests/sea_trial_presentation_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "16-levels-trial_contact_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 17.9,
+      "log": "/private/tmp/interfit-final-headless/16-levels-trial_contact_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/16-levels-trial_contact_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/16-levels-trial_contact_tests-engine.log",
+        "--script",
+        "tests/trial_contact_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "17-levels-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 31.3,
+      "log": "/private/tmp/interfit-final-headless/17-levels-level02_wrong_type_tests.log",
+      "engine_log": "/private/tmp/interfit-final-headless/17-levels-level02_wrong_type_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/private/tmp/guchuan-interfit-review-20261108",
+        "--headless",
+        "--log-file",
+        "/private/tmp/interfit-final-headless/17-levels-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

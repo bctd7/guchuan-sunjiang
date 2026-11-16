@@ -1,0 +1,7 @@
+{
+  "cases": 90,
+  "failed": 0,
+  "failures": [],
+  "method": "90 real model/type/opening cases: independent stock axes, mouth normals, canonical and mismatched pocket positions; camera unchanged. Pure State setup, GUI covered separately.",
+  "passed": 489
+}

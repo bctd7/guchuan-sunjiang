@@ -1,0 +1,6 @@
+{
+  "cases": 9,
+  "failed": 0,
+  "failures": [],
+  "method": "Sorted actual triangle-vertex multisets before/after winding correction; all three arms and opening offsets -0.1/0/0.1. Does not compare lighting normals."
+}

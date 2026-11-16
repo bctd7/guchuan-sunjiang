@@ -1,0 +1,31 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-07T14:30:24.998378+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-level02_plank_sequences_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 87.0,
+      "log": "logs/boat-redesign-plank-sequences/00-levels-level02_plank_sequences_tests.log",
+      "engine_log": "logs/boat-redesign-plank-sequences/00-levels-level02_plank_sequences_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/boat-redesign-plank-sequences/00-levels-level02_plank_sequences_tests-engine.log",
+        "--script",
+        "tests/level02_plank_sequences_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

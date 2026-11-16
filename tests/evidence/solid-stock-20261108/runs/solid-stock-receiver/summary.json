@@ -1,0 +1,97 @@
+{
+  "project": "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+  "started_utc": "2026-11-08T05:37:29.270120+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "00-levels-receiving_edge_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.07,
+      "log": "/private/tmp/solid-stock-receiver/00-levels-receiving_edge_tests.log",
+      "engine_log": "/private/tmp/solid-stock-receiver/00-levels-receiving_edge_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-receiver/00-levels-receiving_edge_tests-engine.log",
+        "--script",
+        "tests/receiving_edge_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "01-levels-boat_joint_recovery_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.54,
+      "log": "/private/tmp/solid-stock-receiver/01-levels-boat_joint_recovery_tests.log",
+      "engine_log": "/private/tmp/solid-stock-receiver/01-levels-boat_joint_recovery_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-receiver/01-levels-boat_joint_recovery_tests-engine.log",
+        "--script",
+        "tests/boat_joint_recovery_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-level02_plank_sequences_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 127.77,
+      "log": "/private/tmp/solid-stock-receiver/02-levels-level02_plank_sequences_tests.log",
+      "engine_log": "/private/tmp/solid-stock-receiver/02-levels-level02_plank_sequences_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-receiver/02-levels-level02_plank_sequences_tests-engine.log",
+        "--script",
+        "tests/level02_plank_sequences_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-boat_joint_motion_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 24.73,
+      "log": "/private/tmp/solid-stock-receiver/03-levels-boat_joint_motion_tests.log",
+      "engine_log": "/private/tmp/solid-stock-receiver/03-levels-boat_joint_motion_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/GitHub/guchuan-sunjiang",
+        "--headless",
+        "--log-file",
+        "/private/tmp/solid-stock-receiver/03-levels-boat_joint_motion_tests-engine.log",
+        "--script",
+        "tests/boat_joint_motion_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

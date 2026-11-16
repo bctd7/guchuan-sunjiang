@@ -1,0 +1,10 @@
+{
+  "cases": 14,
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [],
+  "method": "14 actual off-type stock choices via mouse/touch, no automatic comparison modal; shallow motion, true contact, held wrong stock and withdrawal preserving preceding assembly.",
+  "passed": 712,
+  "renderer": "headless"
+}

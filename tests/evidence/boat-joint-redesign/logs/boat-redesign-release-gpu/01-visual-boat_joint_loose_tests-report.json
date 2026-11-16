@@ -1,0 +1,15 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/boat-joint-redesign/wide-cross-seated-with-clearance.png",
+    "res://tests/evidence/boat-joint-redesign/wide-cross-wave.png",
+    "res://tests/evidence/boat-joint-redesign/wide-cross-structural-verdict.png"
+  ],
+  "passed": 613,
+  "peak_side_travel": 0.0249999854713678,
+  "renderer": "macOS",
+  "scope": "Actual Viewport input builds all ten members with cross B, then observes real sea-trial frames with independent mesh clearance; distinguishes side play, no invented leak, final structural verdict and restart.",
+  "wave_frames": 240
+}

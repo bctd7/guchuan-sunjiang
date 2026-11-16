@@ -1,0 +1,83 @@
+{
+  "combinations": [
+    {
+      "completed": false,
+      "frame": "A",
+      "placed": 10,
+      "plank": "A",
+      "wave_checked": true
+    },
+    {
+      "completed": false,
+      "frame": "B",
+      "placed": 10,
+      "plank": "A",
+      "wave_checked": true
+    },
+    {
+      "completed": false,
+      "frame": "C",
+      "placed": 10,
+      "plank": "A",
+      "wave_checked": true
+    },
+    {
+      "completed": false,
+      "frame": "A",
+      "placed": 10,
+      "plank": "B",
+      "wave_checked": true
+    },
+    {
+      "completed": false,
+      "frame": "B",
+      "placed": 10,
+      "plank": "B",
+      "wave_checked": true
+    },
+    {
+      "completed": true,
+      "frame": "C",
+      "placed": 10,
+      "plank": "B",
+      "wave_checked": true
+    },
+    {
+      "completed": false,
+      "frame": "A",
+      "placed": 10,
+      "plank": "C",
+      "wave_checked": true
+    },
+    {
+      "completed": false,
+      "frame": "B",
+      "placed": 10,
+      "plank": "C",
+      "wave_checked": true
+    },
+    {
+      "completed": false,
+      "frame": "C",
+      "placed": 10,
+      "plank": "C",
+      "wave_checked": true
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/unified-fit/continued-A-A.png",
+    "res://tests/evidence/unified-fit/continued-A-B.png",
+    "res://tests/evidence/unified-fit/continued-A-C.png",
+    "res://tests/evidence/unified-fit/continued-B-A.png",
+    "res://tests/evidence/unified-fit/continued-B-B.png",
+    "res://tests/evidence/unified-fit/continued-C-A.png",
+    "res://tests/evidence/unified-fit/continued-C-B.png",
+    "res://tests/evidence/unified-fit/continued-C-C.png"
+  ],
+  "passed": 361,
+  "renderer": "macOS",
+  "scope": "All nine plank/cross option combinations, all four manual drags and six automatic members through real UI. Exact choices and earlier meshes retained; physically continuable errors reach full-hull wave trial."
+}

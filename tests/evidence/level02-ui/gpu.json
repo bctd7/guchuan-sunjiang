@@ -1,0 +1,32 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/level02-ui/00-overview.png",
+    "res://tests/evidence/level02-ui/01-observe-and-choose.png",
+    "res://tests/evidence/level02-ui/02-shallow-push.png",
+    "res://tests/evidence/level02-ui/local-seated-before-return.png",
+    "res://tests/evidence/level02-ui/local-plank_0b.png",
+    "res://tests/evidence/level02-ui/local-cross_upper.png",
+    "res://tests/evidence/level02-ui/local-three_middle.png",
+    "res://tests/evidence/level02-ui/local-bulkhead.png",
+    "res://tests/evidence/level02-ui/wave-approaching.png",
+    "res://tests/evidence/level02-ui/wave-impact-dry.png",
+    "res://tests/evidence/level02-ui/03-successful-sea-trial.png",
+    "res://tests/evidence/level02-ui/04-live-staggered-map.png",
+    "res://tests/evidence/level02-ui/05-waterproof-compartments.png",
+    "res://tests/evidence/level02-ui/wave-impact-leaking.png",
+    "res://tests/evidence/level02-ui/06-leaking-hull-failure.png",
+    "res://tests/evidence/level02-ui/07-map-1100.png",
+    "res://tests/evidence/level02-ui/08-lesson-1100.png",
+    "res://tests/evidence/level02-ui/09-drag-1100.png",
+    "res://tests/evidence/level02-ui/07-map-960.png",
+    "res://tests/evidence/level02-ui/08-lesson-960.png",
+    "res://tests/evidence/level02-ui/09-drag-960.png"
+  ],
+  "method": "actual Viewport mouse and simulated touch; no gameplay state mutation; not human hardware validation",
+  "passed": 539,
+  "renderer": "macOS",
+  "revision": "level02-ui-20261101"
+}

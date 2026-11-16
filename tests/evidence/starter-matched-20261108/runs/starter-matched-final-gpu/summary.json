@@ -1,0 +1,40 @@
+{
+  "project": "/private/tmp/guchuan-starter-matched-review",
+  "started_utc": "2026-11-08T06:41:20.163245+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-starter_lock_tests",
+      "status": "script_error",
+      "exit_code": 0,
+      "seconds": 41.85,
+      "log": "/private/tmp/starter-matched-final-gpu/00-visual-starter_lock_tests.log",
+      "engine_log": "/private/tmp/starter-matched-final-gpu/00-visual-starter_lock_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-starter-matched-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/starter-matched-final-gpu/00-visual-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ]
+}

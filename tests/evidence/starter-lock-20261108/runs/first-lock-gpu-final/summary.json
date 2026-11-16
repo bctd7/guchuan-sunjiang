@@ -1,0 +1,45 @@
+{
+  "project": "/private/tmp/guchuan-first-lock-review",
+  "started_utc": "2026-11-08T06:19:20.693826+00:00",
+  "groups": [
+    "visual"
+  ],
+  "results": [
+    {
+      "name": "00-visual-starter_lock_tests",
+      "status": "timeout",
+      "exit_code": null,
+      "seconds": 150.08,
+      "log": "/private/tmp/first-lock-gpu-final/00-visual-starter_lock_tests.log",
+      "engine_log": "/private/tmp/first-lock-gpu-final/00-visual-starter_lock_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/private/tmp/guchuan-first-lock-review",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/private/tmp/first-lock-gpu-final/00-visual-starter_lock_tests-engine.log",
+        "--script",
+        "tests/starter_lock_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": [],
+      "timeout_cleanup": {
+        "stopped": [
+          10714
+        ]
+      }
+    }
+  ]
+}

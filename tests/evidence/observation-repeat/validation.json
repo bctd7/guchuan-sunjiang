@@ -1,0 +1,472 @@
+{
+  "completed_utc": "2026-11-01T16:07:22.236903+00:00",
+  "headless_passed": 13,
+  "gpu_passed": 4,
+  "python_passed": 6,
+  "headless": [
+    {
+      "suite": "observe-initial",
+      "name": "00-levels-level01_orbit_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.3,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-initial/00-levels-level01_orbit_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-initial/00-levels-level01_orbit_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-initial/00-levels-level01_orbit_tests-engine.log",
+        "--script",
+        "tests/level01_orbit_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-initial",
+      "name": "01-levels-level01_inspector_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 22.42,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-initial/01-levels-level01_inspector_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-initial/01-levels-level01_inspector_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-initial/01-levels-level01_inspector_tests-engine.log",
+        "--script",
+        "tests/level01_inspector_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-final-headless",
+      "name": "01-levels-level02_alignment_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.7,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/01-levels-level02_alignment_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/01-levels-level02_alignment_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/01-levels-level02_alignment_tests-engine.log",
+        "--script",
+        "tests/level02_alignment_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-group-initial",
+      "name": "00-levels-level01_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 42.19,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-group-initial/00-levels-level01_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-group-initial/00-levels-level01_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-group-initial/00-levels-level01_input_tests-engine.log",
+        "--script",
+        "tests/level01_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-repaired-headless",
+      "name": "00-levels-level02_rules_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-headless/00-levels-level02_rules_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-headless/00-levels-level02_rules_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-headless/00-levels-level02_rules_tests-engine.log",
+        "--script",
+        "tests/level02_rules_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-repaired-headless",
+      "name": "02-levels-observation_repeat_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 62.45,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-headless/02-levels-observation_repeat_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-headless/02-levels-observation_repeat_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-headless/02-levels-observation_repeat_tests-engine.log",
+        "--script",
+        "tests/observation_repeat_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-final-headless",
+      "name": "02-levels-level02_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 25.78,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/02-levels-level02_input_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/02-levels-level02_input_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/02-levels-level02_input_tests-engine.log",
+        "--script",
+        "tests/level02_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-final-headless",
+      "name": "03-levels-level02_drag_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 39.07,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/03-levels-level02_drag_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/03-levels-level02_drag_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/03-levels-level02_drag_tests-engine.log",
+        "--script",
+        "tests/level02_drag_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-final-headless",
+      "name": "04-levels-level03_geometry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.61,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/04-levels-level03_geometry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/04-levels-level03_geometry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/04-levels-level03_geometry_tests-engine.log",
+        "--script",
+        "tests/level03_geometry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-final-headless",
+      "name": "05-campaign-campaign_reentry_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 10.33,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/05-campaign-campaign_reentry_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/05-campaign-campaign_reentry_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/05-campaign-campaign_reentry_tests-engine.log",
+        "--script",
+        "tests/campaign_reentry_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-final-headless",
+      "name": "06-classroom-chapter_learning_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.29,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/06-classroom-chapter_learning_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/06-classroom-chapter_learning_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-headless/06-classroom-chapter_learning_tests-engine.log",
+        "--script",
+        "tests/chapter_learning_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-repaired-headless",
+      "name": "01-levels-level02_structure_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 25.65,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-headless/01-levels-level02_structure_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-headless/01-levels-level02_structure_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-headless/01-levels-level02_structure_tests-engine.log",
+        "--script",
+        "tests/level02_structure_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "suite": "observe-lifecycle-fixed-headless",
+      "name": "00-levels-repeat_lifecycle_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.3,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-fixed-headless/00-levels-repeat_lifecycle_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-fixed-headless/00-levels-repeat_lifecycle_tests-engine.log",
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--headless",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-fixed-headless/00-levels-repeat_lifecycle_tests-engine.log",
+        "--script",
+        "tests/repeat_lifecycle_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ],
+  "gpu": [
+    {
+      "suite": "observe-final-gpu",
+      "name": "02-visual-observation_repeat_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 69.24,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-gpu/02-visual-observation_repeat_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-gpu/02-visual-observation_repeat_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-final-gpu/02-visual-observation_repeat_tests-engine.log",
+        "--script",
+        "tests/observation_repeat_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "observe-repaired-gpu",
+      "name": "00-visual-inspection_workspace_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 36.46,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-gpu/00-visual-inspection_workspace_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-gpu/00-visual-inspection_workspace_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-gpu/00-visual-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "observe-repaired-gpu",
+      "name": "01-visual-level02_wrong_type_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 32.24,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-gpu/01-visual-level02_wrong_type_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-gpu/01-visual-level02_wrong_type_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-repaired-gpu/01-visual-level02_wrong_type_tests-engine.log",
+        "--script",
+        "tests/level02_wrong_type_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "suite": "observe-lifecycle-gpu",
+      "name": "00-visual-repeat_lifecycle_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 8.89,
+      "log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-gpu/00-visual-repeat_lifecycle_tests.log",
+      "engine_log": "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-gpu/00-visual-repeat_lifecycle_tests-engine.log",
+      "command": [
+        "open",
+        "-g",
+        "-n",
+        "-W",
+        "-a",
+        "/Applications/Godot.app",
+        "--args",
+        "--path",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-parity-work",
+        "--minimized",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--log-file",
+        "/Users/bilibili/Documents/Codex/2026-10-31/task-8/observe-lifecycle-gpu/00-visual-repeat_lifecycle_tests-engine.log",
+        "--script",
+        "tests/repeat_lifecycle_tests.gd",
+        "--",
+        "--gpu"
+      ],
+      "environment_warnings": []
+    }
+  ],
+  "protected_source_files": 247,
+  "earlier_failures": [
+    {
+      "suite": "observe-feature",
+      "name": "02-levels-inspection_workspace_tests",
+      "status": "script_error"
+    },
+    {
+      "suite": "observe-final-headless",
+      "name": "00-levels-level02_structure_tests",
+      "status": "script_error"
+    },
+    {
+      "suite": "observe-lifecycle-headless",
+      "name": "00-levels-repeat_lifecycle_tests",
+      "status": "engine_error"
+    },
+    {
+      "suite": "observe-final-gpu",
+      "name": "00-visual-inspection_workspace_tests",
+      "status": "script_error"
+    },
+    {
+      "suite": "observe-final-gpu",
+      "name": "01-visual-level02_wrong_type_tests",
+      "status": "engine_error"
+    }
+  ],
+  "failure_resolution": "Cached first inspector viewport callback guarded outside tree. Legacy manual-b and local-return fixture assumptions updated for automatic row completion. Failed owned headless fixture stopped after confirmation; repaired cases passed.",
+  "limits": [
+    "Targeted regression, not complete all suite",
+    "Viewport mouse/simulated touch, not physical touchscreen/human target-device acceptance",
+    "Three-way middle/top remain independent because geometry/opening/direction differ",
+    "First length selection and second opening selection remain intentionally different"
+  ]
+}

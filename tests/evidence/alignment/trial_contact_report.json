@@ -1,0 +1,7 @@
+{
+  "combinations": 40,
+  "failed": 0,
+  "failures": [],
+  "method": "40 mixed State/geometry combinations; independent triangle/containment checks, not GUI or engineering physics",
+  "passed": 120
+}

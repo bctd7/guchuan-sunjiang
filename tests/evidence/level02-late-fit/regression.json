@@ -1,0 +1,58 @@
+[
+  {
+    "name": "opening_geometry",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 0.5,
+    "log": "regression/opening_geometry.log"
+  },
+  {
+    "name": "geometry",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 0.57,
+    "log": "regression/geometry.log"
+  },
+  {
+    "name": "workspace",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 32.53,
+    "log": "regression/workspace.log"
+  },
+  {
+    "name": "drag",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 41.62,
+    "log": "regression/drag.log"
+  },
+  {
+    "name": "chapter_tools",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 2.88,
+    "log": "regression/chapter_tools.log"
+  },
+  {
+    "name": "reentry",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 10.24,
+    "log": "regression/reentry.log"
+  },
+  {
+    "name": "campaign",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 89.79,
+    "log": "regression/campaign.log"
+  },
+  {
+    "name": "failure",
+    "exit_code": 0,
+    "status": "passed",
+    "seconds": 96.03,
+    "log": "regression/failure.log"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "levels/level02/hull_view.gd": "a90ff1b9ac7c1a864b50676ee37f3935326a3e883b86d0a6e8ad3563f8e6054f",
+  "levels/level02/inspection_context.gd": "aff28f32c134717e492ce87402c4634592bdef168d77b18e2dc96e3356be12bb",
+  "models/ship/hull/support_geometry.gd": "d5e9cb9737319b221ec6648ab367229f10381d79588fe5b81c23f93d02c96894",
+  "tests/level02_structure_geometry_tests.gd": "2d301fd8c740878b87c3f5ea29b5747d0ad17ebc6684cadef644d1cc3b58a53e",
+  "tests/level02_structure_tests.gd": "2639955fefa883d0128d8fc663c4f12e46d7729e75074cc8e72388c436ea469f",
+  "tests/level02_alignment_geometry_tests.gd": "ae4b743cf556aab513181325e01f4258fcf71a5f022ad5809b31ad3062b5fc45",
+  "tests/run_suite.py": "8e6ccb4955774ff845d3bfd81215c960a224d675867dcf0973dc07577de82232",
+  "tests/test_suite_runner.py": "93a5a2b417ed253af94edce5e1f9a28c3281228c130b438936e4bb607d61d2e7"
+}
