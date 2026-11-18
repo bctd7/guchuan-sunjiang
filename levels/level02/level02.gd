@@ -337,7 +337,7 @@ func is_completed() -> bool:
 	return state.completed
 
 func navigation_status() -> Dictionary:
-	return {"modal_open": panel.success_panel.visible or panel.failure_overlay.visible or learning.modal_open() or bulkhead_lesson.opened or view.inspected or panel.inventory_open or panel.magnifier.visible, "can_leave": not busy}
+	return {"modal_open": panel.success_panel.visible or panel.failure_overlay.visible or learning.modal_open() or bulkhead_lesson.opened or view.inspected or panel.inventory_open or panel.magnifier.visible, "can_leave": not busy, "intro_open": learning.opened}
 
 func _show_overview() -> void:
 	panel.observation_orbit.deactivate()

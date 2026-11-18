@@ -120,4 +120,4 @@ func is_completed() -> bool:
 	return state.completed
 
 func navigation_status() -> Dictionary:
-	return {"modal_open": panel.success_panel.visible or learning.modal_open() or story.opened or panel.inspected or panel.magnifier.visible, "can_leave": not busy}
+	return {"modal_open": panel.success_panel.visible or learning.modal_open() or story.opened or panel.inspected or panel.magnifier.visible, "can_leave": not busy, "intro_open": learning.opened}

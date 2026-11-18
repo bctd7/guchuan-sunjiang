@@ -2,6 +2,7 @@ extends Node
 const ExhibitLayout=preload("res://shared/ui/exhibition_layout.gd")
 signal load_failed(chapter: int,reason: String)
 const MENU_HINT := ""
+const IntroductionLayout=preload("res://classroom/introduction/lesson_intro.gd")
 const MenuView = preload("res://campaign/menu_view.gd")
 var menu_status: Label
 var last_load_error: Dictionary={}
@@ -176,8 +177,21 @@ func _process(_delta: float) -> void:
 	var level=instances.get(active_level)
 	if not is_instance_valid(level): return
 	var status: Dictionary=level.navigation_status()
-	navigation.visible=not status.modal_open
+	# The chapter introduction shares the workshop's existing directory return.
+	# Other teaching, story and result modals retain their own navigation.
+	var intro_open:=bool(status.get("intro_open",false))
+	navigation.visible=not status.modal_open or intro_open
+	back_button.text="返回主界面" if intro_open else "返回关卡目录"
+	# Introduction content is viewport-anchored; map its shared right margin
+	# back into the scaled workshop navigation coordinates.
+	if intro_open:
+		var right_edge:=get_viewport().get_visible_rect().size.x-IntroductionLayout.SIDE_MARGIN
+		var local_edge:=navigation_root.get_global_transform_with_canvas().affine_inverse()*Vector2(right_edge,0)
+		back_button.position.x=local_edge.x-back_button.size.x
+	else:
+		back_button.position.x=1244
 	back_button.disabled=not status.can_leave
+	next_button.visible=not intro_open and active_level<3 and completed.get(active_level,false)
 
 func _label(parent: Node,text: String,font_size: int) -> Label:
 	var label:=Label.new()

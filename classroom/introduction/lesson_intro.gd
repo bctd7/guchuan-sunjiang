@@ -1,5 +1,6 @@
 extends Control
 ## Pure lesson introduction. No source scene, gameplay state or classroom ownership.
+const SIDE_MARGIN := 32
 signal start_requested
 signal lesson_requested(id: String)
 const Friendly = preload("res://shared/ui/friendly_theme.gd")
@@ -37,7 +38,7 @@ func _ready() -> void:
 	_intro.add_child(shade)
 	var margin := MarginContainer.new()
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	for edge in ["left", "right"]: margin.add_theme_constant_override("margin_" + edge,32)
+	for edge in ["left", "right"]: margin.add_theme_constant_override("margin_" + edge,SIDE_MARGIN)
 	for edge in ["top", "bottom"]: margin.add_theme_constant_override("margin_" + edge,28)
 	_intro.add_child(margin)
 	var stack := VBoxContainer.new()
