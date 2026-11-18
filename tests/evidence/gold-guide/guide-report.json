@@ -1,0 +1,14 @@
+{
+  "failures": [],
+  "images": [
+    "guide-1-type",
+    "guide-1-material",
+    "guide-1-drag",
+    "guide-2-type",
+    "guide-2-material",
+    "guide-2-drag",
+    "guide-3-candidate",
+    "guide-3-socket"
+  ],
+  "method": "1920x1080 GPU with Viewport pointer input"
+}

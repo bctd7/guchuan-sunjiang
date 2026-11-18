@@ -39,30 +39,28 @@ func run() -> void:
 	await button(level.panel.bulkhead_button)
 	var story: CanvasLayer = level.bulkhead_lesson
 	check(story.opened and not level.interaction.is_processing_input(), "story entry suspends assembly input")
-	check(story.close_button.text == "返回船板装配", "existing return action retained")
-	check(story._root.find_children("*", "Button", true, false).size() == 1, "one return action")
-	var illustration: Control = story._root.find_child("StoryIllustration", true, false)
-	var scroll: ScrollContainer = story._root.find_child("StoryScroll", true, false)
-	var last: Label = story._root.find_child("StoryParagraph4", true, false)
+	check(story.close_button.text == "关闭", "existing return action retained")
+	check(story.root.find_children("*", "Button", true, false).size() == 1, "one return action")
+	var illustration: Control = story.root.find_child("StoryIllustration", true, false)
+	var scroll: ScrollContainer = story.root.find_child("StoryScroll", true, false)
+	var last: Label = story.root.find_child("StoryParagraph4", true, false)
 	check(illustration.ART.get_width() >= 1600, "full-resolution chapter-two story art")
-	var paragraphs: Array = story._root.find_children("StoryParagraph*", "Label", true, false)
+	var paragraphs: Array = story.root.find_children("StoryParagraph*", "Label", true, false)
 	check(paragraphs.size() == story.STORY_PARAGRAPHS.size(), "all four original paragraphs")
 	for i in paragraphs.size():
 		check(paragraphs[i].text == story.STORY_PARAGRAPHS[i], "unchanged paragraph " + str(i))
-	for dimensions in [Vector2i(1440, 900), Vector2i(1280, 720), Vector2i(1100, 700), Vector2i(960, 600), Vector2i(768, 900)]:
+	for dimensions in [Vector2i(1920, 1080), Vector2i(1440, 900), Vector2i(1280, 720), Vector2i(1100, 700), Vector2i(960, 600), Vector2i(768, 900)]:
 		surface.size = dimensions
 		scroll.scroll_vertical = 0
 		await settle(.15)
 		var viewport := Rect2(Vector2.ZERO, Vector2(dimensions))
 		check(viewport.encloses(story.close_button.get_global_rect()), "return button fits " + str(dimensions))
 		check(viewport.encloses(scroll.get_global_rect()), "reading viewport fits " + str(dimensions))
-		check(viewport.encloses(illustration.get_global_rect()), "whole image fits " + str(dimensions))
-		check(not illustration.get_global_rect().intersects(scroll.get_global_rect()), "image and text do not overlap " + str(dimensions))
+		check(illustration.get_global_rect().size.x<=scroll.size.x, "image width fits reading area " + str(dimensions))
+		check(scroll.is_ancestor_of(illustration), "image shares reading scroll " + str(dimensions))
 		check(absf(illustration.size.y - illustration.size.x * float(illustration.ART.get_height()) / illustration.ART.get_width()) <= 1, "uncropped image ratio " + str(dimensions))
-		var spread: GridContainer = story._root.find_child("StorySpread", true, false)
-		check(spread.columns == (1 if dimensions.x < 900 else 2), "responsive layout " + str(dimensions))
+		check(story.root.get_script()==preload("res://levels/shared/story_panel.gd"), "shared first-chapter layout")
 		await snapshot("story-" + str(dimensions.x))
-		var picture_before := illustration.get_global_rect()
 		var bar := scroll.get_v_scroll_bar()
 		for step in 80:
 			if scroll.scroll_vertical >= bar.max_value - bar.page - 1: break
@@ -76,7 +74,6 @@ func run() -> void:
 				await process_frame
 		await settle(.1)
 		check(scroll.get_global_rect().grow(1).encloses(last.get_global_rect()), "whole final paragraph readable " + str(dimensions))
-		check(illustration.get_global_rect() == picture_before, "illustration remains in place during reading " + str(dimensions))
 		await snapshot("story-" + str(dimensions.x) + "-bottom")
 	await button(story.close_button)
 	check(not story.opened and level.interaction.is_processing_input(), "return restores assembly input")

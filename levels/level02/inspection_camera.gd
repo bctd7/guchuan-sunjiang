@@ -68,3 +68,8 @@ static func corners(node: Node,points: Array[Vector3]) -> void:
 	if node is MeshInstance3D:
 		for index in 8:points.append(node.global_transform*node.get_aabb().get_endpoint(index))
 	for child in node.get_children():corners(child,points)
+
+func reset_view() -> void:
+	zoom_factor=1.0
+	orbit.configure(camera,_frame_center,orbit._direction,true)
+	camera.size=maxf(_inspection_size,.8)

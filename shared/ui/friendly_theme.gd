@@ -47,8 +47,8 @@ static func make_theme(compact := false) -> Theme:
 			var style := theme.get_stylebox(state,"Button") as StyleBoxFlat
 			style.content_margin_left = 9
 			style.content_margin_right = 9
-			style.content_margin_top = 6
-			style.content_margin_bottom = 6
+			style.content_margin_top = 10
+			style.content_margin_bottom = 10
 			style.set_corner_radius_all(13)
 			style.shadow_size = 2
 			style.shadow_offset = Vector2(0,2)

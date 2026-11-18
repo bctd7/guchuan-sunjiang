@@ -1,0 +1,20 @@
+{
+  "driver": "CoreAudio",
+  "events": [
+    "click",
+    "click",
+    "undo",
+    "reset",
+    "click",
+    "success",
+    "failure",
+    "click",
+    "success",
+    "failure",
+    "click",
+    "success",
+    "click"
+  ],
+  "failures": [],
+  "scope": "actual button pointer input; result panels directly displayed to test wiring, not full gameplay verdicts"
+}

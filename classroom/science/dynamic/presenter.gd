@@ -14,15 +14,6 @@ func _ready() -> void:
 	panel.hide()
 	set_process(false)
 
-func _icon(symbol: String, parent: Node, action: Callable) -> Button:
-	var b := Button.new()
-	b.text = symbol
-	b.custom_minimum_size = Vector2(44,44)
-	b.add_theme_font_size_override("font_size",26)
-	b.pressed.connect(action)
-	parent.add_child(b)
-	return b
-
 func _build() -> void:
 	panel = PanelContainer.new()
 	panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -41,7 +32,8 @@ func _build() -> void:
 	var space := Control.new()
 	space.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(space)
-	close_button = _icon("×",top,close)
+	close_button = preload("res://shared/ui/joint_return_button.gd").create(close)
+	top.add_child(close_button)
 	diagram = Diagram.new()
 	diagram.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	diagram.custom_minimum_size.y = 180

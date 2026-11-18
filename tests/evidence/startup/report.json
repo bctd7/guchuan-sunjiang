@@ -1,0 +1,10 @@
+{
+  "driver": "CoreAudio",
+  "failures": [],
+  "method": "real GPU/CoreAudio, Viewport mouse injection; no acoustic/hardware touchscreen verification",
+  "screenshots": [
+    "video",
+    "welcome",
+    "directory"
+  ]
+}

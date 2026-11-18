@@ -49,7 +49,7 @@ func _ready() -> void:
 	_label(heading,"古船榫匠 · 开工之前",18)
 	_heading = _label(heading,"",32)
 	_label(heading,"先看清榫头与槽口。轻点“观察此榫卯”，可以走近看看它怎样连接。",19)
-	_scroll=ScrollContainer.new()
+	_scroll=preload("res://shared/ui/reading_scroll.gd").new()
 	_scroll.name="LessonScroll"
 	_scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
 	_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
@@ -112,7 +112,7 @@ func _build_cards() -> void:
 		note.custom_minimum_size.y=70
 		var observe:=Button.new()
 		observe.text="观察此榫卯"
-		observe.custom_minimum_size=Vector2(220,52)
+		observe.custom_minimum_size=Vector2(220,64)
 		observe.size_flags_horizontal=Control.SIZE_SHRINK_CENTER
 		observe.pressed.connect(func(): lesson_requested.emit(id))
 		content.add_child(observe)

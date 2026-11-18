@@ -4,6 +4,15 @@ const Fonts = preload("res://shared/chinese_fonts.gd")
 const INK=Color("304c3f")
 const MUTED=Color("6c7769")
 const PAPER=Color("fffbf3")
+const TASK_CARD_WIDTH := 340
+const TASK_CARD_GAP := 20
+
+static func task_card() -> StyleBoxFlat:
+	var value=card(26)
+	value.content_margin_top=26
+	value.content_margin_bottom=26
+	return value
+
 static func font(weight: int=400) -> Font:
 	return Fonts.font(weight)
 

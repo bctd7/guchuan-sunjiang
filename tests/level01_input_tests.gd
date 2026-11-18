@@ -120,7 +120,7 @@ func run() -> void:
 	level.interaction.socket_requested.connect(func(_id: String): requests+=1)
 	check(level.state.placed.size()==1 and level.state.placed.has("keel") and level.state.progress_count()==0,"fixed foundation starts outside manual progress")
 	check(level.view.pieces.keel.visible and not level.view.ghosts.keel.visible and not level.view.slots.keel.visible,"fixed foundation has neither choice nor target")
-	check(level.panel.piece_buttons.is_empty() and level.panel.joint_buttons.is_empty() and level.panel.length_buttons.is_empty(),"main page contains no duplicate selectors")
+	check(level.panel.main_sidebar.find_children("*","BaseButton",true,false)==[level.panel.inspect_button,level.panel.lesson_button] and level.panel.root.find_children("*","BaseButton",true,false).all(func(control):return not control.toggle_mode),"main page contains no duplicate selectors")
 	check(level.panel.check_button.disabled,"incomplete structure cannot request stability inspection")
 	check(level.panel.undo_button.disabled and level.joint_type.is_empty() and level.tenon_length.is_empty(),"fresh game has no undo or default type/length answer")
 	check(level.state.progress_count()==0 and level.state.automatic_count()==0,"manual and automatic progress start empty")

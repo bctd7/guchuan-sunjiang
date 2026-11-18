@@ -11,6 +11,8 @@
 - [第二关详细需求：船板合壳](docs/current/LEVEL02_REQUIREMENTS.md)
 - [第三关详细需求：帆樯舾装](docs/current/LEVEL03_REQUIREMENTS.md)
 
+展览适配：1920×1080 横屏、默认全屏。维护快捷键与设备部署清单见 [展览部署说明](docs/current/EXHIBITION_DEPLOYMENT.md)。
+
 导入 `project.godot`，F5 默认进入 `campaign/campaign.tscn`；独立九种榫卯课堂入口为 `classroom/classroom.tscn`。当前三关可直接进入，本次运行保留独立进度，没有跨运行存档。
 
 [历史归档与清理清单](docs/archive/2026-10-31-before-rebaseline/README.md)保留旧方案和阶段证据；[测试索引](tests/README.md)说明历史结果的适用范围。第二关随后已实施拖动装配、模型端缝、试浪漏水和隔舱小课堂；最新改动恢复第一关原面板、统一两关观察页，并为第二关加入同型等尺寸木料的真实开口选配与旋转，当前使用三组展示、四次正常拖动和整关试浪，见[统一观察页验证](tests/INSPECTION_WORKSPACE_VERIFICATION.md)。其余未定目标仍以每关文档为准；不代表全部最新策划或真人设备验收完成。

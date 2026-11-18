@@ -22,11 +22,12 @@ static func label(parent: Node, text: String, font_size: int) -> Label:
 static func button(parent: Node, text: String) -> Button:
 	var control := Button.new()
 	control.text = text
-	control.custom_minimum_size = Vector2(0,48)
+	control.custom_minimum_size = Vector2(0,50)
 	control.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	parent.add_child(control)
 	return control
 
 static func feedback(control: Label, message: String, error := false) -> void:
 	control.text = message
+	control.visible = not control.text.is_empty()
 	control.modulate = ERROR_COLOR if error else FEEDBACK_COLOR

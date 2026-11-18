@@ -8,9 +8,7 @@ const ANGLE:=-.95
 
 static func section(host: Node3D,polygon: PackedVector2Array,left: float,right: float,material: Material) -> void:
 	if right-left<.00001 or polygon.size()<3:return
-	var part:=Node3D.new();host.add_child(part)
-	part.position.x=(left+right)*.5;part.rotation.z=PI/2
-	G.prism(part,polygon,-(right-left)*.5,(right-left)*.5,material)
+	G.Shell.loft(host,polygon,left,right,material)
 
 static func clip_height(polygon: PackedVector2Array,above: bool) -> PackedVector2Array:
 	# Section coordinates are local Y/Z. The seat is horizontal at world Y=.26.
@@ -29,8 +27,9 @@ static func rail(host: Node3D,material: Material) -> void:
 	host.set_meta("wood_axis",Vector3.RIGHT)
 	host.set_meta("receiving_dimensions",{"kind":"tongue","width":G.TONGUE_WIDTH,"depth":G.TONGUE_DEPTH,"offset":0.0,"stock":G.PLANK_THICKNESS})
 	var sections: Array[PackedVector2Array]=[
-		PackedVector2Array([Vector2(-.09,-.32),Vector2(.09,-.32),Vector2(.09,0),Vector2(-.09,0)]),
+		PackedVector2Array([Vector2(-.09,-.20),Vector2(.09,-.20),Vector2(.09,0),Vector2(-.09,0)]),
 		PackedVector2Array([Vector2(-G.TONGUE_WIDTH*.5,0),Vector2(G.TONGUE_WIDTH*.5,0),Vector2(G.TONGUE_WIDTH*.5,G.TONGUE_DEPTH),Vector2(-G.TONGUE_WIDTH*.5,G.TONGUE_DEPTH)])]
+	sections[1]=G.rounded_tip(sections[1],.018,[2,3])
 	for polygon in sections:
 		var start: float=-4.0
 		for center in CENTERS:
@@ -42,8 +41,9 @@ static func rail(host: Node3D,material: Material) -> void:
 static func plank_keys(host: Node3D,left: float,right: float,offset: float,material: Material,centers: Array=CENTERS) -> void:
 	# The correct first board fills the fixed housing with integral keys. They
 	# enter from above along the existing plank path, never appear on release.
-	var body:=PackedVector2Array([Vector2(-.09,-.32),Vector2(.09,-.32),Vector2(.09,0),Vector2(-.09,0)])
+	var body:=PackedVector2Array([Vector2(-.09,-.20),Vector2(.09,-.20),Vector2(.09,0),Vector2(-.09,0)])
 	var tongue:=PackedVector2Array([Vector2(-.03,0),Vector2(.04,0),Vector2(.04,.09),Vector2(-.03,.09)])
+	tongue=G.rounded_tip(tongue,.018,[2,3])
 	for center in centers:
 		if center<left or center>right:continue
 		for polygon in [body,tongue]:

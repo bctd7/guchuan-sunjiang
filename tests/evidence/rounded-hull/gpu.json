@@ -1,0 +1,15 @@
+{
+  "failed": 0,
+  "failures": [],
+  "gpu": true,
+  "images": [
+    "res://tests/evidence/rounded-hull/flow/01-three-group-overview.png",
+    "res://tests/evidence/rounded-hull/flow/01a-curved-selection.png",
+    "res://tests/evidence/rounded-hull/flow/01b-curved-magnifier.png",
+    "res://tests/evidence/rounded-hull/flow/02-board-group-B.png",
+    "res://tests/evidence/rounded-hull/flow/03-frame-and-bulkhead.png",
+    "res://tests/evidence/rounded-hull/flow/04-side-member-seated.png",
+    "res://tests/evidence/rounded-hull/flow/05-completed-hull.png"
+  ],
+  "passed": 71
+}

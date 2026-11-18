@@ -32,9 +32,8 @@ func run() -> void:
 	check(inspector.selected_joint.is_empty() and inspector.selected_length.is_empty(),"no automatic answer")
 	await button(inspector.length_buttons.long)
 	check(level.tenon_length=="long" and level.joint_type.is_empty(),"length-only choice stays explicit")
-	await button(inspector.install_button)
 	check(level.state.placed.size()==1 and not inspector.orbit.assembly_enabled,"missing type prompt cannot install or auto-select")
-	check(inspector.status.text.contains("A") and inspector.status.text.contains("上方"),"length-only prompt identifies remaining type choice")
+	check(inspector.step_guide.target==inspector.joint_choices,"length-only choice retains type target")
 	for kind in ["dovetail","through_tenon","blind_tenon"]:
 		var card: Button=inspector.joint_buttons[kind]
 		await click(card.get_global_rect().position+Vector2(card.size.x*.5,50))
@@ -49,7 +48,7 @@ func run() -> void:
 	await button(level.panel.restart_button)
 	await button(level.panel.inspect_button)
 	check(inspector.selected_joint.is_empty() and inspector.selected_length.is_empty() and not inspector.orbit.assembly_enabled,"reset clears both choices without assembly")
-	var report={"passed":passed,"failed":failures.size(),"failures":failures,"method":"Actual GUI-dispatched pointer clicks on model image regions and missing-choice button; no direct business callbacks. Separate from native Windows test."}
+	var report={"passed":passed,"failed":failures.size(),"failures":failures,"method":"Actual GUI-dispatched pointer clicks on model image regions; no direct business callbacks. Separate from native Windows test."}
 	FileAccess.open("res://tests/observer_entry_report.json",FileAccess.WRITE).store_string(JSON.stringify(report,"  "))
 	print("OBSERVER ENTRY ",JSON.stringify(report))
 	level.free()

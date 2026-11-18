@@ -71,7 +71,7 @@ func run() -> void:
 				check(not level.story.opened and level.interaction.is_processing_input(),"story returns to first chapter "+str(dimensions))
 			else:
 				await button(level.panel.inventory_button)
-				check(level.panel.inventory_open and level.panel.group_buttons.size()==6,"inventory action exposes six display groups "+str(dimensions))
+				check(level.panel.inventory_open and level.panel.group_buttons.size()==3 and level.Rules.GROUPS.size()==3 and level.Rules.IDS.size()==10,"inventory action exposes three groups for ten members "+str(dimensions))
 				await button(level.panel.inventory_close_button)
 				await button(level.panel.bulkhead_button)
 				check(level.bulkhead_lesson.opened and not level.interaction.is_processing_input(),"compartment action suspends ship input "+str(dimensions))

@@ -1,0 +1,26 @@
+{
+  "workshop_loop.wav": {
+    "peak_dbfs": -5.256621168072129,
+    "rms_dbfs": -16.10519395043783,
+    "seconds": 64.0,
+    "seam_delta": 0.0021846166810451442
+  },
+  "wood_seat_0.wav": {
+    "peak_dbfs": -6.370662240631604,
+    "rms_dbfs": -21.817733358153063,
+    "seconds": 0.24,
+    "seam_delta": 2.5804523604841057e-07
+  },
+  "wood_seat_1.wav": {
+    "peak_dbfs": -6.369971281137644,
+    "rms_dbfs": -21.81304084938034,
+    "seconds": 0.24,
+    "seam_delta": 3.4269124697997554e-07
+  },
+  "wood_seat_2.wav": {
+    "peak_dbfs": -6.369925940572248,
+    "rms_dbfs": -21.6820078652351,
+    "seconds": 0.24,
+    "seam_delta": 3.663848865939666e-07
+  }
+}

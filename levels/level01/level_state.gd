@@ -116,7 +116,7 @@ func reset() -> void:
 	failed = false
 	_failure.clear()
 	changed.emit()
-	feedback.emit("重新开始：龙骨已固定，先观察船肋的榫头与槽口。")
+	feedback.emit("龙骨已就位。")
 
 func stage() -> String:
 	if failed:

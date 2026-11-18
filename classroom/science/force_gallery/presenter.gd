@@ -29,10 +29,7 @@ func _ready() -> void:
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(spacer)
-	close_button = Button.new()
-	close_button.text = "×"
-	close_button.custom_minimum_size = Vector2(44,44)
-	close_button.pressed.connect(close)
+	close_button = preload("res://shared/ui/joint_return_button.gd").create(close)
 	top.add_child(close_button)
 	diagram = Diagram.new()
 	diagram.size_flags_vertical = Control.SIZE_EXPAND_FILL

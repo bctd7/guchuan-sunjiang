@@ -89,4 +89,4 @@ func play() -> void:
 func set_display_scale(factor: float) -> void:
 	_scale=factor
 	if not is_instance_valid(_row):return
-	for button in _row.get_children():button.custom_minimum_size.y=maxf(52,44/factor)
+	for button in _row.get_children():button.custom_minimum_size.y=maxf(52,60/factor)

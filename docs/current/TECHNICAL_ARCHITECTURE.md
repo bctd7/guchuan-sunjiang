@@ -1,5 +1,7 @@
 # 技术架构（当前工作树）
 
+2026-11-18 更新：三关主页面外壳、故事页面与生命周期、榫型候选卡及背景绘制已共用；第三关观察页接入现有公共观察区、缩放、放大和输入。第三关故事使用明确标注的 mock 内容。仍存在专用尺寸面板、操舵区域组合及关卡适配脚本，详见 [三关组件核对](CHAPTER_COMPONENT_AUDIT.md) 和 [实际验证](../../tests/SHARED_CHAPTER_UI_VERIFICATION.md)。以下旧日期段落中的“第三关未接入”“故事/背景独立实现”由本条更新。
+
 > 2026-11-08 当前第二关只采用两种装配结果：能继续则保留实际木件和原选项继续；不能继续则完成可达接触动作后自动弹出失败并提供重开。选错本身不触发提前失败，已能装齐的错口保留到试浪。取消“受阻后手动结束”流程。选材 UI 采用第一关式实体卡直接对照：缺口默认朝正面，参照和 A/B/C 共用同一比例，在实际缺口旁标关键尺寸。企口从下边量槽口高度，搭扣比较宽与深，扣合比较宽和居中／偏旁；仍可旋转、放大完整木料。上方参照对应实际试装接头：首处搭扣量取真实座木截面，配套扣合不套用后段标准尺寸；无对应量的接法只提示实际接合形状。三组、四次正常拖动、十件记录保持；第一处错选搭扣/扣合仍完成局部接头后报“拼装错误”。 见[统一结果与尺寸对照验证](../../tests/LEVEL02_UNIFIED_FIT_VERIFICATION.md)。 最新选材显示见[正面缺口与同尺度参照](../../tests/LEVEL02_DIRECT_COMPARISON_VERIFICATION.md)。
 
 核对日期：2026-11-01。描述 `/Users/bilibili/Documents/GitHub/guchuan-sunjiang` 当前未提交工作树，依据静态源码与已有证据；随后第二关改造已运行针对性回归与 Mac GPU 验证，见[统一观察页记录](../../tests/INSPECTION_WORKSPACE_VERIFICATION.md)。产品目标见[文档索引](README.md)及每关需求；下文“已有”不表示新需求完成。
@@ -15,9 +17,9 @@
 | 项目 | 当前实际配置 |
 |---|---|
 | 引擎 | 历史运行环境为 Godot 4.7.2 标准版；工程声明 4.7，无 .NET 工程 |
-| 主入口 | [project.godot](../../project.godot) → `res://campaign/campaign.tscn` |
+| 主入口 | [project.godot](../../project.godot) → `res://startup/startup.tscn` → 视频结束或跳过 → `res://campaign/campaign.tscn` |
 | 渲染 | `gl_compatibility`，MSAA 3D=2 |
-| 逻辑窗口 | 1440×900，`canvas_items` 拉伸；不代表全部小屏布局已适配 |
+| 逻辑窗口 | 1920×1080，默认全屏，`canvas_items` + `keep`；船坊沿用 1440×900 内部坐标等比居中，不横向拉伸；见 [展览部署](EXHIBITION_DEPLOYMENT.md) |
 | 默认字体 | `res://shared/fonts/default_font.tres`，内置字体和 OFL 许可保留 |
 | 独立课堂 | `res://classroom/classroom.tscn`，原九种教材可独立使用 |
 
@@ -57,9 +59,9 @@ project.godot → campaign/campaign.tscn → campaign.gd
 
 这是调用与职责示意，不表示所有箭头是相同的信号或继承关系。通常输入由关卡协调器调用 State/Rules，再由 UI 和 View 表现；逻辑接受一次放置早于动画最终落位，协调器还需等待 Tween 完成才允许后续或验收，不能只用逻辑件数替代落位完成。
 
-`campaign.gd` 先确认资源存在、实例满足关卡接口，再切换场景；加载/接口失败时保留原关卡与进度并显示可重试提示，释放无效的新实例。它首次实例化关卡并连接 `progress_changed`、`return_requested`；离开调用 `leave()` 并移出场景树，重进挂回同实例并调用 `enter()`。通过 `is_completed()` 更新徽标和下一关，通过 `navigation_status()` 决定模态界面期间的外层导航。退出时释放未挂树的缓存实例。
+`campaign.gd` 先确认资源存在、实例满足关卡接口，再切换场景；加载/接口失败时保留原关卡与进度并显示可重试提示，释放无效的新实例。它首次实例化关卡并连接 `progress_changed`、`return_requested`；返回目录调用 `leave()`，禁用并释放离开的实例、清除该关完成徽标；重进创建新实例并调用 `enter()`。通过 `is_completed()` 更新徽标和下一关，通过 `navigation_status()` 决定模态界面期间的外层导航。退出时释放未挂树的缓存实例。
 
-当前三个关卡平行开放，每关状态互不代替；目录往返保留本次运行实例，重开只重置本关。没有磁盘存档或云同步。重进会经过本关介绍入口，再恢复保留进度。
+当前三个关卡平行开放，每关状态互不代替；目录往返重新开始，重开只重置本关。没有磁盘存档或云同步。重进会经过本关介绍入口，从初始状态开始；关卡内部讲解返回仍保留进度。
 
 ## 5. 三关实际状态与规则
 
@@ -189,3 +191,13 @@ runner 默认执行 import，并支持 `core / levels / classroom / campaign / a
 单指仍按起点区分拖木料与转视角。加入第二指时停止待提交动作并保留实际浅推位置；重新抓取后继续。失焦、窗口尺寸改变和显式取消清理旧坐标系的手势。打开放大窗前仅暂停手势并清空接触点，不恢复浅推木料；关闭后不会残留漏接的抬手事件。鼠标与触摸模拟鼠标重复事件保持互斥，触摸抖动阈值为 10 个逻辑像素。
 
 此轮范围是第一、二关的以上区域，第三关及旧独立课堂没有统一接入双指。文字仍随设计画布等比缩放，未新增小屏重排或最小字号策略。目标机器已知为 Windows，物理分辨率、系统 DPI 和多点能力未确认；自动输入和 Mac GPU 通过不代表 Windows 触屏已实测。见[测试与实机检查边界](../../tests/TOUCH_GESTURES_VERIFICATION.md)。
+
+## 公共步骤引导
+
+`levels/shared/step_guide.gd` 为独立呈现组件，三关依据已有选材、装配、busy、完成状态提供文字和目标。无独立推进状态；边框忽略输入，辅助按钮保留布局占位并同步禁用指针与焦点。状态映射及验证边界见 [步骤引导验证](../../tests/STEP_GUIDE_VERIFICATION.md)。
+
+启动视频和欢迎页实现、转码及验收边界见 [启动视频](STARTUP_VIDEO.md)。
+
+## 统一结果页（2026-11-18）
+
+`levels/shared/chapter_result.gd` 承担三关成功与前两关现有失败呈现；`assembly_failure.gd` 复用其布局。结果只读复制当前可见木件，真实失败原因来自原判定。第一、二关通过 `next_requested` 由 campaign 校验后进入下一关，第三关返回目录。结果显示期间 campaign 导航隐藏，复用原音效订阅。验证范围及截图见 [结果页验证](../../tests/RESULT_PAGES_VERIFICATION.md)。

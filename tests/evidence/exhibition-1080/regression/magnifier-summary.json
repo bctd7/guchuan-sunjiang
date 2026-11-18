@@ -1,0 +1,53 @@
+{
+  "project": "/private/tmp/guchuan-exhibition",
+  "started_utc": "2026-11-16T15:18:07.546190+00:00",
+  "groups": [
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "import",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 6.13,
+      "log": "/private/tmp/exhibition-magnifier-final/import.log",
+      "engine_log": null,
+      "command": [
+        "/opt/homebrew/bin/godot",
+        "--path",
+        "/private/tmp/guchuan-exhibition",
+        "--headless",
+        "--editor",
+        "--import",
+        "--quit"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Cannot save file '/Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres'.",
+        "ERROR: Error saving editor settings to /Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres"
+      ]
+    },
+    {
+      "name": "00-levels-opening_navigation_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 15.25,
+      "log": "/private/tmp/exhibition-magnifier-final/00-levels-opening_navigation_tests.log",
+      "engine_log": "/private/tmp/exhibition-magnifier-final/00-levels-opening_navigation_tests-engine.log",
+      "command": [
+        "/opt/homebrew/bin/godot",
+        "--path",
+        "/private/tmp/guchuan-exhibition",
+        "--headless",
+        "--log-file",
+        "/private/tmp/exhibition-magnifier-final/00-levels-opening_navigation_tests-engine.log",
+        "--script",
+        "tests/opening_navigation_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

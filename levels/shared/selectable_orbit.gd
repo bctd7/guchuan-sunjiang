@@ -1,6 +1,7 @@
 extends "res://levels/shared/inspection_orbit.gd"
 ## Tap selects, one finger rotates, two fingers zoom without selecting.
 signal activated
+signal tapped(position: Vector2)
 signal zoom_requested(factor: float)
 const Pinch = preload("res://levels/shared/touch_pinch.gd")
 var pinch = Pinch.new()
@@ -30,7 +31,9 @@ func _gui_input(event: InputEvent) -> void:
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		tap = _mouse_down and not _dragging and event.device != InputEvent.DEVICE_ID_EMULATION and Time.get_ticks_msec() - _last_touch_ms >= 450 and event.position.distance_to(_origin) <= DRAG_SLOP
 	super._gui_input(event)
-	if tap: activated.emit()
+	if tap:
+		tapped.emit(get_global_transform_with_canvas()*event.position)
+		activated.emit()
 
 func _input(event: InputEvent) -> void:
 	if not active or not is_visible_in_tree(): return

@@ -85,6 +85,7 @@ static func emit(host: Node3D,faces: Array,material: Material) -> void:
  var points:=vertices(faces);var center:=Vector3.ZERO
  for p in points:center+=p
  center/=maxi(1,points.size())
+ var triangle_count:=0
  var tool:=SurfaceTool.new();tool.begin(Mesh.PRIMITIVE_TRIANGLES);tool.set_smooth_group(-1)
  for face in faces:
   for i in range(1,face.size()-1):
@@ -94,5 +95,8 @@ static func emit(host: Node3D,faces: Array,material: Material) -> void:
    if normal.dot((a+b+c)/3.0-center)<0:
     var swap:=b;b=c;c=swap
    tool.add_vertex(a);tool.add_vertex(b);tool.add_vertex(c)
+   triangle_count+=1
+ # Clipped curved edges can leave only sub-tolerance slivers.
+ if triangle_count==0:return
  tool.generate_normals()
  var node:=MeshInstance3D.new();node.mesh=tool.commit();node.material_override=material;host.add_child(node)

@@ -24,7 +24,6 @@ func run() -> void:
 	await button(level.panel.inspect_button)
 	await capture("01-pick-a-joint")
 	await button(level.inspector.length_buttons.long)
-	await button(level.inspector.install_button)
 	check(level.joint_type.is_empty() and not level.busy,"missing choice never supplies answer")
 	await capture("02-wood-picked-joint-still-needed")
 	var card: Button=level.inspector.joint_buttons.blind_tenon

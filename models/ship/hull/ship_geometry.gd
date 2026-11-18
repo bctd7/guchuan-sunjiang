@@ -1,5 +1,6 @@
 extends RefCounted
 ## Ship-specific static solids; no legacy workshop models or runtime CSG.
+const Shell=preload("res://models/ship/hull/shell_surface.gd")
 const ANGLES := [0.0,PI/3.0,-PI/3.0]
 const THICK := 0.24
 const WIDTH := 0.28
@@ -87,24 +88,63 @@ static func cross_member(parent: Node3D,upper: bool,mat: Material,length:=1.86,o
 		var center: float=(start+end)*.5
 		var size:=Vector3(.28,.12,end-start) if upper else Vector3(end-start,.12,.28)
 		box(parent,size,Vector3(0,-.06,center) if upper else Vector3(center,.06,0),mat)
+# Rounded joint sections shared by the curved plank loft.
+static func rounded_tip(poly: PackedVector2Array,radius: float,indices: Array) -> PackedVector2Array:
+	var result:=PackedVector2Array()
+	for i in poly.size():
+		var corner:=poly[i]
+		if not i in indices:
+			result.append(corner)
+			continue
+		var u: Vector2=(poly[(i+poly.size()-1)%poly.size()]-corner).normalized()
+		var v: Vector2=(poly[(i+1)%poly.size()]-corner).normalized()
+		var safe_radius: float=minf(radius,.45*minf(corner.distance_to(poly[(i+poly.size()-1)%poly.size()]),corner.distance_to(poly[(i+1)%poly.size()])))
+		var center:=corner+(u+v)*safe_radius
+		for step in 9:
+			var angle: float=step*PI/16.0
+			result.append(center-safe_radius*(v*cos(angle)+u*sin(angle)))
+	return result
+
+static func edge_section(parent: Node3D,poly: PackedVector2Array,length: float,x: float,mat: Material) -> MeshInstance3D:
+	var mesh:=prism(parent,poly,-length*.5,length*.5,mat)
+	mesh.rotation.z=PI/2
+	mesh.position.x=x
+	return mesh
+
 static func plank(parent: Node3D,a: float,b: float,row: int,mat: Material,incoming_offset:=0.0,outgoing_offset:=0.0,opening_at_entry:=false) -> MeshInstance3D:
-	var length=b-a-.012
-	var x=(a+b)/2
 	var start: float=row*.78
 	# The chapter-two option moves the actual female groove; stock size never changes.
-	box(parent,Vector3(length,PLANK_THICKNESS,.68),Vector3(x,0,start+.44 if opening_at_entry else start+.34),mat)
+	var body_start: float=start+.10 if opening_at_entry else start
+	Shell.loft(parent,PackedVector2Array([Vector2(-.09,body_start),Vector2(.09,body_start),Vector2(.09,body_start+.68),Vector2(-.09,body_start+.68)]),a+.006,b-.006,mat)
 	var slot_offset: float=incoming_offset if opening_at_entry else outgoing_offset
 	parent.set_meta("mating_dimensions",{"kind":"groove","width":GROOVE_WIDTH,"depth":GROOVE_DEPTH,"offset":slot_offset,"stock":PLANK_THICKNESS})
 	parent.set_meta("receiving_dimensions",{"kind":"tongue","width":TONGUE_WIDTH,"depth":TONGUE_DEPTH,"offset":outgoing_offset if opening_at_entry else incoming_offset,"stock":PLANK_THICKNESS})
 	for side in [-1,1]:
 		var low: float=-PLANK_THICKNESS*.5 if side<0 else slot_offset+GROOVE_WIDTH*.5
 		var high: float=slot_offset-GROOVE_WIDTH*.5 if side<0 else PLANK_THICKNESS*.5
-		box(parent,Vector3(length,high-low,GROOVE_DEPTH),Vector3(x,(low+high)*.5,start+.05 if opening_at_entry else start+.73),mat)
-	return box(parent,Vector3(length,TONGUE_WIDTH,TONGUE_DEPTH),Vector3(x,outgoing_offset if opening_at_entry else incoming_offset,start+.825 if opening_at_entry else start-.045),mat)
+		var z0: float=start if opening_at_entry else start+.68
+		var lip:=PackedVector2Array([Vector2(low,z0),Vector2(high,z0),Vector2(high,z0+.10),Vector2(low,z0+.10)])
+		# Ease only the groove mouth; preserve the seat and the designed clearance.
+		var corner: int=(1 if side<0 else 0) if opening_at_entry else (2 if side<0 else 3)
+		Shell.loft(parent,rounded_tip(lip,.012,[corner]),a+.006,b-.006,mat)
+	var center: float=outgoing_offset if opening_at_entry else incoming_offset
+	var z0: float=start+.78 if opening_at_entry else start-.09
+	var tongue:=PackedVector2Array([Vector2(center-.03,z0),Vector2(center+.03,z0),Vector2(center+.03,z0+.09),Vector2(center-.03,z0+.09)])
+	return Shell.loft(parent,rounded_tip(tongue,.018,[2,3] if opening_at_entry else [0,1]),a+.006,b-.006,mat)
 static func plank_solid(p: Vector3,row: int,a: float,b: float) -> bool:
+	p=Shell.inverse(p)
 	if p.x<=a+.006 or p.x>=b-.006: return false
 	var z=p.z-row*.78
-	return (z>0 and z<.68 and absf(p.y)<.09) or (z>=.68 and z<.78 and absf(p.y)>.035 and absf(p.y)<.09) or (z>-.09 and z<=0 and absf(p.y)<.03)
+	if z>0 and z<.68 and absf(p.y)<.09:return true
+	var point:=Vector2(p.y,z)
+	var tongue:=PackedVector2Array([Vector2(-.03,-.09),Vector2(.03,-.09),Vector2(.03,0),Vector2(-.03,0)])
+	if Geometry2D.is_point_in_polygon(point,rounded_tip(tongue,.018,[0,1])):return true
+	for side in [-1,1]:
+		var low: float=-.09 if side<0 else .035
+		var high: float=-.035 if side<0 else .09
+		var lip:=PackedVector2Array([Vector2(low,.68),Vector2(high,.68),Vector2(high,.78),Vector2(low,.78)])
+		if Geometry2D.is_point_in_polygon(point,rounded_tip(lip,.012,[2 if side<0 else 3])):return true
+	return false
 static func three_solid(p: Vector3,index: int) -> bool:
 	if p.y<=-.12 or p.y>=.12: return false
 	var layer=int(floor((p.y+.12)/.08))

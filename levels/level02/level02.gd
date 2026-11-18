@@ -1,4 +1,5 @@
 extends Node3D
+signal next_requested
 signal progress_changed
 ## Chapter coordinator: routes intent; state owns all acceptance rules.
 signal level_completed
@@ -49,12 +50,10 @@ func _ready() -> void:
 	panel.opening_selected.connect(func(id: String):
 		if not busy and not state.failed:
 			interaction.cancel();state.choose_opening(id))
-	panel.prepare_observation_requested.connect(func():
-		if busy or state.failed:return
-		if state.joint.is_empty() or state.opening.is_empty():
-			panel.feedback("先选榫头，再选接合口匹配的木料。")
-		else:
-			interaction.cancel();view.inspect_selected();_refresh();panel.feedback("抓住木料沿箭头试装，松手接合。"))
+	panel.camera_reset_requested.connect(func():
+		if not busy:
+			view.framing.reset_view()
+			panel.zoom_label.text="100%")
 	panel.reset_observation_requested.connect(func():
 		if not busy and not state.failed:
 			var depth: float=view.preview_progress
@@ -78,6 +77,10 @@ func _ready() -> void:
 	learning = Learning.new()
 	add_child(learning)
 	learning.configure(2,view,panel,interaction)
+	panel.success_panel.bind(self,2,true)
+	panel.success_panel.next_requested.connect(func():next_requested.emit())
+	panel.failure_overlay.bind(self,2,false)
+	preload("res://shared/seating_audio.gd").bind_results(self,panel.success_panel,panel.failure_overlay)
 	bulkhead_lesson=BulkheadLesson.new()
 	add_child(bulkhead_lesson)
 
@@ -104,7 +107,7 @@ func _observe() -> void:
 	view.reparent(panel.local_viewport)
 	view.camera.make_current()
 	view.inspect_selected()
-	panel.feedback("看清榫头与槽口，选择候选模型后沿箭头试装。")
+	panel.feedback("")
 	_refresh()
 
 func _overview() -> void:
@@ -132,7 +135,7 @@ func _continue_group() -> void:
 	if not opening.is_empty():state.choose_opening(opening)
 	view.inspect_selected()
 	_refresh()
-	panel.feedback("同组木料已就位待装，沿箭头继续推入。")
+	panel.feedback("同组木料已就位。")
 
 func _choose_joint(id: String) -> void:
 	if busy or state.failed: return
@@ -156,7 +159,7 @@ func _restart() -> void:
 	view.inspected = false
 	state.reset()
 	_show_overview()
-	panel.feedback("重新开始：先观察底列企口。")
+	panel.feedback("已重新开始。")
 
 func _return_to_directory() -> void:
 	if busy: return
@@ -201,13 +204,14 @@ func _try_socket(id: String) -> Dictionary:
 		_placement_tween=view.animations[id]
 		_placement_tween.finished.connect(func():
 			if generation!=_trial_generation:return
+			preload("res://shared/seating_audio.gd").play(self)
 			busy=false
 			_placement_tween=null
 			_refresh()
 			if result.code=="middle_seated":
 				state.begin_starter_top(id)
 				view.inspect_selected(false);_refresh()
-				panel.feedback("中件已就位，把上方木件向下嵌入交叉槽。")
+				panel.feedback("中件已就位。")
 				return
 			var settled: Dictionary=state.finish_installation(id)
 			if state.failed:
@@ -254,7 +258,7 @@ func _complete_group(representative: String) -> void:
 	if id.is_empty():
 		busy=false;_placement_tween=null
 		if not state.next_id().is_empty():state.select(state.next_id())
-		panel.feedback("本组已装入，继续下一组。")
+		panel.feedback("本组已装入。")
 		_refresh()
 		if state.next_id().is_empty():_check()
 		return
@@ -280,6 +284,7 @@ func _complete_group(representative: String) -> void:
 	panel.feedback(result.message);_refresh()
 	_placement_tween.finished.connect(func():
 		if generation!=_trial_generation:return
+		preload("res://shared/seating_audio.gd").play(self)
 		_complete_group(representative))
 
 func _check() -> void:
@@ -311,6 +316,7 @@ func _finish_trial() -> void:
 		panel.failure_overlay.open()
 
 func _cancel_placement() -> void:
+	preload("res://shared/seating_audio.gd").cancel(self)
 	_trial_generation+=1
 	interaction.cancel()
 	if is_instance_valid(_placement_tween): _placement_tween.kill()
@@ -331,7 +337,7 @@ func is_completed() -> bool:
 	return state.completed
 
 func navigation_status() -> Dictionary:
-	return {"modal_open": learning.modal_open() or bulkhead_lesson.opened or view.inspected or panel.inventory_open or panel.magnifier.visible, "can_leave": not busy}
+	return {"modal_open": panel.success_panel.visible or panel.failure_overlay.visible or learning.modal_open() or bulkhead_lesson.opened or view.inspected or panel.inventory_open or panel.magnifier.visible, "can_leave": not busy}
 
 func _show_overview() -> void:
 	panel.observation_orbit.deactivate()

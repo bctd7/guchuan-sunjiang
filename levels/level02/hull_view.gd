@@ -116,12 +116,12 @@ func _new_fixed(id: String,pos: Vector3) -> Node3D:
 	return n
 func _build_fixed() -> void:
 	var bottom=_new_fixed("bottom",Vector3.ZERO)
-	for i in 5: G.box(bottom,Vector3(8,.17,.1085),Vector3(0,.08,-.217+i*.1085),lightwood if i%2==0 else wood)
+	for i in 5: G.Shell.floor_board(bottom,-.27+i*.108+.001,-.27+(i+1)*.108-.001,lightwood if i%2==0 else wood)
 	# Far side is prebuilt only to describe a truncated hull segment.
 	var far=_new_fixed("far_shell",Vector3(0,.26,-.45))
 	far.rotation.x=.95
 	far.scale.z=-1
-	for row in 3: G.plank(far,-4,4,row,lightwood if row%2==0 else wood)
+	for row in 3: G.plank(far,-4,4,row,lightwood if row%2==0 else wood,0.0,0.0,true)
 	var ribs=_new_fixed("ribs",Vector3.ZERO)
 	for x in [-.7,.7]:Supports.rib(ribs,x,darkwood)
 	var starter=_new_fixed("starter",PANEL_POS)
@@ -140,6 +140,8 @@ func _build_fixed() -> void:
 	BoatJoints.cross_member(bulkbase,false,wood,"C",1.4)
 	for x in [-3.5,3.5]:
 		G.box(bottom,Vector3(.25,.28,2.3),Vector3(x,-.12,0),darkwood)
+		var lift:=cos(.95)*G.Shell.sweep(x)
+		G.box(bottom,Vector3(.25,lift+.03,.25),Vector3(x,.005+lift*.5,0),darkwood)
 	for node in fixed.values():Appearance.apply(node)
 func _clear(node: Node) -> void:
 	for key in ["mating_dimensions","receiving_dimensions"]:
@@ -226,7 +228,14 @@ func _update_pose(id: String,layout: String,opening: String) -> void:
 	var receiver_bad:=false
 	if active and row>0:receiver_bad=not current.connection_seated("plank_%d%s"%[row-1,"a" if id.ends_with("a") else "b"])
 	if active and id=="three_upper":receiver_bad=not current.connection_seated("three_middle")
-	var signature: Array=[active,geometry_id,layout,opening,receiver_bad,current.placed.duplicate(true) if current!=null else {}]
+	# Later installed parts cannot alter an earlier member's receiving geometry.
+	# Cache against the predecessors actually consulted by the contact solver.
+	var preceding: Dictionary={}
+	if current!=null:
+		for previous in Rules.IDS:
+			if previous==id:break
+			if current.placed.has(previous):preceding[previous]=current.placed[previous].duplicate(true)
+	var signature: Array=[active,geometry_id,layout,opening,receiver_bad,preceding]
 	if _pose_cache.has(id) and _pose_cache[id].signature==signature:
 		var cached: Dictionary=_pose_cache[id]
 		poses[id]=cached.pose;contact_poses[id]=cached.contact
@@ -234,7 +243,7 @@ func _update_pose(id: String,layout: String,opening: String) -> void:
 		if cached.failed:contact_failures.append(id)
 		return
 	resting[id]=active and (geometry_id!=id or not Openings.matches(id,opening) or receiver_bad)
-	loose_directions[id]=pose.basis*Vector3(0,0,1) if row>=0 else (Vector3.RIGHT if id=="three_middle" else Vector3.UP)
+	loose_directions[id]=pose.basis*G.Shell.entry(row) if row>=0 else (Vector3.RIGHT if id=="three_middle" else Vector3.UP)
 	var obstacles: Array=[]
 	if active:
 		for fixture in fixed.values():
@@ -340,19 +349,22 @@ func _populate_piece(node: Node3D,id: String,layout: String,opening: String,deta
 	if row>=0:
 		node.set_meta("wood_axis",Vector3.RIGHT)
 		var seam: float=Rules.seam(layout)
-		var outgoing: MeshInstance3D=G.plank(node,-.30 if detail else (-4 if id.ends_with("a") else seam),.30 if detail else (seam if id.ends_with("a") else 4),0 if detail else row,lightwood if row%2==0 else wood,shift,Openings.next_groove(row),true)
+		var outgoing: MeshInstance3D=G.plank(node,(-4 if id.ends_with("a") else seam),(seam if id.ends_with("a") else 4),row,lightwood if row%2==0 else wood,shift,Openings.next_groove(row),true)
 		outgoing.set_meta("receiving_edge",true)
 		if row==0:
-			Starter.plank_keys(node,-.30 if detail else (-4.0 if id.ends_with("a") else seam),.30 if detail else (seam if id.ends_with("a") else 4.0),shift,lightwood,[0.0] if detail else Starter.CENTERS)
+			Starter.plank_keys(node,(-4.0 if id.ends_with("a") else seam),(seam if id.ends_with("a") else 4.0),shift,lightwood,Starter.CENTERS)
 	elif id=="cross_upper":BoatJoints.cross_member(node,true,lightwood,opening)
 	elif id.begins_with("three"):BoatJoints.three_member(node,1 if id=="three_middle" else 2,lightwood if id=="three_middle" else darkwood,opening)
 	else:
 		BoatJoints.bulkhead_foot(node,lightwood,opening)
-		G.box(node,Vector3(.19,1.755,.5368),Vector3(0,.9975,0),lightwood)
-		for sign_value in [-1,1]:
-			var poly=PackedVector2Array([Vector2(-.12,sign_value*.2684),Vector2(1.875,sign_value*1.6945),Vector2(1.875,sign_value*.2684)])
-			var form:=Node3D.new();node.add_child(form);form.rotation.z=PI/2
-			G.prism(form,poly,-.095,.095,lightwood)
+		var poly:=PackedVector2Array()
+		for side in [-1,1]:
+			for index in 49:
+				var t: float=float(index if side<0 else 48-index)/48
+				var y:=lerpf(.405,2.16,t)
+				poly.append(Vector2(y-.285,side*(Supports.inner_side(y)-.008)))
+		var form:=Node3D.new();node.add_child(form);form.rotation.z=PI/2
+		G.prism(form,poly,-.095,.095,lightwood)
 	Appearance.apply(node)
 func candidate_opening(id: String,option: String) -> Node3D:
 	var node:=Node3D.new()
@@ -364,6 +376,10 @@ func candidate_opening(id: String,option: String) -> Node3D:
 	elif Rules.row_for(id)==0 and opening_geometry_id(id)=="three_middle":
 		BoatJoints.three_member(node,1,lightwood,option,.20);Appearance.apply(node)
 	else:_populate_piece(node,opening_geometry_id(id),str(current.layout) if not current.layout.is_empty() else "A",option,true)
+	if Rules.row_for(id)>=0 and opening_geometry_id(id)==id:
+		var row: int=Rules.row_for(id)
+		var end: float=(Rules.seam(str(current.layout) if not current.layout.is_empty() else "A") if id.ends_with("a") else 4.0)-.006
+		node.position=Vector3(.30,0,0)-G.Shell.point(Vector3(end,0,row*.78))
 	return node
 
 func receiving_dimensions(id: String) -> Dictionary:
@@ -385,7 +401,7 @@ func socket_position(id: String,layout: String) -> Vector3:
 	if row>=0:
 		var seam=Rules.seam(layout)
 		var x=(-4+seam)/2 if id.ends_with("a") else (seam+4)/2
-		return panel_transform()*Vector3(x,.13,row*.78+.39)
+		return panel_transform()*G.Shell.point(Vector3(x,.13,row*.78+.39))
 	return poses[id].origin+Vector3(0,.3,0)
 func sync_state(s) -> void:
 	current=s
@@ -441,10 +457,10 @@ func _update_seams(s) -> void:
 		if not s.row_has_boards(row): continue
 		var seam=Rules.seam(str(s.layouts.get(row,"A")))
 		var bad=s.checked and s.bad_row()>=0 and (row==s.bad_row() or row==s.bad_row()-1)
-		G.box(seam_lines,Vector3(.055,.025,.75),Vector3(seam,-.104,row*.78+.39),red if bad else darkwood)
+		G.Shell.loft(seam_lines,PackedVector2Array([Vector2(-.116,row*.78+.015),Vector2(-.092,row*.78+.015),Vector2(-.092,row*.78+.765),Vector2(-.116,row*.78+.765)]),seam-.0275,seam+.0275,red if bad else darkwood)
 		if s.completed:
-			G.box(caulk,Vector3(.035,.02,.76),Vector3(seam,-.104,row*.78+.39),teal)
-			G.box(caulk,Vector3(8,.02,.018),Vector3(0,-.104,row*.78),teal)
+			G.Shell.loft(caulk,PackedVector2Array([Vector2(-.114,row*.78+.01),Vector2(-.094,row*.78+.01),Vector2(-.094,row*.78+.77),Vector2(-.114,row*.78+.77)]),seam-.0175,seam+.0175,teal)
+			G.Shell.loft(caulk,PackedVector2Array([Vector2(-.114,row*.78-.009),Vector2(-.094,row*.78-.009),Vector2(-.094,row*.78+.009),Vector2(-.114,row*.78+.009)]),-4,4,teal)
 		if bad:
 			for i in 4:
 				var drop=MeshInstance3D.new()
@@ -453,7 +469,7 @@ func _update_seams(s) -> void:
 				sphere.height=.17
 				drop.mesh=sphere
 				drop.material_override=teal
-				drop.position=panel_transform()*Vector3(seam+.06,-.17,row*.78+.12+i*.17)
+				drop.position=panel_transform()*G.Shell.point(Vector3(seam+.06,-.17,row*.78+.12+i*.17))
 				water.add_child(drop)
 	if s.completed:
 		var seals=Node3D.new()
@@ -461,7 +477,9 @@ func _update_seams(s) -> void:
 		seals.transform=panel_transform().affine_inverse()
 		G.box(seals,Vector3(.25,.025,.57),Vector3(0,.17,0),teal)
 		for sign_value in [-1,1]:
-			_beam(seals,Vector3(0,.17,sign_value*.2714),Vector3(0,2.16,sign_value*1.6975),.025,teal)
+			for i in 32:
+				var y0:=lerpf(.405,2.16,float(i)/32);var y1:=lerpf(.405,2.16,float(i+1)/32)
+				_beam(seals,Vector3(0,y0,sign_value*Supports.inner_side(y0)),Vector3(0,y1,sign_value*Supports.inner_side(y1)),.025,teal)
 			G.box(seals,Vector3(.32,.12,.025),Vector3(0,.225,Openings.offset("bulkhead",Openings.target("bulkhead"))+sign_value*.145),teal)
 		var m=G.material(Color(.26,.58,.64,.25))
 		m.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
@@ -633,7 +651,7 @@ func preview_offset(id: String) -> Vector3:
 	if opening_geometry_id(id)=="starter_lock_top":return Vector3.UP*maxf(.01,StarterLock.PARK_HEIGHT-(contact_poses[id].origin.y-lock_seats[id].origin.y))
 	if id=="three_middle" or (Rules.row_for(id)==0 and opening_geometry_id(id)=="three_middle"):return loose_directions.get(id,Vector3.RIGHT)*1.3
 	if resting.get(id,false):return loose_directions[id]*(1.1 if Rules.row_for(id)>=0 else 1.05)
-	return poses[id].basis*Vector3(0,0,.75) if Rules.row_for(id)>=0 else loose_directions.get(id,Vector3.UP)*1.05
+	return poses[id].basis*G.Shell.entry(Rules.row_for(id))*.75 if Rules.row_for(id)>=0 else loose_directions.get(id,Vector3.UP)*1.05
 
 func _apply_preview() -> void:
 	if preview_id.is_empty() or animations.has(preview_id): return
@@ -681,7 +699,7 @@ func drag_grab_screen() -> Vector2:
 	var local:=Vector3.ZERO
 	if row>=0:
 		var seam: float=Rules.seam(str(_built_layouts[preview_id]))
-		local=Vector3((-4.0+seam)*.5 if preview_id.ends_with("a") else (seam+4.0)*.5,0,row*.78+.32)
+		local=G.Shell.point(Vector3((-4.0+seam)*.5 if preview_id.ends_with("a") else (seam+4.0)*.5,0,row*.78+.32))
 	elif preview_id.begins_with("three"):
 		var angle: float=BoatJoints.ANGLES[1 if preview_id=="three_middle" else 2]
 		local=Vector3(cos(angle)*.65,.02,sin(angle)*.65)
@@ -780,7 +798,7 @@ func trial_presentation(rows: Array[int],connection_ids: Array[String],loose_ids
 	presentation.seam_rows.assign(rows)
 	for row in rows:
 		var pose: Transform3D=poses["plank_%da"%row]
-		pose.origin=pose*Vector3(Rules.seam(str(current.layouts[row])),-.115,row*.78+.39)
+		pose.origin=pose*G.Shell.point(Vector3(Rules.seam(str(current.layouts[row])),-.115,row*.78+.39))
 		presentation.seam_poses.append(pose)
 	presentation.connection_points.assign(connection_leak_points(connection_ids))
 	for id in Rules.IDS:

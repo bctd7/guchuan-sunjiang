@@ -1,4 +1,7 @@
 extends CanvasLayer
+const StepGuide=preload("res://levels/shared/step_guide.gd")
+var step_guide: Control
+const ExhibitLayout=preload("res://shared/ui/exhibition_layout.gd")
 ## Close-up clones of THIS level's real ship parts; no standalone joint substitutes.
 ## It observes the level, and never changes its accepted connections.
 signal closed
@@ -9,7 +12,6 @@ signal install_requested
 signal trial_finished
 signal retry_requested
 var lesson_button: Button
-var install_button: Button
 var retry_button: Button
 var _review_only:=false
 var magnifier: Control
@@ -35,9 +37,9 @@ const TypeGallery = preload("res://levels/level01/type_gallery.gd")
 const InspectionOrbit = preload("res://levels/level01/assembly_drag_surface.gd")
 const LengthGallery = preload("res://levels/level01/length_candidate_gallery.gd")
 const COPY := {
-	"blind_tenon": ["半榫 · 榫头藏进盲槽", "从侧面对准槽口，沿直线送入。盲槽有底，不能穿透；左右盲槽之间保留实木。"],
-	"dovetail": ["燕尾榫 · 沿开放端滑入", "看清宽头窄颈的燕尾形。由槽的开放端滑入，不是从上方压下去。"],
-	"through_tenon": ["透榫 · 横撑穿过两侧船肋", "看这根横撑沿通孔穿过船肋。它的截面保持一致，两端都能穿过封闭孔。"]
+	"blind_tenon": "半榫 · 榫头藏进盲槽",
+	"dovetail": "燕尾榫 · 沿开放端滑入",
+	"through_tenon": "透榫 · 横撑穿过两侧船肋"
 }
 var close_button: Button
 var viewport: SubViewport
@@ -53,7 +55,6 @@ var orbit: Control
 var world: Node3D
 var _motion: Tween
 var title: Label
-var explanation: Label
 var status: Label
 var xray_button: Button
 var replay_button: Button
@@ -95,7 +96,6 @@ func _build() -> void:
 	retry_button.pressed.connect(func():retry_requested.emit())
 	close_button=_button(head,"返回骨架")
 	close_button.pressed.connect(close)
-	explanation=root.explanation
 	joint_choices=TypeGallery.new()
 	root.candidates.add_child(joint_choices)
 	joint_buttons=joint_choices.buttons
@@ -135,25 +135,24 @@ func _build() -> void:
 	orbit.assembly_requested.connect(func(): install_requested.emit())
 	orbit.insertion_progress_changed.connect(_sync_trial_receiver)
 	orbit.selection_required.connect(_show_choice_hint)
-	orbit.drag_feedback.connect(func(message: String):
-		if observation_mode:status.text=message)
 	var actions: HBoxContainer=root.actions
 	status=root.status
-	install_button=_button(actions,"准备试装")
-	install_button.pressed.connect(_prepare_install)
+	step_guide=StepGuide.new();root.add_child(step_guide)
 	xray_button=_button(actions,"看孔内")
 	xray_button.toggle_mode=true
 	xray_button.toggled.connect(_set_cutaway)
 	replay_button=_button(actions,"再看插入")
 	replay_button.pressed.connect(func(): show_connection(animated_piece_id,_length,not observation_mode,selected_joint,_review_only))
 	zoom_bar=ZoomBar.new();stage_surface.add_child(zoom_bar)
+	root.mount_camera_tools(zoom_bar)
 	zoom_bar.zoom_requested.connect(_zoom_observation);zoom_bar.reset_requested.connect(_reset_observation_zoom)
 	magnifier=Magnifier.new();root.add_child(magnifier)
+	step_guide.blocker=magnifier
+	orbit.guidance_blocker=magnifier
 	magnifier.closed.connect(func():
 		if opened:orbit.set_process_input(true))
-	root.note.text="拖空白处旋转 · 双指、滚轮或按钮缩放 · 候选可放大查看"
 
-func show_connection(piece_id: String, length: String = "", animate: bool = false, joint_type: String = "", review_installed: bool = false, released_pose: Variant = null) -> void:
+func show_connection(piece_id: String, length: String = "", animate: bool = false, joint_type: String = "", review_installed: bool = false, released_pose: Variant = null, audible := false) -> void:
 	if not is_instance_valid(source_view) or not source_view.pieces.has(piece_id) or piece_id == "keel": return
 	length=length if length in ["short","correct","long"] else ""
 	var preserve_angle := opened and animated_piece_id == piece_id
@@ -175,22 +174,14 @@ func show_connection(piece_id: String, length: String = "", animate: bool = fals
 	var joint_id := "blind_tenon" if piece_id.begins_with("rib_") else ("through_tenon" if piece_id.begins_with("beam") else "dovetail")
 	pieces.merge(InspectionGeometry.create_parts(source_view,world,piece_id,length,joint_type,observation_mode))
 	animated_piece=pieces[piece_id]
-	title.text=COPY[joint_id][0]
-	explanation.text=COPY[joint_id][1]
+	title.text=COPY[joint_id]
 	if not observation_mode:
 		title.text="试装 · "+str(TypeGallery.TYPES.get(joint_type,"木料"))
-		explanation.text="这一处先保留试装，整段骨架装齐后统一检查。"
 	if observation_mode:
 		title.text="观察船肋与龙骨" if piece_id.begins_with("rib_") else ("观察横撑与船肋" if piece_id.begins_with("beam") else "观察龙骨端接")
-		if piece_id.begins_with("rib_"):
-			explanation.text="转一转，看看槽口，再挑一个能接上的榫头。"
-		elif piece_id.begins_with("beam"):
-			explanation.text="横梁要穿过两侧船肋。转一转，看看另一侧的出口。"
-		else:
-			explanation.text="看看燕尾形状，找准滑槽的开口。"
 	xray_button.set_pressed_no_signal(false)
 	_set_cutaway(false)
-	status.text="先看榫头、孔口与进入方向。"
+	status.text=""
 	candidate_panel.visible=observation_mode
 	comparison.configure(piece_id,selected_length)
 	length_gallery.visible=observation_mode
@@ -208,7 +199,7 @@ func show_connection(piece_id: String, length: String = "", animate: bool = fals
 	replay_button.text="重新观察" if observation_mode else "再看插入"
 	replay_button.disabled=false
 	status.modulate=Color("325c4d")
-	if observation_mode: _show_choice_hint()
+
 
 	if not _keep_drag_framing:_focus_connection(piece_id,not preserve_angle)
 	close_button.text="返回骨架"
@@ -236,9 +227,6 @@ func show_connection(piece_id: String, length: String = "", animate: bool = fals
 	if not joint_type.is_empty() and joint_type!=joint_id_for(piece_id) and not _keep_drag_framing:_frame_trial_candidate()
 	_configure_drag()
 	if not observation_mode:_sync_trial_receiver(1.0)
-	install_button.visible=observation_mode
-	install_button.disabled=false
-	install_button.text="先选榫头" if selected_joint.is_empty() else ("先选木料" if selected_length.is_empty() else "准备试装")
 	_remember_zoom_frame()
 	_fit_observation_layout()
 	if animate:
@@ -249,14 +237,16 @@ func show_connection(piece_id: String, length: String = "", animate: bool = fals
 			animated_piece.set_meta("trial_release_start",released_pose)
 		if joint_type!=joint_id_for(piece_id) and not _keep_drag_framing:_frame_trial_candidate()
 		_animating=true
-		status.text="沿着槽口试着装入……"
+		status.text="木料正在装入。"
 		_motion=create_tween()
 		var slide_time:=1.8
 		if released_pose is Transform3D:slide_time=clampf(released_pose.origin.distance_to(final.origin)*.24,.12,.55)
 		_motion.tween_interval(.04 if released_pose is Transform3D else .3)
 		_motion.tween_property(animated_piece,"transform",final,slide_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		if audible:_motion.tween_callback(func():preload("res://shared/seating_audio.gd").play(self))
 		_motion.tween_callback(_finish_trial_review)
 	elif not observation_mode:_finish_trial_review()
+	_update_guide()
 
 func _finish_trial_review() -> void:
 	if _keep_drag_framing and not _framing_settled:
@@ -283,9 +273,10 @@ func _finish_trial_review() -> void:
 	if selected_joint!=joint_id_for(animated_piece_id) and not _keep_drag_framing:_frame_trial_candidate()
 	Lengths.set_fasteners_visible(animated_piece,selected_joint==joint_id_for(animated_piece_id))
 	title.text="这一处已试装"
-	status.text="木料已试装，整段骨架装齐后统一检查。"
+	status.text=""
 	_remember_zoom_frame()
 	close_button.text="返回船架" if _review_only else "继续搭建"
+	_update_guide()
 	trial_finished.emit()
 
 func _collect_trial_corners(node: Node, points: Array[Vector3]) -> void:
@@ -294,10 +285,13 @@ func _collect_trial_corners(node: Node, points: Array[Vector3]) -> void:
 		for index in 8:points.append(node.to_global(bounds.get_endpoint(index)))
 	for child in node.get_children():_collect_trial_corners(child,points)
 
-func _frame_trial_candidate() -> void:
+func _frame_trial_candidate(include_context := false) -> void:
 	# Keep the entire tested wood and receiving mouth visible; no geometry scaling.
 	var points: Array[Vector3]=[]
-	_collect_trial_corners(animated_piece,points)
+	if include_context:
+		for member in pieces.values():_collect_trial_corners(member,points)
+	else:
+		_collect_trial_corners(animated_piece,points)
 	var mouth: Vector3=source_view.connection_center(animated_piece_id)
 	for offset in [Vector3(-.4,-.4,0),Vector3(.4,.4,0)]:points.append(mouth+offset)
 	var center: Vector3=orbit._center
@@ -370,33 +364,13 @@ func _tip_front() -> Vector3:
 func _entry_mouth() -> Vector3:
 	return InspectionGeometry.entry_mouth(animated_piece_id,source_view)
 
-func _prepare_install() -> void:
-	if not observation_mode: return
-	if selected_joint.is_empty() or selected_length.is_empty():
-		_show_choice_hint()
-		return
-	# This button only restores a clear working angle. It never installs a part.
-	_focus_connection(animated_piece_id,true)
-	_frame_trial_candidate()
-	_configure_drag()
-	status.text="抓住木料，沿箭头往槽内推。推入后松手，往回拖可抽出；拖空白处转动查看。"
-	install_button.text="拖动木料试装"
-
 func reject_install(message: String) -> void:
 	show_connection(animated_piece_id,selected_length,false,selected_joint)
-	status.text=message+" 可换一种榫头，再拖动试装。"
+	status.text=message
 	status.modulate=Color("8b4835")
 
 func _show_choice_hint() -> void:
-	if not observation_mode:
-		status.text="木料正在装入，稍等一下。" if _animating else "想换一块，可以点“取回调整”。"
-		return
-	if selected_joint.is_empty():
-		status.text="先点上方，挑一个榫头。" if selected_length.is_empty() else "木料 %s 已选好，再点上方挑一个榫头，就能拖动试装。"%LengthComparison.LABELS[selected_length]
-	elif selected_length.is_empty():
-		status.text="榫头选好了，再点右侧挑一块木料。"
-	else:
-		status.text="抓住木料，沿箭头推入；往回拖可以抽出。拖空白处转动查看。"
+	status.text="木料正在装入。" if _animating else ""
 
 func _choose_joint(id: String) -> void:
 	if not observation_mode: return
@@ -451,6 +425,7 @@ func _set_transparent(node: Node, enabled: bool) -> void:
 	InspectionGeometry.set_transparent(node,enabled)
 
 func close() -> void:
+	preload("res://shared/seating_audio.gd").cancel(self)
 	magnifier.close()
 	if is_instance_valid(_motion): _motion.kill()
 	if is_instance_valid(orbit): orbit.deactivate()
@@ -476,7 +451,7 @@ func _label(parent: Node, words: String, size: int) -> Label:
 func _button(parent: Node, words: String) -> Button:
 	var button := Button.new()
 	button.text=words
-	button.custom_minimum_size=Vector2(140,52)
+	button.custom_minimum_size=Vector2(140,60)
 	parent.add_child(button)
 	return button
 
@@ -504,11 +479,55 @@ func _magnify(source: Control,caption: String) -> void:
 func _fit_observation_layout() -> void:
 	if not is_inside_tree() or not is_instance_valid(root) or not is_instance_valid(zoom_bar):return
 	var dimensions:=get_viewport().get_visible_rect().size
-	var factor:=minf(dimensions.x/1440.0,dimensions.y/900.0)
-	root.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT);root.size=Vector2(1440,900)
-	root.scale=Vector2.ONE*factor;root.position=(dimensions-root.size*factor)*.5
+	var factor:=ExhibitLayout.factor(dimensions)
+	root.fit_screen()
 	zoom_bar.set_display_scale(factor);magnifier.set_display_scale(factor)
+	root.layout_camera_tools(root.scale.x)
 	for id in joint_choices.inspect_buttons:
-		joint_choices.inspect_buttons[id].custom_minimum_size=Vector2(maxf(56,44/factor),44/factor)
-		joint_choices.previews[id].custom_minimum_size.y=maxf(88,164-joint_choices.inspect_buttons[id].custom_minimum_size.y)
-	for button in length_gallery.inspect_buttons.values():button.custom_minimum_size=Vector2(maxf(56,44/factor),44/factor)
+		joint_choices.inspect_buttons[id].custom_minimum_size=Vector2(maxf(56,60/factor),60/factor)
+		joint_choices.previews[id].custom_minimum_size.y=maxf(88,154-joint_choices.inspect_buttons[id].custom_minimum_size.y)
+	for button in length_gallery.inspect_buttons.values():button.custom_minimum_size=Vector2(maxf(56,60/factor),60/factor)
+
+func _process(_delta: float) -> void:
+	_update_guide()
+
+func _update_guide() -> void:
+	if not opened or not is_instance_valid(step_guide):return
+	var area: Control
+	if not _animating:
+		if not observation_mode:area=close_button
+		elif selected_joint.is_empty():area=joint_choices
+		elif selected_length.is_empty():area=length_gallery
+	step_guide.show_target(area)
+	for button in [lesson_button,close_button,xray_button,replay_button,zoom_bar.zoom_in,zoom_bar.zoom_out,zoom_bar.reset_button]:button.disabled=_animating
+	StepGuide.action(retry_button,not observation_mode and not _animating and not _review_only)
+	retry_button.visible=retry_button.modulate.a>0
+	_completion_layout(not observation_mode and not _animating and animation_finished)
+
+
+func _completion_layout(done: bool) -> void:
+	var changed: bool=close_button.get_parent()!=root.actions if done else close_button.get_parent()!=root.header
+	if done:
+		if retry_button.get_parent()!=root.actions:retry_button.reparent(root.actions)
+		if close_button.get_parent()!=root.actions:close_button.reparent(root.actions)
+		retry_button.text="取回重选"
+		close_button.text="继续搭建"
+	else:
+		if retry_button.get_parent()!=root.header:retry_button.reparent(root.header)
+		if close_button.get_parent()!=root.header:close_button.reparent(root.header)
+		retry_button.text="取回调整"
+	xray_button.visible=not done
+	replay_button.visible=not done
+	zoom_bar.visible=not done
+	root.options.get_parent().visible=not done and candidate_panel.visible
+	status.visible=not done
+	for child in root.camera_actions.get_children():
+		if child is VSeparator:child.visible=not done
+	root.actions.alignment=BoxContainer.ALIGNMENT_END if done else BoxContainer.ALIGNMENT_CENTER
+	zoom_bar.reset_button.text="重置视角"
+	if done and changed:_fit_completed_view.call_deferred()
+
+func _fit_completed_view() -> void:
+	if not opened or observation_mode or _animating:return
+	_frame_trial_candidate(true)
+	_remember_zoom_frame()

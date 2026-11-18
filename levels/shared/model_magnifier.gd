@@ -29,7 +29,8 @@ func _ready() -> void:
 	zoom_out=_button(actions,"− 缩小");zoom_out.pressed.connect(func():preview.zoom(1.2))
 	zoom_label=Label.new();zoom_label.custom_minimum_size.x=85;zoom_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;actions.add_child(zoom_label)
 	zoom_in=_button(actions,"＋ 放大");zoom_in.pressed.connect(func():preview.zoom(1.0/1.2))
-	reset_button=_button(actions,"重置视角");reset_button.pressed.connect(preview.reset_view)
+	var spacer:=Control.new();spacer.size_flags_horizontal=Control.SIZE_EXPAND_FILL;actions.add_child(spacer)
+	reset_button=_button(actions,"重置视角");reset_button.custom_minimum_size=Vector2(160,64);reset_button.pressed.connect(preview.reset_view)
 	preview.zoom_changed.connect(func(value: float):zoom_label.text="%d%%"%roundi(100.0/value))
 	demonstration=Demonstration.new();stack.add_child(demonstration);stack.move_child(demonstration,1)
 	var note:=Label.new();note.text="拖动旋转 · 双指、滚轮或按钮缩放";note.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;stack.add_child(note)
@@ -42,9 +43,9 @@ func open(source: Control,caption: String) -> void:
 	var model:=source.model_root.duplicate() as Node3D
 	preview.configure(model,source.orbit._center,source.orbit._direction,source._height,source._width)
 	preview.orbit.angles=source.orbit.angles;preview.orbit.target_angles=source.orbit.angles;preview.orbit._apply_camera()
-	if source.get_meta("magnifier_whole_model",false):
-		# Face-on comparison cards crop around the cut; the viewer opens the
-		# complete stock. Preserve an inspected angle, otherwise expose its depth.
+	if is_instance_valid(model):
+		# Cards may crop around the joint; the viewer always fits the complete stock.
+		# Preserve an inspected angle, otherwise expose its depth.
 		var direction: Vector3=preview.camera.position-preview.orbit._center
 		if source.orbit.angles.is_zero_approx():direction+=Vector3.UP*2.0+source.camera.basis.x*1.5
 		preview.frame_model(model,direction)
@@ -58,4 +59,4 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if visible and event is InputEventKey and event.pressed and event.keycode==KEY_ESCAPE:close();get_viewport().set_input_as_handled()
 func set_display_scale(factor: float) -> void:
 	demonstration.set_display_scale(factor)
-	for button in [close_button,zoom_in,zoom_out,reset_button]:button.custom_minimum_size.y=maxf(52,44/factor)
+	for button in [close_button,zoom_in,zoom_out,reset_button]:button.custom_minimum_size.y=maxf(64,64/factor)

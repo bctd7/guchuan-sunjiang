@@ -1,0 +1,28 @@
+{
+  "failed": 1,
+  "failures": [
+    "GPU host remains unfocused"
+  ],
+  "host_had_focus": true,
+  "images": [
+    "res://tests/evidence/first-join/cross_lap-direct-separated.png",
+    "res://tests/evidence/first-join/cross_lap-direct-halfway.png",
+    "res://tests/evidence/first-join/cross_lap-single-stock-in-socket.png",
+    "res://tests/evidence/first-join/cross_lap-direct-contact.png",
+    "res://tests/evidence/first-join/three_way_lap-direct-separated.png",
+    "res://tests/evidence/first-join/three_way_lap-direct-halfway.png",
+    "res://tests/evidence/first-join/three_way_lap-single-stock-in-socket.png",
+    "res://tests/evidence/first-join/three_way_lap-direct-contact.png",
+    "res://tests/evidence/first-join/tongue_groove-direct-separated.png",
+    "res://tests/evidence/first-join/tongue_groove-direct-halfway.png",
+    "res://tests/evidence/first-join/plank-context-before.png",
+    "res://tests/evidence/first-join/plank-slot-detail.png",
+    "res://tests/evidence/first-join/plank-context-960.png",
+    "res://tests/evidence/first-join/plank-context-1440.png",
+    "res://tests/evidence/first-join/plank-context-halfway.png",
+    "res://tests/evidence/first-join/correct-pair-overview.png"
+  ],
+  "passed": 419,
+  "renderer": "macOS",
+  "scope": "First plank direct selection, shallow insertion and completed wrong-type seating before error/restart on a fixed housed rail; detail restoration, two input resolutions and the complete repeated board group."
+}

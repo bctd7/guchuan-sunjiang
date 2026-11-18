@@ -1,9 +1,11 @@
 extends Node
+const ExhibitLayout=preload("res://shared/ui/exhibition_layout.gd")
 signal load_failed(chapter: int,reason: String)
-const MENU_HINT := "走近船的各个部位，看清连接，再亲手搭建。"
+const MENU_HINT := ""
+const MenuView = preload("res://campaign/menu_view.gd")
 var menu_status: Label
 var last_load_error: Dictionary={}
-## Navigation owns no joinery rules; each chapter retains its own state instance.
+## Navigation owns no joinery rules; directory exit ends only the active round.
 const Friendly = preload("res://shared/ui/friendly_theme.gd")
 const CHAPTERS := [
 	{"title":"第一关 · 龙骨立架","description":"三次不同示范，自动补齐同构件\n观察榫头与槽口，搭稳一段骨架。","scene":"res://levels/level01/level01.tscn"},
@@ -14,58 +16,61 @@ var instances: Dictionary = {}
 var completed: Dictionary = {}
 var chapter_buttons: Dictionary = {}
 var active_level := 0
+var menu_root: Control
+var navigation_root: Control
 var menu: CanvasLayer
 var navigation: CanvasLayer
 var back_button: Button
 var next_button: Button
+var replay_layer: CanvasLayer
 
 func _ready() -> void:
 	_build_menu()
 	_build_navigation()
 	_show_menu()
+	get_viewport().size_changed.connect(_fit_layout)
+	_fit_layout()
 
 func _build_menu() -> void:
 	menu=CanvasLayer.new()
 	add_child(menu)
-	var root:=Control.new()
-	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	root.theme=Friendly.make_theme()
-	menu.add_child(root)
 	var background:=ColorRect.new()
-	background.color=Color("e8e0cf")
+	background.color=Color("faf3e3")
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	root.add_child(background)
-	var panel:=PanelContainer.new()
-	panel.position=Vector2(80,72)
-	panel.size=Vector2(1280,750)
-	panel.add_theme_stylebox_override("panel",Friendly.block(Color("fff8e8"),Color("c9b998")))
-	root.add_child(panel)
-	var stack:=VBoxContainer.new()
-	stack.add_theme_constant_override("separation",26)
-	panel.add_child(stack)
-	_label(stack,"古船榫匠",42)
-	_label(stack,"从一段骨架，到船壳，再到帆樯舾装。",25)
-	_label(stack,"每次先看清榫头与槽口，再选择和拼接。三个关卡均可直接进入。",20)
-	for index in CHAPTERS.size():
-		var row:=HBoxContainer.new()
-		row.add_theme_constant_override("separation",24)
-		stack.add_child(row)
-		var button:=Button.new()
-		button.text=CHAPTERS[index].title
-		button.custom_minimum_size=Vector2(380,112)
-		button.pressed.connect(func(): open_level(index+1))
-		row.add_child(button)
-		chapter_buttons[index+1]=button
-		var description:=_label(row,CHAPTERS[index].description,23)
-		description.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	menu_status=_label(stack,MENU_HINT,17)
+	background.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	menu.add_child(background)
+	var directory:=MenuView.new()
+	menu.add_child(directory)
+	directory.build(CHAPTERS,open_level,_replay_welcome)
+	menu_root=directory
+	chapter_buttons=directory.buttons
+	menu_status=directory.status
+
+func _replay_welcome() -> void:
+	if active_level!=0 or is_instance_valid(replay_layer):return
+	replay_layer=CanvasLayer.new()
+	replay_layer.layer=110
+	add_child(replay_layer)
+	var welcome=preload("res://startup/startup.tscn").instantiate()
+	welcome.replay_mode=true
+	welcome.replay_finished.connect(func():
+		replay_layer.queue_free()
+		replay_layer=null
+		menu.show()
+		menu_root.replay_button.grab_focus()
+	)
+	menu.hide()
+	replay_layer.add_child(welcome)
 
 func _build_navigation() -> void:
 	navigation=CanvasLayer.new()
 	navigation.layer=100
 	add_child(navigation)
+	navigation_root=Control.new()
+	navigation_root.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	navigation.add_child(navigation_root)
 	back_button=Button.new()
-	back_button.text="‹ 关卡目录"
+	back_button.text="返回关卡目录"
 	back_button.position=Vector2(1244,34)
 	back_button.custom_minimum_size=Vector2(160,48)
 	back_button.theme=Friendly.make_theme(true)
@@ -73,13 +78,13 @@ func _build_navigation() -> void:
 	back_button.add_theme_stylebox_override("normal",Friendly.block(Color("f2e5cd"),Color("cab38e"),1))
 	back_button.add_theme_stylebox_override("hover",Friendly.block(Color("f9eedb"),Color("bda27b"),1))
 	back_button.pressed.connect(_show_menu)
-	navigation.add_child(back_button)
+	navigation_root.add_child(back_button)
 	next_button=Button.new()
 	next_button.position=Vector2(1020,20)
 	next_button.custom_minimum_size=Vector2(190,52)
 	next_button.theme=Friendly.make_theme(true)
 	next_button.pressed.connect(func(): open_level(active_level+1))
-	navigation.add_child(next_button)
+	navigation_root.add_child(next_button)
 	navigation.hide()
 
 func _load_chapter(number: int) -> PackedScene:
@@ -118,9 +123,16 @@ func open_level(number: int) -> void:
 	if created:
 		instances[number]=current
 		current.connect("return_requested",_show_menu)
+		if current.has_signal("next_requested"):
+			current.connect("next_requested",func():
+				if active_level==number and current.is_completed() and number<3:open_level(number+1))
 		current.connect("progress_changed",func(): _chapter_changed(number))
 	add_child(current)
 	current.enter()
+	# Campaign owns the visible return control; standalone chapters keep theirs.
+	var chapter_panel = current.get("panel")
+	if is_instance_valid(chapter_panel) and is_instance_valid(chapter_panel.get("return_button")):
+		chapter_panel.return_button.hide()
 	active_level=number
 	last_load_error.clear()
 	menu_status.text=MENU_HINT
@@ -134,7 +146,7 @@ func _chapter_changed(number: int) -> void:
 	if is_instance_valid(level):
 		completed[number]=level.is_completed()
 	for id in chapter_buttons:
-		chapter_buttons[id].text=("✓ " if completed.get(id,false) else "")+CHAPTERS[id-1].title
+		chapter_buttons[id].text="✓ 已完成 · 再次进入  →" if completed.get(id,false) else "进入关卡  →"
 	next_button.visible=active_level > 0 and active_level < 3 and completed.get(active_level,false)
 	if next_button.visible: next_button.text="进入第%d关" % (active_level+1)
 
@@ -147,7 +159,15 @@ func _detach_active() -> void:
 	active_level=0
 
 func _show_menu() -> void:
+	var leaving := active_level
+	var old: Node = instances.get(leaving)
 	_detach_active()
+	if is_instance_valid(old):
+		old.process_mode=Node.PROCESS_MODE_DISABLED
+		instances.erase(leaving)
+		completed.erase(leaving)
+		old.queue_free()
+		_chapter_changed(leaving)
 	menu.show()
 	navigation.hide()
 
@@ -169,3 +189,8 @@ func _label(parent: Node,text: String,font_size: int) -> Label:
 func _exit_tree() -> void:
 	for level in instances.values():
 		if is_instance_valid(level) and not level.is_inside_tree(): level.free()
+
+func _fit_layout() -> void:
+	var dimensions:=get_viewport().get_visible_rect().size
+	menu_root.fit(dimensions)
+	ExhibitLayout.fit(navigation_root,dimensions)

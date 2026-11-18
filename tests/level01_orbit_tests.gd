@@ -140,8 +140,8 @@ func run() -> void:
 		check(inspector.selected_length==length and level.tenon_length==length,"length control remains clickable: "+length)
 		check(orbit.target_angles.is_equal_approx(retained),"same piece preserves orbit angle on length change: "+length)
 		check(inspector.selected_joint=="blind_tenon","length change preserves selected type: "+length)
-	await drag_mouse(inspector.explanation.get_global_rect().get_center(),Vector2(30,5))
-	check(orbit.target_angles.is_equal_approx(retained),"dragging explanation cannot rotate camera")
+	await drag_mouse(inspector.title.get_global_rect().get_center(),Vector2(30,5))
+	check(orbit.target_angles.is_equal_approx(retained),"dragging title cannot rotate camera")
 	await drag_mouse(inspector.joint_buttons["dovetail"].get_global_rect().get_center(),Vector2(35,0))
 	check(orbit.target_angles.is_equal_approx(retained),"dragging candidate card cannot rotate camera")
 	# Restore expected candidate via actual GUI, then test extreme motion capture.

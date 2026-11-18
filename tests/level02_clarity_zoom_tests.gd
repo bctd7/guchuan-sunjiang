@@ -41,7 +41,7 @@ func run() -> void:
 	await button(level.panel.transparent_button)
 	check(level.view.transparent and solid_wood(level.view.pieces.plank_0a) and not solid_wood(level.view.local_context),"explicit reveal affects the actual first-board receiver section only")
 	await button(level.panel.zoom_reset_button)
-	check(not level.view.transparent and solid_wood(level.view.fixed.starter) and not level.panel.transparent_button.button_pressed,"reset restores actual opaque receiver materials and toggle")
+	check(level.view.transparent and level.panel.transparent_button.button_pressed,"camera reset preserves transparency choice")
 	await capture("opaque-local-default")
 	var zoom_before: float=level.view.framing.zoom_factor
 	await wheel(workspace_rect().get_center(),true)

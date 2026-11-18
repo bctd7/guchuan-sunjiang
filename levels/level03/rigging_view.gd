@@ -3,6 +3,7 @@ const G = preload("res://models/ship/rigging/ship_geometry.gd")
 const Rules = preload("res://levels/level03/connection_rules.gd")
 const OFFSETS = {"zrail":Vector3(0,0,1.65),"leg":Vector3(0,-1.65,0),"mast":Vector3(0,1.6,0),"apron":Vector3(0,1.1,0),"top":Vector3(0,1.4,0),"lbrace":Vector3(1.65,0,0),"rudder":Vector3(0,2.6,0),"blade":Vector3(0,0,-1.5)}
 const CENTERS = {"zrail":Vector3(.5,.6,.5),"leg":Vector3(.5,.45,.5),"mast":Vector3(2.7,.8,2.5),"apron":Vector3(0,.20,0),"top":Vector3(0,.5,0),"lbrace":Vector3(0,-.10,0),"rudder":Vector3(2.3,.7,0),"blade":Vector3(2.3,-.75,0)}
+var screen_surface: SubViewportContainer
 var camera: Camera3D
 var stages: Array[Node3D] = []
 var pieces: Dictionary = {}
@@ -15,6 +16,7 @@ var _selected := "zrail"
 var _stage := -1
 var _placed: Array = []
 var cutaway := false
+var focus_center := Vector3.ZERO
 var _wood := G.wood()
 var _light := G.wood(Color("dcc29b"))
 func _ready() -> void:
@@ -61,7 +63,9 @@ func _ready() -> void:
 		marker.mesh = sphere
 		marker.position = CENTERS[id]
 		var mat := StandardMaterial3D.new()
-		mat.albedo_color = Color("2b918d")
+		# Keep the existing screen-space hit proxy; StepGuide owns its visible cue.
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		mat.albedo_color = Color(1,1,1,0)
 		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		marker.material_override = mat
 		stages[int(Rules.SPECS[id].stage)].add_child(marker)
@@ -97,9 +101,7 @@ func sync_state(state) -> void:
 	for id in pieces:
 		pieces[id].visible = state.placed.has(id)
 		if not animations.has(id): pieces[id].position = _base(id)
-		markers[id].visible = int(Rules.SPECS[id].stage) == new_stage and id == state.selected
-		if state.placed.has(id): markers[id].material_override.albedo_color = Color("bd973e")
-		else: markers[id].material_override.albedo_color = Color("2b918d")
+		markers[id].visible = int(Rules.SPECS[id].stage) == new_stage and id == state.selected and not state.placed.has(id)
 	rudder_pivot.rotation_degrees.y = state.rudder_angle
 	var key: String = state.selected+":"+state.candidate+":"+str(state.placed.has(state.selected))
 	if key != _preview_key:
@@ -136,7 +138,9 @@ func animate_place(id: String) -> void:
 		tween.tween_property(p.get_node("SideCap"),"position:z",0.0,.6)
 	else:
 		tween.tween_property(p,"position",_base(id),1.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_callback(func(): animations.erase(id))
+	tween.tween_callback(func():
+		preload("res://shared/seating_audio.gd").play(self)
+		animations.erase(id))
 func focus_current() -> void:
 	var center: Vector3
 	var direction: Vector3
@@ -162,6 +166,7 @@ func focus_current() -> void:
 		direction = Vector3(5,-3,7) if _selected in ["leg","top"] else Vector3(5,3,7)
 		span = 3.2
 	# Camera center shifts toward the GUI-free right side and leaves the gallery below.
+	focus_center = center
 	camera.position = center+direction
 	camera.look_at(center)
 	camera.size = span
@@ -171,7 +176,10 @@ func toggle_closeup() -> void:
 	cutaway = not cutaway
 	focus_current()
 func socket_screen_position(id: String) -> Vector2:
-	return Vector2(345,190)+camera.unproject_position(markers[id].global_position)
+	var point:=camera.unproject_position(markers[id].global_position)
+	if is_instance_valid(screen_surface):
+		return screen_surface.get_global_transform_with_canvas()*(point*screen_surface.size/Vector2(get_viewport().size))
+	return Vector2(345,190)+point
 func pick_socket(position: Vector2) -> String:
 	for id in markers:
 		if markers[id].is_visible_in_tree() and socket_screen_position(id).distance_to(position) <= 48: return id

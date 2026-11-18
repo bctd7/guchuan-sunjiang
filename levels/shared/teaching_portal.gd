@@ -80,7 +80,7 @@ func _build_ui() -> void:
 	back_button.offset_left=-250
 	back_button.offset_right=-20
 	back_button.offset_top=16
-	back_button.offset_bottom=72
+	back_button.offset_bottom=80
 	back_button.pressed.connect(show_intro)
 	add_child(back_button)
 

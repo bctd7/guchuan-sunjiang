@@ -1,4 +1,5 @@
 extends Node3D
+const ExhibitLayout=preload("res://shared/ui/exhibition_layout.gd")
 ## View-only geometry: gameplay owns connection decisions and state.
 ## All joints are teaching constructions, not claims about historical ships.
 
@@ -200,7 +201,7 @@ func prepare_place(id: String, length: String = "correct", joint: String = "") -
 func discard_prepared_place(id: String) -> void:
 	planned_insertions.erase(id)
 
-func animate_place(id: String, length: String = "correct", joint: String = "") -> void:
+func animate_place(id: String, length: String = "correct", joint: String = "", audible := true) -> void:
 	if not pieces.has(id): return
 	if not planned_insertions.has(id): prepare_place(id,length,joint)
 	var part: Node3D = pieces[id]
@@ -212,6 +213,7 @@ func animate_place(id: String, length: String = "correct", joint: String = "") -
 	# A short entry hold and an even, readable approach make every member visible.
 	tween.tween_interval(INSERTION_LEAD)
 	tween.tween_property(part,"transform",trial_pose(id,length,joint),INSERTION_DURATION).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	if audible:tween.tween_callback(func():preload("res://shared/seating_audio.gd").play(self))
 	tween.tween_interval(INSERTION_SETTLE)
 	tween.tween_callback(func():
 		animations.erase(id)
@@ -221,6 +223,7 @@ func insertion_offset(id: String) -> Vector3:
 	return trial_entry_offset(id)
 
 func cancel_animations() -> void:
+	preload("res://shared/seating_audio.gd").cancel(self)
 	for tween in animations.values():
 		if is_instance_valid(tween): tween.kill()
 	animations.clear()
@@ -339,7 +342,7 @@ func show_automatic_overview(ids: Array, length: String = "correct", joint: Stri
 
 func workshop_clear_rect() -> Rect2:
 	var viewport_size:=get_viewport().get_visible_rect().size
-	return Rect2(Vector2(365,190)*viewport_size/Vector2(1440,900),Vector2(1045,550)*viewport_size/Vector2(1440,900))
+	return ExhibitLayout.project_rect(Rect2(365,190,1045,550),viewport_size)
 
 func _fit_overview(insertion_ids: Array = [], insertion_length: String = "correct", insertion_joint: String = "") -> void:
 	# Fit the actual final ship section into the clear area beside the compact UI.

@@ -17,88 +17,32 @@ const CROPS = {
 	"rudder":AABB(Vector3(1.9,.3,-.4),Vector3(.8,1.0,.8)),
 	"blade":AABB(Vector3(1.9,-1.75,-1.35),Vector3(.8,1.2,1.75))
 }
+signal inspect_requested(kind: String)
+var previews: Dictionary={}
+var inspect_buttons: Dictionary={}
 func configure(id: String) -> void:
-	if id == _id: return
-	_id = id
-	for child in get_children():
-		remove_child(child)
-		child.queue_free()
-	buttons.clear()
-	viewports.clear()
-	specimens.clear()
-	add_theme_constant_override("separation",14)
+	if id==_id:return
+	_id=id
+	for child in get_children():remove_child(child);child.queue_free()
+	buttons.clear();viewports.clear();specimens.clear();previews.clear();inspect_buttons.clear()
+	add_theme_constant_override("separation",8);custom_minimum_size.y=174
 	for kind in Rules.candidates(id):
-		var column := VBoxContainer.new()
-		column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		add_child(column)
-		var container := SubViewportContainer.new()
-		container.stretch = true
-		container.custom_minimum_size = Vector2(180,118)
-		container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		container.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		column.add_child(container)
-		var viewport := SubViewport.new()
-		viewport.size = Vector2i(320,118)
-		viewport.own_world_3d = true
-		container.add_child(viewport)
-		viewports[kind] = viewport
-		var part := G.piece(id,kind)
-		part.name = "ActualShipCandidate_"+id+"_"+kind
-		viewport.add_child(part)
-		var specimen := Node3D.new()
-		specimen.name = part.name+"_ActualEndCrop"
-		specimen.set_meta("ship_member",id)
-		specimen.set_meta("candidate_kind",kind)
-		viewport.add_child(specimen)
-		EndCrop.copy_into(part,specimen,CROPS[id])
-		part.queue_free()
-		specimens[kind] = specimen
-		var world := WorldEnvironment.new()
-		var env := Environment.new()
-		env.background_mode = Environment.BG_COLOR
-		env.background_color = Color("e8e0ce")
-		env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-		env.ambient_light_color = Color("fffaf0")
-		env.ambient_light_energy = .7
-		world.environment = env
-		viewport.add_child(world)
-		var light := DirectionalLight3D.new()
-		light.rotation_degrees = Vector3(-40,-25,0)
-		viewport.add_child(light)
-		var fill := DirectionalLight3D.new()
-		fill.rotation_degrees = Vector3(40,145,0)
-		fill.light_energy = .65
-		viewport.add_child(fill)
-		var camera := Camera3D.new()
-		camera.projection = Camera3D.PROJECTION_ORTHOGONAL
-		camera.keep_aspect = Camera3D.KEEP_HEIGHT
-		camera.size = 1.65
-		viewport.add_child(camera)
-		var center: Vector3 = CROPS[id].get_center()
-		var below: bool = id in ["zrail","top"]
-		var direction := Vector3(4,-3 if below else 3,6)
-		if id == "zrail": direction = Vector3(5,-4,-6)
-		if id == "lbrace": direction = Vector3(1.5,2,7)
-		camera.position = center+direction
-		camera.look_at(center)
-		var min_point := Vector2(INF,INF)
-		var max_point := Vector2(-INF,-INF)
-		for mesh_node in specimen.get_children():
-			for vertex in mesh_node.mesh.get_faces():
-				var point: Vector3 = camera.to_local(vertex)
-				min_point = min_point.min(Vector2(point.x,point.y))
-				max_point = max_point.max(Vector2(point.x,point.y))
-		var span := max_point-min_point
-		camera.size = maxf(span.y,span.x/2.65)*1.25
-		var offset := (max_point+min_point)*.5
-		camera.position += camera.basis*Vector3(offset.x,offset.y,0)
-		camera.current = true
-		var button := Button.new()
-		button.text = Rules.NAMES[kind]
-		button.custom_minimum_size.y = 44
-		button.toggle_mode = true
-		column.add_child(button)
-		buttons[kind] = button
-		button.pressed.connect(func(): chosen.emit(kind))
+		var card=preload("res://levels/shared/selection_card.gd").new();add_child(card)
+		buttons[kind]=card;previews[kind]=card.preview;inspect_buttons[kind]=card.inspect_button
+		viewports[kind]=card.preview.viewport
+		card.caption.text="选"+Rules.NAMES[kind]
+		card.pressed.connect(func():chosen.emit(kind))
+		card.inspect_requested.connect(func():inspect_requested.emit(kind))
+		var part=G.piece(id,kind)
+		# Cropping reads global transforms; mount the source before sampling it.
+		card.preview.viewport.add_child(part)
+		var specimen=Node3D.new();specimen.name="ActualShipCandidate_"+id+"_"+kind
+		specimen.set_meta("ship_member",id);specimen.set_meta("candidate_kind",kind)
+		EndCrop.copy_into(part,specimen,CROPS[id]);part.free();specimens[kind]=specimen
+		var direction=Vector3(4,-3 if id in ["zrail","top"] else 3,6)
+		if id=="zrail":direction=Vector3(5,-4,-6)
+		if id=="lbrace":direction=Vector3(1.5,2,7)
+		card.preview.configure(specimen,CROPS[id].get_center(),direction,1.8,2.8)
+		card.preview.frame_model(specimen,direction)
 func select(kind: String) -> void:
-	for id in buttons: buttons[id].set_pressed_no_signal(id == kind)
+	for id in buttons:buttons[id].set_pressed_no_signal(id==kind)

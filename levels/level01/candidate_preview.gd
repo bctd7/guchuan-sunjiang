@@ -127,7 +127,7 @@ func _add_lighting() -> void:
 	var world := WorldEnvironment.new()
 	var environment := Environment.new()
 	environment.background_mode = Environment.BG_COLOR
-	environment.background_color = Color("eee7d9")
+	environment.background_color = Color("fff7e9")
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	environment.ambient_light_color = Color("fffaf0")
 	environment.ambient_light_energy = .48

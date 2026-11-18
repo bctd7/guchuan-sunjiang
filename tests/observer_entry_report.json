@@ -1,6 +1,6 @@
 {
   "failed": 0,
   "failures": [],
-  "method": "Actual GUI-dispatched pointer clicks on model image regions and missing-choice button; no direct business callbacks. Separate from native Windows test.",
+  "method": "Actual GUI-dispatched pointer clicks on model image regions; no direct business callbacks. Separate from native Windows test.",
   "passed": 13
 }

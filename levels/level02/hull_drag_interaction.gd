@@ -134,7 +134,6 @@ func _begin(point: Vector2) -> bool:
 	_direction=path.normalized()
 	_travel=path.length()
 	dragging=true
-	feedback.emit("沿箭头推入；浅推松手会停留，拉回可抽出。",false)
 	gesture_changed.emit()
 	get_viewport().set_input_as_handled()
 	return true
@@ -168,7 +167,7 @@ func _release(point: Vector2) -> void:
 		socket_requested.emit(_id)
 		_release_ready=false
 	else:
-		feedback.emit("木料停在当前深度。可以继续推入，也可以往回拉。" if _moved else "按住木料沿箭头拖动，松手才会接合。",false)
+		feedback.emit("木料尚未完全装入。" if _moved else "",false)
 	gesture_changed.emit()
 	get_viewport().set_input_as_handled()
 

@@ -32,38 +32,38 @@ func _draw() -> void:
 	var edge:=Color("8f7557")
 	var opening:=Color("fff8e8")
 	draw_style_box(_background(),Rect2(Vector2.ZERO,size))
-	draw_string(_font,Vector2(18,25),"半榫长度对照 · 同一比例",HORIZONTAL_ALIGNMENT_LEFT,-1,17,ink)
-	draw_string(_font,Vector2(18,46),scale_caption,HORIZONTAL_ALIGNMENT_LEFT,-1,14,ink)
+	draw_string(_font,Vector2(18,25),tr("半榫长度对照 · 同一比例"),HORIZONTAL_ALIGNMENT_LEFT,-1,17,ink)
+	draw_string(_font,Vector2(18,46),tr(scale_caption),HORIZONTAL_ALIGNMENT_LEFT,-1,14,ink)
 	draw_line(Vector2(baseline_x,65),Vector2(baseline_x+.7*pixel_scale,65),ink,1.0)
 	for tick in range(0,71,5):
 		var x: float=baseline_x+float(tick)/UNIT_TICKS*pixel_scale
 		var major: bool=tick%10==0
 		draw_line(Vector2(x,65),Vector2(x,58 if major else 61),ink,1.0)
-		if major: draw_string(_font,Vector2(x-6,79),str(tick),HORIZONTAL_ALIGNMENT_LEFT,-1,11,ink)
+		if major: draw_string(_font,Vector2(x-6,79),tr(str(tick)),HORIZONTAL_ALIGNMENT_LEFT,-1,11,ink)
 	var first_y:=104.0
 	var last_y:=225.0
 	draw_dashed_line(Vector2(baseline_x,first_y-27),Vector2(baseline_x,last_y+24),Color("8c9c96"),1.2,5.0)
 	var bottom_x:=baseline_x+SLOT_DEPTH*pixel_scale
 	draw_dashed_line(Vector2(bottom_x,first_y+20),Vector2(bottom_x,last_y+24),Color("afa38d"),1.0,5.0)
-	draw_string(_font,Vector2(16,first_y+5),"槽深45格",HORIZONTAL_ALIGNMENT_LEFT,-1,14,ink)
+	draw_string(_font,Vector2(16,first_y+5),tr("槽深45格"),HORIZONTAL_ALIGNMENT_LEFT,-1,14,ink)
 	# Slot opens at the shoulder baseline and ends at a solid wall.
 	draw_rect(Rect2(baseline_x,first_y-21,SLOT_DEPTH*pixel_scale+19,42),wood)
 	draw_rect(Rect2(baseline_x,first_y-10,SLOT_DEPTH*pixel_scale,20),opening)
 	draw_line(Vector2(baseline_x,first_y-10),Vector2(bottom_x,first_y-10),edge,1.5)
 	draw_line(Vector2(bottom_x,first_y-10),Vector2(bottom_x,first_y+10),edge,2)
 	draw_line(Vector2(bottom_x,first_y+10),Vector2(baseline_x,first_y+10),edge,1.5)
-	draw_string(_font,Vector2(bottom_x+20,first_y+5),"底壁",HORIZONTAL_ALIGNMENT_LEFT,-1,13,ink)
+	draw_string(_font,Vector2(bottom_x+20,first_y+5),tr("底壁"),HORIZONTAL_ALIGNMENT_LEFT,-1,13,ink)
 	var index:=0
 	for id in LENGTHS:
 		var y:=145.0+index*40.0
 		if id == selected_length:
 			draw_rect(Rect2(12,y-19,size.x-24,38),Color("647e88"),false,2.0)
-		draw_string(_font,Vector2(18,y+5),"%s %d格" % [CANDIDATES[id],roundi(LENGTHS[id]*UNIT_TICKS)],HORIZONTAL_ALIGNMENT_LEFT,-1,14,ink)
+		draw_string(_font,Vector2(18,y+5),tr("%s %d格" % [CANDIDATES[id],roundi(LENGTHS[id]*UNIT_TICKS)]),HORIZONTAL_ALIGNMENT_LEFT,-1,14,ink)
 		draw_rect(Rect2(baseline_x-15,y-17,15,34),wood)
 		draw_rect(Rect2(baseline_x,y-9,LENGTHS[id]*pixel_scale,18),wood)
 		draw_rect(Rect2(baseline_x,y-9,LENGTHS[id]*pixel_scale,18),edge,false,1.1)
 		index+=1
-	draw_string(_font,Vector2(18,269),gap_caption,HORIZONTAL_ALIGNMENT_LEFT,-1,14,ink)
+	draw_string(_font,Vector2(18,269),tr(gap_caption),HORIZONTAL_ALIGNMENT_LEFT,-1,14,ink)
 
 func _background() -> StyleBoxFlat:
 	var style:=StyleBoxFlat.new()

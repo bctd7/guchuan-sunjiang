@@ -12,7 +12,8 @@ var previews: Dictionary = {}
 var captions: Dictionary = {}
 
 func _ready() -> void:
-	add_theme_constant_override("separation",4)
+	size_flags_vertical=Control.SIZE_EXPAND_FILL
+	add_theme_constant_override("separation",10)
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_build()
 
@@ -23,17 +24,18 @@ func _build() -> void:
 		var button := Button.new()
 		button.name = "Length"+str(index)
 		button.toggle_mode = true
-		button.custom_minimum_size = Vector2(100,72)
+		button.size_flags_vertical=Control.SIZE_EXPAND_FILL
+		button.custom_minimum_size = Vector2(100,92)
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		button.pressed.connect(func(): chosen.emit(length))
 		add_child(button)
 		buttons[length] = button
 		var row := HBoxContainer.new()
 		row.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		row.offset_left = 7
-		row.offset_right = -7
-		row.offset_top = 3
-		row.offset_bottom = -3
+		row.offset_left = 10
+		row.offset_right = -10
+		row.offset_top = 8
+		row.offset_bottom = -8
 		row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		row.add_theme_constant_override("separation",5)
 		button.add_child(row)
@@ -49,10 +51,10 @@ func _build() -> void:
 		caption.custom_minimum_size.x = 76
 		caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		caption.add_theme_font_size_override("font_size",15)
+		caption.add_theme_font_size_override("font_size",18)
 		row.add_child(caption)
 		captions[length] = caption
-		var inspect:=Button.new();inspect.text="放大";inspect.custom_minimum_size=Vector2(56,44);inspect.add_theme_font_size_override("font_size",16);row.add_child(inspect);inspect_buttons[length]=inspect
+		var inspect:=Button.new();inspect.text="放大";inspect.size_flags_vertical=Control.SIZE_SHRINK_CENTER;inspect.custom_minimum_size=Vector2(56,44);inspect.add_theme_font_size_override("font_size",16);row.add_child(inspect);inspect_buttons[length]=inspect
 		inspect.pressed.connect(func():inspect_requested.emit(length))
 
 func configure(source: Node3D, piece_id: String, kind: String = "") -> void:

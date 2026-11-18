@@ -1,0 +1,14 @@
+{
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "res://tests/evidence/camera-reset/opaque-local-default.png",
+    "res://tests/evidence/camera-reset/connection-400-percent.png",
+    "res://tests/evidence/camera-reset/opening-enlarged.png",
+    "res://tests/evidence/camera-reset/three-way-type-enlarged.png"
+  ],
+  "method": "Actual Viewport mouse/simulated touch and real geometry; no business state writes; no human hardware validation",
+  "passed": 59,
+  "renderer": "macOS"
+}

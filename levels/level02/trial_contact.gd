@@ -34,12 +34,21 @@ static func box(part: Dictionary) -> Dictionary:
 	var geometry: Dictionary=part.mesh.get_meta("trial_contact_geometry",{})
 	if geometry.is_empty():
 		var local_vertices: Array[Vector3]=[];var local_normals: Array[Vector3]=[];var local_edges: Array[Vector3]=[]
-		var faces: PackedVector3Array=part.mesh.get_faces()
-		for vertex in faces:
-			if not local_vertices.has(vertex):local_vertices.append(vertex)
-		for index in range(0,faces.size(),3):
-			var a:=faces[index];var b:=faces[index+1];var c:=faces[index+2]
-			_axis(local_normals,(b-a).cross(c-a));_axis(local_edges,b-a);_axis(local_edges,c-b);_axis(local_edges,a-c)
+		if part.mesh.has_meta("joinery_contact_cells"):
+			# AABB is broad phase only. Curved timber uses its actual small cells
+			# below, so rebuilding thousands of outer SAT axes adds no accuracy.
+			var aabb: AABB=part.mesh.get_aabb()
+			for x in [aabb.position.x,aabb.end.x]:
+				for y in [aabb.position.y,aabb.end.y]:
+					for z in [aabb.position.z,aabb.end.z]:local_vertices.append(Vector3(x,y,z))
+			local_normals.assign([Vector3.RIGHT,Vector3.UP,Vector3.BACK]);local_edges.assign(local_normals)
+		else:
+			var faces: PackedVector3Array=part.mesh.get_faces()
+			for vertex in faces:
+				if not local_vertices.has(vertex):local_vertices.append(vertex)
+			for index in range(0,faces.size(),3):
+				var a:=faces[index];var b:=faces[index+1];var c:=faces[index+2]
+				_axis(local_normals,(b-a).cross(c-a));_axis(local_edges,b-a);_axis(local_edges,c-b);_axis(local_edges,a-c)
 		geometry={"vertices":local_vertices,"normals":local_normals,"edges":local_edges};part.mesh.set_meta("trial_contact_geometry",geometry)
 	var vertices: Array[Vector3]=[];var normals: Array[Vector3]=[];var edges: Array[Vector3]=[]
 	for vertex in geometry.vertices:vertices.append(part.pose*vertex)
@@ -54,32 +63,32 @@ static func box(part: Dictionary) -> Dictionary:
 		result["cells"]=[]
 		for cell in cells:result.cells.append(Cells.transformed(cell,part.pose))
 	return result
-static func _separates(a: Array[Vector3],b: Array[Vector3],axis: Vector3,clearance:=EDGE_CLEARANCE) -> bool:
+static func _separates(a: Array[Vector3],b: Array[Vector3],axis: Vector3,clearance:=EDGE_CLEARANCE,translation:=Vector3.ZERO) -> bool:
 	if axis.length_squared()<.00000001:return false
 	axis=axis.normalized();var low_a:=INF;var high_a:=-INF;var low_b:=INF;var high_b:=-INF
 	for vertex in a:
-		var distance:=vertex.dot(axis);low_a=minf(low_a,distance);high_a=maxf(high_a,distance)
+		var distance:=vertex.dot(axis)+translation.dot(axis);low_a=minf(low_a,distance);high_a=maxf(high_a,distance)
 	for vertex in b:
 		var distance:=vertex.dot(axis);low_b=minf(low_b,distance);high_b=maxf(high_b,distance)
 	return minf(high_a,high_b)-maxf(low_a,low_b)<-clearance
-static func intersects(a: Dictionary,b: Dictionary,clearance:=EDGE_CLEARANCE) -> bool:
-	var overlap: AABB=a.bounds.grow(maxf(0,clearance)).intersection(b.bounds.grow(maxf(0,clearance)))
+static func intersects(a: Dictionary,b: Dictionary,clearance:=EDGE_CLEARANCE,translation:=Vector3.ZERO) -> bool:
+	var overlap: AABB=AABB(a.bounds.position+translation,a.bounds.size).grow(maxf(0,clearance)).intersection(b.bounds.grow(maxf(0,clearance)))
 	if minf(overlap.size.x,minf(overlap.size.y,overlap.size.z))<=.000001:return false
 	if a.has("cells"):
 		for cell in a.cells:
-			if intersects(cell,b,clearance):return true
+			if intersects(cell,b,clearance,translation):return true
 		return false
 	if b.has("cells"):
 		for cell in b.cells:
-			if intersects(a,cell,clearance):return true
+			if intersects(a,cell,clearance,translation):return true
 		return false
 	for axis in a.normals:
-		if _separates(a.vertices,b.vertices,axis,clearance):return false
+		if _separates(a.vertices,b.vertices,axis,clearance,translation):return false
 	for axis in b.normals:
-		if _separates(a.vertices,b.vertices,axis,clearance):return false
+		if _separates(a.vertices,b.vertices,axis,clearance,translation):return false
 	for first in a.edges:
 		for second in b.edges:
-			if _separates(a.vertices,b.vertices,first.cross(second),clearance):return false
+			if _separates(a.vertices,b.vertices,first.cross(second),clearance,translation):return false
 	return true
 static func clear(parts: Array,obstacles: Array,clearance:=EDGE_CLEARANCE) -> bool:
 	for part in parts:
@@ -134,26 +143,36 @@ static func flat(root: Node3D,basis: Basis,receivers: Array,obstacles: Array,tar
 		if not supported(patches(candidate,support_bounds.end.y+GAP),top):continue
 		if clear(candidate,obstacles):return {"pose":pose,"clear":true,"distance":0.0}
 	return {"pose":fallback,"clear":false,"distance":0.0}
+static func clear_translated(solids: Array,obstacles: Array,translation: Vector3,clearance: float) -> bool:
+	for solid in solids:
+		for obstacle in obstacles:
+			if intersects(solid,obstacle,clearance,translation):return false
+	return true
+static func solid_boxes(root: Node3D,pose: Transform3D) -> Array:
+	var result: Array=[]
+	for part in meshes(root,pose):result.append(box(part))
+	return result
 static func blocked(root: Node3D,nominal: Transform3D,direction: Vector3,obstacles: Array,outside_distance:=1.2) -> Dictionary:
 	# Approach from outside. An empty pocket behind a solid shoulder is not a
 	# reachable resting place, even if a static test there would be clear.
+	var solids:=solid_boxes(root,nominal)
 	var outside: float=outside_distance
 	while outside<=4.0:
 		var start:=nominal;start.origin+=direction*outside
-		if clear(meshes(root,start),obstacles,-.00002):break
+		if clear_translated(solids,obstacles,direction*outside,-.00002):break
 		outside+=.1
 	if outside>4.0:return {"pose":nominal,"clear":false,"distance":0.0}
 	var previous:=outside
 	for step in range(1,ceili(outside/.01)+1):
 		var distance: float=maxf(0.0,outside-step*.01)
 		var pose:=nominal;pose.origin+=direction*distance
-		if not clear(meshes(root,pose),obstacles,-.00002):
+		if not clear_translated(solids,obstacles,direction*distance,-.00002):
 			var low: float=distance
 			var high: float=previous
 			for iteration in 14:
 				var middle: float=(low+high)*.5
 				var candidate:=nominal;candidate.origin+=direction*middle
-				if clear(meshes(root,candidate),obstacles,-.00002):high=middle
+				if clear_translated(solids,obstacles,direction*middle,-.00002):high=middle
 				else:low=middle
 			distance=high+REST_GAP
 			pose=nominal;pose.origin+=direction*distance
@@ -162,9 +181,10 @@ static func blocked(root: Node3D,nominal: Transform3D,direction: Vector3,obstacl
 	return {"pose":nominal,"clear":true,"distance":0.0}
 
 static func approach_clear(root: Node3D,contact: Transform3D,offset: Vector3,obstacles: Array) -> bool:
+	var solids:=solid_boxes(root,contact)
 	for step in range(ceili(offset.length()/.01)+1):
 		var fraction:=float(step)/maxi(1,ceili(offset.length()/.01))
 		var pose:=contact;pose.origin+=offset*(1.0-fraction)
 		# Mating faces may touch; reject penetration beyond mesh roundoff.
-		if not clear(meshes(root,pose),obstacles,-.00002):return false
+		if not clear_translated(solids,obstacles,offset*(1.0-fraction),-.00002):return false
 	return true

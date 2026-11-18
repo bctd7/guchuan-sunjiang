@@ -52,7 +52,7 @@ func configure(source: Node3D) -> void:
 	legend.add_theme_font_size_override("font_size",13)
 	legend.add_theme_color_override("font_color",Color("304638"))
 	body.add_child(legend)
-	var scroll := ScrollContainer.new()
+	var scroll := preload("res://shared/ui/reading_scroll.gd").new()
 	scroll.custom_minimum_size = Vector2(268,330)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	body.add_child(scroll)

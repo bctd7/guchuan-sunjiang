@@ -1,4 +1,5 @@
 extends Node3D
+signal next_requested
 signal progress_changed
 const BUILD_REVISION="whole-level-failure-20261031-r8"
 signal return_requested
@@ -68,6 +69,10 @@ func _ready() -> void:
 	learning = Learning.new()
 	add_child(learning)
 	learning.configure(1,view,panel,interaction)
+	panel.success_panel.bind(self,1,true)
+	panel.success_panel.next_requested.connect(func():next_requested.emit())
+	panel.failure_overlay.bind(self,1,false)
+	preload("res://shared/seating_audio.gd").bind_results(self,panel.success_panel,panel.failure_overlay)
 	story=Story.new()
 	add_child(story)
 
@@ -84,10 +89,10 @@ func _try_socket(id: String, from_observer: bool = false, released_pose: Variant
 	if story.opened or learning.modal_open() or (inspector.visible and not from_observer): return Rules.result(false,"viewing","先返回骨架。")
 	if busy: return Rules.result(false,"assembling","正在自动补齐同构木件，请观察动画。")
 	if joint_type.is_empty():
-		panel.show_feedback("先点“观察并选择榫型”，看清真实榫头与槽口后再试装。",true)
+		panel.show_feedback("尚未选择榫型。",true)
 		return Rules.result(false,"joint_unselected","请先观察并选择榫型。")
 	if tenon_length.is_empty():
-		panel.show_feedback("打开观察页，根据槽口和刻度选择木料 A/B/C，再返回试装。",true)
+		panel.show_feedback("尚未选择木料。",true)
 		return Rules.result(false,"length_unselected","请先观察并选择木料长度。")
 	var piece: String=state.selected
 	view.prepare_place(piece,tenon_length,joint_type)
@@ -96,10 +101,10 @@ func _try_socket(id: String, from_observer: bool = false, released_pose: Variant
 	if outcome.ok:
 		busy=true
 		_pending_review=piece
-		view.animate_place(piece,tenon_length,joint_type)
+		view.animate_place(piece,tenon_length,joint_type,false)
 		view.animations[piece].finished.connect(_demonstration_finished.bind(piece,_motion_generation),CONNECT_ONE_SHOT)
 		_refresh()
-		inspector.show_connection(piece,tenon_length,true,joint_type,false,released_pose)
+		inspector.show_connection(piece,tenon_length,true,joint_type,false,released_pose,true)
 	else:
 		view.discard_prepared_place(piece)
 		_refresh()
@@ -125,7 +130,7 @@ func _begin_automatic() -> void:
 	if state.failed: return
 	if _pending_review.is_empty():
 		if not joint_type.is_empty() and not tenon_length.is_empty() and not state.placed.has(state.selected):
-			panel.show_feedback("已挑好%s的木料%s。回到观察页，按住木料拖向榫槽后松手。"%[Rules.JOINT_LABELS[joint_type],{"long":"A","short":"B","correct":"C"}[tenon_length]])
+			panel.show_feedback("已挑好%s的木料%s。"%[Rules.JOINT_LABELS[joint_type],{"long":"A","short":"B","correct":"C"}[tenon_length]])
 		return
 	var representative:=_pending_review
 	# Closing the close-up early must still wait for the actual insertion.
@@ -133,7 +138,7 @@ func _begin_automatic() -> void:
 	_pending_review=""
 	if state.pending_group!=representative: return
 	view.show_automatic_overview([representative]+Rules.AUTO_GROUPS[representative],str(state.placed[representative].length),str(state.placed[representative].joint))
-	panel.show_feedback("手动示范完成。现在自动补齐同构木件，请观察完整骨架。")
+	panel.show_feedback("手动示范完成，正在补齐同类木件。")
 	_auto_queue.clear()
 	for batch in Rules.AUTO_BATCHES[representative]:
 		for id in batch: _auto_queue.append(id)
@@ -159,7 +164,7 @@ func _place_auto_batch(representative: String, ids: Array) -> void:
 		if not result.ok:
 			_cancel_automatic()
 			state.undo()
-			panel.show_feedback("自动补齐中断，已取回本组，请重新示范。",true)
+			panel.show_feedback("自动补齐中断，已取回本组。",true)
 			return
 		view.animate_place(id,str(state.placed[id].length),str(state.placed[id].joint))
 		names.append(Rules.SPECS[id].label)
@@ -179,7 +184,7 @@ func _finish_automatic() -> void:
 				break
 		joint_type=""
 		tenon_length=""
-		panel.show_feedback("构件已装齐，开始检查整关连接。" if state.progress_count()==3 else "同类构件已装好。接着观察下一处连接。")
+		panel.show_feedback("构件已装齐，开始检查整关连接。" if state.progress_count()==3 else "同类构件已装好。")
 	_refresh()
 	if result.ok and state.installed_count()==Rules.BUILD_IDS.size():
 		_check()
@@ -245,6 +250,8 @@ func _show_failure(message: String) -> void:
 	var motion: Tween=view.show_instability(state.placed)
 	panel.show_feedback(message,true)
 	_refresh()
+	panel.failure_overlay.title.text="连接未通过检查"
+	panel.failure_overlay.description.text=message
 	panel.show_failure()
 	motion.finished.connect(func():
 		if generation!=_motion_generation or not state.failed: return
@@ -272,4 +279,4 @@ func is_completed() -> bool:
 	return state.completed
 
 func navigation_status() -> Dictionary:
-	return {"modal_open": learning.modal_open() or inspector.opened or story.opened, "can_leave": not busy}
+	return {"modal_open": panel.success_panel.visible or panel.failure_overlay.visible or learning.modal_open() or inspector.opened or story.opened, "can_leave": not busy}

@@ -18,42 +18,15 @@ func _build() -> void:
 	if not buttons.is_empty(): return
 	custom_minimum_size.y = 174
 	for kind in TYPES:
-		var button:=Button.new()
-		button.name="Choose_"+kind
-		button.toggle_mode=true
-		button.custom_minimum_size=Vector2(100,174)
-		button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-		button.pressed.connect(func(): chosen.emit(kind))
+		var button=preload("res://levels/shared/selection_card.gd").new()
+		button.preview_script=Preview;button.name="Choose_"+kind
+		add_child(button);buttons[kind]=button
+		button.pressed.connect(func():chosen.emit(kind))
 		button.tooltip_text="选择"+TYPES[kind]
-		add_child(button)
-		buttons[kind]=button
-		var column:=VBoxContainer.new()
-		column.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		column.offset_left=3
-		column.offset_right=-3
-		column.offset_top=3
-		column.offset_bottom=-3
-		column.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		column.add_theme_constant_override("separation",2)
-		button.add_child(column)
-		var preview:=Preview.new()
-		preview.custom_minimum_size=Vector2(100,120)
-		preview.size_flags_vertical=Control.SIZE_EXPAND_FILL
-		column.add_child(preview)
-		previews[kind]=preview
-		preview.activated.connect(func():
-			if not button.disabled:chosen.emit(kind))
-		viewports[kind]=preview.viewport
-		var footer:=HBoxContainer.new();footer.mouse_filter=Control.MOUSE_FILTER_IGNORE;column.add_child(footer)
-		var caption:=Label.new()
-		caption.text="选"+TYPES[kind]
-		caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-		caption.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
-		caption.custom_minimum_size.y=32
-		caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		caption.size_flags_horizontal=Control.SIZE_EXPAND_FILL;footer.add_child(caption)
-		var inspect:=Button.new();inspect.text="放大";inspect.custom_minimum_size=Vector2(56,44);inspect.add_theme_font_size_override("font_size",16);footer.add_child(inspect);inspect_buttons[kind]=inspect
-		inspect.pressed.connect(func():inspect_requested.emit(kind))
+		previews[kind]=button.preview;viewports[kind]=button.preview.viewport
+		button.caption.text="选"+TYPES[kind]
+		inspect_buttons[kind]=button.inspect_button
+		button.inspect_requested.connect(func():inspect_requested.emit(kind))
 
 func configure(source_view: Node3D, piece_id: String, length: String = "correct") -> void:
 	_build()

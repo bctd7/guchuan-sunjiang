@@ -1,0 +1,10 @@
+{
+  "failed": 0,
+  "failures": [],
+  "method": "Native project Window; real startup fullscreen and injected keyboard maintenance toggle twice; Ctrl+Shift+Q triggers quit.",
+  "native_capture_size": "(1920, 1080)",
+  "native_window_size": "(2880, 1800)",
+  "renderer": "macOS",
+  "startup_mode": 3,
+  "viewport": "[P: (0.0, 0.0), S: (1920.0, 1080.0)]"
+}

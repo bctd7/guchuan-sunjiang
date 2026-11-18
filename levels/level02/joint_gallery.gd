@@ -19,14 +19,11 @@ func _ready() -> void:
 	add_theme_constant_override("separation",8)
 	custom_minimum_size.y=174
 	for id in TYPES:
-		var button:=Button.new();button.toggle_mode=true;button.custom_minimum_size=Vector2(100,174);button.size_flags_horizontal=Control.SIZE_EXPAND_FILL;add_child(button);buttons[id]=button
-		Workspace.neutral_selection(button)
+		var button=preload("res://levels/shared/selection_card.gd").new();add_child(button);buttons[id]=button
 		button.pressed.connect(func():chosen.emit(id))
-		var column:=VBoxContainer.new();column.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);column.offset_left=3;column.offset_right=-3;column.offset_top=3;column.offset_bottom=-3;column.mouse_filter=Control.MOUSE_FILTER_IGNORE;button.add_child(column)
-		var preview:=Preview.new();preview.custom_minimum_size=Vector2(100,120);preview.size_flags_vertical=Control.SIZE_EXPAND_FILL;column.add_child(preview);previews[id]=preview
-		preview.set_lighting_profile(Lighting)
-		preview.activated.connect(func():
-			if not button.disabled:chosen.emit(id))
+		var preview=button.preview;previews[id]=preview;preview.set_lighting_profile(Lighting)
+		captions[id]=button.caption;inspect_buttons[id]=button.inspect_button
+		button.inspect_requested.connect(func():inspect_requested.emit(id))
 		var root:=Node3D.new()
 		var a=G.material(Color("b89569"))
 		var b=G.material(Color("dcc29b"))
@@ -60,10 +57,7 @@ func _ready() -> void:
 		Appearance.apply(root)
 		preview.configure(root,Vector3(0,.40 if id=="three_way_lap" else .18,.7 if id=="tongue_groove" else 0),Vector3(4,6,2.3) if id=="three_way_lap" else Vector3(2.3,3,4),2.3,3.6)
 		button.tooltip_text=DETAILS[id]
-		var footer:=HBoxContainer.new();footer.mouse_filter=Control.MOUSE_FILTER_IGNORE;column.add_child(footer)
-		var caption:=Label.new();caption.text="选"+{"tongue_groove":"企口榫","cross_lap":"搭扣榫 · 上下落合","three_way_lap":"扣合榫 · 侧推锁合"}[id];caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;caption.custom_minimum_size.y=32;caption.mouse_filter=Control.MOUSE_FILTER_IGNORE;caption.size_flags_horizontal=Control.SIZE_EXPAND_FILL;footer.add_child(caption);captions[id]=caption
-		var inspect:=Button.new();inspect.text="放大";inspect.custom_minimum_size=Vector2(56,44);inspect.add_theme_font_size_override("font_size",16);footer.add_child(inspect);inspect_buttons[id]=inspect
-		inspect.pressed.connect(func():inspect_requested.emit(id))
+
 func choose(id: String) -> void:
 	for key in buttons:buttons[key].set_pressed_no_signal(key==id)
 

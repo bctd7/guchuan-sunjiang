@@ -1,0 +1,1493 @@
+{
+  "buttons": [
+    {
+      "rect": "[P: (211.1999, 350.4), S: (456.0, 134.4)]",
+      "stage": "00-menu",
+      "text": "第一关 · 龙骨立架"
+    },
+    {
+      "rect": "[P: (211.1999, 516.0), S: (456.0, 134.4)]",
+      "stage": "00-menu",
+      "text": "第二关 · 船板合壳"
+    },
+    {
+      "rect": "[P: (211.1999, 681.6), S: (456.0, 134.4)]",
+      "stage": "00-menu",
+      "text": "第三关 · 帆樯舾装"
+    },
+    {
+      "rect": "[P: (209.0, 884.0), S: (251.0, 64.0)]",
+      "stage": "1-intro",
+      "text": "观察此榫卯"
+    },
+    {
+      "rect": "[P: (835.0, 884.0), S: (251.0, 64.0)]",
+      "stage": "1-intro",
+      "text": "观察此榫卯"
+    },
+    {
+      "rect": "[P: (1460.0, 884.0), S: (251.0, 64.0)]",
+      "stage": "1-intro",
+      "text": "观察此榫卯"
+    },
+    {
+      "rect": "[P: (1608.0, 990.0), S: (280.0, 62.0)]",
+      "stage": "1-intro",
+      "text": "开始本关"
+    },
+    {
+      "rect": "[P: (1670.0, 16.0), S: (230.0, 64.0)]",
+      "stage": "1-joint-dovetail",
+      "text": "返回本关三种介绍"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "1-joint-dovetail",
+      "text": "燕尾榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "1-joint-dovetail",
+      "text": "燕尾榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "1-joint-dovetail",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "1-joint-dovetail",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "1-joint-dovetail",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1756.0, 16.0), S: (144.0, 64.0)]",
+      "stage": "1-science-dovetail",
+      "text": "返回"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "1-science-dovetail",
+      "text": "燕尾榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "1-science-dovetail",
+      "text": "燕尾榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "1-science-dovetail",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "1-science-dovetail",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "1-science-dovetail",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1670.0, 16.0), S: (230.0, 64.0)]",
+      "stage": "1-joint-blind_tenon",
+      "text": "返回本关三种介绍"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "1-joint-blind_tenon",
+      "text": "半榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "1-joint-blind_tenon",
+      "text": "半榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "1-joint-blind_tenon",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "1-joint-blind_tenon",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "1-joint-blind_tenon",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1756.0, 16.0), S: (144.0, 64.0)]",
+      "stage": "1-science-blind_tenon",
+      "text": "返回"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "1-science-blind_tenon",
+      "text": "半榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "1-science-blind_tenon",
+      "text": "半榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "1-science-blind_tenon",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "1-science-blind_tenon",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "1-science-blind_tenon",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1670.0, 16.0), S: (230.0, 64.0)]",
+      "stage": "1-joint-through_tenon",
+      "text": "返回本关三种介绍"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "1-joint-through_tenon",
+      "text": "透榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "1-joint-through_tenon",
+      "text": "透榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "1-joint-through_tenon",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "1-joint-through_tenon",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "1-joint-through_tenon",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1756.0, 16.0), S: (144.0, 64.0)]",
+      "stage": "1-science-through_tenon",
+      "text": "返回"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "1-science-through_tenon",
+      "text": "透榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "1-science-through_tenon",
+      "text": "透榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "1-science-through_tenon",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "1-science-through_tenon",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "1-science-through_tenon",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1588.8, 40.8), S: (192.0, 63.6)]",
+      "stage": "1-workshop",
+      "text": "返回关卡目录"
+    },
+    {
+      "rect": "[P: (143.9999, 434.4), S: (324.0, 72.0)]",
+      "stage": "1-workshop",
+      "text": "看榫头，挑木料"
+    },
+    {
+      "rect": "[P: (143.9999, 520.8), S: (324.0, 62.4)]",
+      "stage": "1-workshop",
+      "text": "船匠的小故事"
+    },
+    {
+      "rect": "[P: (1214.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-workshop",
+      "text": "撤回上一组"
+    },
+    {
+      "rect": "[P: (1406.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-workshop",
+      "text": "重新搭建"
+    },
+    {
+      "rect": "[P: (1598.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-workshop",
+      "text": "检查稳定"
+    },
+    {
+      "rect": "[P: (143.9999, 434.4), S: (324.0, 72.0)]",
+      "stage": "1-story",
+      "text": "看榫头，挑木料"
+    },
+    {
+      "rect": "[P: (143.9999, 520.8), S: (324.0, 62.4)]",
+      "stage": "1-story",
+      "text": "船匠的小故事"
+    },
+    {
+      "rect": "[P: (1214.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-story",
+      "text": "撤回上一组"
+    },
+    {
+      "rect": "[P: (1406.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-story",
+      "text": "重新搭建"
+    },
+    {
+      "rect": "[P: (1598.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-story",
+      "text": "检查稳定"
+    },
+    {
+      "rect": "[P: (1362.0, 194.0), S: (96.0, 64.0)]",
+      "stage": "1-story",
+      "text": "关闭"
+    },
+    {
+      "rect": "[P: (143.9999, 434.4), S: (324.0, 72.0)]",
+      "stage": "1-inspector",
+      "text": "看榫头，挑木料"
+    },
+    {
+      "rect": "[P: (143.9999, 520.8), S: (324.0, 62.4)]",
+      "stage": "1-inspector",
+      "text": "船匠的小故事"
+    },
+    {
+      "rect": "[P: (1214.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-inspector",
+      "text": "撤回上一组"
+    },
+    {
+      "rect": "[P: (1406.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-inspector",
+      "text": "重新搭建"
+    },
+    {
+      "rect": "[P: (1598.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-inspector",
+      "text": "检查稳定"
+    },
+    {
+      "rect": "[P: (1353.6, 45.6), S: (322.8, 79.2)]",
+      "stage": "1-inspector",
+      "text": "本关榫卯讲解"
+    },
+    {
+      "rect": "[P: (1705.2, 45.6), S: (168.0, 79.2)]",
+      "stage": "1-inspector",
+      "text": "返回骨架"
+    },
+    {
+      "rect": "[P: (45.6, 144.0), S: (602.4, 208.8)]",
+      "stage": "1-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (568.8, 283.2), S: (67.2, 60.0)]",
+      "stage": "1-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (657.6, 144.0), S: (602.4, 208.8)]",
+      "stage": "1-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1180.8, 283.2), S: (67.2, 60.0)]",
+      "stage": "1-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1269.6, 144.0), S: (603.6, 208.8)]",
+      "stage": "1-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1794.0, 283.2), S: (67.2, 60.0)]",
+      "stage": "1-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (114.0, 944.4001), S: (232.8, 67.2)]",
+      "stage": "1-inspector",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (501.6, 944.4001), S: (67.2, 67.2)]",
+      "stage": "1-inspector",
+      "text": "−"
+    },
+    {
+      "rect": "[P: (674.4, 944.4001), S: (67.2, 67.2)]",
+      "stage": "1-inspector",
+      "text": "＋"
+    },
+    {
+      "rect": "[P: (868.8, 944.4001), S: (177.6, 67.2)]",
+      "stage": "1-inspector",
+      "text": "看孔内"
+    },
+    {
+      "rect": "[P: (1065.6, 944.4001), S: (177.6, 67.2)]",
+      "stage": "1-inspector",
+      "text": "重新观察"
+    },
+    {
+      "rect": "[P: (1318.8, 588.0), S: (540.0, 135.6)]",
+      "stage": "1-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 625.2), S: (67.2, 60.0)]",
+      "stage": "1-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1318.8, 735.6), S: (540.0, 135.6)]",
+      "stage": "1-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 772.7999), S: (67.2, 60.0)]",
+      "stage": "1-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1318.8, 883.2), S: (540.0, 135.6)]",
+      "stage": "1-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 920.4), S: (67.2, 60.0)]",
+      "stage": "1-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (143.9999, 434.4), S: (324.0, 72.0)]",
+      "stage": "1-magnifier",
+      "text": "看榫头，挑木料"
+    },
+    {
+      "rect": "[P: (143.9999, 520.8), S: (324.0, 62.4)]",
+      "stage": "1-magnifier",
+      "text": "船匠的小故事"
+    },
+    {
+      "rect": "[P: (1214.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-magnifier",
+      "text": "撤回上一组"
+    },
+    {
+      "rect": "[P: (1406.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-magnifier",
+      "text": "重新搭建"
+    },
+    {
+      "rect": "[P: (1598.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "1-magnifier",
+      "text": "检查稳定"
+    },
+    {
+      "rect": "[P: (1353.6, 45.6), S: (322.8, 79.2)]",
+      "stage": "1-magnifier",
+      "text": "本关榫卯讲解"
+    },
+    {
+      "rect": "[P: (1705.2, 45.6), S: (168.0, 79.2)]",
+      "stage": "1-magnifier",
+      "text": "返回骨架"
+    },
+    {
+      "rect": "[P: (45.6, 144.0), S: (602.4, 208.8)]",
+      "stage": "1-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (568.8, 283.2), S: (67.2, 60.0)]",
+      "stage": "1-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (657.6, 144.0), S: (602.4, 208.8)]",
+      "stage": "1-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1180.8, 283.2), S: (67.2, 60.0)]",
+      "stage": "1-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1269.6, 144.0), S: (603.6, 208.8)]",
+      "stage": "1-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1794.0, 283.2), S: (67.2, 60.0)]",
+      "stage": "1-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (114.0, 944.4001), S: (232.8, 67.2)]",
+      "stage": "1-magnifier",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (501.6, 944.4001), S: (67.2, 67.2)]",
+      "stage": "1-magnifier",
+      "text": "−"
+    },
+    {
+      "rect": "[P: (674.4, 944.4001), S: (67.2, 67.2)]",
+      "stage": "1-magnifier",
+      "text": "＋"
+    },
+    {
+      "rect": "[P: (868.8, 944.4001), S: (177.6, 67.2)]",
+      "stage": "1-magnifier",
+      "text": "看孔内"
+    },
+    {
+      "rect": "[P: (1065.6, 944.4001), S: (177.6, 67.2)]",
+      "stage": "1-magnifier",
+      "text": "重新观察"
+    },
+    {
+      "rect": "[P: (1318.8, 588.0), S: (540.0, 135.6)]",
+      "stage": "1-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 625.2), S: (67.2, 60.0)]",
+      "stage": "1-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1318.8, 735.6), S: (540.0, 135.6)]",
+      "stage": "1-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 772.7999), S: (67.2, 60.0)]",
+      "stage": "1-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1318.8, 883.2), S: (540.0, 135.6)]",
+      "stage": "1-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 920.4), S: (67.2, 60.0)]",
+      "stage": "1-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1688.4, 58.8), S: (168.0, 76.8)]",
+      "stage": "1-magnifier",
+      "text": "返回选材"
+    },
+    {
+      "rect": "[P: (62.4, 898.8), S: (168.0, 76.8)]",
+      "stage": "1-magnifier",
+      "text": "− 缩小"
+    },
+    {
+      "rect": "[P: (361.2, 898.8), S: (168.0, 76.8)]",
+      "stage": "1-magnifier",
+      "text": "＋ 放大"
+    },
+    {
+      "rect": "[P: (1664.4, 898.8), S: (192.0, 76.8)]",
+      "stage": "1-magnifier",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (209.0, 884.0), S: (251.0, 64.0)]",
+      "stage": "2-intro",
+      "text": "观察此榫卯"
+    },
+    {
+      "rect": "[P: (835.0, 884.0), S: (251.0, 64.0)]",
+      "stage": "2-intro",
+      "text": "观察此榫卯"
+    },
+    {
+      "rect": "[P: (1460.0, 884.0), S: (251.0, 64.0)]",
+      "stage": "2-intro",
+      "text": "观察此榫卯"
+    },
+    {
+      "rect": "[P: (1608.0, 990.0), S: (280.0, 62.0)]",
+      "stage": "2-intro",
+      "text": "开始本关"
+    },
+    {
+      "rect": "[P: (1670.0, 16.0), S: (230.0, 64.0)]",
+      "stage": "2-joint-cross_lap",
+      "text": "返回本关三种介绍"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "2-joint-cross_lap",
+      "text": "搭扣榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "2-joint-cross_lap",
+      "text": "搭扣榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "2-joint-cross_lap",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "2-joint-cross_lap",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "2-joint-cross_lap",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1756.0, 16.0), S: (144.0, 64.0)]",
+      "stage": "2-science-cross_lap",
+      "text": "返回"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "2-science-cross_lap",
+      "text": "搭扣榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "2-science-cross_lap",
+      "text": "搭扣榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "2-science-cross_lap",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "2-science-cross_lap",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "2-science-cross_lap",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1670.0, 16.0), S: (230.0, 64.0)]",
+      "stage": "2-joint-tongue_groove",
+      "text": "返回本关三种介绍"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "2-joint-tongue_groove",
+      "text": "企口榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "2-joint-tongue_groove",
+      "text": "企口榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "2-joint-tongue_groove",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "2-joint-tongue_groove",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "2-joint-tongue_groove",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1756.0, 16.0), S: (144.0, 64.0)]",
+      "stage": "2-science-tongue_groove",
+      "text": "返回"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "2-science-tongue_groove",
+      "text": "企口榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "2-science-tongue_groove",
+      "text": "企口榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "2-science-tongue_groove",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "2-science-tongue_groove",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "2-science-tongue_groove",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1670.0, 16.0), S: (230.0, 64.0)]",
+      "stage": "2-joint-three_way_lap",
+      "text": "返回本关三种介绍"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "2-joint-three_way_lap",
+      "text": "扣合榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "2-joint-three_way_lap",
+      "text": "扣合榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "2-joint-three_way_lap",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "2-joint-three_way_lap",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "2-joint-three_way_lap",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1756.0, 16.0), S: (144.0, 64.0)]",
+      "stage": "2-science-three_way_lap",
+      "text": "返回"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "2-science-three_way_lap",
+      "text": "扣合榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "2-science-three_way_lap",
+      "text": "扣合榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "2-science-three_way_lap",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "2-science-three_way_lap",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "2-science-three_way_lap",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1588.8, 40.8), S: (192.0, 63.6)]",
+      "stage": "2-workshop",
+      "text": "返回关卡目录"
+    },
+    {
+      "rect": "[P: (143.9999, 399.6), S: (324.0, 72.0)]",
+      "stage": "2-workshop",
+      "text": "看榫头，挑木料"
+    },
+    {
+      "rect": "[P: (143.9999, 486.0), S: (324.0, 62.4)]",
+      "stage": "2-workshop",
+      "text": "水密隔舱小课堂"
+    },
+    {
+      "rect": "[P: (1106.4, 960.0001), S: (285.6, 60.0)]",
+      "stage": "2-workshop",
+      "text": "搭建进度 0 / 3 组 · 展开  ›"
+    },
+    {
+      "rect": "[P: (1406.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "2-workshop",
+      "text": "撤回上一步"
+    },
+    {
+      "rect": "[P: (1598.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "2-workshop",
+      "text": "重新搭建"
+    },
+    {
+      "rect": "[P: (143.9999, 399.6), S: (324.0, 72.0)]",
+      "stage": "2-bulkhead",
+      "text": "看榫头，挑木料"
+    },
+    {
+      "rect": "[P: (143.9999, 486.0), S: (324.0, 62.4)]",
+      "stage": "2-bulkhead",
+      "text": "水密隔舱小课堂"
+    },
+    {
+      "rect": "[P: (1106.4, 960.0001), S: (285.6, 60.0)]",
+      "stage": "2-bulkhead",
+      "text": "搭建进度 0 / 3 组 · 展开  ›"
+    },
+    {
+      "rect": "[P: (1406.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "2-bulkhead",
+      "text": "撤回上一步"
+    },
+    {
+      "rect": "[P: (1598.4, 943.2001), S: (177.6, 93.60001)]",
+      "stage": "2-bulkhead",
+      "text": "重新搭建"
+    },
+    {
+      "rect": "[P: (1388.0, 242.0), S: (200.0, 64.0)]",
+      "stage": "2-bulkhead",
+      "text": "返回船板装配"
+    },
+    {
+      "rect": "[P: (1353.6, 45.6), S: (322.8, 79.2)]",
+      "stage": "2-inspector",
+      "text": "本关榫卯讲解"
+    },
+    {
+      "rect": "[P: (1705.2, 45.6), S: (168.0, 79.2)]",
+      "stage": "2-inspector",
+      "text": "返回船架"
+    },
+    {
+      "rect": "[P: (45.6, 144.0), S: (602.4, 208.8)]",
+      "stage": "2-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (568.8, 283.2), S: (67.2, 60.0)]",
+      "stage": "2-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (657.6, 144.0), S: (602.4, 208.8)]",
+      "stage": "2-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1180.8, 283.2), S: (67.2, 60.0)]",
+      "stage": "2-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1269.6, 144.0), S: (603.6, 208.8)]",
+      "stage": "2-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1794.0, 283.2), S: (67.2, 60.0)]",
+      "stage": "2-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (114.0, 944.4001), S: (232.8, 67.2)]",
+      "stage": "2-inspector",
+      "text": "↻  重置视角"
+    },
+    {
+      "rect": "[P: (501.6, 944.4001), S: (67.2, 67.2)]",
+      "stage": "2-inspector",
+      "text": "−"
+    },
+    {
+      "rect": "[P: (674.4, 944.4001), S: (67.2, 67.2)]",
+      "stage": "2-inspector",
+      "text": "＋"
+    },
+    {
+      "rect": "[P: (868.8, 944.4001), S: (177.6, 67.2)]",
+      "stage": "2-inspector",
+      "text": "看槽口"
+    },
+    {
+      "rect": "[P: (1065.6, 944.4001), S: (177.6, 67.2)]",
+      "stage": "2-inspector",
+      "text": "重新观察"
+    },
+    {
+      "rect": "[P: (1318.8, 588.0), S: (540.0, 135.6)]",
+      "stage": "2-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 625.2), S: (67.2, 60.0)]",
+      "stage": "2-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1318.8, 735.6), S: (540.0, 135.6)]",
+      "stage": "2-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 772.7999), S: (67.2, 60.0)]",
+      "stage": "2-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1318.8, 883.2), S: (540.0, 135.6)]",
+      "stage": "2-inspector",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 920.4), S: (67.2, 60.0)]",
+      "stage": "2-inspector",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1353.6, 45.6), S: (322.8, 79.2)]",
+      "stage": "2-magnifier",
+      "text": "本关榫卯讲解"
+    },
+    {
+      "rect": "[P: (1705.2, 45.6), S: (168.0, 79.2)]",
+      "stage": "2-magnifier",
+      "text": "返回船架"
+    },
+    {
+      "rect": "[P: (45.6, 144.0), S: (602.4, 208.8)]",
+      "stage": "2-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (568.8, 283.2), S: (67.2, 60.0)]",
+      "stage": "2-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (657.6, 144.0), S: (602.4, 208.8)]",
+      "stage": "2-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1180.8, 283.2), S: (67.2, 60.0)]",
+      "stage": "2-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1269.6, 144.0), S: (603.6, 208.8)]",
+      "stage": "2-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1794.0, 283.2), S: (67.2, 60.0)]",
+      "stage": "2-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (114.0, 944.4001), S: (232.8, 67.2)]",
+      "stage": "2-magnifier",
+      "text": "↻  重置视角"
+    },
+    {
+      "rect": "[P: (501.6, 944.4001), S: (67.2, 67.2)]",
+      "stage": "2-magnifier",
+      "text": "−"
+    },
+    {
+      "rect": "[P: (674.4, 944.4001), S: (67.2, 67.2)]",
+      "stage": "2-magnifier",
+      "text": "＋"
+    },
+    {
+      "rect": "[P: (868.8, 944.4001), S: (177.6, 67.2)]",
+      "stage": "2-magnifier",
+      "text": "看槽口"
+    },
+    {
+      "rect": "[P: (1065.6, 944.4001), S: (177.6, 67.2)]",
+      "stage": "2-magnifier",
+      "text": "重新观察"
+    },
+    {
+      "rect": "[P: (1318.8, 588.0), S: (540.0, 135.6)]",
+      "stage": "2-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 625.2), S: (67.2, 60.0)]",
+      "stage": "2-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1318.8, 735.6), S: (540.0, 135.6)]",
+      "stage": "2-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 772.7999), S: (67.2, 60.0)]",
+      "stage": "2-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1318.8, 883.2), S: (540.0, 135.6)]",
+      "stage": "2-magnifier",
+      "text": ""
+    },
+    {
+      "rect": "[P: (1779.6, 920.4), S: (67.2, 60.0)]",
+      "stage": "2-magnifier",
+      "text": "放大"
+    },
+    {
+      "rect": "[P: (1593.6, 58.8), S: (168.0, 76.8)]",
+      "stage": "2-magnifier",
+      "text": "返回选材"
+    },
+    {
+      "rect": "[P: (158.3999, 900.0), S: (168.0, 76.8)]",
+      "stage": "2-magnifier",
+      "text": "− 缩小"
+    },
+    {
+      "rect": "[P: (457.2, 900.0), S: (168.0, 76.8)]",
+      "stage": "2-magnifier",
+      "text": "＋ 放大"
+    },
+    {
+      "rect": "[P: (1569.6, 900.0), S: (192.0, 76.8)]",
+      "stage": "2-magnifier",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (209.0, 884.0), S: (251.0, 64.0)]",
+      "stage": "3-intro",
+      "text": "观察此榫卯"
+    },
+    {
+      "rect": "[P: (835.0, 884.0), S: (251.0, 64.0)]",
+      "stage": "3-intro",
+      "text": "观察此榫卯"
+    },
+    {
+      "rect": "[P: (1460.0, 884.0), S: (251.0, 64.0)]",
+      "stage": "3-intro",
+      "text": "观察此榫卯"
+    },
+    {
+      "rect": "[P: (1608.0, 990.0), S: (280.0, 62.0)]",
+      "stage": "3-intro",
+      "text": "开始本关"
+    },
+    {
+      "rect": "[P: (1670.0, 16.0), S: (230.0, 64.0)]",
+      "stage": "3-joint-zong_corner",
+      "text": "返回本关三种介绍"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "3-joint-zong_corner",
+      "text": "粽角榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "3-joint-zong_corner",
+      "text": "粽角榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "3-joint-zong_corner",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "3-joint-zong_corner",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "3-joint-zong_corner",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1756.0, 16.0), S: (144.0, 64.0)]",
+      "stage": "3-science-zong_corner",
+      "text": "返回"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "3-science-zong_corner",
+      "text": "粽角榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "3-science-zong_corner",
+      "text": "粽角榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "3-science-zong_corner",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "3-science-zong_corner",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "3-science-zong_corner",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1670.0, 16.0), S: (230.0, 64.0)]",
+      "stage": "3-joint-clamp_head",
+      "text": "返回本关三种介绍"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "3-joint-clamp_head",
+      "text": "夹头榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "3-joint-clamp_head",
+      "text": "夹头榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "3-joint-clamp_head",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "3-joint-clamp_head",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "3-joint-clamp_head",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1756.0, 16.0), S: (144.0, 64.0)]",
+      "stage": "3-science-clamp_head",
+      "text": "返回"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "3-science-clamp_head",
+      "text": "夹头榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "3-science-clamp_head",
+      "text": "夹头榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "3-science-clamp_head",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "3-science-clamp_head",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "3-science-clamp_head",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1670.0, 16.0), S: (230.0, 64.0)]",
+      "stage": "3-joint-l_through",
+      "text": "返回本关三种介绍"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "3-joint-l_through",
+      "text": "穿榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "3-joint-l_through",
+      "text": "穿榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "3-joint-l_through",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "3-joint-l_through",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "3-joint-l_through",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1756.0, 16.0), S: (144.0, 64.0)]",
+      "stage": "3-science-l_through",
+      "text": "返回"
+    },
+    {
+      "rect": "[P: (62.0, 104.0), S: (284.0, 147.0)]",
+      "stage": "3-science-l_through",
+      "text": "穿榫"
+    },
+    {
+      "rect": "[P: (62.0, 287.0), S: (284.0, 148.0)]",
+      "stage": "3-science-l_through",
+      "text": "穿榫受力演示"
+    },
+    {
+      "rect": "[P: (62.0, 471.0), S: (284.0, 147.0)]",
+      "stage": "3-science-l_through",
+      "text": "透明显示"
+    },
+    {
+      "rect": "[P: (62.0, 654.0), S: (284.0, 148.0)]",
+      "stage": "3-science-l_through",
+      "text": "重置视角"
+    },
+    {
+      "rect": "[P: (62.0, 838.0), S: (284.0, 148.0)]",
+      "stage": "3-science-l_through",
+      "text": "重新拼装"
+    },
+    {
+      "rect": "[P: (1588.8, 40.8), S: (192.0, 63.6)]",
+      "stage": "3-workshop",
+      "text": "返回关卡目录"
+    },
+    {
+      "rect": "[P: (1488.0, 115.2), S: (312.0, 60.0)]",
+      "stage": "3-workshop",
+      "text": "本关榫卯"
+    },
+    {
+      "rect": "[P: (139.1999, 478.8), S: (333.6, 60.0)]",
+      "stage": "3-workshop",
+      "text": "放大 / 返回局部"
+    },
+    {
+      "rect": "[P: (139.1999, 548.4), S: (333.6, 60.0)]",
+      "stage": "3-workshop",
+      "text": "继续安装 →"
+    },
+    {
+      "rect": "[P: (529.2, 848.4), S: (405.6, 60.0)]",
+      "stage": "3-workshop",
+      "text": "粽角榫"
+    },
+    {
+      "rect": "[P: (951.6, 848.4), S: (405.6, 60.0)]",
+      "stage": "3-workshop",
+      "text": "夹头榫"
+    },
+    {
+      "rect": "[P: (1374.0, 848.4), S: (406.8, 60.0)]",
+      "stage": "3-workshop",
+      "text": "L 型穿榫"
+    },
+    {
+      "rect": "[P: (1420.8, 946.8), S: (177.6, 96.0)]",
+      "stage": "3-workshop",
+      "text": "撤回一步"
+    },
+    {
+      "rect": "[P: (1603.2, 946.8), S: (177.6, 96.0)]",
+      "stage": "3-workshop",
+      "text": "重新搭建"
+    },
+    {
+      "rect": "[P: (1588.8, 40.8), S: (192.0, 63.6)]",
+      "stage": "3-stage-mast",
+      "text": "返回关卡目录"
+    },
+    {
+      "rect": "[P: (1488.0, 115.2), S: (312.0, 60.0)]",
+      "stage": "3-stage-mast",
+      "text": "本关榫卯"
+    },
+    {
+      "rect": "[P: (139.1999, 478.8), S: (333.6, 60.0)]",
+      "stage": "3-stage-mast",
+      "text": "放大 / 返回局部"
+    },
+    {
+      "rect": "[P: (139.1999, 548.4), S: (333.6, 60.0)]",
+      "stage": "3-stage-mast",
+      "text": "下一处船件 →"
+    },
+    {
+      "rect": "[P: (529.2, 848.4), S: (405.6, 60.0)]",
+      "stage": "3-stage-mast",
+      "text": "方脚直榫"
+    },
+    {
+      "rect": "[P: (951.6, 848.4), S: (405.6, 60.0)]",
+      "stage": "3-stage-mast",
+      "text": "圆轴"
+    },
+    {
+      "rect": "[P: (1374.0, 848.4), S: (406.8, 60.0)]",
+      "stage": "3-stage-mast",
+      "text": "L 型穿榫"
+    },
+    {
+      "rect": "[P: (1420.8, 946.8), S: (177.6, 96.0)]",
+      "stage": "3-stage-mast",
+      "text": "撤回一步"
+    },
+    {
+      "rect": "[P: (1603.2, 946.8), S: (177.6, 96.0)]",
+      "stage": "3-stage-mast",
+      "text": "重新搭建"
+    },
+    {
+      "rect": "[P: (1588.8, 40.8), S: (192.0, 63.6)]",
+      "stage": "3-stage-top",
+      "text": "返回关卡目录"
+    },
+    {
+      "rect": "[P: (1488.0, 115.2), S: (312.0, 60.0)]",
+      "stage": "3-stage-top",
+      "text": "本关榫卯"
+    },
+    {
+      "rect": "[P: (139.1999, 478.8), S: (352.8, 60.0)]",
+      "stage": "3-stage-top",
+      "text": "放大 / 返回局部"
+    },
+    {
+      "rect": "[P: (139.1999, 548.4), S: (352.8, 60.0)]",
+      "stage": "3-stage-top",
+      "text": "下一处船件 →"
+    },
+    {
+      "rect": "[P: (529.2, 848.4), S: (405.6, 60.0)]",
+      "stage": "3-stage-top",
+      "text": "粽角榫"
+    },
+    {
+      "rect": "[P: (951.6, 848.4), S: (405.6, 60.0)]",
+      "stage": "3-stage-top",
+      "text": "夹头榫"
+    },
+    {
+      "rect": "[P: (1374.0, 848.4), S: (406.8, 60.0)]",
+      "stage": "3-stage-top",
+      "text": "L 型穿榫"
+    },
+    {
+      "rect": "[P: (1420.8, 946.8), S: (177.6, 96.0)]",
+      "stage": "3-stage-top",
+      "text": "撤回一步"
+    },
+    {
+      "rect": "[P: (1603.2, 946.8), S: (177.6, 96.0)]",
+      "stage": "3-stage-top",
+      "text": "重新搭建"
+    },
+    {
+      "rect": "[P: (1588.8, 40.8), S: (192.0, 63.6)]",
+      "stage": "3-stage-blade",
+      "text": "返回关卡目录"
+    },
+    {
+      "rect": "[P: (1488.0, 115.2), S: (312.0, 60.0)]",
+      "stage": "3-stage-blade",
+      "text": "本关榫卯"
+    },
+    {
+      "rect": "[P: (139.1999, 478.8), S: (333.6, 60.0)]",
+      "stage": "3-stage-blade",
+      "text": "放大 / 返回局部"
+    },
+    {
+      "rect": "[P: (139.1999, 548.4), S: (333.6, 60.0)]",
+      "stage": "3-stage-blade",
+      "text": "继续安装 →"
+    },
+    {
+      "rect": "[P: (139.1999, 739.2001), S: (100.8, 60.0)]",
+      "stage": "3-stage-blade",
+      "text": "左舵"
+    },
+    {
+      "rect": "[P: (254.3999, 739.2001), S: (102.0, 60.0)]",
+      "stage": "3-stage-blade",
+      "text": "回正"
+    },
+    {
+      "rect": "[P: (370.7999, 739.2001), S: (102.0, 60.0)]",
+      "stage": "3-stage-blade",
+      "text": "右舵"
+    },
+    {
+      "rect": "[P: (529.2, 848.4), S: (1251.6, 60.0)]",
+      "stage": "3-stage-blade",
+      "text": "侧装夹套 / 销"
+    },
+    {
+      "rect": "[P: (1420.8, 946.8), S: (177.6, 96.0)]",
+      "stage": "3-stage-blade",
+      "text": "撤回一步"
+    },
+    {
+      "rect": "[P: (1603.2, 946.8), S: (177.6, 96.0)]",
+      "stage": "3-stage-blade",
+      "text": "重新搭建"
+    },
+    {
+      "rect": "[P: (1588.8, 40.8), S: (192.0, 63.6)]",
+      "stage": "3-success",
+      "text": "返回关卡目录"
+    },
+    {
+      "rect": "[P: (1488.0, 115.2), S: (312.0, 60.0)]",
+      "stage": "3-success",
+      "text": "本关榫卯"
+    },
+    {
+      "rect": "[P: (139.1999, 478.8), S: (333.6, 60.0)]",
+      "stage": "3-success",
+      "text": "放大 / 返回局部"
+    },
+    {
+      "rect": "[P: (139.1999, 548.4), S: (333.6, 60.0)]",
+      "stage": "3-success",
+      "text": "继续安装 →"
+    },
+    {
+      "rect": "[P: (139.1999, 739.2001), S: (100.8, 60.0)]",
+      "stage": "3-success",
+      "text": "左舵"
+    },
+    {
+      "rect": "[P: (254.3999, 739.2001), S: (102.0, 60.0)]",
+      "stage": "3-success",
+      "text": "回正"
+    },
+    {
+      "rect": "[P: (370.7999, 739.2001), S: (102.0, 60.0)]",
+      "stage": "3-success",
+      "text": "右舵"
+    },
+    {
+      "rect": "[P: (529.2, 848.4), S: (1251.6, 60.0)]",
+      "stage": "3-success",
+      "text": "侧装夹套 / 销"
+    },
+    {
+      "rect": "[P: (1420.8, 946.8), S: (177.6, 96.0)]",
+      "stage": "3-success",
+      "text": "撤回一步"
+    },
+    {
+      "rect": "[P: (1603.2, 946.8), S: (177.6, 96.0)]",
+      "stage": "3-success",
+      "text": "重新搭建"
+    },
+    {
+      "rect": "[P: (751.2, 450.0), S: (741.6, 60.0)]",
+      "stage": "3-success",
+      "text": "收起卡片 · 继续操舵"
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "host_had_focus": false,
+  "images": [
+    "00-menu.png",
+    "1-intro.png",
+    "1-joint-dovetail.png",
+    "1-science-dovetail.png",
+    "1-joint-blind_tenon.png",
+    "1-science-blind_tenon.png",
+    "1-joint-through_tenon.png",
+    "1-science-through_tenon.png",
+    "1-workshop.png",
+    "1-story.png",
+    "1-inspector.png",
+    "1-magnifier.png",
+    "2-intro.png",
+    "2-joint-cross_lap.png",
+    "2-science-cross_lap.png",
+    "2-joint-tongue_groove.png",
+    "2-science-tongue_groove.png",
+    "2-joint-three_way_lap.png",
+    "2-science-three_way_lap.png",
+    "2-workshop.png",
+    "2-bulkhead.png",
+    "2-inspector.png",
+    "2-magnifier.png",
+    "3-intro.png",
+    "3-joint-zong_corner.png",
+    "3-science-zong_corner.png",
+    "3-joint-clamp_head.png",
+    "3-science-clamp_head.png",
+    "3-joint-l_through.png",
+    "3-science-l_through.png",
+    "3-workshop.png",
+    "3-stage-mast.png",
+    "3-stage-top.png",
+    "3-stage-blade.png",
+    "3-success.png"
+  ],
+  "method": "Actual GPU 1920x1080 SubViewport, minimized host; mouse events through Viewport. No physical touch or target-device verification.",
+  "renderer": "macOS",
+  "small_targets": [],
+  "startup_window_mode": 3
+}

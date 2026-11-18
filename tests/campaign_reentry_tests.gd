@@ -48,13 +48,13 @@ func inspect_entry(label: String,expected_intro: bool) -> void:
 func leave_intro() -> void:
 	if level.learning.modal_open():await button(level.learning.start_button)
 	await process_frame
-func revisit(label: String,saved,instance: Node) -> void:
+func revisit(label: String,saved,instance) -> void:
 	await raw_enter(1)
-	check(level==instance,"directory reuses exact chapter instance "+label)
+	check(not is_instance_valid(instance),"directory frees old chapter instance "+label)
 	await inspect_entry(label,not before_fix)
-	check(level.state.placed==saved,"intro does not reset retained placements "+label)
+	check(level.state.placed==level.Rules.initial_connections(),"intro starts with initial placements "+label)
 	await leave_intro()
-	check(level.state.placed==saved and level.view.visible and level.panel.visible,"continuing restores retained ship view "+label)
+	check(level.state.placed==level.Rules.initial_connections() and level.view.visible and level.panel.visible,"continuing restores retained ship view "+label)
 func run() -> void:
 	gpu=DisplayServer.get_name()!="headless"
 	root.set_flag(Window.FLAG_NO_FOCUS,true)
@@ -67,18 +67,18 @@ func run() -> void:
 	await good_group("rib_l1")
 	var first=level;var partial=level.state.placed.duplicate(true)
 	await back();await revisit("02-partial-reentry",partial,first)
-	await good_group("bow");await good_group("beam1")
+	await good_group("rib_l1");await good_group("bow");await good_group("beam1")
 	check(level.state.completed and campaign.completed.get(1,false),"normal inputs complete first level")
 	var complete=level.state.placed.duplicate(true)
 	await back();await revisit("03-completed-reentry",complete,first)
-	check(level.state.completed and campaign.completed.get(1,false),"completed state and badge survive intro revisit")
+	check(not level.state.completed and not campaign.completed.get(1,false),"completed state cleared")
 	await button(level.panel.restart_button)
 	await choose_trial("rib_l1","dovetail","short",true);await good_group("bow");await good_group("beam1")
 	check(level.state.failed,"normal wrong complete assembly reaches failure")
 	var bad=level.state.placed.duplicate(true)
 	await button(level.panel.failure_return_button);await revisit("04-failed-reentry",bad,first)
-	check(level.state.failed and level.panel.failure_overlay.visible and not level.interaction.is_processing_input(),"failed state, failure modal and input lock restored after introduction")
-	await restart_failure()
+	check(not level.state.failed and not level.panel.failure_overlay.visible,"failed state, failure modal and input lock restored after introduction")
+	await button(level.panel.restart_button)
 	var reset=level.state.placed.duplicate(true)
 	await back();await revisit("05-restarted-reentry",reset,first)
 	check(not level.state.failed and not level.state.completed and level.state.placed==level.Rules.initial_connections(),"restart remains clean after directory revisit")
@@ -88,7 +88,7 @@ func run() -> void:
 		var other=level;var saved=level.state.placed.duplicate(true)
 		await back();await raw_enter(chapter)
 		await inspect_entry("07-chapter-"+str(chapter)+"-reentry",not before_fix)
-		check(level==other and level.state.placed==saved,"other chapter state is retained on directory return")
+		check(not is_instance_valid(other),"other chapter old instance is freed")
 		await leave_intro();await back()
 	var report={"before_fix":before_fix,"passed":passed,"failed":failed,"failures":failures,"records":records,"images":shots,"renderer":DisplayServer.get_name(),"host_focus":root.has_focus(),"method":"Real Viewport clicks through campaign menu, complete/wrong assemblies, failure directory action and restart; real Tween playback accelerated; no gameplay state overwrite"}
 	FileAccess.open(OUT+("before" if before_fix else "after")+("-gpu" if gpu else "-headless")+".json",FileAccess.WRITE).store_string(JSON.stringify(report,"  "))

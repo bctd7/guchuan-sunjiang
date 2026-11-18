@@ -99,6 +99,7 @@ static func bulkhead_foot(host: Node3D,material: Material,option: String) -> voi
 	host.set_meta("mating_dimensions",{"kind":"notch","width":mouth,"depth":HALF+floor,"offset":0.0,"stock":HALF*2})
 	G.box(host,Vector3(WIDTH,HALF-floor,.5368),Vector3(0,(HALF+floor)*.5,0),material)
 	for side in [-1,1]:
-		var start: float=-.2684 if side<0 else mouth*.5
-		var finish: float=-mouth*.5 if side<0 else .2684
-		G.box(host,Vector3(WIDTH,HALF+floor,finish-start),Vector3(0,(floor-HALF)*.5,(start+finish)*.5),material)
+		var form:=Node3D.new();host.add_child(form);form.rotation.z=PI/2
+		var bottom_outer: float=mouth*.5+.008
+		var poly:=PackedVector2Array([Vector2(-HALF,side*mouth*.5),Vector2(-HALF,side*bottom_outer),Vector2(minf(floor,-.045),side*bottom_outer),Vector2(floor,side*.2684),Vector2(floor,side*mouth*.5)])
+		G.prism(form,poly,-WIDTH*.5,WIDTH*.5,material)

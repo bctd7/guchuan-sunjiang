@@ -16,12 +16,13 @@ var caption_labels: Dictionary={}
 var measurements: Dictionary={}
 var _key:=""
 func _ready() -> void:
-	add_theme_constant_override("separation",4)
+	size_flags_vertical=Control.SIZE_EXPAND_FILL
+	add_theme_constant_override("separation",10)
 	for id in ["A","B","C"]:
-		var button:=Button.new();button.toggle_mode=true;button.custom_minimum_size=Vector2(100,72);add_child(button)
+		var button:=Button.new();button.toggle_mode=true;button.size_flags_vertical=Control.SIZE_EXPAND_FILL;button.custom_minimum_size=Vector2(100,92);add_child(button)
 		Workspace.neutral_selection(button);buttons[id]=button
 		button.pressed.connect(func():chosen.emit(id))
-		var row:=HBoxContainer.new();row.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);row.offset_left=7;row.offset_right=-7;row.offset_top=3;row.offset_bottom=-3;row.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_theme_constant_override("separation",5);button.add_child(row)
+		var row:=HBoxContainer.new();row.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);row.offset_left=10;row.offset_right=-10;row.offset_top=8;row.offset_bottom=-8;row.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_theme_constant_override("separation",5);button.add_child(row)
 		var preview:=Preview.new();preview.custom_minimum_size=Vector2(120,66);preview.size_flags_horizontal=Control.SIZE_EXPAND_FILL;row.add_child(preview);previews[id]=preview
 		preview.set_lighting_profile(Lighting)
 		preview.clip_contents=true
@@ -30,8 +31,8 @@ func _ready() -> void:
 		var measure:=Marks.new();preview.add_child(measure);marks[id]=measure
 		preview.activated.connect(func():
 			if not button.disabled:chosen.emit(id))
-		var label:=Label.new();label.custom_minimum_size.x=76;label.mouse_filter=Control.MOUSE_FILTER_IGNORE;label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;label.add_theme_font_size_override("font_size",15);row.add_child(label);caption_labels[id]=label
-		var inspect:=Button.new();inspect.text="放大";inspect.custom_minimum_size=Vector2(56,44);inspect.add_theme_font_size_override("font_size",16);row.add_child(inspect);inspect_buttons[id]=inspect
+		var label:=Label.new();label.custom_minimum_size.x=76;label.mouse_filter=Control.MOUSE_FILTER_IGNORE;label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;label.add_theme_font_size_override("font_size",18);row.add_child(label);caption_labels[id]=label
+		var inspect:=Button.new();inspect.text="放大";inspect.size_flags_vertical=Control.SIZE_SHRINK_CENTER;inspect.custom_minimum_size=Vector2(56,44);inspect.add_theme_font_size_override("font_size",16);row.add_child(inspect);inspect_buttons[id]=inspect
 		inspect.pressed.connect(func():inspect_requested.emit(id))
 func configure(view: Node3D,state) -> void:
 	var key: String=state.selected+":"+state.joint
@@ -59,10 +60,10 @@ func configure(view: Node3D,state) -> void:
 		# Different digit counts must not steal width from just one preview.
 		# All three measured captions occupy the same width, as do their models.
 		var caption_width:=76.0
-		var row_height:=72.0
+		var row_height:=92.0
 		for label in caption_labels.values():
 			var font: Font=label.get_theme_font("font")
-			for line in label.text.split("\n"):caption_width=maxf(caption_width,ceilf(font.get_string_size(line,HORIZONTAL_ALIGNMENT_LEFT,-1,15).x))
+			for line in label.text.split("\n"):caption_width=maxf(caption_width,ceilf(font.get_string_size(line,HORIZONTAL_ALIGNMENT_LEFT,-1,18).x))
 			row_height=maxf(row_height,label.get_minimum_size().y+6)
 		for label in caption_labels.values():label.custom_minimum_size.x=caption_width
 		for button in buttons.values():button.custom_minimum_size.y=row_height

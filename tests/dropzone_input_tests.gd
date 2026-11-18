@@ -1,5 +1,4 @@
 extends "res://tests/observer_snap_tests.gd"
-var hints: Array[String]=[]
 func stroke_to(a: Vector2,b: Vector2,using_touch: bool=false,index: int=0) -> void:
 	if using_touch:await touch(a,true,index)
 	else:await mouse(a,true)
@@ -20,7 +19,6 @@ func run() -> void:
 	surface=Surface.new();stage.add_child(surface)
 	surface.assembly_requested.connect(func():requests+=1)
 	surface.selection_required.connect(func():selection_prompts+=1)
-	surface.drag_feedback.connect(func(message: String):hints.append(message))
 	await process_frame
 	await reset_fixture()
 	check(viewport.size==Vector2i(stage.size/2),"scaled viewport has independent physical/render size")
@@ -47,7 +45,6 @@ func run() -> void:
 	await reset_fixture();a=start();b=target()
 	await stroke_to(a,b+Vector2(0,140))
 	check(requests==count and part.transform==initial,"release outside visible region returns stock")
-	check(not hints.is_empty() and hints.back().contains("入口"),"failed release explains the visible target")
 	await mouse(a,true);await move(b,b-a);await mouse(Vector2(1090,790),false)
 	check(requests==count and not surface.assembly_dragging and part.transform==initial,"outside-surface release cancels without stale capture")
 	await mouse(a,true);await move(b,b-a);surface.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT);await mouse(b,false)

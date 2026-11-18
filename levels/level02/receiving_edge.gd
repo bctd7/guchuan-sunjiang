@@ -1,4 +1,5 @@
 extends RefCounted
+const Shell=preload("res://models/ship/hull/shell_surface.gd")
 ## Receiving spans come from the outgoing tongue meshes themselves, not the
 ## selected answer, labels or progress flags. No State or chapter dependency.
 static func collect(root: Node3D,pose: Transform3D,parts: Array) -> void:
@@ -15,8 +16,8 @@ static func covers(parts: Array,frame: Transform3D,left: float,right: float,entr
   var local: Transform3D=frame.affine_inverse()*part.pose
   var faces: PackedVector3Array=part.mesh.get_faces()
   if faces.is_empty():continue
-  var bounds:=AABB(local*faces[0],Vector3.ZERO)
-  for vertex in faces:bounds=bounds.expand(local*vertex)
+  var bounds:=AABB(Shell.inverse(local*faces[0]),Vector3.ZERO)
+  for vertex in faces:bounds=bounds.expand(Shell.inverse(local*vertex))
   # Loose earlier planks can still offer their actual edge. Their slight
   # offset is dealt with by contact geometry, not silently corrected here.
   if absf(bounds.get_center().z-entry_z)>.30 or absf(bounds.get_center().y)>.20:continue

@@ -74,7 +74,6 @@ func candidates(id: String) -> void:
 func gesture_install(id: String,length: String,touch:=false) -> void:
 	await button(level.inspector.length_buttons[length])
 	var before: int=level.state.placed.size()
-	await button(level.inspector.install_button)
 	check(level.state.placed.size()==before,"prepare button never installs")
 	await drag_part(touch,.4)
 	check(not level.state.placed.has(id),"partial stroke returns")

@@ -18,4 +18,9 @@ func _set_marker(id: String,row: int,seam: float,pose: Transform3D,enabled: bool
 	marker.visible=enabled
 	if not enabled:return
 	marker.transform=pose
-	marker.position+=pose.basis*Vector3(seam,-.112,row*.78+.39)
+	var signature:=Vector2(seam,row)
+	if marker.get_meta("curve_signature",Vector2.INF)==signature:return
+	marker.set_meta("curve_signature",signature)
+	for child in marker.get_children():marker.remove_child(child);child.queue_free()
+	var material=G.material(Color("b88435") if id=="current" else Color("3d8288"))
+	G.Shell.loft(marker,PackedVector2Array([Vector2(-.125,row*.78+.075),Vector2(-.100,row*.78+.075),Vector2(-.100,row*.78+.705),Vector2(-.125,row*.78+.705)]),seam-.0175,seam+.0175,material)

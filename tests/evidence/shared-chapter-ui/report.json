@@ -1,0 +1,26 @@
+{
+  "failures": [],
+  "images": [
+    "1-main.png",
+    "1-story.png",
+    "1-story-bottom.png",
+    "1-observe.png",
+    "2-main.png",
+    "2-story.png",
+    "2-story-bottom.png",
+    "2-observe.png",
+    "3-main.png",
+    "3-story.png",
+    "3-story-bottom.png",
+    "3-observe.png",
+    "3-magnifier.png",
+    "3-installed-zrail.png",
+    "3-installed-mast.png",
+    "3-installed-top.png",
+    "3-installed-blade.png",
+    "3-helm.png",
+    "3-success.png"
+  ],
+  "method": "1920x1080 GPU; viewport mouse/touch; complete chapter 3, story scroll/close and observer checks in chapters 1/2. Not hardware.",
+  "small_targets": []
+}

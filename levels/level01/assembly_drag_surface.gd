@@ -1,10 +1,10 @@
-extends "res://levels/level01/inspection_orbit.gd"
+extends "res://levels/shared/inspection_orbit.gd"
+var guidance_blocker: Control
 ## Preview-only insertion. The owner decides whether an assembly request is valid.
 signal zoom_requested(factor: float)
 signal assembly_requested
 ## A visible reference part was pressed before explicit type/length selection.
 signal selection_required
-signal drag_feedback(message: String)
 signal insertion_progress_changed(progress: float)
 
 enum Gesture { NONE, ORBIT, PART }
@@ -71,16 +71,12 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:
+	if is_instance_valid(guidance_blocker) and guidance_blocker.is_visible_in_tree():return
 	if not active or not assembly_enabled or not is_instance_valid(_part): return
 	var grip:=_project(_parent_world()*(_part.transform*_grab_local))
 	var path:=target_screen()-drag_start_screen()
 	var direction:=_guide_axis if assembly_dragging else (path.normalized() if path.length()>18 else Vector2.UP)
-	var ready:=drag_progress>=SNAP_DEPTH
-	var ink:=Color("986532") if ready else Color("49796b")
-	var end:=grip+direction*62
-	draw_dashed_line(grip+direction*17,end,Color(ink,.8),2,6,true)
-	draw_line(end,end-direction.rotated(.55)*12,ink,2,true)
-	draw_line(end,end-direction.rotated(-.55)*12,ink,2,true)
+	preload("res://levels/shared/step_guide.gd").draw_direction(self,grip,direction)
 
 func _park_for_pinch() -> void:
 	# Changing finger count cancels the pending release, not the real shallow pose.
@@ -180,7 +176,6 @@ func _begin_preview(point: Vector2) -> void:
 	_press_point=point
 	_last_point=point
 	_moved=false
-	drag_feedback.emit("沿箭头把木料推入；往回拖可以抽出。拖空白处转动查看。")
 
 func _move_pointer(point: Vector2, relative: Vector2) -> void:
 	if _gesture==Gesture.ORBIT:
@@ -212,7 +207,6 @@ func _release_preview(point: Vector2) -> void:
 		_gesture=Gesture.NONE
 		_moved=false
 		super.cancel()
-		drag_feedback.emit("再往槽内推一点，松手就能接好。往回拖可以抽出。" if drag_progress>0 else "抓住木料，沿箭头往槽内推。")
 	else:cancel()
 
 func _on_grip_handle(point: Vector2) -> bool:

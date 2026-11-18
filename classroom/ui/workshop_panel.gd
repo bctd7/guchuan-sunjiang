@@ -63,7 +63,7 @@ func _ready() -> void:
 	var xray := _button(content,"xray","透明显示",func(): pass)
 	xray.toggle_mode = true
 	xray.toggled.connect(func(value: bool): xray_requested.emit(value))
-	_button(content,"view","视角复位",func(): view_requested.emit())
+	_button(content,"view","重置视角",func(): view_requested.emit())
 	_button(content,"reset","重新拼装",func(): reset_requested.emit())
 	content.connect_steps(picker,buttons.reset)
 	status = Label.new()

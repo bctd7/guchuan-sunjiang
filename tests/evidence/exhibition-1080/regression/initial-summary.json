@@ -1,0 +1,165 @@
+{
+  "project": "/private/tmp/guchuan-exhibition",
+  "started_utc": "2026-11-16T15:05:40.055482+00:00",
+  "groups": [
+    "campaign",
+    "levels"
+  ],
+  "results": [
+    {
+      "name": "import",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.02,
+      "log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/import.log",
+      "engine_log": null,
+      "command": [
+        "/opt/homebrew/bin/godot",
+        "--path",
+        "/private/tmp/guchuan-exhibition",
+        "--headless",
+        "--editor",
+        "--import",
+        "--quit"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Cannot save file '/Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres'.",
+        "ERROR: Error saving editor settings to /Users/bilibili/Library/Application Support/Godot/editor_settings-4.7.tres"
+      ]
+    },
+    {
+      "name": "00-campaign-campaign_tests",
+      "status": "script_error",
+      "exit_code": 1,
+      "seconds": 80.88,
+      "log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/00-campaign-campaign_tests.log",
+      "engine_log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/00-campaign-campaign_tests-engine.log",
+      "command": [
+        "/opt/homebrew/bin/godot",
+        "--path",
+        "/private/tmp/guchuan-exhibition",
+        "--headless",
+        "--log-file",
+        "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/00-campaign-campaign_tests-engine.log",
+        "--script",
+        "tests/campaign_tests.gd",
+        "--",
+        "--phase=full"
+      ],
+      "environment_warnings": []
+    },
+    {
+      "name": "01-campaign-campaign_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 19.2,
+      "log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/01-campaign-campaign_tests.log",
+      "engine_log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/01-campaign-campaign_tests-engine.log",
+      "command": [
+        "/opt/homebrew/bin/godot",
+        "--path",
+        "/private/tmp/guchuan-exhibition",
+        "--headless",
+        "--log-file",
+        "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/01-campaign-campaign_tests-engine.log",
+        "--script",
+        "tests/campaign_tests.gd",
+        "--",
+        "--phase=classroom"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "02-levels-touch_gesture_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 32.77,
+      "log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/02-levels-touch_gesture_tests.log",
+      "engine_log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/02-levels-touch_gesture_tests-engine.log",
+      "command": [
+        "/opt/homebrew/bin/godot",
+        "--path",
+        "/private/tmp/guchuan-exhibition",
+        "--headless",
+        "--log-file",
+        "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/02-levels-touch_gesture_tests-engine.log",
+        "--script",
+        "tests/touch_gesture_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "03-levels-opening_navigation_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 15.13,
+      "log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/03-levels-opening_navigation_tests.log",
+      "engine_log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/03-levels-opening_navigation_tests-engine.log",
+      "command": [
+        "/opt/homebrew/bin/godot",
+        "--path",
+        "/private/tmp/guchuan-exhibition",
+        "--headless",
+        "--log-file",
+        "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/03-levels-opening_navigation_tests-engine.log",
+        "--script",
+        "tests/opening_navigation_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "04-levels-inspection_workspace_tests",
+      "status": "engine_error",
+      "exit_code": 1,
+      "seconds": 30.04,
+      "log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/04-levels-inspection_workspace_tests.log",
+      "engine_log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/04-levels-inspection_workspace_tests-engine.log",
+      "command": [
+        "/opt/homebrew/bin/godot",
+        "--path",
+        "/private/tmp/guchuan-exhibition",
+        "--headless",
+        "--log-file",
+        "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/04-levels-inspection_workspace_tests-engine.log",
+        "--script",
+        "tests/inspection_workspace_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    },
+    {
+      "name": "05-levels-level03_input_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 21.06,
+      "log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/05-levels-level03_input_tests.log",
+      "engine_log": "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/05-levels-level03_input_tests-engine.log",
+      "command": [
+        "/opt/homebrew/bin/godot",
+        "--path",
+        "/private/tmp/guchuan-exhibition",
+        "--headless",
+        "--log-file",
+        "/var/folders/03/kmc9qkjx2pn16b665bgx84480000gn/T/guchuan-suite-2vo4eual/05-levels-level03_input_tests-engine.log",
+        "--script",
+        "tests/level03_input_tests.gd"
+      ],
+      "environment_warnings": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ]
+}

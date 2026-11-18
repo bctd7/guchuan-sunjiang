@@ -1,0 +1,40 @@
+{
+  "failures": [],
+  "pages": [
+    {
+      "offset": 0,
+      "page": "intro-1",
+      "range": 0.0
+    },
+    {
+      "offset": 0,
+      "page": "structure-science",
+      "range": 0.0
+    },
+    {
+      "offset": 73,
+      "page": "shipwright-story",
+      "range": 678.0
+    },
+    {
+      "offset": 73,
+      "page": "story-reentry",
+      "range": 678.0
+    },
+    {
+      "offset": 0,
+      "page": "intro-2",
+      "range": 0.0
+    },
+    {
+      "offset": 0,
+      "page": "bulkhead",
+      "range": 0.0
+    },
+    {
+      "offset": 0,
+      "page": "intro-3",
+      "range": 0.0
+    }
+  ]
+}

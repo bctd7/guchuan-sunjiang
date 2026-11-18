@@ -1,0 +1,16 @@
+{
+  "failed": 1,
+  "failures": [
+    "GPU host remains unfocused"
+  ],
+  "host_had_focus": true,
+  "images": [
+    "res://tests/evidence/camera-reset/opaque-local-default.png",
+    "res://tests/evidence/camera-reset/connection-400-percent.png",
+    "res://tests/evidence/camera-reset/opening-enlarged.png",
+    "res://tests/evidence/camera-reset/three-way-type-enlarged.png"
+  ],
+  "method": "Actual Viewport mouse/simulated touch and real geometry; no business state writes; no human hardware validation",
+  "passed": 58,
+  "renderer": "macOS"
+}

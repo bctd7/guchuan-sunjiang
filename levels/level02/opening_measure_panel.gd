@@ -13,7 +13,10 @@ var _origin:=Vector2.ZERO
 var _ink:=Color("405343")
 var _front:=Basis.IDENTITY
 var _center:=Vector3.ZERO
+var background:=StyleBoxFlat.new()
 func _ready() -> void:
+	background.bg_color=Color("f2e7cf")
+	background.set_corner_radius_all(10)
 	custom_minimum_size=Vector2(330,156);mouse_filter=Control.MOUSE_FILTER_IGNORE
 	resized.connect(queue_redraw)
 func configure(data: Dictionary,reference_data: Dictionary,candidates: Control=null) -> void:
@@ -42,11 +45,11 @@ func _measure(a: Vector3,b: Vector3) -> void:
 func _draw() -> void:
 	if reference.is_empty() or not is_instance_valid(gallery):return
 	var font:=get_theme_default_font()
-	draw_rect(Rect2(Vector2.ZERO,size),Color("f2e7cf"));target_rectangles.clear()
+	draw_style_box(background,Rect2(Vector2.ZERO,size));target_rectangles.clear()
 	if reference.kind in ["paired","shape"]:
-		draw_string(font,Vector2(12,23),"看看两边的接合形状",HORIZONTAL_ALIGNMENT_LEFT,-1,18,_ink)
-		draw_string(font,Vector2(12,53),reference.subtitle,HORIZONTAL_ALIGNMENT_LEFT,-1,15,_ink)
-		draw_string(font,Vector2(12,84),reference.caption,HORIZONTAL_ALIGNMENT_LEFT,-1,15,_ink)
+		draw_string(font,Vector2(12,23),tr("看看两边的接合形状"),HORIZONTAL_ALIGNMENT_LEFT,-1,18,_ink)
+		draw_string(font,Vector2(12,53),tr(reference.subtitle),HORIZONTAL_ALIGNMENT_LEFT,-1,15,_ink)
+		draw_string(font,Vector2(12,84),tr(reference.caption),HORIZONTAL_ALIGNMENT_LEFT,-1,15,_ink)
 		return
 	_preview=gallery.previews.A
 	var to_local:=get_global_transform_with_canvas().affine_inverse()
@@ -93,8 +96,8 @@ func _draw() -> void:
 		_measure(Vector3(.14,bottom,0),Vector3(.14,bottom+depth,0))
 		var rounded: bool=reference.get("source","")=="starter_cross_section"
 		reference_caption="宽约%d格\n深约%d格"%[roundi(reference.value*100),roundi(depth*100)] if rounded else "宽%s格\n深%s格"%[D.number(reference.value),D.number(depth)]
-	draw_string(font,Vector2(12,22),title,HORIZONTAL_ALIGNMENT_LEFT,-1,18,_ink)
-	draw_string(font,Vector2(12,42),"正面按相同比例对照 · 单位：格",HORIZONTAL_ALIGNMENT_LEFT,-1,13,_ink)
+	draw_string(font,Vector2(12,22),tr(title),HORIZONTAL_ALIGNMENT_LEFT,-1,18,_ink)
+	draw_string(font,Vector2(12,42),tr("正面按相同比例对照 · 单位：格"),HORIZONTAL_ALIGNMENT_LEFT,-1,13,_ink)
 	var lines:=reference_caption.split("\n")
-	for index in lines.size():draw_string(font,Vector2(caption_x,83+index*25),lines[index],HORIZONTAL_ALIGNMENT_LEFT,-1,15,_ink)
-	draw_string(font,Vector2(12,150),note,HORIZONTAL_ALIGNMENT_LEFT,-1,13,_ink)
+	for index in lines.size():draw_string(font,Vector2(caption_x,83+index*25),tr(lines[index]),HORIZONTAL_ALIGNMENT_LEFT,-1,15,_ink)
+	draw_string(font,Vector2(12,150),tr(note),HORIZONTAL_ALIGNMENT_LEFT,-1,13,_ink)

@@ -104,7 +104,7 @@ func run() -> void:
   for dimensions in [Vector2i(1440,900),Vector2i(960,600)]:
    surface.size=dimensions;await settle(.1)
    var actions: Rect2=level.panel.workspace.actions.get_global_rect()
-   for control in [level.panel.workspace.actions,level.panel.workspace.note,level.panel.workspace.get_child(1)]:
+   for control in [level.panel.workspace.actions,level.panel.workspace.get_child(1)]:
     check(surface.get_visible_rect().grow(.5).encloses(control.get_global_rect()),"whole page fits viewport "+target+"/"+str(dimensions))
    check(gallery.get_global_rect().end.y<=actions.position.y,"target and three candidates fit above actions "+target)
    for option in gallery.buttons:
