@@ -57,7 +57,7 @@ func run() -> void:
   var gallery=level.panel.opening_gallery
   var panel=level.panel.opening_measure
   var fixed: Dictionary=panel.reference.duplicate(true)
-  check(panel.custom_minimum_size.y==first_reference_height,"reference panel follows chapter-one layout height "+target)
+  check(panel.custom_minimum_size.y>first_reference_height,"reference panel reserves room for the note below the diagram "+target)
   for option in ["A","B","C"]:
    var d: Dictionary=gallery.measurements[option]
    var label: Label=gallery.caption_labels[option]
@@ -106,7 +106,8 @@ func run() -> void:
    var actions: Rect2=level.panel.workspace.actions.get_global_rect()
    for control in [level.panel.workspace.actions,level.panel.workspace.get_child(1)]:
     check(surface.get_visible_rect().grow(.5).encloses(control.get_global_rect()),"whole page fits viewport "+target+"/"+str(dimensions))
-   check(gallery.get_global_rect().end.y<=actions.position.y,"target and three candidates fit above actions "+target)
+   var option_bounds: Rect2=level.panel.workspace.options.get_global_rect()
+   check(not option_bounds.intersects(actions),"reference and size cards stay clear of camera actions "+target)
    for option in gallery.buttons:
     for control in [gallery.caption_labels[option],gallery.previews[option],gallery.inspect_buttons[option]]:
      check(gallery.buttons[option].get_global_rect().grow(.5).encloses(control.get_global_rect()),"complete candidate content fits row "+option)
@@ -128,8 +129,11 @@ func run() -> void:
      elif d.kind in ["notch","upper_channel"]:check(is_equal_approx(measured_pixels,d.width*model_scale),"width bracket spans the real opening "+option)
     check(not panel.target_rectangles.is_empty(),"target is rendered on the ruler")
     var shown: Rect2=panel.target_rectangles[0]
+    var note_top: float=panel.size.y-panel.TEXT_GAP-font.get_height(panel.CAPTION_FONT_SIZE)
+    check(panel._diagram.end.y<=note_top-panel.TEXT_GAP+.1,"diagram and measurement brackets leave clear space above the note "+target)
     if fixed.kind=="tongue":
      var tongue: Rect2=panel.target_rectangles[1]
+     check(shown.position.y>=panel._diagram.position.y and shown.end.y<=panel._diagram.end.y,"unzoomed board profile fits above the note "+target)
      check(is_equal_approx(shown.size.y,fixed.stock*panel.pixel_scale) and is_equal_approx(tongue.get_center().y,shown.end.y-fixed.value*panel.pixel_scale) and is_equal_approx(tongue.size.y,fixed.width*panel.pixel_scale),"upright board-end reference preserves real thickness, tongue position and tongue thickness")
     else:check(is_equal_approx(shown.size.x,fixed.value*panel.pixel_scale),"reference target ends agree with the ruler")
    if target in level.Rules.MANUAL_IDS:await capture(target+"-"+str(dimensions.x))
@@ -148,7 +152,8 @@ func run() -> void:
    await button(level.panel.opening_buttons[option])
    check(level.panel.opening_measure.reference==family_reference,"real local receiver stays stable across adapted A/B/C "+kind+"/"+option)
    check_text_fits(level.panel.opening_gallery.caption_labels[option],"first-"+kind+"/"+option)
-  check(level.panel.opening_measure.custom_minimum_size.y==(104 if kind=="three_way_lap" else 156),"matched-pair note does not reserve a meaningless ruler "+kind)
+  var measure=level.panel.opening_measure
+  check(measure.custom_minimum_size.y==(104 if kind=="three_way_lap" else measure.MEASURE_HEIGHT),"matched-pair note does not reserve a meaningless ruler "+kind)
   await capture("first-"+kind)
   check_rendered_stock(level.panel.opening_gallery,"first-"+kind)
   surface.size=Vector2i(960,600);await settle(.1)

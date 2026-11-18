@@ -483,9 +483,8 @@ func _fit_observation_layout() -> void:
 	root.fit_screen()
 	zoom_bar.set_display_scale(factor);magnifier.set_display_scale(factor)
 	root.layout_camera_tools(root.scale.x)
-	for id in joint_choices.inspect_buttons:
-		joint_choices.inspect_buttons[id].custom_minimum_size=Vector2(maxf(56,60/factor),60/factor)
-		joint_choices.previews[id].custom_minimum_size.y=maxf(88,154-joint_choices.inspect_buttons[id].custom_minimum_size.y)
+	for card in joint_choices.buttons.values():
+		card.fit_inspect_button(factor)
 	for button in length_gallery.inspect_buttons.values():button.custom_minimum_size=Vector2(maxf(56,60/factor),60/factor)
 
 func _process(_delta: float) -> void:

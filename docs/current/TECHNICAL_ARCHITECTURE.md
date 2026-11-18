@@ -17,7 +17,7 @@
 | 项目 | 当前实际配置 |
 |---|---|
 | 引擎 | 历史运行环境为 Godot 4.7.2 标准版；工程声明 4.7，无 .NET 工程 |
-| 主入口 | [project.godot](../../project.godot) → `res://startup/startup.tscn` → 视频结束或跳过 → `res://campaign/campaign.tscn` |
+| 主入口 | [project.godot](../../project.godot) → `res://startup/startup.tscn` 循环播放欢迎片 → 点击「开始体验」 → `res://campaign/campaign.tscn` |
 | 渲染 | `gl_compatibility`，MSAA 3D=2 |
 | 逻辑窗口 | 1920×1080，默认全屏，`canvas_items` + `keep`；船坊沿用 1440×900 内部坐标等比居中，不横向拉伸；见 [展览部署](EXHIBITION_DEPLOYMENT.md) |
 | 默认字体 | `res://shared/fonts/default_font.tres`，内置字体和 OFL 许可保留 |

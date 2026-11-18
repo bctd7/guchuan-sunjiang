@@ -1,6 +1,10 @@
 extends Control
 ## Use the candidates' actual face-on camera scale for the receiving profile.
 const D=preload("res://levels/level02/opening_dimensions.gd")
+const MEASURE_HEIGHT := 172.0
+const CAPTION_FONT_SIZE := 13
+const SUBTITLE_BASELINE := 42.0
+const TEXT_GAP := 8.0
 var dimensions: Dictionary={}
 var reference: Dictionary={}
 var gallery: Control
@@ -9,7 +13,7 @@ var ruler_start:=78.0
 var target_rectangles: Array[Rect2]=[]
 var reference_caption:=""
 var _preview: SubViewportContainer
-var _origin:=Vector2.ZERO
+var _diagram:=Rect2()
 var _ink:=Color("405343")
 var _front:=Basis.IDENTITY
 var _center:=Vector3.ZERO
@@ -17,27 +21,27 @@ var background:=StyleBoxFlat.new()
 func _ready() -> void:
 	background.bg_color=Color("f2e7cf")
 	background.set_corner_radius_all(10)
-	custom_minimum_size=Vector2(330,156);mouse_filter=Control.MOUSE_FILTER_IGNORE
+	custom_minimum_size=Vector2(330,MEASURE_HEIGHT);mouse_filter=Control.MOUSE_FILTER_IGNORE
 	resized.connect(queue_redraw)
 func configure(data: Dictionary,reference_data: Dictionary,candidates: Control=null) -> void:
 	dimensions=data.duplicate(true);reference=reference_data.duplicate(true);gallery=candidates
-	custom_minimum_size.y=104 if reference.kind in ["paired","shape"] else 156
+	custom_minimum_size.y=104 if reference.kind in ["paired","shape"] else MEASURE_HEIGHT
 	queue_redraw()
 func _process(_delta: float) -> void:
 	if is_visible_in_tree():queue_redraw()
 func _point(value: Vector3) -> Vector2:
 	var local:=_front.inverse()*(value-_center)
-	return _origin+_preview.size*.5+Vector2(local.x,-local.y)*pixel_scale
+	return _diagram.get_center()+Vector2(local.x,-local.y)*pixel_scale
 func _box(a: Vector3,b: Vector3) -> void:
 	var p:=_point(a);var q:=_point(b)
 	var rect:=Rect2(p.min(q),(q-p).abs())
 	target_rectangles.append(rect)
-	var clipped:=rect.intersection(Rect2(_origin,_preview.size))
+	var clipped:=rect.intersection(_diagram)
 	if clipped.has_area():
 		draw_rect(clipped,Color("c5a377"));draw_rect(clipped,Color("8f7557"),false,1)
 func _measure(a: Vector3,b: Vector3) -> void:
 	var p:=_point(a);var q:=_point(b);var side: Vector2=(q-p).normalized().orthogonal()*3
-	var region:=Rect2(_origin,_preview.size).grow(-1)
+	var region:=_diagram.grow(-1)
 	if not region.intersects(Rect2(p.min(q),(q-p).abs()).grow(.1)):return
 	draw_line(p.clamp(region.position,region.end),q.clamp(region.position,region.end),_ink,1.5,true)
 	for point in [p,q]:
@@ -53,7 +57,11 @@ func _draw() -> void:
 		return
 	_preview=gallery.previews.A
 	var to_local:=get_global_transform_with_canvas().affine_inverse()
-	_origin=Vector2((to_local*_preview.get_global_transform_with_canvas().origin).x,57)
+	var note_baseline := size.y - TEXT_GAP - font.get_descent(CAPTION_FONT_SIZE)
+	var diagram_top := SUBTITLE_BASELINE + font.get_descent(CAPTION_FONT_SIZE) + TEXT_GAP
+	var diagram_bottom := note_baseline - font.get_ascent(CAPTION_FONT_SIZE) - TEXT_GAP
+	var preview_x := (to_local * _preview.get_global_transform_with_canvas().origin).x
+	_diagram = Rect2(preview_x, diagram_top, _preview.size.x, diagram_bottom - diagram_top)
 	_front=gallery.marks.A.front;_center=gallery.marks.A.center
 	pixel_scale=_preview.size.y/_preview.camera.size
 	var caption_x: float=(to_local*gallery.caption_labels.A.get_global_transform_with_canvas().origin).x
@@ -71,7 +79,7 @@ func _draw() -> void:
 	elif reference.kind=="layers":
 		title="对照两根已装木料";note=reference.note
 		var side: Vector3=_front.x
-		var region:=Rect2(_origin,_preview.size)
+		var region := _diagram
 		var crop:=PackedVector2Array([region.position,Vector2(region.end.x,region.position.y),region.end,Vector2(region.position.x,region.end.y)])
 		for section in reference.get("sections",[]):
 			var polygon:=PackedVector2Array()
@@ -97,7 +105,7 @@ func _draw() -> void:
 		var rounded: bool=reference.get("source","")=="starter_cross_section"
 		reference_caption="宽约%d格\n深约%d格"%[roundi(reference.value*100),roundi(depth*100)] if rounded else "宽%s格\n深%s格"%[D.number(reference.value),D.number(depth)]
 	draw_string(font,Vector2(12,22),tr(title),HORIZONTAL_ALIGNMENT_LEFT,-1,18,_ink)
-	draw_string(font,Vector2(12,42),tr("正面按相同比例对照 · 单位：格"),HORIZONTAL_ALIGNMENT_LEFT,-1,13,_ink)
+	draw_string(font,Vector2(12,SUBTITLE_BASELINE),tr("正面按相同比例对照 · 单位：格"),HORIZONTAL_ALIGNMENT_LEFT,-1,CAPTION_FONT_SIZE,_ink)
 	var lines:=reference_caption.split("\n")
 	for index in lines.size():draw_string(font,Vector2(caption_x,83+index*25),tr(lines[index]),HORIZONTAL_ALIGNMENT_LEFT,-1,15,_ink)
-	draw_string(font,Vector2(12,150),tr(note),HORIZONTAL_ALIGNMENT_LEFT,-1,13,_ink)
+	draw_string(font,Vector2(12,note_baseline),tr(note),HORIZONTAL_ALIGNMENT_LEFT,-1,CAPTION_FONT_SIZE,_ink)

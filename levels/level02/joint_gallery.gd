@@ -16,7 +16,7 @@ var buttons: Dictionary={}
 var captions: Dictionary={}
 func _ready() -> void:
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
-	add_theme_constant_override("separation",8)
+	add_theme_constant_override("separation",28)
 	custom_minimum_size.y=174
 	for id in TYPES:
 		var button=preload("res://levels/shared/selection_card.gd").new();add_child(button);buttons[id]=button
@@ -55,7 +55,9 @@ func _ready() -> void:
 		elif id=="three_way_lap":
 			root.set_meta("joint_demo",{"parts":[{"path":"LowerStock","caption":"下件导槽","axis":Vector3(.5,0,sin(PI/3)),"normal":Vector3.UP},{"path":"MiddleStock","caption":"中件滑槽","axis":Vector3.RIGHT,"normal":Vector3.DOWN},{"path":"UpperStock","caption":"顶件锁口","axis":Vector3(.5,0,-sin(PI/3)),"normal":Vector3.DOWN}],"order":["MiddleStock","UpperStock"],"closed_positions":{"MiddleStock":Vector3.ZERO,"UpperStock":Vector3.ZERO},"description":"中件先从侧面沿槽滑入，顶件再向下落入交叉口，挡住中件的退出方向。","closed_text":"中件侧推到位后，顶件落下，槽肩阻挡中件沿原路退出。"})
 		Appearance.apply(root)
-		preview.configure(root,Vector3(0,.40 if id=="three_way_lap" else .18,.7 if id=="tongue_groove" else 0),Vector3(4,6,2.3) if id=="three_way_lap" else Vector3(2.3,3,4),2.3,3.6)
+		var direction := Vector3(4, 6, 2.3) if id == "three_way_lap" else Vector3(2.3, 3, 4)
+		preview.configure(root, Vector3.ZERO, direction, 2.3, 3.6)
+		preview.frame_model(root, direction)
 		button.tooltip_text=DETAILS[id]
 
 func choose(id: String) -> void:

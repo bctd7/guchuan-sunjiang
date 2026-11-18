@@ -76,12 +76,17 @@ func _draw() -> void:
 		var point: Vector2=get_global_transform_with_canvas().affine_inverse()*point_provider.call()
 		draw_ring(self,point)
 		return
-	for card in highlighted_controls():
+	var cards := highlighted_controls()
+	var halo := HALO
+	if cards.size() > 1 and target is BoxContainer:
+		var gap := target.get_theme_constant("separation")
+		halo = clampi(floori(gap * 0.5 - OUTSET - 1.0), 0, HALO)
+	for card in cards:
 		var contour: Control=card.get_meta("guide_outline",card)
 		var rect=get_global_transform_with_canvas().affine_inverse()*contour.get_global_rect()
 		outline.border_color=ink()
 		outline.shadow_color=Color(GOLD,glow())
-		outline.shadow_size=HALO
+		outline.shadow_size=halo
 		outline.set_corner_radius_all(18)
 		var base=card.get_theme_stylebox("normal")
 		if base is StyleBoxFlat:

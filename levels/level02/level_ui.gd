@@ -371,9 +371,8 @@ func _fit_layout() -> void:
 		button.custom_minimum_size.y=maxf(60,60/factor)
 	for button in [zoom_in_button,zoom_out_button]:button.custom_minimum_size.x=maxf(60,60/factor)
 	for button in opening_gallery.inspect_buttons.values():button.custom_minimum_size=Vector2(maxf(56,60/factor),60/factor)
-	for id in gallery.inspect_buttons:
-		gallery.inspect_buttons[id].custom_minimum_size=Vector2(maxf(56,60/factor),60/factor)
-		gallery.previews[id].custom_minimum_size.y=maxf(88,154-gallery.inspect_buttons[id].custom_minimum_size.y)
+	for card in gallery.buttons.values():
+		card.fit_inspect_button(factor)
 	workspace.layout_camera_tools(factor)
 	magnifier.set_display_scale(factor)
 func _unhandled_key_input(event: InputEvent) -> void:
