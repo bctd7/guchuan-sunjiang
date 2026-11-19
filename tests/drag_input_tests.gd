@@ -131,7 +131,7 @@ func snapshot(label: String) -> void:
 
 func run() -> void:
 	root.size = Vector2i(1440, 900)
-	demo = load("res://classroom/classroom.tscn").instantiate()
+	demo = load("res://components/teaching/classroom/classroom.tscn").instantiate()
 	root.add_child(demo)
 	await physics_frame
 	await process_frame

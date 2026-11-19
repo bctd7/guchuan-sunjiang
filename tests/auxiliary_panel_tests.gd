@@ -44,14 +44,14 @@ func run() -> void:
 	surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS
 	root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate()
 	surface.add_child(campaign)
 	await settle()
 	for chapter in [1,2]:
 		surface.size=Vector2i(1440,900)
 		await settle()
 		await button(campaign.chapter_buttons[chapter])
-		var level=campaign.instances[chapter]
+		var level=campaign.current_chapter
 		await button(level.learning.start_button)
 		var actions: Array=[level.panel.lesson_button] if chapter==1 else [level.panel.bulkhead_button]
 		for dimensions in [Vector2i(1440,900),Vector2i(1100,800),Vector2i(960,600)]:
@@ -108,7 +108,7 @@ func run() -> void:
 		surface.size=Vector2i(960,600)
 		await settle()
 		await button(campaign.chapter_buttons[chapter])
-		var level=campaign.instances[chapter]
+		var level=campaign.current_chapter
 		await button(level.learning.start_button)
 		check(surface.get_visible_rect().encloses(level.panel.main_sidebar.get_global_rect()),"cached chapter refreshes layout on reentry "+str(chapter))
 		check(level.panel.main_sidebar.get_global_rect().size.is_equal_approx(Vector2(310,405)*2.0/3.0),"cached card matches design scale "+str(chapter))

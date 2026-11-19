@@ -2,7 +2,7 @@ extends HBoxContainer
 signal chosen(kind: String)
 const G = preload("res://models/ship/rigging/ship_geometry.gd")
 const Rules = preload("res://levels/level03/connection_rules.gd")
-const EndCrop = preload("res://levels/shared/mesh_end_crop.gd")
+const EndCrop = preload("res://models/ship/mesh_end_crop.gd")
 var buttons: Dictionary = {}
 var viewports: Dictionary = {}
 var specimens: Dictionary = {}
@@ -10,7 +10,7 @@ var _id := ""
 const CROPS = {
 	"zrail":AABB(Vector3(-.05,-.05,-.05),Vector3(1.10,1.10,1.5)),
 	"leg":AABB(Vector3(-.05,-.20,-.05),Vector3(1.10,1.25,1.10)),
-	"mast":AABB(Vector3(2.20,.3,2.0),Vector3(1.0,1.0,1.0)),
+	"mast":AABB(Vector3(-.5,1.06,-.5),Vector3(1.0,1.0,1.0)),
 	"apron":AABB(Vector3(-.8,-.75,-.4),Vector3(1.6,1.15,.8)),
 	"top":AABB(Vector3(-.8,.35,-.6),Vector3(1.6,.41,1.2)),
 	"lbrace":AABB(Vector3(-.85,-.55,-.5),Vector3(1.75,1.1,1.0)),
@@ -27,7 +27,7 @@ func configure(id: String) -> void:
 	buttons.clear();viewports.clear();specimens.clear();previews.clear();inspect_buttons.clear()
 	add_theme_constant_override("separation",8);custom_minimum_size.y=174
 	for kind in Rules.candidates(id):
-		var card=preload("res://levels/shared/selection_card.gd").new();add_child(card)
+		var card=preload("res://components/ui/selection_card.gd").new();add_child(card)
 		buttons[kind]=card;previews[kind]=card.preview;inspect_buttons[kind]=card.inspect_button
 		viewports[kind]=card.preview.viewport
 		card.caption.text="选"+Rules.NAMES[kind]
@@ -42,7 +42,7 @@ func configure(id: String) -> void:
 		var direction=Vector3(4,-3 if id in ["zrail","top"] else 3,6)
 		if id=="zrail":direction=Vector3(5,-4,-6)
 		if id=="lbrace":direction=Vector3(1.5,2,7)
-		card.preview.configure(specimen,CROPS[id].get_center(),direction,1.8,2.8)
+		card.preview.show_model(specimen,CROPS[id].get_center(),direction,1.8,2.8)
 		card.preview.frame_model(specimen,direction)
 func select(kind: String) -> void:
 	for id in buttons:buttons[id].set_pressed_no_signal(id==kind)

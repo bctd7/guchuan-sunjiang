@@ -6,14 +6,14 @@ func settle() -> void:
  await process_frame
 func run() -> void:
  root.set_flag(Window.FLAG_NO_FOCUS,true);root.mode=Window.MODE_MINIMIZED
- var campaign=load("res://campaign/campaign.tscn").instantiate();root.add_child(campaign);await settle()
+ var campaign=load("res://app/campaign/campaign.tscn").instantiate();root.add_child(campaign);await settle()
  var folder:="res://tests/evidence/window-resize-probe"
  DirAccess.make_dir_recursive_absolute(folder)
  for stage in ["menu","level02"]:
   var sample: Control=campaign.chapter_buttons[1]
   if stage=="level02":
    campaign.open_level(2);await settle()
-   var level=campaign.instances[2]
+   var level=campaign.current_chapter
    level.learning.start_button.pressed.emit();level.panel.observe_button.pressed.emit()
    level.state.choose_joint("tongue_groove");level.state.choose_opening("B");await settle()
    sample=level.panel.opening_gallery.buttons.B

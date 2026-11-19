@@ -1,6 +1,6 @@
 extends "res://tests/observation_repeat_tests.gd"
 ## Actual game input and GPU frames: cross falls, middle slides, top locks.
-const Contact=preload("res://levels/level02/trial_contact.gd")
+const Contact=preload("res://models/ship/hull/trial_contact.gd")
 const Probe=preload("res://tests/stock_clearance.gd")
 var frame_count:=0
 var frame_folder: String
@@ -74,8 +74,8 @@ func run() -> void:
  DirAccess.make_dir_recursive_absolute(frame_folder)
  DirAccess.make_dir_recursive_absolute("res://tests/evidence/joint-motion")
  surface=SubViewport.new();surface.size=Vector2i(1440,900);surface.own_world_3d=true;surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
- campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.3)
- await button(campaign.chapter_buttons[2]);level=campaign.instances[2];await button(level.learning.start_button)
+ campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.3)
+ await button(campaign.chapter_buttons[2]);level=campaign.current_chapter;await button(level.learning.start_button)
  probe=Probe.new()
  for id in ["plank_0a","plank_1a","plank_2a"]:await second_trial(id,"correct")
  await prepare("cross_upper");await record_push("cross_upper");await button(level.panel.overview_button)

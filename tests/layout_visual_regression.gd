@@ -29,10 +29,10 @@ func run() -> void:
 	surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS
 	root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate()
 	surface.add_child(campaign)
 	campaign.open_level(1)
-	var level=campaign.instances[1]
+	var level=campaign.current_chapter
 	await capture("01-chapter-one-three-lessons")
 	level.learning.start_button.pressed.emit()
 	await capture("02-keel-workshop-layout")
@@ -55,7 +55,7 @@ func run() -> void:
 	await capture("05-completed-ship-section-plan")
 	for chapter in [2,3]:
 		campaign.open_level(chapter)
-		var next=campaign.instances[chapter]
+		var next=campaign.current_chapter
 		await capture("06-chapter-%d-three-lessons"%chapter)
 		next.learning.start_button.pressed.emit()
 		await capture("07-chapter-%d-original-background"%chapter)

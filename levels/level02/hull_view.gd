@@ -6,8 +6,8 @@ const StarterLock=preload("res://models/ship/hull/starter_lock.gd")
 const Starter=preload("res://models/ship/hull/starter_joint.gd")
 const Supports=preload("res://models/ship/hull/support_geometry.gd")
 const Alignment=preload("res://levels/level02/assembly_alignment.gd")
-const Appearance=preload("res://levels/level02/wood_appearance.gd")
-const TrialContact=preload("res://levels/level02/trial_contact.gd")
+const Appearance=preload("res://models/ship/hull/wood_appearance.gd")
+const TrialContact=preload("res://models/ship/hull/trial_contact.gd")
 const BoatJoints=preload("res://models/ship/hull/boat_joints.gd")
 const InspectionCamera=preload("res://levels/level02/inspection_camera.gd")
 const Openings=preload("res://levels/level02/opening_rules.gd")
@@ -15,8 +15,9 @@ const G=preload("res://models/ship/hull/ship_geometry.gd")
 const SeamGuides=preload("res://levels/level02/model_seam_guides.gd")
 const SeaTrial=preload("res://levels/level02/sea_trial.gd")
 const TrialPresentation=preload("res://levels/level02/trial_presentation.gd")
-const Backdrop=preload("res://levels/level02/hull_backdrop.gd")
+const Backdrop=preload("res://components/ui/workshop_backdrop.gd")
 const Rules=preload("res://levels/level02/connection_rules.gd")
+const ModelVariants = preload("res://models/ship/model_variants.gd")
 const THREE_CENTER=Vector3(2.5,1.45,0)
 const PANEL_POS=Vector3(0,.26,.45)
 const PANEL_ANGLE=-.95
@@ -54,8 +55,11 @@ var _built_layouts: Dictionary={}
 var _built_openings: Dictionary={}
 var _built_geometry: Dictionary={}
 var _pose_cache: Dictionary={}
+var _model_variants = ModelVariants.new()
+var _seam_presentation: Array = []
 var lock_seats: Dictionary={}
 var lock_templates: Dictionary={}
+var _lock_openings: Dictionary = {}
 var lock_variants: Dictionary={}
 var lock_middles: Dictionary={}
 var lock_waiting_tops: Dictionary={}
@@ -76,6 +80,7 @@ func _ready() -> void:
 	get_viewport().size_changed.connect(_fit_camera)
 	tree_entered.connect(_fit_camera.call_deferred)
 	backdrop=Backdrop.new()
+	backdrop.image_texture = preload("res://assets/images/level02/seaside_shipyard.png")
 	add_child(backdrop)
 	visibility_changed.connect(_sync_background)
 	var shadow=G.material(Color(0,0,0,0))
@@ -103,7 +108,6 @@ func _ready() -> void:
 	model_seams.hide()
 	trial=SeaTrial.new()
 	add_child(trial)
-	trial.setup()
 	show_overview()
 func panel_transform() -> Transform3D:
 	return Transform3D(Basis(Vector3.RIGHT,PANEL_ANGLE),PANEL_POS)
@@ -150,9 +154,11 @@ func _clear(node: Node) -> void:
 		node.remove_child(child)
 		child.queue_free()
 func _ensure_starter_lock(id: String,opening: String) -> void:
-	if lock_templates.has(id) and lock_templates[id].get_meta("opening")==opening:return
+	if _lock_openings.get(id) == opening:
+		return
 	_pose_cache.erase(id)
-	var middle:=Node3D.new();BoatJoints.three_member(middle,1,lightwood,opening,.20)
+	var middle:=Node3D.new()
+	_populate_starter_specimen(middle,"three_middle",opening)
 	var obstacles: Array=[]
 	for fixture in fixed.values():
 		for part in TrialContact.meshes(fixture,fixture.transform):obstacles.append(TrialContact.box(part))
@@ -168,21 +174,32 @@ func _ensure_starter_lock(id: String,opening: String) -> void:
 			var solid:=TrialContact.box(part)
 			receivers.append_array(solid.get("cells",[solid]))
 		var top:=Node3D.new();StarterLock.top(top,receivers,lightwood,BoatJoints.middle_upper_offset(opening));Appearance.apply(top)
-		top.set_meta("opening",opening);add_child(top);top.hide();lock_variants[key]=top
+		lock_variants[key] = ModelVariants.pack_model(top)
+		top.free()
 	middle.free();lock_templates[id]=lock_variants[key]
+	_lock_openings[id] = opening
 	if not lock_waiting_tops.has(id):
 		var waiting:=Node3D.new();add_child(waiting);waiting.hide();lock_waiting_tops[id]=waiting
 	var waiting: Node3D=lock_waiting_tops[id]
 	_clear(waiting)
-	for child in lock_templates[id].get_children():waiting.add_child(child.duplicate())
+	_copy_starter_top(waiting, id)
 	waiting.set_meta("opening",opening);waiting.transform=seat;waiting.position.y+=StarterLock.PARK_HEIGHT
+
+func _copy_starter_top(target: Node3D, id: String) -> void:
+	var top := ModelVariants.instantiate_model(lock_templates[id])
+	for child in top.get_children():
+		top.remove_child(child)
+		target.add_child(child)
+	top.free()
 func _ensure_starter_middle(id: String,opening: String) -> void:
 	_ensure_starter_lock(id,opening)
 	if not lock_middles.has(id):
 		var middle:=Node3D.new();add_child(middle);lock_middles[id]=middle
 	var node: Node3D=lock_middles[id]
 	if node.get_meta("opening","")!=opening:
-		_clear(node);BoatJoints.three_member(node,1,lightwood,opening,.20);Appearance.apply(node);node.set_meta("opening",opening)
+		_clear(node)
+		_populate_starter_specimen(node,"three_middle",opening)
+		node.set_meta("opening",opening)
 	node.transform=lock_seats[id]
 func _sync_starter_members() -> void:
 	for id in ["plank_0a","plank_0b"]:
@@ -207,13 +224,11 @@ func _build_piece(id: String,layout: String,opening: String="B") -> void:
 		var alternative:=Node3D.new();node.add_child(alternative)
 		if geometry_id=="starter_lock_top":
 			_ensure_starter_middle(id,opening)
-			for child in lock_templates[id].get_children():alternative.add_child(child.duplicate())
-		elif Rules.row_for(id)==0 and geometry_id=="cross_upper":
-			Starter.cross_stock(alternative,lightwood,opening);Appearance.apply(alternative)
-		elif Rules.row_for(id)==0 and geometry_id=="three_middle":
-			BoatJoints.three_member(alternative,1,lightwood,opening,.20);Appearance.apply(alternative)
-			_ensure_starter_lock(id,opening)
-		else:_populate_piece(alternative,geometry_id,layout,opening,true)
+			_copy_starter_top(alternative, id)
+		elif Rules.row_for(id)==0 and geometry_id in ["cross_upper", "three_middle"]:
+			_populate_starter_specimen(alternative,geometry_id,opening)
+			if geometry_id=="three_middle":_ensure_starter_lock(id,opening)
+		else:_populate_piece(alternative,geometry_id,layout,opening)
 		if geometry_id.begins_with("plank"):alternative.position.z-=.39
 	_built_layouts[id]=layout
 	_built_openings[id]=opening
@@ -343,7 +358,21 @@ func installation_path_clear(id: String) -> bool:
 	if _pose_cache.has(id):
 		_pose_cache[id].pose=stop.pose;_pose_cache[id].contact=stop.pose;_pose_cache[id].failed=true
 	return false
-func _populate_piece(node: Node3D,id: String,layout: String,opening: String,detail:=false) -> void:
+func _populate_piece(node: Node3D,id: String,layout: String,opening: String) -> void:
+	var seam_layout := layout if Rules.row_for(id) >= 0 else ""
+	_model_variants.populate(node, "%s:%s:%s" % [id, seam_layout, opening], _build_stock.bind(id, layout, opening))
+
+func _populate_starter_specimen(node: Node3D,geometry_id: String,opening: String) -> void:
+	_model_variants.populate(node, "starter:%s:%s" % [geometry_id, opening], _build_starter_specimen.bind(geometry_id, opening))
+
+func _build_starter_specimen(node: Node3D,geometry_id: String,opening: String) -> void:
+	if geometry_id=="cross_upper":
+		Starter.cross_stock(node,lightwood,opening)
+	else:
+		BoatJoints.three_member(node,1,lightwood,opening,.20)
+	Appearance.apply(node)
+
+func _build_stock(node: Node3D,id: String,layout: String,opening: String) -> void:
 	var row: int=Rules.row_for(id)
 	var shift: float=Openings.offset(id,opening)
 	if row>=0:
@@ -368,15 +397,14 @@ func _populate_piece(node: Node3D,id: String,layout: String,opening: String,deta
 	Appearance.apply(node)
 func candidate_opening(id: String,option: String) -> Node3D:
 	var node:=Node3D.new()
-	if opening_geometry_id(id)=="starter_lock_top":
+	var geometry_id := opening_geometry_id(id)
+	if geometry_id=="starter_lock_top":
 		_ensure_starter_lock(id,str(_built_openings.get(id,option)))
-		for child in lock_templates[id].get_children():node.add_child(child.duplicate())
-	elif Rules.row_for(id)==0 and opening_geometry_id(id)=="cross_upper":
-		Starter.cross_stock(node,lightwood,option);Appearance.apply(node)
-	elif Rules.row_for(id)==0 and opening_geometry_id(id)=="three_middle":
-		BoatJoints.three_member(node,1,lightwood,option,.20);Appearance.apply(node)
-	else:_populate_piece(node,opening_geometry_id(id),str(current.layout) if not current.layout.is_empty() else "A",option,true)
-	if Rules.row_for(id)>=0 and opening_geometry_id(id)==id:
+		_copy_starter_top(node, id)
+	elif Rules.row_for(id)==0 and geometry_id in ["cross_upper", "three_middle"]:
+		_populate_starter_specimen(node,geometry_id,option)
+	else:_populate_piece(node,geometry_id,str(current.layout) if not current.layout.is_empty() else "A",option)
+	if Rules.row_for(id)>=0 and geometry_id==id:
 		var row: int=Rules.row_for(id)
 		var end: float=(Rules.seam(str(current.layout) if not current.layout.is_empty() else "A") if id.ends_with("a") else 4.0)-.006
 		node.position=Vector3(.30,0,0)-G.Shell.point(Vector3(end,0,row*.78))
@@ -448,15 +476,23 @@ func _alpha(n: Node,a: float) -> void:
 			n.material_override=m
 	for child in n.get_children(): _alpha(child,a)
 func _update_seams(s) -> void:
+	var layouts: Array[String] = []
+	for row in 3:
+		layouts.append(str(s.layouts.get(row, "A")) if s.row_has_boards(row) else "")
+	var bad_row: int = s.bad_row() if s.checked else -1
+	var presentation := [layouts, bad_row, s.completed]
+	if presentation == _seam_presentation:
+		return
+	_seam_presentation = presentation
 	_clear(seam_lines)
 	_clear(water)
 	_clear(caulk)
 	seam_lines.transform=panel_transform()
 	caulk.transform=panel_transform()
 	for row in 3:
-		if not s.row_has_boards(row): continue
-		var seam=Rules.seam(str(s.layouts.get(row,"A")))
-		var bad=s.checked and s.bad_row()>=0 and (row==s.bad_row() or row==s.bad_row()-1)
+		if layouts[row].is_empty(): continue
+		var seam=Rules.seam(layouts[row])
+		var bad=bad_row>=0 and (row==bad_row or row==bad_row-1)
 		G.Shell.loft(seam_lines,PackedVector2Array([Vector2(-.116,row*.78+.015),Vector2(-.092,row*.78+.015),Vector2(-.092,row*.78+.765),Vector2(-.116,row*.78+.765)]),seam-.0275,seam+.0275,red if bad else darkwood)
 		if s.completed:
 			G.Shell.loft(caulk,PackedVector2Array([Vector2(-.114,row*.78+.01),Vector2(-.094,row*.78+.01),Vector2(-.094,row*.78+.77),Vector2(-.114,row*.78+.77)]),seam-.0175,seam+.0175,teal)
@@ -767,7 +803,7 @@ func _sync_background() -> void:
 	if is_instance_valid(backdrop):backdrop.visible=is_visible_in_tree() and not inspected
 	if _environment!=null:
 		_environment.background_mode=Environment.BG_COLOR if inspected else Environment.BG_CANVAS
-		_environment.background_color=Color("f3ead7")
+		_environment.background_color=Color("fff7e9")
 
 func _process(_delta: float) -> void:
 	_sync_model_seams()

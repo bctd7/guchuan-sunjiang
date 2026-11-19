@@ -18,7 +18,7 @@ func _build() -> void:
 	if not buttons.is_empty(): return
 	custom_minimum_size.y = 174
 	for kind in TYPES:
-		var button=preload("res://levels/shared/selection_card.gd").new()
+		var button=preload("res://components/ui/selection_card.gd").new()
 		button.preview_script=Preview;button.name="Choose_"+kind
 		add_child(button);buttons[kind]=button
 		button.pressed.connect(func():chosen.emit(kind))

@@ -1,7 +1,7 @@
 extends CanvasLayer
-const StepGuide=preload("res://levels/shared/step_guide.gd")
+const StepGuide=preload("res://components/ui/step_guide.gd")
 var step_guide: Control
-const ExhibitLayout=preload("res://shared/ui/exhibition_layout.gd")
+const ExhibitLayout=preload("res://components/ui/exhibition_layout.gd")
 ## Close-up clones of THIS level's real ship parts; no standalone joint substitutes.
 ## It observes the level, and never changes its accepted connections.
 signal closed
@@ -22,16 +22,16 @@ var _zoom_center:=Vector3.ZERO
 var _zoom_direction:=Vector3.ONE
 var length_gallery: Control
 var stage_surface: Control
-const Magnifier=preload("res://levels/shared/model_magnifier.gd")
-const ZoomBar=preload("res://levels/shared/inspection_zoom_bar.gd")
-const Workspace=preload("res://levels/shared/inspection_workspace.gd")
-const LengthComparison=preload("res://levels/level01/length_measure_panel.gd")
+const Magnifier=preload("res://components/preview/model_magnifier.gd")
+const ZoomBar=preload("res://components/preview/inspection_zoom_bar.gd")
+const Workspace=preload("res://components/ui/inspection_workspace.gd")
+const LengthComparison=preload("res://components/ui/measurements/length_measure_panel.gd")
 const Trial=preload("res://models/ship/keel/trial_fit.gd")
 const TrialReceiver=preload("res://models/ship/keel/trial_receiver.gd")
 const ReceiverSection=preload("res://models/ship/keel/receiver_section.gd")
 const Lengths=preload("res://models/ship/keel/length_geometry.gd")
-const Look = preload("res://classroom/display/workshop_look.gd")
-const Friendly = preload("res://shared/ui/friendly_theme.gd")
+const Look = preload("res://components/teaching/classroom/display/workshop_look.gd")
+const Friendly = preload("res://components/ui/friendly_theme.gd")
 const InspectionGeometry = preload("res://levels/level01/inspector/inspection_geometry.gd")
 const TypeGallery = preload("res://levels/level01/type_gallery.gd")
 const InspectionOrbit = preload("res://levels/level01/assembly_drag_surface.gd")
@@ -75,10 +75,11 @@ var is_animating: bool:
 
 func _ready() -> void:
 	layer = 20
-	_build()
 	hide()
+	set_process(false)
 	get_viewport().size_changed.connect(_fit_observation_layout)
 	tree_entered.connect(_fit_observation_layout.call_deferred)
+	visibility_changed.connect(_sync_observation)
 	_fit_observation_layout()
 
 func configure(skeleton: Node3D) -> void:
@@ -113,7 +114,7 @@ func _build() -> void:
 	candidate_panel.add_child(length_gallery)
 	length_buttons=length_gallery.buttons
 	length_gallery.chosen.connect(_choose_length)
-	length_gallery.inspect_requested.connect(func(id: String):_magnify(length_gallery.previews[id],"长度候选 · 木料 "+LengthComparison.LABELS[id]))
+	length_gallery.inspect_requested.connect(func(id: String):_magnify(length_gallery.previews[id],"长度候选 · 木料 "+LengthGallery.option_label(id)))
 	viewport=SubViewport.new()
 	viewport.own_world_3d=true
 	viewport.size=Vector2i(1000,490)
@@ -121,12 +122,13 @@ func _build() -> void:
 	container.add_child(viewport)
 	world = Node3D.new()
 	viewport.add_child(world)
-	Look.install(world)
 	camera=Camera3D.new()
 	camera.projection=Camera3D.PROJECTION_ORTHOGONAL
 	camera.near=0.05
 	camera.current=true
 	world.add_child(camera)
+	Look.install(world,camera)
+	camera.environment.background_color=Color("fff7e9")
 	# The surface belongs only to the main close-up; cards and rulers stay GUI.
 	orbit=InspectionOrbit.new()
 	orbit.name="InspectionOrbit"
@@ -149,11 +151,23 @@ func _build() -> void:
 	magnifier=Magnifier.new();root.add_child(magnifier)
 	step_guide.blocker=magnifier
 	orbit.guidance_blocker=magnifier
-	magnifier.closed.connect(func():
-		if opened:orbit.set_process_input(true))
+	magnifier.visibility_changed.connect(_sync_observation)
+
+func _sync_observation() -> void:
+	if viewport == null:
+		return
+	var running: bool = visible and opened and not magnifier.visible
+	viewport.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE if running else SubViewport.UPDATE_DISABLED
+	orbit.set_process(running)
+	orbit.set_process_input(running)
+	set_process(visible and opened)
+	for preview in joint_choices.previews.values() + length_gallery.previews.values():
+		preview.set_suspended(not running)
 
 func show_connection(piece_id: String, length: String = "", animate: bool = false, joint_type: String = "", review_installed: bool = false, released_pose: Variant = null, audible := false) -> void:
 	if not is_instance_valid(source_view) or not source_view.pieces.has(piece_id) or piece_id == "keel": return
+	if root == null:
+		_build()
 	length=length if length in ["short","correct","long"] else ""
 	var preserve_angle := opened and animated_piece_id == piece_id
 	_keep_drag_framing=preserve_angle and released_pose is Transform3D and not piece_id.begins_with("rib_")
@@ -205,7 +219,7 @@ func show_connection(piece_id: String, length: String = "", animate: bool = fals
 	close_button.text="返回骨架"
 	opened=true
 	show()
-	viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS
+	_sync_observation()
 	retry_button.visible=not observation_mode
 	retry_button.disabled=animate
 	if observation_mode:
@@ -243,7 +257,7 @@ func show_connection(piece_id: String, length: String = "", animate: bool = fals
 		if released_pose is Transform3D:slide_time=clampf(released_pose.origin.distance_to(final.origin)*.24,.12,.55)
 		_motion.tween_interval(.04 if released_pose is Transform3D else .3)
 		_motion.tween_property(animated_piece,"transform",final,slide_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		if audible:_motion.tween_callback(func():preload("res://shared/seating_audio.gd").play(self))
+		if audible:_motion.tween_callback(func():preload("res://audio/seating_audio.gd").play(self))
 		_motion.tween_callback(_finish_trial_review)
 	elif not observation_mode:_finish_trial_review()
 	_update_guide()
@@ -425,7 +439,9 @@ func _set_transparent(node: Node, enabled: bool) -> void:
 	InspectionGeometry.set_transparent(node,enabled)
 
 func close() -> void:
-	preload("res://shared/seating_audio.gd").cancel(self)
+	if root == null:
+		return
+	preload("res://audio/seating_audio.gd").cancel(self)
 	magnifier.close()
 	if is_instance_valid(_motion): _motion.kill()
 	if is_instance_valid(orbit): orbit.deactivate()
@@ -433,6 +449,7 @@ func close() -> void:
 	opened=false
 	if is_instance_valid(viewport): viewport.render_target_update_mode=SubViewport.UPDATE_DISABLED
 	hide()
+	_sync_observation()
 	closed.emit()
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -497,7 +514,8 @@ func _update_guide() -> void:
 		if not observation_mode:area=close_button
 		elif selected_joint.is_empty():area=joint_choices
 		elif selected_length.is_empty():area=length_gallery
-	step_guide.show_target(area)
+	var candidates: Array = joint_buttons.values() if area == joint_choices else length_buttons.values() if area == length_gallery else []
+	step_guide.show_target(area, candidates)
 	for button in [lesson_button,close_button,xray_button,replay_button,zoom_bar.zoom_in,zoom_bar.zoom_out,zoom_bar.reset_button]:button.disabled=_animating
 	StepGuide.action(retry_button,not observation_mode and not _animating and not _review_only)
 	retry_button.visible=retry_button.modulate.a>0

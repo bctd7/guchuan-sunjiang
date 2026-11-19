@@ -37,13 +37,15 @@ func tap(button: Button, touch := false) -> void:
 func run() -> void:
 	surface=SubViewport.new();surface.size=Vector2i(1920,1080);surface.own_world_3d=true;surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS
 	root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign)
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign)
 	await settle()
 	var shared_button=campaign.back_button.get_instance_id()
 	for chapter in [1,2,3]:
 		await tap(campaign.chapter_buttons[chapter])
-		var level=campaign.instances[chapter]
+		var level=campaign.current_chapter
 		check(level.learning.opened,"chapter entry intro visible")
+		check(not level.workbench_ready and level.view == null and level.panel == null,
+			"introduction allocates no ship workbench")
 		check(campaign.back_button.is_visible_in_tree(),"intro directory return visible")
 		check(campaign.back_button.text=="返回主界面","intro button text")
 		check(campaign.back_button.get_instance_id()==shared_button,"reuse existing operating-screen return instance")
@@ -60,9 +62,9 @@ func run() -> void:
 			surface.get_texture().get_image().save_png("res://intro-chapter-%d.png"%chapter)
 		await tap(campaign.back_button,true)
 		check(campaign.active_level==0 and campaign.menu.visible,"touch returns to main directory")
-		check(not campaign.instances.has(chapter) and not is_instance_valid(level),"return frees current round")
+		check(campaign.current_chapter == null and not is_instance_valid(level),"return frees current round")
 		await tap(campaign.chapter_buttons[chapter])
-		level=campaign.instances[chapter]
+		level=campaign.current_chapter
 		await tap(level.learning.start_button)
 		check(not level.learning.modal_open(),"start reaches workshop")
 		check(campaign.back_button.get_instance_id()==shared_button and campaign.back_button.is_visible_in_tree(),"workshop retains same button")
@@ -79,7 +81,7 @@ func run() -> void:
 		await tap(campaign.back_button)
 		check(campaign.menu.visible and campaign.active_level==0,"mouse returns to directory")
 	# The introduction exception must not reveal navigation above other modals.
-	await tap(campaign.chapter_buttons[1]);var level=campaign.instances[1]
+	await tap(campaign.chapter_buttons[1]);var level=campaign.current_chapter
 	await tap(level.learning.start_button)
 	level.panel.success_panel.show();await settle()
 	check(not campaign.navigation.visible,"result modal still hides campaign navigation")
@@ -88,4 +90,6 @@ func run() -> void:
 	await tap(campaign.back_button)
 	print("INTRO_RETURN: %d passed, %d failed"%[passed,failed])
 	campaign.free();surface.free()
+	root.get_node("GameAudio").music.stop()
+	await create_timer(.2).timeout
 	quit(0 if failed==0 else 1)

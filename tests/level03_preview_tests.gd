@@ -11,23 +11,16 @@ func run() -> void:
 	level = load("res://levels/level03/level03.tscn").instantiate()
 	root.add_child(level)
 	level.learning.start_button.pressed.emit()
-	await capture("zrail")
-	level.state.selected = "leg"
-	level.state.placed = ["zrail"]
-	level._refresh()
-	await capture("leg")
-	level.state.stage_idx = 1
-	level.state.selected = "top"
-	level.state.placed = ["zrail","leg","mast","apron"]
-	level._refresh()
-	await capture("top")
-	level.state.stage_idx = 2
-	level.state.selected = "lbrace"
-	level.state.placed.append("top")
-	level._refresh()
-	await capture("L")
+	level.panel.set_observed(true)
+	for id in ["top","zrail","leg","lbrace"]:
+		var index: int = level.state.Rules.ORDER.find(id)
+		level.state.selected = id
+		level.state.stage_idx = level.state.Rules.SPECS[id].stage
+		level.state.placed = level.state.Rules.ORDER.slice(0,index)
+		level._refresh()
+		await capture(id)
 	level.state.selected = "blade"
-	level.state.placed.append_array(["lbrace","rudder","blade"])
+	level.state.placed = level.state.Rules.ORDER.duplicate()
 	level._refresh()
 	level.view.animate_place("blade")
 	await create_timer(.4).timeout

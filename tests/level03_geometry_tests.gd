@@ -66,12 +66,12 @@ func run() -> void:
 	level.learning.start_button.pressed.emit()
 	await process_frame
 	var view = level.view
-	var frame = view.stages[0]
-	var fork = view.stages[1].get_node("MastTopForkAndTwinTenons")
+	var frame = view.stages[1]
+	var fork = view.stages[0].get_node("KeelMountedFork")
 	var post = view.stages[2].get_node("SternPostSteppedSocket")
-	check(not inside(frame.get_node("MastBedSquareSocket"),Vector3(2.7,.7,2.5)),"mast bed has actual open square cavity")
-	check(inside(frame.get_node("MastBedSquareSocket"),Vector3(2.7,.2,2.5)),"mast socket retains solid bottom")
-	check(not inside(fork,Vector3(0,.1,0)),"mast-top fork gap really open")
+	check(not inside(view.pieces.top,Vector3(0,1.5,0)),"mast bed has actual open square cavity")
+	check(inside(view.pieces.top,Vector3(0,1.0,0)),"mast socket retains solid bottom")
+	check(not inside(fork,Vector3(0,.1,0)),"keel fork gap really open")
 	check(inside(fork,Vector3(0,-.3,0)),"fork gap has supporting lower shoulder")
 	check(inside(fork,Vector3(0,.45,.3)) and inside(fork,Vector3(0,.45,-.3)),"two distinct top tenons")
 	check(not inside(view.pieces.top,Vector3(0,.5,.3)) and not inside(view.pieces.top,Vector3(0,.5,-.3)),"top board has two actual underside sockets")
@@ -87,7 +87,7 @@ func run() -> void:
 	check(not inside(view.pieces.lbrace,Vector3(2.3,0,0)),"round opening continues through timber below bearing")
 	sweep(view.pieces.zrail,[frame.get_node("ShipZong_xrail")],Vector3(0,0,1.65),"horizontal miter rail path stays clear")
 	sweep(view.pieces.leg,[frame.get_node("ShipZong_xrail"),view.pieces.zrail],Vector3(0,-1.65,0),"long/short corner tenons enter from below without collision")
-	sweep(view.pieces.mast,[frame.get_node("MastBedSquareSocket")],Vector3(0,1.6,0),"square mast foot enters actual bed")
+	sweep(view.pieces.mast,[view.pieces.top],Vector3(0,1.6,0),"square mast foot enters actual bed")
 	sweep(view.pieces.apron,[fork],Vector3(0,1.1,0),"apron drops between fork cheeks")
 	sweep(view.pieces.top,[fork,view.pieces.apron],Vector3(0,1.4,0),"support board receives fork twin tenons")
 	sweep(view.pieces.lbrace,[post],Vector3(1.65,0,0),"stepped L beam enters matching stepped slot")

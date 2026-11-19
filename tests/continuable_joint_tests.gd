@@ -11,8 +11,8 @@ func run() -> void:
  if gpu:root.mode=Window.MODE_MINIMIZED
  DirAccess.make_dir_recursive_absolute("res://tests/evidence/continuable-joints")
  surface=SubViewport.new();surface.size=Vector2i(1440,900);surface.own_world_3d=true;surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
- campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.3)
- await button(campaign.chapter_buttons[2]);level=campaign.instances[2];await button(level.learning.start_button)
+ campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.3)
+ await button(campaign.chapter_buttons[2]);level=campaign.current_chapter;await button(level.learning.start_button)
  var kind:="cross_lap"
  for code in ["A","B","C"]:
   await prepare("plank_0a")

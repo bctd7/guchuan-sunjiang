@@ -15,6 +15,8 @@ func verify_guide(guide: Control, target: Control, expected: String) -> void:
 func verify_transparent_previews(gallery: Control) -> void:
 	RenderingServer.force_draw(false)
 	for preview in gallery.previews.values():
+		check(preview.viewport.render_target_update_mode == SubViewport.UPDATE_DISABLED,
+			"stationary joint card retains its last frame without ongoing rendering")
 		var image: Image = preview.viewport.get_texture().get_image()
 		check(image.get_pixel(2, 2).a < 0.01, "joint card renders without a filled preview background")
 		var model_pixels := 0
@@ -36,14 +38,16 @@ func verify_level_two_spacing(ui: CanvasLayer) -> void:
 		var magnify: Rect2 = ui.gallery.inspect_buttons[id].get_global_rect()
 		check(card.encloses(magnify), "magnify stays inside its joint type card")
 func run() -> void:
-	root.set_flag(Window.FLAG_NO_FOCUS,true);root.mode=Window.MODE_MINIMIZED
+	root.set_flag(Window.FLAG_NO_FOCUS,true)
+	root.mode=Window.MODE_MINIMIZED
+	await create_timer(.35).timeout
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
 	surface=SubViewport.new();surface.size=Vector2i(1920,1080);surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign)
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign)
 	await settle()
 	for chapter in [1,2,3]:
-		await click(campaign.chapter_buttons[chapter]);var level=campaign.instances[chapter]
+		await click(campaign.chapter_buttons[chapter]);var level=campaign.current_chapter
 		await click(level.learning.start_button)
 		if chapter==1:
 			await click(level.panel.inspect_button)
@@ -104,6 +108,7 @@ func run() -> void:
 			await click(ui.overview_button)
 		await click(level.panel.restart_button)
 		await click(campaign.back_button)
-	var report={"failures":failures,"images":images,"method":"1920x1080 and 960x600 GPU with Viewport pointer input"}
+	var report={"failed":failures.size(),"failures":failures,"images":images,"renderer":DisplayServer.get_name(),
+		"host_had_focus":root.has_focus(),"method":"1920x1080 and 960x600 GPU with Viewport pointer input"}
 	FileAccess.open(OUT+"guide-report.json",FileAccess.WRITE).store_string(JSON.stringify(report,"  "))
 	print("GUIDE ",JSON.stringify(report));campaign.free();surface.free();quit(0 if failures.is_empty() else 1)

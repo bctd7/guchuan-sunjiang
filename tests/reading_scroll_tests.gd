@@ -70,10 +70,10 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute("res://tests/evidence/reading-scroll")
 	root.set_flag(Window.FLAG_NO_FOCUS,true)
 	surface=SubViewport.new();surface.size=Vector2i(1920,1080);surface.own_world_3d=true;surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle()
 	for chapter in [1,2,3]:
 		campaign.open_level(chapter);await settle()
-		var level=campaign.instances[chapter]
+		var level=campaign.current_chapter
 		await audit(level.learning._scroll,"intro-"+str(chapter))
 		var observe: Button=level.learning.lesson_buttons.values()[0]
 		var point: Vector2=observe.get_global_rect().get_center()
@@ -84,7 +84,7 @@ func run() -> void:
 		await touch(point,true);await touch(point,false);await settle()
 		check(not level.learning._scroll.is_visible_in_tree(),"intro touch tap opens lesson")
 		if chapter==1:
-			var presenter=preload("res://classroom/science/presenter.gd").new()
+			var presenter=preload("res://components/teaching/classroom/science/presenter.gd").new()
 			surface.add_child(presenter)
 			presenter.configure(level.learning.workshop.assembly)
 			presenter.enabled=true

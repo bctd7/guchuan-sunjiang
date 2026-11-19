@@ -55,7 +55,8 @@ func prepare(id: String,layout: String="") -> void:
 	await button(level.panel.joint_buttons[level.Rules.expected(id)])
 	await button(level.panel.opening_buttons["A" if wrong_opening_run and id=="plank_0a" else level.state.Openings.target(id)])
 	if not layout.is_empty() and id.ends_with("a") and level.Rules.row_for(id)>0:
-		await button(level.panel.layout_buttons[layout])
+		# Inject the former layout variant to keep coverage of the trial verdict.
+		level.state.choose_layout(layout)
 	if id=="plank_1a":
 		var chosen_layout: String=level.state.layout
 		await button(level.panel.overview_button)
@@ -73,9 +74,9 @@ func wait_motion() -> void:
 			saw_approach=true
 			check(not level.state.checked and not level.state.completed and not level.state.failed,"wave approach precedes verdict")
 		if level.view.trial.phase=="impact":
-			if gpu and not captured_phases.has("impact"+str(level.view.trial.leak_rows.is_empty())):
-				captured_phases["impact"+str(level.view.trial.leak_rows.is_empty())]=true
-				await capture("wave-impact-"+("dry" if level.view.trial.leak_rows.is_empty() else "leaking"))
+			if gpu and not captured_phases.has("impact"+str(level.view.trial.presentation_snapshot().seam_rows.is_empty())):
+				captured_phases["impact"+str(level.view.trial.presentation_snapshot().seam_rows.is_empty())]=true
+				await capture("wave-impact-"+("dry" if level.view.trial.presentation_snapshot().seam_rows.is_empty() else "leaking"))
 			saw_impact=true
 			if level.view.trial.drops.get_child_count()>0 and not saw_leaking_motion:
 				var before: Vector3=level.view.trial.drops.get_child(0).position

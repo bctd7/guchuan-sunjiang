@@ -1,7 +1,7 @@
 extends SceneTree
-const Assembly = preload("res://core/assembly.gd")
-const Interaction = preload("res://core/interaction.gd")
-const InsertionPath = preload("res://core/insertion_path.gd")
+const Assembly = preload("res://components/teaching/assembly/assembly.gd")
+const Interaction = preload("res://components/teaching/assembly/interaction.gd")
+const InsertionPath = preload("res://components/teaching/assembly/insertion_path.gd")
 var passed := 0
 var failed := 0
 
@@ -26,9 +26,9 @@ func check_locked(assembly: Node3D, id: String, label: String) -> void:
 	check(not assembly.set_part_pose(id, Transform3D.IDENTITY), label + ": pose input rejected")
 	check(not assembly.rotate_part(id, Vector3.UP, 0.2), label + ": rotation rejected")
 	check(not assembly.advance_insertion(id, -100.0), label + ": reverse input rejected")
-	check(not assembly.begin_insertion(id) and not assembly.insert_part(id, true), label + ": reengagement rejected")
+	check(not assembly.begin_insertion(id) , label + ": reengagement rejected")
 	check(not assembly.can_remove(id), label + ": removal unavailable")
-	check(not assembly.remove_part(id) and not assembly.remove_part(id, true), label + ": both removal APIs rejected")
+	check(not assembly.remove_part(id) , label + ": removal is rejected")
 	assembly.cancel_motion()
 	check(assembly.parts[id].transform.is_equal_approx(before), label + ": all rejected input retains pose")
 
@@ -96,7 +96,7 @@ func test_catalog(assembly: Node3D, catalog: Array) -> void:
 				if not ready: continue
 				check(assembly.set_part_pose(id, assembly.entrance_pose(id)), "collision-safe catalog approach " + id)
 				check(assembly.candidate(id).ok, "catalog entry eligible " + id)
-				check(assembly.insert_part(id, true), "legacy instant flag only calibrates " + id)
+				check(assembly.begin_insertion(id), "legacy instant flag only calibrates " + id)
 				check(assembly.is_guided(id) and is_zero_approx(float(assembly.progress[id])), "guide starts at zero " + id)
 				check(assembly.parts[id].transform.is_equal_approx(assembly.entrance_pose(id)), "engagement does not insert " + id)
 				check(not assembly.occupied.has(id) and assembly.moving.is_empty(), "no occupancy or autonomous motion before final input")
@@ -111,7 +111,7 @@ func test_catalog(assembly: Node3D, catalog: Array) -> void:
 					assembly.cancel_motion()
 					check(assembly.is_guided(id), "pause preserves guided state")
 					check_unchanged(assembly, id, paused, paused_progress, "pause")
-					check(assembly.begin_insertion(id) and assembly.insert_part(id, true), "repeat API engagement preserves stroke")
+					check(assembly.begin_insertion(id) and assembly.begin_insertion(id), "repeat API engagement preserves stroke")
 					check_unchanged(assembly, id, paused, paused_progress, "reengage")
 					check(assembly.advance_insertion(id, -length * 0.05), "reverse before final lock")
 					check(assembly.parts[id].position.is_equal_approx(assembly.paths[id].sample(assembly.progress[id])), "position equals model-distance sample")
@@ -358,12 +358,10 @@ func test_guided_input(assembly: Node3D) -> void:
 	check(input.grab_local.is_equal_approx(grab), "adapter retains actual local grab position")
 	input.release(pointer)
 	check(assembly.is_editable("moving") and assembly.parts.moving.transform.is_equal_approx(entry), "click-release without motion does not calibrate or insert")
-	var signals := {"locked":0,"disassembled":0,"reset":0}
+	var signals := {"locked":0,"reset":0}
 	var locked_callback := func(_id: String): signals.locked += 1
-	var removed_callback := func(_id: String): signals.disassembled += 1
 	var reset_callback := func(): signals.reset += 1
 	assembly.connection_succeeded.connect(locked_callback)
-	assembly.disassembled.connect(removed_callback)
 	assembly.reset_completed.connect(reset_callback)
 	var enter := InputEventKey.new()
 	enter.keycode = KEY_ENTER
@@ -420,11 +418,10 @@ func test_guided_input(assembly: Node3D) -> void:
 	input.release()
 	check(not input.begin_drag("moving",pointer), "permanent lock cannot be regrabbed")
 	check(not assembly.advance_manual("moving",-10) and not assembly.remove_part("moving"), "compatibility APIs cannot reverse final lock")
-	check(signals.disassembled == 0 and signals.locked == 1, "denied removal never emits disassembly or repeated success")
+	check(signals.locked == 1, "denied removal never emits disassembly or repeated success")
 	assembly.reset()
 	check(signals.reset == 1 and assembly.is_editable("moving"), "reset signals and restores free round")
 	assembly.connection_succeeded.disconnect(locked_callback)
-	assembly.disassembled.disconnect(removed_callback)
 	assembly.reset_completed.disconnect(reset_callback)
 	input.free()
 	view.free()

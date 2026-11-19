@@ -10,7 +10,7 @@ func connected_stock(top: Node3D) -> bool:
    if not reached.has(i) and Contact.intersects(cell,cells[i],.00001):reached.append(i)
  return reached.size()==cells.size()
 func run():
- var level=load("res://levels/level02/level02.tscn").instantiate();root.add_child(level)
+ var level=load("res://levels/level02/level02.tscn").instantiate();root.add_child(level);level.learning.start_button.pressed.emit()
  var probe:=Probe.new();var records: Array=[]
  var fixed: Array=[]
  for node in level.view.fixed.values():fixed.append_array(Contact.meshes(node,node.transform))
@@ -20,7 +20,7 @@ func run():
   var middle: Node3D=level.view.pieces[id]
   for option in ["A","B","C"]:
    level.state.choose_opening(option)
-   var top: Node3D=level.view.lock_templates[id]
+   var top: Node3D=level.view.lock_templates[id].instantiate()
    check(connected_stock(top),"paired top remains one connected piece of wood "+id+"/"+option)
    var obstacles:=fixed.duplicate();obstacles.append_array(Contact.meshes(middle,seat))
    var cells: Array=[]
@@ -45,7 +45,9 @@ func run():
    check(not penetrates(top,seat,fixed,probe),"completed paired top does not penetrate the receiver "+id+"/"+option)
    var wrong:=seat;wrong.origin.y-=.01
    check(penetrates(top,wrong,fixed,probe) or penetrates(top,wrong,Contact.meshes(middle,seat),probe),"paired top bears on actual joint wood "+id+"/"+option)
-  var c_top: Node3D=level.view.lock_templates[id]
+   top.free()
+  var template: PackedScene=level.view.lock_templates[id]
+  var c_top: Node3D=template.instantiate()
   for option in ["A","B"]:
    level.state.choose_opening(option)
    var obstacles:=fixed.duplicate();obstacles.append_array(Contact.meshes(middle,seat));var cells: Array=[]
@@ -53,7 +55,8 @@ func run():
    var unmatched:=Contact.blocked(c_top,seat,Vector3.UP,cells,level.view.StarterLock.PARK_HEIGHT)
    check(unmatched.distance>.05,"unmatched C top remains blocked: fitting needs real paired geometry "+id+"/"+option)
   level.state.choose_opening("C")
-  check(level.view.lock_templates[id]==c_top,"reselecting a pair reuses its immutable top "+id)
+  check(level.view.lock_templates[id]==template,"reselecting a pair reuses its immutable top "+id)
+  c_top.free()
  probe.free();level.free()
  var report={"passed":passed,"failed":failures.size(),"failures":failures,"cases":records,"scope":"Independent triangle/containment oracle: all six paired ABC assemblies fully seat against the fixed hull, retain connected wood, lock the middle and engage the rail. Unmatched C tops remain blocked by A/B as counterfactual controls."}
  FileAccess.open("res://tests/starter_lock_geometry_report.json",FileAccess.WRITE).store_string(JSON.stringify(report,"  "))

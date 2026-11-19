@@ -45,11 +45,11 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
 	surface=SubViewport.new();surface.size=Vector2i(1920,1080);surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign)
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign)
 	await capture("00-menu")
 	for chapter in [1,2,3]:
 		await click(campaign.chapter_buttons[chapter])
-		var level=campaign.instances[chapter]
+		var level=campaign.current_chapter
 		await capture("%d-intro"%chapter)
 		for id in level.learning.lesson_ids:
 			await click(level.learning.lesson_buttons[id])

@@ -17,51 +17,41 @@
 | 项目 | 当前实际配置 |
 |---|---|
 | 引擎 | 历史运行环境为 Godot 4.7.2 标准版；工程声明 4.7，无 .NET 工程 |
-| 主入口 | [project.godot](../../project.godot) → `res://startup/startup.tscn` 循环播放欢迎片 → 点击「开始体验」 → `res://campaign/campaign.tscn` |
+| 主入口 | [project.godot](../../project.godot) → `res://app/startup/startup.tscn` 循环播放欢迎片 → 点击「开始体验」 → `res://app/campaign/campaign.tscn` |
 | 渲染 | `gl_compatibility`，MSAA 3D=2 |
 | 逻辑窗口 | 1920×1080，默认全屏，`canvas_items` + `keep`；船坊沿用 1440×900 内部坐标等比居中，不横向拉伸；见 [展览部署](EXHIBITION_DEPLOYMENT.md) |
-| 默认字体 | `res://shared/fonts/default_font.tres`，内置字体和 OFL 许可保留 |
-| 独立课堂 | `res://classroom/classroom.tscn`，原九种教材可独立使用 |
+| 默认字体 | `res://assets/fonts/default_font.tres`，内置字体和 OFL 许可保留 |
+| 独立课堂 | `res://components/teaching/classroom/classroom.tscn`，原九种教材可独立使用 |
 
 运行场景无需 Blender；重新生成部分网格才需要 Godot CSG、Python/NumPy/SciPy 或 Blender，具体看[教材模型说明](../../models/joinery/README.md)。资源 `.uid` 与 `.import` 设置随资产保留，`.godot/` 为本机导入缓存。
 
 ## 3. 目录与职责
 
-| 目录/模块 | 职责 | 边界 |
-|---|---|---|
-| `campaign/` | 关卡目录、实例缓存、完成徽标、导航 | 不判断具体榫卯是否正确 |
-| `levels/level01/` | 龙骨规则、示范/补齐状态、选材观察、骨架视图、故事 | 当前有长度与整关检测；不等于新混合选材已实现 |
-| `levels/level02/` | 铺板顺序、榫型/开口/排布、端缝校验、船壳和隔舱视图 | 独立拖动、真实模型端缝标记、试浪和隔舱小课堂；没有真实流体求解 |
-| `levels/level03/` | 工作台依赖、候选、装配与试舵 | 安装角度/受力选择尚未实现 |
-| `levels/shared/` | 教学接入、失败面板、观察页外壳/相机和可旋转预览 | 关卡状态各自独立 |
-| `models/ship/keel,hull,rigging` | 三关船用实体/展示几何及烘焙资产 | 与课堂教材网格分开 |
-| `models/joinery/` | catalog、九类教材/21 个木件网格、预览、定义、生成与检查 | 教学选型，不代表古船原位复原 |
-| `classroom/` | 课堂协调、介绍与文案、显示、界面、受力科普 | 不直接持有各关建船进度 |
-| `core/` | 教材 Assembly、交互、路径、碰撞、指针与相机 | 教材装配与船关装配状态独立 |
-| `shared/` | 来源呈现恢复、中文字体、共享主题/界面 | 不提供统一造船状态 |
-| `tests/` | 规则、几何、输入、生命周期与视觉夹具及历史证据 | 夹具可能写 `res://`，使用隔离副本 |
+| 目录 | 职责 |
+|---|---|
+| `app/` | 欢迎片、空闲回退、章节目录与导航 |
+| `levels/` | 统一关卡接口，以及各关自己的规则、进度、装配和场景 |
+| `models/` | 教材和船用几何、材质、尺寸、碰撞与资源复用 |
+| `components/` | UI、候选预览、手势、放大及教学 |
+| `audio/` | 音频播放、音量设置、音乐与音效 |
+| `assets/` | 图片、字体、欢迎视频 |
+| `tests/`、`docs/` | 自动回归与设计记录 |
 
-## 4. 调用和状态流
+## 4. 运行流程
 
 ```text
-project.godot → campaign/campaign.tscn → campaign.gd
-    → level01 / level02 / level03 协调器
-        → 本关 State → 本关 Rules
-        → 本关 UI / 输入 / View → models/ship
-        → levels/shared/teaching_portal
-            → shared/source_presentation（保存/恢复来源呈现与输入）
-            → classroom/introduction + content
-            → classroom/classroom
-                → core/interaction + core/assembly
-                → models/joinery/catalog.json
-                → display / ui / science
+project.godot → 欢迎片 → 章节目录 → 当前关卡的介绍
+                                      ↓ 开始本关
+                            关卡状态 / 规则 → 船体、输入、UI
+                                      ↓ 观察 / 放大
+                               共用组件 → 共享模型资源
 ```
 
-这是调用与职责示意，不表示所有箭头是相同的信号或继承关系。通常输入由关卡协调器调用 State/Rules，再由 UI 和 View 表现；逻辑接受一次放置早于动画最终落位，协调器还需等待 Tween 完成才允许后续或验收，不能只用逻辑件数替代落位完成。
+目录监听 `ShipChapter` 的 `completion_changed` 和 `navigation_changed`，同时持有一个关卡节点。加载失败时保留当前场景。成功切换或返回目录时释放旧节点。教学介绍先创建教学内容，开始搭建后才建立船体，第一次观察才创建选材预览。放大与结果视口随弹窗创建和释放。教学往返恢复来源页面、相机和浅推状态。
 
-`campaign.gd` 先确认资源存在、实例满足关卡接口，再切换场景；加载/接口失败时保留原关卡与进度并显示可重试提示，释放无效的新实例。它首次实例化关卡并连接 `progress_changed`、`return_requested`；返回目录调用 `leave()`，禁用并释放离开的实例、清除该关完成徽标；重进创建新实例并调用 `enter()`。通过 `is_completed()` 更新徽标和下一关，通过 `navigation_status()` 决定模态界面期间的外层导航。退出时释放未挂树的缓存实例。
+候选预览在模型、相机或尺寸变化时刷新一帧，动画期间连续渲染，隐藏时停止。第二关尺寸图监听预览比例、尺寸和数据变化。船用模型资源通过限量的 PackedScene 缓存复用；每次实例化拥有独立节点、位置和交互状态。历史章节从下一节起按实施日期记录。
 
-当前三个关卡平行开放，每关状态互不代替；目录往返重新开始，重开只重置本关。没有磁盘存档或云同步。重进会经过本关介绍入口，从初始状态开始；关卡内部讲解返回仍保留进度。
+空闲回退由 `app/exhibition.gd` 的单次计时器管理，窗口输入只记录最近活动。欢迎片和目录内的介绍重播会暂停计时。进入目录或关闭介绍后重新开始计时。
 
 ## 5. 三关实际状态与规则
 
@@ -71,13 +61,13 @@ project.godot → campaign/campaign.tscn → campaign.gd
 | 2 | 顺序十件/三组、正常四次拖动；选榫、选同型开口；原选材自动补齐、固定错缝、深度阈值松手安装；模型接缝标记 | 全部落位后先试浪再 validate；对齐端缝及错误开口对应位置显示移动水滴，失败重开或回目录；重开取消旧动效/回调 |
 | 3 | 三工作台、八件依赖；每步选择候选，错误类型拒装；舵叶装好后记录左右试舵 | 两向达到当前 ±30° 才完成；没有错误装好后的倾倒状态或下水展示 |
 
-第一/二关共用 `levels/shared/assembly_failure.gd` 面板。失败后导航往返保留失败状态；第一关重开取消旧插入/补齐/晃动回调，避免污染新轮。第三关仍是不同的拒装/试舵机制，不能把共享面板存在推断成三关规则已统一。
+第一、二关的失败面板与三关的成功面板使用 `components/ui/chapter_result.gd`。返回目录结束本轮，重新进入时开始新一轮。第一关重开取消旧插入、补齐和晃动回调。第三关通过拒装和试舵处理装配结果。
 
 第三关规则当前粽角用于桅座、夹头用于帆桁，与书面指定相反；[第三关需求](LEVEL03_REQUIREMENTS.md)将其列为待确认差异。既有试舵范围只代表运动参数，不是安装卡牢角度。
 
 ## 6. 教学、几何与受力展示
 
-`levels/shared/teaching_portal.gd` 管理本关三课及返回位置；`shared/source_presentation.gd` 保存来源显隐、输入开关与相机，课堂往返恢复。介绍布局位于 `classroom/introduction/`，文案位于 `classroom/content/`。课堂公开 `open_joint(id)`、模态状态与相机接口；独立 Assembly 不修改船体进度。
+`components/teaching/teaching_portal.gd` 管理本关三课和返回位置。同目录下的 `source_presentation.gd` 保存来源显隐、输入开关与相机。介绍布局和文案位于 `components/teaching/classroom/` 的 `introduction/` 与 `content/`。课堂公开 `open_joint(id)`、模态状态与相机接口。独立 Assembly 管理课堂装配进度。
 
 教材原网格与碰撞属于 core/Assembly；课堂 display 管理显示副本与材质。第一关观察器的副本/透明/接触定位辅助位于 `levels/level01/inspector/inspection_geometry.gd`。`candidate_geometry` 仍依赖来源 View 的原件保护，当前不是完全独立的几何层；兼容字段仍保留供测试读取。
 
@@ -200,4 +190,4 @@ runner 默认执行 import，并支持 `core / levels / classroom / campaign / a
 
 ## 统一结果页（2026-11-18）
 
-`levels/shared/chapter_result.gd` 承担三关成功与前两关现有失败呈现；`assembly_failure.gd` 复用其布局。结果只读复制当前可见木件，真实失败原因来自原判定。第一、二关通过 `next_requested` 由 campaign 校验后进入下一关，第三关返回目录。结果显示期间 campaign 导航隐藏，复用原音效订阅。验证范围及截图见 [结果页验证](../../tests/RESULT_PAGES_VERIFICATION.md)。
+`components/ui/chapter_result.gd` 呈现三关成功与前两关失败结果。打开结果页时创建视口并复制可见木件，失败原因来自关卡判定。第一、二关通过 `next_requested` 进入下一关，第三关返回目录。结果显示期间章节导航隐藏。验证范围及截图见 [结果页验证](../../tests/RESULT_PAGES_VERIFICATION.md)。

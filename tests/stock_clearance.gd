@@ -1,7 +1,7 @@
 extends Node
 ## Independent observer: broad OBB followed by core triangle/containment guard.
 ## It does not use the production convex SAT solver.
-const Guard=preload("res://core/mesh_collision_guard.gd")
+const Guard=preload("res://components/teaching/assembly/mesh_collision_guard.gd")
 var guard=Guard.new()
 var registered: Dictionary={}
 var pair_cache: Dictionary={}

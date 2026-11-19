@@ -15,9 +15,9 @@ func run() -> void:
 	var effects=SeaTrial.new();scene.add_child(effects);effects.setup()
 	var tween: Tween=effects.play(plan);tween.set_speed_scale(8)
 	plan.seam_rows.clear();plan.seam_poses.clear();plan.connection_points.clear();plan.loose_parts[0].rest=Transform3D.IDENTITY
-	check(effects.leak_rows==[0] and effects.opening_points==[Vector3(4,5,6)] and effects.loose_ids==["wrong"],"trial snapshots input without a HullView or State")
-	var ids: Array=effects.loose_ids;ids.clear()
-	check(effects.loose_ids==["wrong"],"diagnostic queries cannot mutate presentation")
+	check(effects.presentation_snapshot().seam_rows==[0] and effects.presentation_snapshot().connection_points==[Vector3(4,5,6)] and effects.presentation_snapshot().loose_parts[0].id=="wrong","trial snapshots input without a HullView or State")
+	var snapshot = effects.presentation_snapshot(); snapshot.loose_parts.clear()
+	check(effects.presentation_snapshot().loose_parts[0].id=="wrong","diagnostic queries cannot mutate presentation")
 	var deadline:=Time.get_ticks_msec()+2000;var moved:=false
 	while tween.is_running() and Time.get_ticks_msec()<deadline:
 		if effects.phase=="impact" and not part.transform.is_equal_approx(rest):moved=true
@@ -30,7 +30,7 @@ func run() -> void:
 	deadline=Time.get_ticks_msec()+1500
 	while effects.phase!="impact" and Time.get_ticks_msec()<deadline:await process_frame
 	effects.cancel();await create_timer(.4).timeout
-	check(effects.phase=="idle" and effects.loose_ids.is_empty() and effects.drops.get_child_count()==0 and part.transform.is_equal_approx(rest),"cancel restores poses and old callbacks cannot restart effects")
+	check(effects.phase=="idle" and effects.presentation_snapshot().loose_parts.is_empty() and effects.drops.get_child_count()==0 and part.transform.is_equal_approx(rest),"cancel restores poses and old callbacks cannot restart effects")
 	part.free();effects.cancel();scene.free()
 	var report={"passed":passed,"failed":failures.size(),"failures":failures}
 	FileAccess.open("res://tests/sea_trial_presentation_report.json",FileAccess.WRITE).store_string(JSON.stringify(report));print("TRIAL_PRESENTATION ",JSON.stringify(report));quit(0 if failures.is_empty() else 1)

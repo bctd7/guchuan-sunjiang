@@ -69,7 +69,7 @@ func run() -> void:
 		check(three_overlap(0,"C",1,option)<.000001,"wrong middle lower mouth still fits lower member "+option)
 		check(three_overlap(1,option,2,"A")>.00001,"wrong middle upper channel physically blocks the final member "+option)
 	for option in ["B","C"]:check(three_overlap(0,"C",2,option)>.00001,"wrong final mouth physically interferes with lower member "+option)
-	var level=load("res://levels/level02/level02.tscn").instantiate();root.add_child(level)
+	var level=load("res://levels/level02/level02.tscn").instantiate();root.add_child(level);level.learning.start_button.pressed.emit()
 	for id in level.Rules.IDS:
 		var models: Array=[]
 		for option in Openings.OPTIONS:models.append(level.view.candidate_opening(id,option))

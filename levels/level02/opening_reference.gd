@@ -2,10 +2,10 @@ extends RefCounted
 ## Read the actual interface for the current assembly, not just the task name.
 ## A/B/C never changes the measured receiver. Adapted starter joints use their
 ## actual local connection, not the later standard joint's dimensions.
-const Dimensions=preload("res://levels/level02/opening_dimensions.gd")
-const Contact=preload("res://levels/level02/trial_contact.gd")
+const Dimensions=preload("res://components/ui/measurements/opening_dimensions.gd")
+const Contact=preload("res://models/ship/hull/trial_contact.gd")
 const Starter=preload("res://models/ship/hull/starter_joint.gd")
-const Section=preload("res://levels/level02/opening_section.gd")
+const Section=preload("res://models/ship/hull/opening_section.gd")
 
 static func build(view,state) -> Dictionary:
  var id: String=state.selected

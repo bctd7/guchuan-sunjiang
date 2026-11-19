@@ -1,27 +1,23 @@
-extends Node3D
-signal next_requested
-signal progress_changed
+extends "res://levels/chapter.gd"
 ## Chapter coordinator: routes intent; state owns all acceptance rules.
-signal level_completed
-signal return_requested
 const State = preload("res://levels/level02/level_state.gd")
 const Rules = preload("res://levels/level02/connection_rules.gd")
 const View = preload("res://levels/level02/hull_view.gd")
 const LevelPanel = preload("res://levels/level02/level_ui.gd")
 const Touch = preload("res://levels/level02/hull_drag_interaction.gd")
 const BulkheadLesson=preload("res://levels/level02/bulkhead_lesson.gd")
-const Learning = preload("res://levels/shared/teaching_portal.gd")
 var bulkhead_lesson: CanvasLayer
-var learning: CanvasLayer
 var state = State.new()
 var view: Node3D
 var panel: CanvasLayer
-var busy := false
 var _trial_generation := 0
 var _placement_tween: Tween
 var interaction: Node
 
-func _ready() -> void:
+func _init() -> void:
+	chapter_number = 2
+
+func _build_workbench() -> void:
 	view = View.new()
 	add_child(view)
 	panel = LevelPanel.new()
@@ -58,31 +54,31 @@ func _ready() -> void:
 		if not busy and not state.failed:
 			var depth: float=view.preview_progress
 			interaction.cancel();view.inspect_selected();view.set_preview_progress(depth);_refresh())
-	panel.layout_selected.connect(func(id: String):
-		if not busy and not state.failed:
-			interaction.cancel()
-			state.choose_layout(id))
 	panel.undo_requested.connect(_undo)
 	panel.restart_requested.connect(_restart)
 	panel.check_requested.connect(_check)
 	panel.return_requested.connect(_return_to_directory)
-	panel.continue_requested.connect(_return_to_directory)
 	panel.bulkhead_requested.connect(func():
-		if not busy and not state.failed: bulkhead_lesson.show_lesson(interaction))
+		if not busy and not state.failed: bulkhead_lesson.show_lesson(interaction, interaction.suspend_gesture))
 	panel.lesson_requested.connect(func():
 		if not busy and not state.failed: learning.show_intro())
 	state.changed.connect(_refresh)
-	state.changed.connect(func(): progress_changed.emit())
+	state.changed.connect(update_completion)
 	_refresh()
-	learning = Learning.new()
-	add_child(learning)
-	learning.configure(2,view,panel,interaction)
+	learning.bind_source(view, panel, interaction, view.camera, interaction.suspend_gesture)
+	panel.return_button.visible = not directory_managed
+	panel.success_panel.visibility_changed.connect(request_navigation_update)
 	panel.success_panel.bind(self,2,true)
 	panel.success_panel.next_requested.connect(func():next_requested.emit())
+	panel.failure_overlay.visibility_changed.connect(request_navigation_update)
 	panel.failure_overlay.bind(self,2,false)
-	preload("res://shared/seating_audio.gd").bind_results(self,panel.success_panel,panel.failure_overlay)
+	preload("res://audio/seating_audio.gd").bind_results(self,panel.success_panel,panel.failure_overlay)
 	bulkhead_lesson=BulkheadLesson.new()
 	add_child(bulkhead_lesson)
+	bulkhead_lesson.root.visibility_changed.connect(request_navigation_update)
+	panel.workspace.visibility_changed.connect(request_navigation_update)
+	panel.inventory_panel.visibility_changed.connect(request_navigation_update)
+	panel.magnifier.visibility_changed.connect(request_navigation_update)
 
 func _zoom_observation(factor: float) -> void:
 	if busy or state.failed or interaction.dragging or not view.inspected or panel.magnifier.visible or learning.modal_open() or bulkhead_lesson.opened:return
@@ -170,6 +166,7 @@ func _refresh() -> void:
 	view.sync_state(state)
 	panel.refresh(state,view.inspected,busy,view.transparent)
 	panel.drag_guide.configure(view,view.inspected and not state.failed and not busy)
+	request_navigation_update()
 	interaction.set_process_input(not state.failed and not panel.magnifier.visible)
 	interaction.set_process_unhandled_input(not state.failed and not panel.magnifier.visible)
 
@@ -204,7 +201,7 @@ func _try_socket(id: String) -> Dictionary:
 		_placement_tween=view.animations[id]
 		_placement_tween.finished.connect(func():
 			if generation!=_trial_generation:return
-			preload("res://shared/seating_audio.gd").play(self)
+			preload("res://audio/seating_audio.gd").play(self)
 			busy=false
 			_placement_tween=null
 			_refresh()
@@ -284,7 +281,7 @@ func _complete_group(representative: String) -> void:
 	panel.feedback(result.message);_refresh()
 	_placement_tween.finished.connect(func():
 		if generation!=_trial_generation:return
-		preload("res://shared/seating_audio.gd").play(self)
+		preload("res://audio/seating_audio.gd").play(self)
 		_complete_group(representative))
 
 func _check() -> void:
@@ -309,14 +306,13 @@ func _finish_trial() -> void:
 	panel.feedback(result.message,not result.ok)
 	if result.ok:
 		panel.success_panel.show()
-		level_completed.emit()
 	elif state.failed:
 		interaction.cancel()
 		panel.success_panel.hide()
 		panel.failure_overlay.open()
 
 func _cancel_placement() -> void:
-	preload("res://shared/seating_audio.gd").cancel(self)
+	preload("res://audio/seating_audio.gd").cancel(self)
 	_trial_generation+=1
 	interaction.cancel()
 	if is_instance_valid(_placement_tween): _placement_tween.kill()
@@ -324,11 +320,7 @@ func _cancel_placement() -> void:
 	view.cancel_animations()
 	busy=false
 
-# Campaign contract. Reentry keeps this instance and its gameplay state.
-func enter() -> void:
-	learning.show_intro()
-
-func leave() -> void:
+func _leave_workbench() -> void:
 	panel.magnifier.close()
 	bulkhead_lesson.close()
 	interaction.cancel()
@@ -336,8 +328,8 @@ func leave() -> void:
 func is_completed() -> bool:
 	return state.completed
 
-func navigation_status() -> Dictionary:
-	return {"modal_open": panel.success_panel.visible or panel.failure_overlay.visible or learning.modal_open() or bulkhead_lesson.opened or view.inspected or panel.inventory_open or panel.magnifier.visible, "can_leave": not busy, "intro_open": learning.opened}
+func _workbench_modal_open() -> bool:
+	return panel.success_panel.visible or panel.failure_overlay.visible or bulkhead_lesson.opened or view.inspected or panel.inventory_open or panel.magnifier.visible
 
 func _show_overview() -> void:
 	panel.observation_orbit.deactivate()

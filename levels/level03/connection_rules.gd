@@ -1,17 +1,21 @@
 extends RefCounted
 ## Pure rules. Scene geometry never grants an installation.
-const ORDER = ["zrail", "leg", "mast", "apron", "top", "lbrace", "rudder", "blade"]
-const STAGES = [["zrail","leg","mast"],["apron","top"],["lbrace","rudder","blade"]]
-const TITLES = ["桅座框 · 三向锁合", "桅顶夹座 · 承托帆桁", "船尾舵架 · 固定与转动"]
+const ORDER = ["apron", "top", "mast", "zrail", "leg", "lbrace", "rudder", "blade"]
+const STAGES = [["apron","top","mast"],["zrail","leg"],["lbrace","rudder","blade"]]
+const TITLES = ["龙骨桅座 · 夹头榫", "桅顶帆桁 · 粽角榫", "船尾舵架 · 穿榫"]
 const SPECS = {
-	"zrail":{"label":"桅座抹头", "joint":"zong_corner", "stage":0, "deps":[], "hint":"大边已固定。抹头沿 −Z 合上 45° 肩；下面的长短榫槽暂时敞开。"},
-	"leg":{"label":"桅座角腿", "joint":"zong_corner", "stage":0, "deps":["zrail"], "hint":"角腿从下向上装；两个垂直长短榫分别进入深浅槽，三向斜肩收合。"},
-	"mast":{"label":"桅杆方脚", "joint":"square_foot", "stage":0, "deps":["leg"], "hint":"三向框锁好后，桅杆方脚从上落入桅座方槽。"},
-	"apron":{"label":"帆桁牙条", "joint":"clamp_head", "stage":1, "deps":["mast"], "hint":"桅顶是叉腿本体。先把牙条向下夹入叉口；顶端双榫仍然露出。"},
-	"top":{"label":"帆桁承托板", "joint":"clamp_head", "stage":1, "deps":["apron"], "hint":"承托板的底部双槽套住叉腿顶端双榫；板上帆桁随板一起固定。"},
-	"lbrace":{"label":"舵架固定横撑", "joint":"l_through", "stage":2, "deps":["top"], "hint":"选择阶梯 L 型穿榫。前端小榫穿出，后段大榫留在较深槽内。"},
-	"rudder":{"label":"无叶圆舵轴", "joint":"round_axle", "stage":2, "deps":["lbrace"], "hint":"无叶直圆轴从上穿过轴承；顶端止推肩留在孔上。轴径 0.34 / 孔径 0.40。"},
-	"blade":{"label":"侧装舵叶", "joint":"sleeve_pin", "stage":2, "deps":["rudder"], "hint":"从船外侧把舵叶半夹套推向轴脚，再合另一半并固定销。夹套/销是可拆机械连接，不是本关三种榫卯。"}
+	"apron":{"label":"桅座横牙条", "joint":"clamp_head", "stage":0, "deps":[], "hint":"龙骨上的叉口向上敞开。选一根能夹在两片叉口中间的牙条。"},
+	"top":{"label":"桅座承托板", "joint":"clamp_head", "stage":0, "deps":["apron"], "hint":"板底的两个槽要套住叉口两侧，中央的方槽留给桅脚。"},
+	"mast":{"label":"桅杆方脚", "joint":"square_foot", "stage":0, "deps":["top"], "hint":"让桅脚落进承托板中央的方槽，桅杆才能站直。"},
+	"zrail":{"label":"帆桁横木", "joint":"zong_corner", "stage":1, "deps":["mast"], "hint":"把帆桁的斜肩与桅顶横档合上，再从另一面锁住接头。"},
+	"leg":{"label":"帆桁角撑", "joint":"zong_corner", "stage":1, "deps":["zrail"], "hint":"帆的重量向下压。看看哪一面能托住帆桁，再把角撑推入。"},
+	"lbrace":{"label":"舵架固定横撑", "joint":"l_through", "stage":2, "deps":["leg"], "hint":"较小的榫尖穿出船尾柱，较宽的榫肩留在槽里。"},
+	"rudder":{"label":"圆舵轴", "joint":"round_axle", "stage":2, "deps":["lbrace"], "hint":"先调舵轴的角度，再让它顺着圆孔穿过去。"},
+	"blade":{"label":"侧装舵叶", "joint":"sleeve_pin", "stage":2, "deps":["rudder"], "hint":"从侧面合上两半夹套，用木销把舵叶固定在舵轴上。"}
+}
+const SETTINGS = {
+	"leg": {"question":"帆的重量向下压。角撑放在哪一侧？", "options":["从上面压住", "从下面托住"], "correct":1, "retry":"角撑放在上侧，帆桁下方悬空。换一侧试试。"},
+	"rudder": {"question":"船尾的轴孔竖直。怎样放入舵轴？", "options":["竖直对孔 · 0°", "斜放 · 20°"], "correct":0, "retry":"舵轴斜着顶住孔壁，无法转舵。把轴扶直再试。"}
 }
 const NAMES = {"zong_corner":"粽角榫", "clamp_head":"夹头榫", "l_through":"L 型穿榫", "through_tenon":"普通直透榫", "square_foot":"方脚直榫", "round_axle":"圆轴", "blind_tenon":"短直榫", "sleeve_pin":"侧装夹套 / 销"}
 static func candidates(id: String) -> Array:
@@ -26,7 +30,7 @@ static func evaluate(id: String, socket: String, joint: String, placed: Array, s
 	if int(SPECS[id].stage) != stage: return _result(false,"wrong_stage","先完成当前工作台。")
 	for dependency in SPECS[id].deps:
 		if not placed.has(dependency): return _result(false,"dependency","先完成前面的木件；装配顺序不能倒置。")
-	if joint.is_empty(): return _result(false,"unselected","先观察三件候选的真实榫头，再选一种。")
+	if joint.is_empty(): return _result(false,"unselected","先观察候选木件，再选一种。")
 	if joint != SPECS[id].joint: return _result(false,"wrong_joint","榫头形状与这处槽口不合，已拒绝装入。换一种再试。")
 	return _result(true,"placed",str(SPECS[id].label)+"已按正确方向装好。")
 static func _result(ok: bool, code: String, message: String) -> Dictionary:

@@ -1,20 +1,20 @@
 extends CanvasLayer
-const StepGuide=preload("res://levels/shared/step_guide.gd")
+const StepGuide=preload("res://components/ui/step_guide.gd")
 var step_guide: Control
 var main_guide: Control
-const ExhibitLayout=preload("res://shared/ui/exhibition_layout.gd")
-const ZoomBar=preload("res://levels/shared/inspection_zoom_bar.gd")
+const ExhibitLayout=preload("res://components/ui/exhibition_layout.gd")
+const ZoomBar=preload("res://components/preview/inspection_zoom_bar.gd")
 ## Overview presents the current task; a separate inspection page owns model choices.
-const Magnifier=preload("res://levels/shared/model_magnifier.gd")
-const Workspace=preload("res://levels/shared/inspection_workspace.gd")
+const Magnifier=preload("res://components/preview/model_magnifier.gd")
+const Workspace=preload("res://components/ui/inspection_workspace.gd")
 const OpeningGallery=preload("res://levels/level02/opening_gallery.gd")
 const OpeningReference=preload("res://levels/level02/opening_reference.gd")
-const OpeningMeasure=preload("res://levels/level02/opening_measure_panel.gd")
-const ObservationOrbit=preload("res://levels/shared/inspection_orbit.gd")
-const Style=preload("res://shared/ui/workshop_ui_style.gd")
-const Controls=preload("res://levels/shared/chapter_ui.gd")
-const Friendly=preload("res://shared/ui/friendly_theme.gd")
-const Failure=preload("res://levels/shared/assembly_failure.gd")
+const OpeningMeasure=preload("res://components/ui/measurements/opening_measure_panel.gd")
+const ObservationOrbit=preload("res://components/preview/inspection_orbit.gd")
+const Style=preload("res://components/ui/workshop_ui_style.gd")
+const Controls=preload("res://components/ui/chapter_ui.gd")
+const Friendly=preload("res://components/ui/friendly_theme.gd")
+const ChapterResult=preload("res://components/ui/chapter_result.gd")
 const Gallery=preload("res://levels/level02/joint_gallery.gd")
 const DragGuide=preload("res://levels/level02/drag_guide.gd")
 const Rules=preload("res://levels/level02/connection_rules.gd")
@@ -26,7 +26,6 @@ signal joint_selected(id: String)
 signal opening_selected(id: String)
 signal camera_reset_requested
 signal reset_observation_requested
-signal layout_selected(id: String)
 signal observe_requested
 signal overview_requested
 signal transparent_requested
@@ -36,7 +35,6 @@ signal undo_requested
 signal restart_requested
 signal check_requested
 signal return_requested
-signal continue_requested
 var magnifier: Control
 var zoom_in_button: Button
 var zoom_out_button: Button
@@ -49,6 +47,7 @@ var local_viewport: SubViewport
 var observation_orbit: Control
 var opening_gallery: Control
 var opening_measure: Control
+var _measurement_key: Array = []
 var opening_buttons: Dictionary={}
 var reset_observation_button: Button
 var options_panel: VBoxContainer
@@ -65,7 +64,6 @@ var inventory_open: bool:
 var group_buttons: Dictionary={}
 var next_piece_button: Button
 var joint_buttons: Dictionary={}
-var layout_buttons: Dictionary={}
 var observe_button: Button
 var observer_undo_button: Button
 var overview_button: Button
@@ -74,18 +72,14 @@ var undo_button: Button
 var restart_button: Button
 var check_button: Button
 var return_button: Button
-var continue_button: Button
 var bulkhead_button: Button
 var lesson_button: Button
 var feedback_label: Label
-var observer_feedback: Label
 var title_label: Label
 var header_label: Label
 var task_label: Label
 var selection_label: Label
 var stage_label: Label
-var layout_title: Label
-var layout_note: Label
 var drag_guide: Control
 var gallery: Control
 var success_panel: ColorRect
@@ -113,6 +107,11 @@ func _ready() -> void:
 	_build_observer()
 	_build_modals()
 	magnifier=Magnifier.new();root_control.add_child(magnifier)
+	step_guide.blocker = magnifier
+	drag_guide.guidance_blocker = magnifier
+	magnifier.visibility_changed.connect(_sync_local_scene)
+	success_panel.visibility_changed.connect(_sync_local_scene)
+	failure_overlay.visibility_changed.connect(_sync_local_scene)
 	get_viewport().size_changed.connect(_fit_layout)
 	tree_entered.connect(_fit_layout.call_deferred)
 	_fit_layout()
@@ -136,7 +135,7 @@ func _button(parent: Node,text: String,primary:=false) -> Button:
 	Style.button(button,primary)
 	return button
 func _build_overview() -> void:
-	var chrome=preload("res://levels/shared/chapter_chrome.gd").build(main_chrome,2,"船板合壳","这组木料","水密隔舱小课堂")
+	var chrome=preload("res://components/ui/chapter_chrome.gd").build(main_chrome,2,"船板合壳","这组木料","水密隔舱小课堂")
 	main_header=chrome.header;main_sidebar=chrome.side;main_footer=chrome.footer
 	header_label=chrome.title;task_label=chrome.task;stage_label=chrome.stage;selection_label=chrome.piece
 	return_button=chrome.back;observe_button=chrome.observe;bulkhead_button=chrome.story
@@ -177,8 +176,6 @@ func _build_overview() -> void:
 func _build_observer() -> void:
 	title_label=workspace.title
 	step_guide=StepGuide.new();workspace.add_child(step_guide)
-	step_guide.blocker=magnifier
-	drag_guide.guidance_blocker=magnifier
 	main_guide=StepGuide.new();main_chrome.add_child(main_guide)
 	lesson_button=workspace.button(workspace.header,"本关榫卯讲解")
 	lesson_button.pressed.connect(func():lesson_requested.emit())
@@ -194,24 +191,16 @@ func _build_observer() -> void:
 	options_panel=workspace.options
 	opening_measure=OpeningMeasure.new();options_panel.add_child(opening_measure)
 	opening_gallery=OpeningGallery.new();options_panel.add_child(opening_gallery);opening_buttons=opening_gallery.buttons
+	opening_measure.bind_gallery(opening_gallery)
 	reset_observation_requested.connect(opening_gallery.reset_view)
 	opening_gallery.chosen.connect(func(id: String):opening_selected.emit(id))
 	opening_gallery.inspect_requested.connect(func(id: String):magnify_requested.emit(opening_gallery.previews[id],"开口候选 · 木料 "+id))
-	layout_title=workspace.label(options_panel,"板端位置",18)
-	layout_note=workspace.label(options_panel,"",16);layout_note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	var positions:=HBoxContainer.new();options_panel.add_child(positions)
-	positions.hide()
-	for id in ["A","B"]:
-		var button=workspace.button(positions,"端缝靠左" if id=="A" else "端缝靠右")
-		button.toggle_mode=true;button.custom_minimum_size=Vector2(140,44);button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-		Workspace.neutral_selection(button);layout_buttons[id]=button;button.pressed.connect(func():layout_selected.emit(id))
 	local_viewport=SubViewport.new();local_viewport.own_world_3d=true;local_viewport.size=Vector2i(1000,490);local_viewport.gui_disable_input=true;local_viewport.msaa_3d=Viewport.MSAA_4X
 	workspace.viewport_container.add_child(local_viewport)
 	observation_orbit=ObservationOrbit.new();workspace.stage_surface.add_child(observation_orbit)
 	observation_orbit.mouse_filter=Control.MOUSE_FILTER_IGNORE;observation_orbit.set_process_input(false)
 	drag_guide.reparent(workspace.stage_surface,false)
 	drag_guide.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	observer_feedback=workspace.status
 	transparent_button=workspace.button(workspace.actions,"看槽口");transparent_button.toggle_mode=true
 	transparent_button.pressed.connect(func():transparent_requested.emit())
 	reset_observation_button=workspace.button(workspace.actions,"重新观察")
@@ -251,11 +240,10 @@ func _build_modals() -> void:
 			_shade.hide()
 			group_selected.emit(index))
 	inventory_panel.hide()
-	success_panel=preload("res://levels/shared/chapter_result.gd").new()
+	success_panel=ChapterResult.new()
 	root_control.add_child(success_panel)
-	continue_button=success_panel.restart_button
 	success_panel.return_requested.connect(func():return_requested.emit())
-	failure_overlay=Failure.new()
+	failure_overlay=ChapterResult.new()
 	root_control.add_child(failure_overlay)
 	failure_restart_button=failure_overlay.restart_button
 	failure_return_button=failure_overlay.return_button
@@ -264,6 +252,10 @@ func _build_modals() -> void:
 func refresh(state,inspected: bool,busy:=false,revealed:=false) -> void:
 	current=state
 	_inspected=inspected
+	if inspected and joint_buttons.is_empty():
+		gallery.build_cards()
+		opening_gallery.build_cards()
+		_fit_layout()
 	main_chrome.visible=not inspected
 	observer_chrome.visible=inspected
 	_shade.visible=inventory_panel.visible
@@ -307,17 +299,22 @@ func refresh(state,inspected: bool,busy:=false,revealed:=false) -> void:
 		joint_buttons[id].disabled=locked or starter_top or installed or automatic_pending or not state.observed.has(state.selected)
 		joint_buttons[id].set_pressed_no_signal(state.joint==id)
 		joint_buttons[id].modulate=Color.WHITE
-	if not installed and not busy:observer_feedback.text=""
+	if not installed and not busy:workspace.show_feedback("")
 	var review: bool=installed and not busy
 	title_label.text=("这一处已试装 · " if review else "观察 · ")+Rules.label_for(state.selected)
 	if state.failed:
 		title_label.text=failure_overlay.title.text+" · "+Rules.label_for(state.selected)
-	gallery.configure_task(Rules.expected(state.selected))
 	gallery.visible=not review
 	options_panel.visible=not review and not starter_top
-	if is_instance_valid(current_view):
+	if inspected and is_instance_valid(current_view):
 		opening_gallery.configure(current_view,state)
-		opening_measure.configure(current_view.receiving_dimensions(state.selected),OpeningReference.build(current_view,state),opening_gallery)
+		var dimensions: Dictionary = current_view.receiving_dimensions(state.selected)
+		var key := [state.selected, current_view.opening_geometry_id(state.selected), dimensions]
+		if state.selected == "three_upper":
+			key.append(state.placed.get("three_middle"))
+		if key != _measurement_key:
+			_measurement_key = key
+			opening_measure.configure(dimensions, OpeningReference.build(current_view,state))
 	for id in opening_buttons:opening_buttons[id].disabled=locked or starter_top or installed or automatic_pending or state.joint.is_empty()
 	for button in gallery.inspect_buttons.values():button.disabled=locked
 	for button in opening_gallery.inspect_buttons.values():button.disabled=locked or state.joint.is_empty()
@@ -330,16 +327,7 @@ func refresh(state,inspected: bool,busy:=false,revealed:=false) -> void:
 	transparent_button.visible=inspected
 	transparent_button.set_pressed_no_signal(revealed)
 	transparent_button.text="返回装配视野" if revealed else "看槽口"
-	# The complete board group uses staggered stock; there is no separate
-	# per-row choice after the representative has been installed.
-	layout_title.visible=false
-	layout_note.visible=false
-	layout_note.text="上下排短接缝需要错开。" if row>0 else "底列从左侧端缝起铺。"
 	_sync_local_scene()
-	for id in layout_buttons:
-		layout_buttons[id].visible=false
-		layout_buttons[id].disabled=locked or installed or row<1 or state.selected.ends_with("b")
-		layout_buttons[id].set_pressed_no_signal(state.layout==id)
 	var area: Control
 	if not state.failed and not state.completed and not busy:
 		if installed:area=next_piece_button if not state.next_in_group().is_empty() else overview_button
@@ -347,7 +335,8 @@ func refresh(state,inspected: bool,busy:=false,revealed:=false) -> void:
 			if state.joint.is_empty():area=gallery
 			elif state.opening.is_empty():area=opening_gallery
 	drag_guide.selection_ready=not locked and not installed and not state.completed and (starter_top or (not state.joint.is_empty() and not state.opening.is_empty()))
-	step_guide.show_target(area)
+	var candidates: Array = joint_buttons.values() if area == gallery else opening_buttons.values() if area == opening_gallery else []
+	step_guide.show_target(area, candidates)
 	if not inspected:
 		main_guide.show_target(null if locked or state.completed else observe_button)
 	StepGuide.action(next_piece_button,installed and not locked and not state.next_in_group().is_empty())
@@ -357,7 +346,7 @@ func refresh(state,inspected: bool,busy:=false,revealed:=false) -> void:
 
 func feedback(message: String,error:=false) -> void:
 	Controls.feedback(feedback_label,message,error)
-	Controls.feedback(observer_feedback,message,error)
+	workspace.show_feedback(message,error)
 func _fit_layout() -> void:
 	if not is_inside_tree():return
 	var viewport_size:=get_viewport().get_visible_rect().size
@@ -366,7 +355,6 @@ func _fit_layout() -> void:
 	workspace.fit_screen(true)
 	for button in [lesson_button,observer_undo_button,next_piece_button,overview_button,transparent_button,reset_observation_button]:
 		button.custom_minimum_size.y=maxf(60,60/factor)
-	for button in layout_buttons.values():button.custom_minimum_size.y=maxf(44,60/factor)
 	for button in [zoom_in_button,zoom_out_button,zoom_reset_button]:
 		button.custom_minimum_size.y=maxf(60,60/factor)
 	for button in [zoom_in_button,zoom_out_button]:button.custom_minimum_size.x=maxf(60,60/factor)
@@ -389,8 +377,12 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _sync_local_scene() -> void:
-	if is_instance_valid(local_viewport):local_viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS if _inspected and visible else SubViewport.UPDATE_DISABLED
-	if is_instance_valid(observation_orbit):observation_orbit.set_process(_inspected and visible)
+	var active := _inspected and visible and not (magnifier.visible or success_panel.visible or failure_overlay.visible)
+	local_viewport.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE if active else SubViewport.UPDATE_DISABLED
+	observation_orbit.set_process(active)
+	drag_guide.set_process(active and drag_guide.enabled)
+	for preview in gallery.previews.values() + opening_gallery.previews.values():
+		preview.set_suspended(not active)
 
 func update_zoom(factor: float) -> void:
 	zoom_label.text="%d%%"%roundi(100.0/factor)

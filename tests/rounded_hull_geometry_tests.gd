@@ -2,7 +2,7 @@ extends SceneTree
 ## Independent edge-incidence check: exposed loft surfaces must be closed.
 const G=preload("res://models/ship/hull/ship_geometry.gd")
 const Supports=preload("res://models/ship/hull/support_geometry.gd")
-const Contact=preload("res://levels/level02/trial_contact.gd")
+const Contact=preload("res://models/ship/hull/trial_contact.gd")
 var checked:=0
 var failures: Array[String]=[]
 func closed(mesh: Mesh,label: String) -> void:

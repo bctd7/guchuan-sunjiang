@@ -6,7 +6,7 @@ func check(value: bool,label: String):
  else:failures.append(label);push_error(label)
 func _initialize():run.call_deferred()
 func run():
- var l=load("res://levels/level02/level02.tscn").instantiate();root.add_child(l)
+ var l=load("res://levels/level02/level02.tscn").instantiate();root.add_child(l);l.learning.start_button.pressed.emit()
  var records: Array=[]
  for target in ["cross_upper","three_middle","three_upper","bulkhead"]:
   for option in ["A","B","C"]:

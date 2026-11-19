@@ -24,7 +24,7 @@ func run() -> void:
 	root.set_flag(Window.FLAG_NO_FOCUS, true)
 	var audio := root.get_node("GameAudio")
 	for mode in ["loop", "missing", "stalled"]:
-		var boot := preload("res://startup/startup.tscn").instantiate()
+		var boot := preload("res://app/startup/startup.tscn").instantiate()
 		if mode == "missing":
 			boot.video_path = "res://missing.ogv"
 		change_scene_to_node(boot)
@@ -50,8 +50,10 @@ func run() -> void:
 		check(boot.skip.text == "开始体验" and not boot.skip.disabled, "Start is available")
 		await click(boot.skip.get_global_rect().get_center())
 		await process_frame
-		check(current_scene != null and current_scene.scene_file_path == "res://campaign/campaign.tscn",
+		check(current_scene != null and current_scene.scene_file_path == "res://app/campaign/campaign.tscn",
 			"%s enters the directory after Start" % mode)
 		check(not audio.music.stream_paused, "%s restores music" % mode)
 	print("STARTUP_WELCOME ", JSON.stringify(failures))
+	audio.music.stop()
+	await create_timer(.2).timeout
 	quit(0 if failures.is_empty() else 1)

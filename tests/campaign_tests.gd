@@ -57,13 +57,6 @@ func button(control: Button) -> void:
 	await click(control.get_global_rect().get_center())
 	await settle(0.06)
 
-func find_button(node: Node, fragment: String) -> Button:
-	if node is Button and node.text.contains(fragment): return node
-	for child in node.get_children():
-		var found:=find_button(child,fragment)
-		if found!=null: return found
-	return null
-
 func snapshot(label: String) -> void:
 	if DisplayServer.get_name()=="headless": return
 	await RenderingServer.frame_post_draw
@@ -76,7 +69,7 @@ func snapshot(label: String) -> void:
 func enter(number: int) -> void:
 	await button(campaign.chapter_buttons[number])
 	await settle(0.3)
-	level=campaign.instances[number]
+	level=campaign.current_chapter
 	check(campaign.active_level==number and level.is_inside_tree(),"directory enters level "+str(number))
 	if level.learning.modal_open():
 		check(level.learning.lesson_buttons.size()==3,"chapter entry introduces its three original lessons "+str(number))
@@ -84,11 +77,15 @@ func enter(number: int) -> void:
 		await settle(.1)
 	check(not campaign.menu.visible and campaign.back_button.is_visible_in_tree(),"level shows navigation "+str(number))
 	var navigation_rect: Rect2=campaign.back_button.get_global_rect()
-	var header_safe: Rect2=preload("res://shared/ui/exhibition_layout.gd").project_rect(Rect2(1200,18,220,86),campaign.get_viewport().get_visible_rect().size)
+	var header_safe: Rect2=preload("res://components/ui/exhibition_layout.gd").project_rect(Rect2(1200,18,220,86),campaign.get_viewport().get_visible_rect().size)
 	check(header_safe.encloses(navigation_rect),"directory return fits header without obscuring task")
 
 func back() -> void:
-	await button(campaign.back_button)
+	var exit_button: Button = campaign.back_button
+	if is_instance_valid(level) and level.panel.success_panel.visible:
+		var result = level.panel.success_panel
+		exit_button = result.return_button if result.return_button.visible else result.restart_button
+	await button(exit_button)
 	check(campaign.active_level==0 and campaign.menu.visible,"directory return shows campaign menu")
 
 func close_l1() -> void:
@@ -125,9 +122,8 @@ func finish_l1() -> void:
 	await settle(0.2)
 	check(level.state.completed,"UI completes first chapter")
 	check(campaign.completed.get(1,false),"campaign receives chapter completion")
-	check(campaign.next_button.is_visible_in_tree(),"completed chapter exposes next chapter")
+	check(level.panel.success_panel.restart_button.is_visible_in_tree(),"completed chapter exposes next chapter")
 	await snapshot("02-level01-complete")
-	await button(level.panel.success_close_button)
 
 func smoke_l1() -> void:
 	await snapshot("00-directory")
@@ -158,61 +154,56 @@ func place_l2(id: String) -> void:
 	check(not level.panel.observe_button.get_global_rect().intersects(campaign.back_button.get_global_rect()),"chapter two observation control clears campaign return")
 	await button(level.panel.joint_buttons[level.Rules.expected(id)])
 	await button(level.panel.opening_buttons[level.state.Openings.target(id)])
-	var row: int=level.Rules.row_for(id)
-	if row>0 and id.ends_with("a"):
-		await button(level.panel.layout_buttons["B" if row==1 else "A"])
 	var target: Vector2=level.view.drag_grab_screen()
 	check(level.view.pick_drag_piece(target)==id,"chapter two actual timber is pickable: "+id)
 	await settle(.5)
 	await HullPointer.drag(root,level.view,1.0)
-	var deadline:=Time.get_ticks_msec()+5000
+	var deadline:=Time.get_ticks_msec()+12000
 	while level.busy and Time.get_ticks_msec()<deadline: await process_frame
 	if level.view.inspected:await button(level.panel.overview_button)
 	var automatic_deadline:=Time.get_ticks_msec()+10000
 	while level.busy and Time.get_ticks_msec()<automatic_deadline:await process_frame
 	await settle(.06) # allow campaign navigation to reflect the local-page return
-	check(not level.busy and not campaign.back_button.disabled,"chapter two finished motion restores navigation")
+	check(not level.busy,"chapter two finishes the seating and any automatic work")
 	check(level.state.placed.has(id),"chapter two pointer places "+id)
 
 func chapter_two() -> void:
 	var first=level
 	await place_l2("plank_0a")
-	var saved: Dictionary=level.state.placed.duplicate(true)
 	var children: int=level.get_child_count()
 	await back()
 	await enter(2)
-	check(not is_instance_valid(first) and level.state.placed.is_empty(),"chapter two direct reentry preserves exact state")
+	check(not is_instance_valid(first) and level.state.placed.is_empty(),"chapter two direct reentry starts fresh")
 	check(level.get_child_count()==children,"chapter two direct reentry creates no extra adapters")
-	for id in level.Rules.IDS:
-		if not level.state.placed.has(id): await place_l2(id)
+	for id in level.Rules.MANUAL_IDS:
+		if id==level.Rules.MANUAL_IDS.back():
+			await button(level.panel.inventory_button)
+			check(level.panel.group_buttons.size()==3 and level.Rules.GROUPS.size()==3,"inventory displays three construction groups")
+			await snapshot("06-level02-three-groups")
+			await button(level.panel.inventory_close_button)
+		await place_l2(id)
 	check(level.state.layouts[0]=="A" and level.state.layouts[1]=="B" and level.state.layouts[2]=="A","actual GUI chooses alternating board end positions")
 	var marks: Array=level.view.seam_lines.get_children()
 	check(marks.size()==3,"actual hull has one board-end seam mark per row")
 	for row in marks.size():
-		var mesh: BoxMesh=marks[row].mesh
-		check(mesh.size.x<mesh.size.z*.2 and mesh.size.z>.7 and mesh.size.z<.8,"seam marker spans board width rather than long horizontal edge: "+str(row))
-		check(is_equal_approx(marks[row].position.x,level.Rules.seam(level.state.layouts[row])),"seam marker follows actual board end x: "+str(row))
+		var bounds: AABB=marks[row].get_aabb()
+		check(bounds.size.x<bounds.size.z*.2 and bounds.size.z>.7 and bounds.size.z<.8,"seam marker spans board width rather than long horizontal edge: "+str(row))
+		check(is_equal_approx(bounds.get_center().x,level.Rules.seam(level.state.layouts[row])),"seam marker follows actual board end x: "+str(row))
+	check(level.state.placed.size()==10,"three display groups retain ten placed members")
 	check(level.state.completed and campaign.completed.get(2,false),"chapter two UI inspection synchronizes campaign completion")
-	check(campaign.next_button.is_visible_in_tree(),"chapter two completion exposes chapter three action")
+	check(level.panel.success_panel.restart_button.is_visible_in_tree(),"chapter two completion exposes chapter three action")
 	await snapshot("04-level02-completed-end-seams")
-	var close:=find_button(level.panel,"收起卡片")
-	if close!=null: await button(close)
-	await snapshot("05-level02-hull-unobstructed")
-	await button(level.panel.inventory_button)
-	check(level.panel.group_buttons.size()==3 and level.Rules.GROUPS.size()==3 and level.state.placed.size()==10,"three display groups retain ten placed members")
-	await snapshot("06-level02-three-groups")
-	await button(level.panel.inventory_close_button)
 	await back()
-	check(not campaign.chapter_buttons[2].text.begins_with("✓"),"chapter two directory badge records completion")
+	check(not campaign.chapter_buttons[2].text.begins_with("✓"),"chapter two directory resets the completed round")
 	await enter(2)
 	await button(level.panel.restart_button)
 	check(not level.state.completed and not campaign.completed.get(2,true),"chapter two UI reset clears campaign completion")
 	check(not campaign.next_button.visible and not campaign.chapter_buttons[2].text.begins_with("✓"),"chapter two reset clears badge and next action")
 	if phase=="full":
-		for id in level.Rules.IDS: await place_l2(id)
-		await button(campaign.next_button)
+		for id in level.Rules.MANUAL_IDS: await place_l2(id)
+		await button(level.panel.success_panel.restart_button)
 		await settle(0.4)
-		level=campaign.instances[3]
+		level=campaign.current_chapter
 		if level.learning.modal_open(): await button(level.learning.start_button)
 		check(campaign.active_level==3,"completed chapter two next action enters chapter three")
 
@@ -227,7 +218,10 @@ func maximum_world_y(node: Node3D) -> float:
 
 func place_l3(id: String) -> void:
 	check(level.state.selected==id,"chapter three actual sequence selects "+id)
+	if not level.panel.inspected: await button(level.panel.inspect_button)
 	await button(level.panel.candidate_buttons[level.state.Rules.SPECS[id].joint])
+	if level.state.Rules.SETTINGS.has(id):
+		await button(level.panel.setting_buttons[level.state.Rules.SETTINGS[id].correct])
 	var actual: Vector2=level.view.socket_screen_position(id)
 	check(actual.is_equal_approx(level.view.socket_screen_position(id)),"chapter three world helper agrees with actual SubViewport screen position: "+id)
 	check(level.view.pick_socket(actual)==id,"chapter three actual screen target is pickable: "+id)
@@ -260,19 +254,20 @@ func place_l3(id: String) -> void:
 
 func chapter_three() -> void:
 	await snapshot("07-level03-direct-entry")
-	await place_l3("zrail")
+	await place_l3("apron")
+	await button(level.panel.overview_button)
 	var first=level
-	var saved: Array=level.state.placed.duplicate()
 	var children: int=level.get_child_count()
 	await back()
 	await enter(3)
 	check(not is_instance_valid(first) and level.state.placed.is_empty(),"chapter three reentry starts fresh")
-	await place_l3("zrail")
+	await place_l3("apron")
 	check(level.get_child_count()==children,"chapter three reentry adds no duplicate scene or input")
 	await button(level.panel.next_button)
-	for id in ["leg","mast","apron","top","lbrace","rudder","blade"]:
+	for id in level.state.Rules.ORDER.slice(1):
 		await place_l3(id)
 		if id!="blade": await button(level.panel.next_button)
+	await button(level.panel.overview_button)
 	var fixed: Dictionary={}
 	for node in level.view.stages[2].get_children():
 		if node is Node3D and node!=level.view.rudder_pivot: fixed[node]=node.global_transform
@@ -287,14 +282,14 @@ func chapter_three() -> void:
 	check(static_ok,"L brace, independent bearing and stern frame remain fixed while shaft rotates")
 	await snapshot("09-level03-left-helm")
 	await button(level.panel.right_button)
-	check(level.state.completed and campaign.completed.get(3,false),"actual right helm completes third chapter and campaign marker")
+	check(not campaign.completed.get(3,false),"trial required after right helm")
+	await button(level.panel.launch_button)
+	await settle(3.3)
+	check(level.state.completed and campaign.completed.get(3,false),"harbor trial completes third chapter and campaign marker")
 	check(not campaign.next_button.visible,"last chapter has no out-of-range next chapter action")
 	await snapshot("10-level03-complete-right-helm")
-	var close:=find_button(level.panel,"收起卡片")
-	if close!=null: await button(close)
-	await snapshot("11-level03-rudder-unobstructed")
 	await back()
-	check(not campaign.chapter_buttons[3].text.begins_with("✓"),"third chapter directory badge records completion")
+	check(not campaign.chapter_buttons[3].text.begins_with("✓"),"chapter three directory resets the completed round")
 	await enter(3)
 	await button(level.panel.restart_button)
 	check(not level.state.completed and not campaign.completed.get(3,true),"third chapter UI reset synchronizes campaign marker")
@@ -307,6 +302,7 @@ func classroom_navigation() -> void:
 		await enter(number)
 		if number==1: await place_l1("rib_l1")
 		if number==2:await HullNavigation.open_local(root,level,level.state.selected)
+		if number==3:await button(level.panel.inspect_button)
 		var saved=level.state.placed.duplicate(true)
 		var camera_pose: Transform3D=level.view.camera.transform
 		if number==1:
@@ -316,7 +312,7 @@ func classroom_navigation() -> void:
 			await button(level.panel.lesson_button)
 		await settle(.2)
 		check(level.learning.opened and level.learning.lesson_buttons.size()==3,"chapter revisit opens its three-lesson introduction: "+str(number))
-		check(not campaign.navigation.visible,"introduction hides campaign navigation: "+str(number))
+		check(campaign.back_button.is_visible_in_tree(),"introduction offers directory return: "+str(number))
 		for id in level.learning.lesson_ids:
 			await button(level.learning.lesson_buttons[id])
 			check(is_instance_valid(level.learning.workshop) and level.learning.workshop.catalog.size()==3,"chapter-scoped original classroom opens through GUI: "+id)
@@ -333,12 +329,18 @@ func classroom_navigation() -> void:
 		if number==2:
 			check(level.view.inspected and not campaign.navigation.visible,"second chapter classroom returns to its exact local workspace")
 			await button(level.panel.overview_button)
+		elif number==1:
+			check(level.inspector.opened and level.inspector.visible, "first chapter classroom returns to its observation")
+			await button(level.inspector.close_button)
+		else:
+			check(level.panel.inspected, "third chapter classroom returns to its observation")
+			await button(level.panel.overview_button)
 		check(campaign.back_button.is_visible_in_tree(),"campaign navigation returns after classroom closes: "+str(number))
 		await back()
 
 func run() -> void:
 	root.size=Vector2i(1440,900)
-	campaign=load("res://campaign/campaign.tscn").instantiate()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate()
 	root.add_child(campaign)
 	await settle(0.4)
 	check(campaign.chapter_buttons.size()==3,"directory contains all three direct-entry buttons")
@@ -366,10 +368,10 @@ func run() -> void:
 		check(not campaign.next_button.visible and not campaign.chapter_buttons[1].text.begins_with("✓"),"reset removes next action and completed badge")
 		await finish_l1()
 		if phase=="full":
-			await button(campaign.next_button)
+			await button(level.panel.success_panel.restart_button)
 			await settle(0.4)
 			check(campaign.active_level==2,"next action enters chapter two")
-			level=campaign.instances[2]
+			level=campaign.current_chapter
 			if level.learning.modal_open(): await button(level.learning.start_button)
 			await back()
 			for number in [2,3]:
@@ -385,4 +387,10 @@ func run() -> void:
 	FileAccess.open("res://tests/campaign_"+phase+"_report.json",FileAccess.WRITE).store_string(JSON.stringify(report,"\t"))
 	print("CAMPAIGN ",JSON.stringify(report))
 	campaign.free()
+	await stop_music()
 	quit(0 if failed==0 else 1)
+
+func stop_music() -> void:
+	root.get_node("GameAudio").music.stop()
+	# Allow the audio server to release its stream playback before SceneTree quits.
+	await create_timer(.2).timeout

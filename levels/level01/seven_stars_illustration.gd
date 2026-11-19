@@ -1,6 +1,6 @@
 extends Control
 ## Full-frame story art; not an archaeological reconstruction or assembly geometry.
-const ART = preload("res://levels/level01/assets/seven_stars_story.png")
+const ART = preload("res://assets/images/level01/seven_stars_story.png")
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE

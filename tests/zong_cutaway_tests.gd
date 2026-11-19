@@ -7,7 +7,7 @@ func snapshot(label: String) -> void:
 
 func run() -> void:
 	root.content_scale_size = Vector2i.ZERO
-	demo = load("res://classroom/classroom.tscn").instantiate()
+	demo = load("res://components/teaching/classroom/classroom.tscn").instantiate()
 	root.add_child(demo)
 	for resolution in [Vector2i(1497,930),Vector2i(1440,900),Vector2i(900,1200),Vector2i(640,480)]:
 		root.size = resolution

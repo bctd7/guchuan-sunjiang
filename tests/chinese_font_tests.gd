@@ -1,6 +1,6 @@
 extends SceneTree
 ## Audit actual UI font resources and render campaign paths without desktop input.
-const Fonts = preload("res://shared/chinese_fonts.gd")
+const Fonts = preload("res://components/ui/chinese_fonts.gd")
 var passed := 0
 var failures: Array[String] = []
 var images: Array[String] = []
@@ -87,12 +87,12 @@ func run() -> void:
 	surface.own_world_3d = true
 	surface.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(surface)
-	campaign = load("res://campaign/campaign.tscn").instantiate()
+	campaign = load("res://app/campaign/campaign.tscn").instantiate()
 	surface.add_child(campaign)
 	await capture("01-main-menu")
 	for chapter in range(1, 4):
 		campaign.open_level(chapter)
-		var level: Node = campaign.instances[chapter]
+		var level: Node = campaign.current_chapter
 		await capture("chapter-%d-introduction" % chapter)
 		for id in level.learning.lesson_ids:
 			level.learning.lesson_buttons[id].pressed.emit()

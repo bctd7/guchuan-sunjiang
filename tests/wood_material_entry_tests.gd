@@ -16,11 +16,11 @@ func signature(node: Node) -> Array:
 	return out
 func run() -> void:
 	root.size = Vector2i(1440, 900)
-	var campaign = load("res://campaign/campaign.tscn").instantiate()
+	var campaign = load("res://app/campaign/campaign.tscn").instantiate()
 	root.add_child(campaign)
 	for chapter in range(1,4):
 		campaign.open_level(chapter)
-		var level = campaign.instances[chapter]
+		var level = campaign.current_chapter
 		await process_frame
 		var source: Node3D = level.learning.source_view
 		var environment := source.get_world_3d().environment

@@ -44,10 +44,10 @@ func run() -> void:
 	surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS
 	root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate()
 	surface.add_child(campaign)
 	campaign.open_level(1)
-	level=campaign.instances[1]
+	level=campaign.current_chapter
 	level.learning.start_button.pressed.emit()
 	await capture("01-ready")
 	level.joint_type="blind_tenon"

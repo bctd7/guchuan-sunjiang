@@ -2,7 +2,7 @@ extends "res://tests/drag_input_tests.gd"
 
 func run() -> void:
 	root.size = Vector2i(1440,900)
-	demo = load("res://classroom/classroom.tscn").instantiate()
+	demo = load("res://components/teaching/classroom/classroom.tscn").instantiate()
 	root.add_child(demo)
 	demo.picker.select(6)
 	demo.load_joint(6)

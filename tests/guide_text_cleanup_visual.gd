@@ -7,10 +7,10 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(DEST))
 	root.set_flag(Window.FLAG_NO_FOCUS,true);root.mode=Window.MODE_MINIMIZED
 	surface=SubViewport.new();surface.size=Vector2i(1920,1080);surface.own_world_3d=true;surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle()
 	for n in [1,2,3]:
 		await click(campaign.chapter_buttons[n])
-		var level=campaign.instances[n]
+		var level=campaign.current_chapter
 		await click(level.learning.start_button)
 		if n==1:
 			check(level.panel.get("guidance")==null,"first guide text removed")
@@ -32,7 +32,7 @@ func run() -> void:
 		await click(level.panel.restart_button)
 		if n==1:check(level.panel.feedback_label.text=="龙骨已就位。","restart has no instructions")
 		# Error/status feedback remains literal and visible.
-		var feedback_ui=preload("res://levels/shared/chapter_ui.gd")
+		var feedback_ui=preload("res://components/ui/chapter_ui.gd")
 		feedback_ui.feedback(level.panel.feedback_label,"槽口不匹配。",true)
 		check(level.panel.feedback_label.text=="槽口不匹配。" and level.panel.feedback_label.visible,"error feedback retained "+str(n))
 		campaign._show_menu();await settle()

@@ -1,7 +1,7 @@
 extends CanvasLayer
-const StepGuide=preload("res://levels/shared/step_guide.gd")
+const StepGuide=preload("res://components/ui/step_guide.gd")
 var step_guide: Control
-const ExhibitLayout=preload("res://shared/ui/exhibition_layout.gd")
+const ExhibitLayout=preload("res://components/ui/exhibition_layout.gd")
 ## Main page identifies the current task; all candidate selection lives in the inspector.
 signal undo_requested
 signal restart_requested
@@ -9,10 +9,10 @@ signal return_requested
 signal check_requested
 signal lesson_requested
 signal inspect_requested
-const MainStyle=preload("res://shared/ui/workshop_ui_style.gd")
-const Failure=preload("res://levels/shared/assembly_failure.gd")
-const Controls=preload("res://levels/shared/chapter_ui.gd")
-const Friendly=preload("res://shared/ui/friendly_theme.gd")
+const MainStyle=preload("res://components/ui/workshop_ui_style.gd")
+const ChapterResult=preload("res://components/ui/chapter_result.gd")
+const Controls=preload("res://components/ui/chapter_ui.gd")
+const Friendly=preload("res://components/ui/friendly_theme.gd")
 const Rules=preload("res://levels/level01/connection_rules.gd")
 var root: Control
 var main_chrome: Control
@@ -32,7 +32,6 @@ var restart_button: Button
 var check_button: Button
 var lesson_button: Button
 var success_panel: ColorRect
-var success_close_button: Button
 var failure_overlay: ColorRect
 var failure_panel: PanelContainer
 var failure_title: Label
@@ -52,7 +51,7 @@ func _ready() -> void:
 	main_chrome.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	main_chrome.theme=MainStyle.theme()
 	root.add_child(main_chrome)
-	var chrome=preload("res://levels/shared/chapter_chrome.gd").build(main_chrome,1,"龙骨立架","这件木料","船匠的小故事")
+	var chrome=preload("res://components/ui/chapter_chrome.gd").build(main_chrome,1,"龙骨立架","这件木料","船匠的小故事")
 	main_header=chrome.header;main_sidebar=chrome.side;main_footer=chrome.footer
 	task_title=chrome.task;stage_label=chrome.stage;step_label=chrome.step;selection_label=chrome.piece
 	return_button=chrome.back;inspect_button=chrome.observe;lesson_button=chrome.story
@@ -76,11 +75,10 @@ func _ready() -> void:
 		button.size_flags_horizontal=Control.SIZE_SHRINK_CENTER
 		button.custom_minimum_size=Vector2(148,56)
 		MainStyle.button(button,button==check_button)
-	success_panel=preload("res://levels/shared/chapter_result.gd").new()
+	success_panel=ChapterResult.new()
 	root.add_child(success_panel)
-	success_close_button=success_panel.restart_button
 	success_panel.return_requested.connect(func():return_requested.emit())
-	failure_overlay=Failure.new()
+	failure_overlay=ChapterResult.new()
 	root.add_child(failure_overlay)
 	failure_panel=failure_overlay.panel
 	failure_title=failure_overlay.title

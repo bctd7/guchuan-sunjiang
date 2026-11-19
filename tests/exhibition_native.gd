@@ -8,7 +8,7 @@ func key(code: Key) -> void:
 func run() -> void:
 	var startup:=root.mode
 	if startup!=Window.MODE_FULLSCREEN:failures.append("default native fullscreen")
-	root.add_child(load("res://campaign/campaign.tscn").instantiate())
+	root.add_child(load("res://app/campaign/campaign.tscn").instantiate())
 	await create_timer(2).timeout
 	key(KEY_F11);await create_timer(.5).timeout
 	if root.mode!=Window.MODE_WINDOWED:failures.append("maintenance windowed shortcut")

@@ -1,5 +1,5 @@
 extends SceneTree
-const Contact=preload("res://levels/level02/trial_contact.gd")
+const Contact=preload("res://models/ship/hull/trial_contact.gd")
 const Probe=preload("res://tests/stock_clearance.gd")
 const G=preload("res://models/ship/hull/ship_geometry.gd")
 var passed:=0
@@ -17,7 +17,7 @@ func penetrates(stock: Node3D,pose: Transform3D,obstacles: Array,probe) -> bool:
    if probe.triangles_intersect(first,second):return true
  return false
 func run():
- var level=load("res://levels/level02/level02.tscn").instantiate();root.add_child(level)
+ var level=load("res://levels/level02/level02.tscn").instantiate();root.add_child(level);level.learning.start_button.pressed.emit()
  var probe:=Probe.new()
  var original:=Node3D.new();G.box(original,Vector3(8,.18,.32),Vector3(0,0,-.16),null);G.box(original,Vector3(8,.06,.09),Vector3(0,0,.045),null)
  var uncut:=Contact.meshes(original,level.view.panel_transform())

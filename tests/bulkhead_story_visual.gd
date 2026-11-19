@@ -27,11 +27,11 @@ func run() -> void:
 	surface.own_world_3d = true
 	surface.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(surface)
-	campaign = load("res://campaign/campaign.tscn").instantiate()
+	campaign = load("res://app/campaign/campaign.tscn").instantiate()
 	surface.add_child(campaign)
 	await settle(.2)
 	await button(campaign.chapter_buttons[2])
-	level = campaign.instances[2]
+	level = campaign.current_chapter
 	await button(level.learning.start_button)
 	var before: Dictionary = level.state.placed.duplicate(true)
 	var selected: String = level.state.selected
@@ -59,7 +59,7 @@ func run() -> void:
 		check(illustration.get_global_rect().size.x<=scroll.size.x, "image width fits reading area " + str(dimensions))
 		check(scroll.is_ancestor_of(illustration), "image shares reading scroll " + str(dimensions))
 		check(absf(illustration.size.y - illustration.size.x * float(illustration.ART.get_height()) / illustration.ART.get_width()) <= 1, "uncropped image ratio " + str(dimensions))
-		check(story.root.get_script()==preload("res://levels/shared/story_panel.gd"), "shared first-chapter layout")
+		check(story.root.get_script()==preload("res://components/ui/story_panel.gd"), "shared first-chapter layout")
 		await snapshot("story-" + str(dimensions.x))
 		var bar := scroll.get_v_scroll_bar()
 		for step in 80:

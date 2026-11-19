@@ -46,7 +46,7 @@ func run() -> void:
 	check(guard.motion_is_safe("leg",Transform3D.IDENTITY,parked,assembled),"vertical straight tenons still withdraw -Y before game locking")
 	# Check actual assembly capture/guide/locking state without changing shared code.
 	var definition: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://models/joinery/zong_corner_definition.json"))
-	var assembly = load("res://core/assembly.gd").new()
+	var assembly = load("res://components/teaching/assembly/assembly.gd").new()
 	root.add_child(assembly)
 	assembly.load_definition(definition)
 	check(assembly.candidate("leg").reason == "dependency","leg waits for joined horizontal frame")

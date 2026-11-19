@@ -68,8 +68,8 @@ func run() -> void:
  gpu=OS.get_cmdline_user_args().has("--gpu");root.set_flag(Window.FLAG_NO_FOCUS,true)
  if gpu:root.mode=Window.MODE_MINIMIZED
  surface=SubViewport.new();surface.size=Vector2i(1440,900);surface.own_world_3d=true;surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
- campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.2)
- await button(campaign.chapter_buttons[2]);level=campaign.instances[2];await button(level.learning.start_button)
+ campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.2)
+ await button(campaign.chapter_buttons[2]);level=campaign.current_chapter;await button(level.learning.start_button)
  for target in ["plank_0a","cross_upper","three_middle","three_upper"]:
   for window in [Vector2i(1440,900),Vector2i(960,600)]:
    surface.size=window;await seed_stage(target)

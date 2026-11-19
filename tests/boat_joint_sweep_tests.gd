@@ -1,6 +1,6 @@
 extends SceneTree
 const Boat=preload("res://models/ship/hull/boat_joints.gd")
-const Contact=preload("res://levels/level02/trial_contact.gd")
+const Contact=preload("res://models/ship/hull/trial_contact.gd")
 const Probe=preload("res://tests/stock_clearance.gd")
 var passed:=0
 var failures: Array[String]=[]

@@ -17,7 +17,7 @@ func click(point: Vector2) -> void:
 		surface.push_input(event,true);await process_frame
 	await process_frame
 func raw_enter(number: int) -> void:
-	await button(campaign.chapter_buttons[number]);level=campaign.instances[number];await settle(.1)
+	await button(campaign.chapter_buttons[number]);level=campaign.current_chapter;await settle(.1)
 	check(campaign.active_level==number and level.is_inside_tree(),"actual directory enters chapter "+str(number))
 func inspect_entry(label: String,expected_intro: bool) -> void:
 	await physics_frame
@@ -36,11 +36,11 @@ func inspect_entry(label: String,expected_intro: bool) -> void:
 					if pixels.get_pixel(x,y).a>.1:opaque+=1
 			check(opaque>10,"actual original model pixels visible "+label+"/"+id)
 		previews.append({"joint":id,"preview_instance":p.get_instance_id(),"viewport_instance":p.viewport.get_instance_id(),"camera_current":p.camera.current,"mesh_count":p.mesh_nodes.size(),"resource_paths":paths,"sample_visible_pixels":opaque})
-	records.append({"label":label,"chapter":campaign.active_level,"level_instance":level.get_instance_id(),"scene_path":level.scene_file_path,"intro_open":level.learning.opened,"intro_visible":level.learning._intro.visible,"started":level.learning._started,"source_visible":level.view.visible,"source_panel_visible":level.panel.visible,"completed":level.state.completed,"failed":level.state.failed if "failed" in level.state else false,"previews":previews})
+	records.append({"label":label,"chapter":campaign.active_level,"level_instance":level.get_instance_id(),"scene_path":level.scene_file_path,"intro_open":level.learning.opened,"intro_visible":level.learning._intro.visible,"started":level.learning._started,"source_visible":level.view != null and level.view.visible,"source_panel_visible":level.panel != null and level.panel.visible,"completed":level.state.completed,"failed":level.state.failed if "failed" in level.state else false,"previews":previews})
 	print("ENTRY_ROUTE ",JSON.stringify({"label":label,"scene":level.scene_file_path,"instance":level.get_instance_id(),"intro_open":level.learning.opened,"started":level.learning._started,"completed":level.state.completed}))
 	check(level.learning.opened==expected_intro and level.learning._intro.visible==expected_intro,"expected introduction on "+label)
 	if expected_intro:
-		check(not level.view.visible and not level.panel.visible,"introduction suspends current ship presentation "+label)
+		check(level.view == null and level.panel == null,"introduction has not built ship presentation "+label)
 	if gpu:
 		check(not root.has_focus(),"regression host stays unfocused")
 		var path=OUT+("before-" if before_fix else "after-")+label+".png"
@@ -61,7 +61,7 @@ func run() -> void:
 	if gpu and root.has_focus():push_error("unfocused GPU host required");quit(2);return
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
 	surface=SubViewport.new();surface.size=Vector2i(1440,900);surface.own_world_3d=true;surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign)
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign)
 	await settle(.25)
 	await raw_enter(1);await inspect_entry("01-first-entry",true);await leave_intro()
 	await good_group("rib_l1")
@@ -93,4 +93,6 @@ func run() -> void:
 	var report={"before_fix":before_fix,"passed":passed,"failed":failed,"failures":failures,"records":records,"images":shots,"renderer":DisplayServer.get_name(),"host_focus":root.has_focus(),"method":"Real Viewport clicks through campaign menu, complete/wrong assemblies, failure directory action and restart; real Tween playback accelerated; no gameplay state overwrite"}
 	FileAccess.open(OUT+("before" if before_fix else "after")+("-gpu" if gpu else "-headless")+".json",FileAccess.WRITE).store_string(JSON.stringify(report,"  "))
 	print("CAMPAIGN_REENTRY ",JSON.stringify({"before_fix":before_fix,"passed":passed,"failed":failed,"failures":failures,"records":records.size(),"renderer":DisplayServer.get_name()}))
-	campaign.free();surface.free();quit(0 if failed==0 else 1)
+	campaign.free();surface.free()
+	await stop_music()
+	quit(0 if failed==0 else 1)

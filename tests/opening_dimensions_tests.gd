@@ -1,6 +1,8 @@
 extends "res://tests/inspection_workspace_tests.gd"
-const Dimensions=preload("res://levels/level02/opening_dimensions.gd")
+const Dimensions=preload("res://components/ui/measurements/opening_dimensions.gd")
 const Reference=preload("res://levels/level02/opening_reference.gd")
+const Shell=preload("res://models/ship/hull/shell_surface.gd")
+const Contact=preload("res://models/ship/hull/trial_contact.gd")
 var first_reference_height:=0.0
 var first_card_height:=0.0
 var first_font_size:=0
@@ -38,20 +40,30 @@ func check_rendered_stock(gallery,scope: String) -> void:
     var color:=bitmap.get_pixel(x,y);samples+=1
     if color.r+color.g+color.b<2.55:wood+=1
   check(wood>samples*.05,"actual wood remains rendered, not just dimension marks "+scope+"/"+option)
+func plank_lip_bounds(lip: MeshInstance3D) -> AABB:
+ var vertices:=lip.mesh.get_faces()
+ var bounds:=AABB(Shell.inverse(lip.transform*vertices[0]),Vector3.ZERO)
+ for point in vertices:
+  bounds=bounds.expand(Shell.inverse(lip.transform*point))
+ return bounds
+func actual_bounds(part: Node3D) -> AABB:
+ if part is MeshInstance3D:
+  return part.transform*part.mesh.get_aabb()
+ return Contact.bounds(Contact.meshes(part,part.transform))
 func run() -> void:
  gpu=OS.get_cmdline_user_args().has("--gpu");root.set_flag(Window.FLAG_NO_FOCUS,true)
  if gpu:root.mode=Window.MODE_MINIMIZED
  surface=SubViewport.new();surface.size=Vector2i(1440,900);surface.own_world_3d=true;surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
- campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.2)
+ campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.2)
  # Inspect the real, active chapter-one UI, not its obsolete comparison file.
- await button(campaign.chapter_buttons[1]);level=campaign.instances[1];await button(level.learning.start_button)
+ await button(campaign.chapter_buttons[1]);level=campaign.current_chapter;await button(level.learning.start_button)
  await button(level.panel.inspect_button);await button(level.inspector.joint_buttons.blind_tenon)
  first_reference_height=level.inspector.comparison.custom_minimum_size.y
  first_card_height=level.inspector.length_gallery.buttons.correct.custom_minimum_size.y
  first_font_size=level.inspector.length_gallery.captions.correct.get_theme_font_size("font_size")
  await capture("chapter-1-reference")
  await button(level.inspector.close_button);await button(campaign.back_button)
- await button(campaign.chapter_buttons[2]);level=campaign.instances[2];await button(level.learning.start_button)
+ await button(campaign.chapter_buttons[2]);level=campaign.current_chapter;await button(level.learning.start_button)
  for target in ["plank_0a","plank_1a","plank_2a","cross_upper","bulkhead","three_middle","three_upper"]:
   await seed_stage(target)
   var gallery=level.panel.opening_gallery
@@ -75,14 +87,14 @@ func run() -> void:
    check(is_equal_approx(gallery.previews.A.camera.size,gallery.previews[option].camera.size),"A/B/C share orthographic scale "+target)
    if target.begins_with("plank"):
     var model=gallery.previews[option].model_root.get_child(0)
-    var low: AABB=model.get_child(1).transform*model.get_child(1).get_aabb()
-    var high: AABB=model.get_child(2).transform*model.get_child(2).get_aabb()
-    check(is_equal_approx(d.width,high.position.y-low.end.y) and is_equal_approx(d.depth,low.size.z),"groove labels agree with actual box faces")
-    check(is_equal_approx(d.offset,(high.position.y+low.end.y)*.5),"groove position agrees with its actual shoulders")
+    var low:=plank_lip_bounds(model.get_child(1))
+    var high:=plank_lip_bounds(model.get_child(2))
+    check(absf(d.width-(high.position.y-low.end.y))<.001 and absf(d.depth-low.size.z)<.001,"groove labels agree with the curved lip geometry")
+    check(absf(d.offset-(high.position.y+low.end.y)*.5)<.001,"groove position agrees with its actual shoulders")
    if target in ["cross_upper","bulkhead"]:
     var model=gallery.previews[option].model_root.get_child(0)
-    var first: AABB=model.get_child(1).transform*model.get_child(1).get_aabb()
-    var second: AABB=model.get_child(2).transform*model.get_child(2).get_aabb()
+    var first:=actual_bounds(model.get_child(1))
+    var second:=actual_bounds(model.get_child(2))
     check(is_equal_approx(d.width,second.position.z-first.end.z) and is_equal_approx(d.depth,first.size.y),"lap width/depth labels agree with actual mating faces")
   check(gallery.captions.A!=gallery.captions.B and gallery.captions.B!=gallery.captions.C and gallery.captions.A!=gallery.captions.C,"all candidates have distinct deciding features even without their A/B/C codes "+target)
   for option in ["A","B","C"]:
@@ -144,7 +156,11 @@ func run() -> void:
   await button(level.panel.joint_buttons[kind]);await settle(.1)
   var family_reference: Dictionary=level.panel.opening_measure.reference.duplicate(true)
   if kind=="cross_lap":
-   check(family_reference.kind=="beam" and family_reference.source=="starter_cross_section" and absf(family_reference.value-.33255)<.0001 and absf(family_reference.depth-.09062)<.0001,"first cross compares its real seat width and housing depth, not the tongue or the later 28-grid beam")
+   var measured:=Reference.starter_cross_section(level.view,"plank_0a")
+   check(family_reference.kind=="beam" and family_reference.source=="starter_cross_section"
+    and measured.width>0 and is_equal_approx(family_reference.value,measured.width)
+    and is_equal_approx(family_reference.depth,measured.depth),
+    "first cross reports the measured seat width and housing depth for its own geometry")
   elif kind=="three_way_lap":
    check(family_reference.kind=="paired" and family_reference.source=="starter_matched_pair" and not family_reference.caption.contains("28"),"first matched pair does not claim a standard later top as its reference")
   else:check(family_reference==fixed_reference,"returning to groove restores the actual tongue reference")

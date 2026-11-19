@@ -1,5 +1,5 @@
 extends SceneTree
-const Guard = preload("res://core/mesh_collision_guard.gd")
+const Guard = preload("res://components/teaching/assembly/mesh_collision_guard.gd")
 var passed := 0
 var failed := 0
 var meshes: Dictionary = {}

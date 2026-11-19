@@ -44,11 +44,11 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
 	surface=SubViewport.new();surface.size=Vector2i(1920,1080);surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign)
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign)
 	await capture("00-menu")
 	for chapter in [1,2,3]:
 		await click(campaign.chapter_buttons[chapter])
-		var level=campaign.instances[chapter]
+		var level=campaign.current_chapter
 		await capture("%d-intro"%chapter)
 		for id in level.learning.lesson_ids:
 			await click(level.learning.lesson_buttons[id])
@@ -73,8 +73,9 @@ func run() -> void:
 			await click(level.panel.magnifier.close_button);level.panel.overview_requested.emit()
 		else:
 			await click(level.panel.inspect_button)
-			for id in ["zrail","leg","mast","apron","top","lbrace","rudder","blade"]:
+			for id in level.state.Rules.ORDER:
 				await click(level.panel.candidate_buttons[level.state.Rules.SPECS[id].joint])
+				if level.state.Rules.SETTINGS.has(id):await click(level.panel.setting_buttons[level.state.Rules.SETTINGS[id].correct])
 				var point: Vector2=level.view.socket_screen_position(id)
 				check(level.panel.main_viewport.get_parent().get_global_rect().has_point(point),"projected socket in model area "+id)
 				for down in [true,false]:
@@ -89,6 +90,7 @@ func run() -> void:
 						check(level.panel.left_button.get_global_rect().end.y<=level.panel.restart_button.get_parent().get_parent().get_global_rect().position.y-8,"helm remains above footer actions")
 				if id!="blade":await click(level.panel.next_button)
 			await click(level.panel.left_button);await click(level.panel.right_button)
+			await click(level.panel.launch_button);await create_timer(3.3).timeout
 			check(level.state.completed,"1920 third chapter completes")
 			await capture("3-success")
 		await settle();campaign._show_menu();await settle()

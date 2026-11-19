@@ -15,7 +15,7 @@ func displayed_mode(diagram) -> int:
 func run() -> void:
 	root.content_scale_size = Vector2i.ZERO
 	root.size = Vector2i(1440,900)
-	var demo = load("res://classroom/classroom.tscn").instantiate()
+	var demo = load("res://components/teaching/classroom/classroom.tscn").instantiate()
 	root.add_child(demo)
 	await process_frame
 	var p = demo.force_gallery

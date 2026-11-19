@@ -57,7 +57,9 @@ func prepare(id: String,layout: String="") -> void:
 	check(level.panel.gallery.get_child_count()==3,"three actual geometry candidates visible")
 	await button(level.panel.joint_buttons[level.Rules.expected(id)])
 	await button(level.panel.opening_buttons["A" if wrong_opening_run and id=="plank_0a" else level.state.Openings.target(id)])
-	if not layout.is_empty() and id.ends_with("a") and level.Rules.row_for(id)>0: await button(level.panel.layout_buttons[layout])
+	if not layout.is_empty() and id.ends_with("a") and level.Rules.row_for(id)>0:
+		# Inject the former layout variant to keep coverage of the trial verdict.
+		level.state.choose_layout(layout)
 	if id in ["cross_upper","three_middle","three_upper"]: await snapshot("candidate-"+id)
 	# Remain in the dedicated local page for actual timber dragging.
 func place(id: String,layout: String="",use_touch:=false) -> void:

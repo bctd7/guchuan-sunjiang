@@ -15,9 +15,9 @@ func run() -> void:
 	root.set_flag(Window.FLAG_NO_FOCUS,true);root.mode=Window.MODE_MINIMIZED
 	surface=SubViewport.new();surface.size=Vector2i(1920,1080);surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle()
 	await click(campaign.chapter_buttons[1])
-	var level=campaign.instances[1]
+	var level=campaign.current_chapter
 	await click(level.learning.start_button);await click(level.panel.inspect_button)
 	var ui=level.inspector
 	await snap("type");await record_cycle()

@@ -7,22 +7,19 @@ var _presentation=Presentation.new()
 var motion: Tween
 var phase := "idle"
 var elapsed := 0.0
-# Compatibility queries return copies; effects consume the isolated presentation only.
-var leak_rows: Array[int]:
-	get:return _presentation.seam_rows.duplicate()
-var opening_points: Array[Vector3]:
-	get:return _presentation.connection_points.duplicate()
-var loose_ids: Array[String]:
-	get:
-		var ids: Array[String]=[]
-		for part in _presentation.loose_parts:ids.append(part.id)
-		return ids
 var crest: Node3D
 var drops: Node3D
 var cracks: Node3D
 var sea: MeshInstance3D
 var _drop_starts: Array[Vector3]=[]
 var impact_count := 0
+
+func _ready() -> void:
+	hide()
+	set_process(false)
+
+func presentation_snapshot() -> Presentation:
+	return _presentation.snapshot()
 func setup() -> void:
 	crest=Node3D.new()
 	add_child(crest)
@@ -63,12 +60,15 @@ func setup() -> void:
 		crest.add_child(bubble)
 	hide()
 func play(presentation: Presentation) -> Tween:
+	if crest == null:
+		setup()
 	cancel()
 	_presentation=presentation.snapshot()
 	impact_count=0
 	elapsed=0.0
 	phase="approach"
 	show()
+	set_process(true)
 	phase_changed.emit("海浪测试 · 浪峰正在接近船板。")
 	motion=create_tween()
 	motion.tween_method(_approach,0.0,1.0,.8)
@@ -77,7 +77,7 @@ func play(presentation: Presentation) -> Tween:
 	motion.tween_method(_recede,0.0,1.0,.65)
 	motion.tween_callback(func():
 		_settle_loose_parts()
-		var wet: bool=not leak_rows.is_empty() or not opening_points.is_empty()
+		var wet: bool=not _presentation.seam_rows.is_empty() or not _presentation.connection_points.is_empty()
 		var loose: bool=not _presentation.structural_ids.is_empty()
 		phase="leaking" if wet else ("loose" if loose else "passed")
 		crest.hide()
@@ -104,7 +104,7 @@ func _impact() -> void:
 			drop.position=pose*Vector3(.03,-.055,-.29+float(j)*.14)
 			drops.add_child(drop)
 			_drop_starts.append(drop.position)
-	for point in opening_points:
+	for point in _presentation.connection_points:
 		G.box(cracks,Vector3(.13,.035,.13),point,red)
 		for j in 5:
 			var drop:=MeshInstance3D.new();var mesh:=SphereMesh.new();mesh.radius=.045;mesh.height=.15;drop.mesh=mesh;drop.material_override=teal
@@ -149,3 +149,4 @@ func cancel() -> void:
 		crest.show()
 		crest.position=Vector3(0,.2,4.4)
 	hide()
+	set_process(false)

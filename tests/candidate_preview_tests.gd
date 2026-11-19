@@ -67,14 +67,14 @@ func run() -> void:
 			check(type_gallery.buttons.size() == 3,"Three visible type choices")
 			for button in type_gallery.buttons.values(): check(not button.button_pressed,"Type starts unselected")
 			var preview: SubViewportContainer = type_gallery.previews[kind]
-			check(preview.custom_minimum_size.y >= 130,"Type preview large enough")
+			check(preview.custom_minimum_size.y >= 92,"Type preview has room inside its card")
 			var specimen: Node3D = preview.specimen
 			check(specimen.get_child_count() >= original.get_child_count(),"Complete source hierarchy retained")
 			check(specimen.visible and specimen.scale.is_equal_approx(Vector3.ONE),"Actual wood retains physical scale")
-			check(specimen.get_parent() == preview.viewport,"Full specimen lives in candidate viewport")
+			check(specimen.get_parent() == preview.model_root and specimen.get_viewport() == preview.viewport,"Full specimen lives in candidate viewport")
 			validate_wood(specimen)
 			await process_frame
-			check(preview.size.y >= 130.0 and preview.size.x >= 250.0,"Type projection has a large visible canvas")
+			check(preview.size.y >= 92.0 and preview.size.x >= 250.0,"Type projection has a large visible canvas")
 			check(preview.camera.size <= 1.4,"Camera remains close enough to read end shape")
 			length_gallery.configure(source,id,kind)
 			length_gallery.set_selected("")

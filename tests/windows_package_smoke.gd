@@ -12,26 +12,26 @@ func settle() -> void:
 func run() -> void:
 	root.set_flag(Window.FLAG_NO_FOCUS,true)
 	if DisplayServer.get_name()!="headless":root.mode=Window.MODE_MINIMIZED
-	for path in ["res://assets/welcome/introduction.ogv","res://assets/audio/workshop_loop.ogg","res://assets/audio/wood_seat_0.wav","res://assets/audio/wood_seat_1.wav","res://assets/audio/wood_seat_2.wav","res://assets/audio/ui_tap.wav","res://shared/fonts/NotoSansSC.font.res"]:
+	for path in ["res://assets/video/introduction.ogv","res://audio/workshop_loop.ogg","res://audio/wood_seat_0.wav","res://audio/wood_seat_1.wav","res://audio/wood_seat_2.wav","res://audio/ui_tap.wav","res://assets/fonts/NotoSansSC.font.res"]:
 		check(ResourceLoader.exists(path) and load(path)!=null,"bundled resource "+path)
-	for path in ["res://models/joinery/catalog.json","res://classroom/science/profiles.json","res://classroom/science/force_gallery/profiles.json"]:
+	for path in ["res://models/joinery/catalog.json","res://components/teaching/classroom/science/profiles.json","res://components/teaching/classroom/science/force_gallery/profiles.json"]:
 		check(FileAccess.file_exists(path) and JSON.parse_string(FileAccess.get_file_as_string(path))!=null,"bundled runtime JSON "+path)
 	check(not DirAccess.dir_exists_absolute("res://tests") and not DirAccess.dir_exists_absolute("res://docs"),"development evidence excluded")
-	check(ProjectSettings.get_setting("application/run/main_scene")=="res://startup/startup.tscn","video startup entry")
+	check(ProjectSettings.get_setting("application/run/main_scene")=="res://app/startup/startup.tscn","video startup entry")
 	check(ProjectSettings.get_setting("display/window/size/mode")==3,"fullscreen default")
 	check(ProjectSettings.get_setting("display/window/size/viewport_width")==1920 and ProjectSettings.get_setting("display/window/size/viewport_height")==1080,"1920x1080 viewport")
-	check(change_scene_to_file("res://startup/startup.tscn")==OK,"load exported startup scene")
+	check(change_scene_to_file("res://app/startup/startup.tscn")==OK,"load exported startup scene")
 	await settle()
 	var startup=current_scene
 	check(startup.player.stream!=null and startup.phase==startup.Phase.VIDEO,"video stream starts")
 	startup.skip.pressed.emit();await settle()
 	var campaign=current_scene
-	check(campaign.scene_file_path=="res://campaign/campaign.tscn","video skip enters directory")
+	check(campaign.scene_file_path=="res://app/campaign/campaign.tscn","video skip enters directory")
 	for n in [1,2,3]:
 		campaign.chapter_buttons[n].pressed.emit();await settle()
-		check(campaign.instances.has(n),"exported chapter loads "+str(n))
-		if not campaign.instances.has(n):continue
-		var level=campaign.instances[n]
+		check(campaign.current_chapter != null,"exported chapter loads "+str(n))
+		if campaign.current_chapter == null:continue
+		var level=campaign.current_chapter
 		for id in level.learning.lesson_ids:
 			level.learning.lesson_buttons[id].pressed.emit();await settle()
 			check(is_instance_valid(level.learning.workshop) and level.learning.workshop.assembly.definition.id==id,"exported lesson "+id)
@@ -54,7 +54,7 @@ func run() -> void:
 			check(level.panel.inspected,"exported chapter 3 observer")
 			level.panel.overview_button.pressed.emit()
 		await settle();campaign._show_menu();await settle()
-		check(not campaign.instances.has(n),"directory discards exported chapter "+str(n))
+		check(campaign.current_chapter == null,"directory discards exported chapter "+str(n))
 	var report={"passed":passed,"failures":failures,"platform":OS.get_name(),"renderer":DisplayServer.get_name(),"scope":"Exported Windows EXE embedded pack loaded by matching Mac Godot. Resource/scene smoke only, not native Windows execution."}
 	FileAccess.open("/private/tmp/windows-package-smoke.json",FileAccess.WRITE).store_string(JSON.stringify(report,"  "))
 	print("WINDOWS_PACK_SMOKE ",JSON.stringify(report))

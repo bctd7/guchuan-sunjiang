@@ -1,11 +1,11 @@
 extends Node3D
-const ExhibitLayout=preload("res://shared/ui/exhibition_layout.gd")
+const ExhibitLayout=preload("res://components/ui/exhibition_layout.gd")
 ## View-only geometry: gameplay owns connection decisions and state.
 ## All joints are teaching constructions, not claims about historical ships.
 
 const IDS := ["keel", "rib_l1", "rib_r1", "rib_l2", "rib_r2", "rib_l3", "rib_r3", "bow", "stern", "beam1", "beam3"]
 const LABELS := {"keel":"龙骨基座", "rib_l1":"左肋 1", "rib_r1":"右肋 1", "rib_l2":"左肋 2", "rib_r2":"右肋 2", "rib_l3":"左肋 3", "rib_r3":"右肋 3", "bow":"前段燕尾", "stern":"后段燕尾", "beam1":"前横撑", "beam3":"后横撑"}
-const Backdrop = preload("res://levels/level01/workshop_backdrop.gd")
+const Backdrop = preload("res://components/ui/workshop_backdrop.gd")
 var backdrop: CanvasLayer
 const Lengths=preload("res://models/ship/keel/length_geometry.gd")
 const Candidate = preload("res://levels/level01/candidate_geometry.gd")
@@ -18,6 +18,8 @@ var slots: Dictionary = {}
 var pieces: Dictionary = {}
 ## Detached construction originals outlive campaign reparenting/detachment.
 var _baselines: Dictionary = {}
+const ModelVariants = preload("res://models/ship/model_variants.gd")
+var candidate_variants = ModelVariants.new()
 var ghosts: Dictionary = {}
 var markers: Dictionary = {}
 var labels: Dictionary = {}
@@ -107,22 +109,16 @@ func _build_parts() -> void:
 		add_child(part)
 		pieces[id] = part
 		geometry.build(part,id)
-		_baselines[id] = part.duplicate() as Node3D
+		_baselines[id] = ModelVariants.pack_model(part)
 		var preview := part.duplicate() as Node3D
 		preview.name = id + "_preview"
 		add_child(preview)
 		_apply_material(preview, _ghost)
 		ghosts[id] = preview
 
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_PREDELETE:
-		for baseline in _baselines.values():
-			if is_instance_valid(baseline): baseline.free()
-		_baselines.clear()
-
 func duplicate_part(id: String) -> Node3D:
 	if not _baselines.has(id): return null
-	return _baselines[id].duplicate() as Node3D
+	return ModelVariants.instantiate_model(_baselines[id])
 
 func _build_targets() -> void:
 	var positions := {"keel":Vector3(0,.85,0),"bow":Vector3(0,1.2,-4.6),"stern":Vector3(0,1.2,4.6),"beam1":Vector3(0,2.8,-2.7),"beam3":Vector3(0,2.8,2.7)}
@@ -213,7 +209,7 @@ func animate_place(id: String, length: String = "correct", joint: String = "", a
 	# A short entry hold and an even, readable approach make every member visible.
 	tween.tween_interval(INSERTION_LEAD)
 	tween.tween_property(part,"transform",trial_pose(id,length,joint),INSERTION_DURATION).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	if audible:tween.tween_callback(func():preload("res://shared/seating_audio.gd").play(self))
+	if audible:tween.tween_callback(func():preload("res://audio/seating_audio.gd").play(self))
 	tween.tween_interval(INSERTION_SETTLE)
 	tween.tween_callback(func():
 		animations.erase(id)
@@ -223,7 +219,7 @@ func insertion_offset(id: String) -> Vector3:
 	return trial_entry_offset(id)
 
 func cancel_animations() -> void:
-	preload("res://shared/seating_audio.gd").cancel(self)
+	preload("res://audio/seating_audio.gd").cancel(self)
 	for tween in animations.values():
 		if is_instance_valid(tween): tween.kill()
 	animations.clear()

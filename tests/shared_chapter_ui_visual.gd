@@ -18,9 +18,9 @@ func run() -> void:
 	root.set_flag(Window.FLAG_NO_FOCUS,true);root.mode=Window.MODE_MINIMIZED
 	surface=SubViewport.new();surface.size=Vector2i(1920,1080);surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle()
 	for n in [1,2,3]:
-		await click(campaign.chapter_buttons[n]);var level=campaign.instances[n]
+		await click(campaign.chapter_buttons[n]);var level=campaign.current_chapter
 		await click(level.learning.start_button)
 		await shot(str(n)+"-main")
 		var story=level.bulkhead_lesson if n==2 else level.story
@@ -28,7 +28,7 @@ func run() -> void:
 		var selected: String=level.state.selected
 		var camera_before: Transform3D=level.view.camera.transform
 		await click(level.panel.lesson_button if n==1 else (level.panel.bulkhead_button if n==2 else level.panel.story_button))
-		check(story.opened and story.root.get_script()==preload("res://levels/shared/story_panel.gd"),"shared story "+str(n))
+		check(story.opened and story.root.get_script()==preload("res://components/ui/story_panel.gd"),"shared story "+str(n))
 		await shot(str(n)+"-story")
 		var scroll=story.root.scroll
 		var p: Vector2=scroll.get_global_rect().get_center()
@@ -61,11 +61,12 @@ func run() -> void:
 			await click(ui.gallery.inspect_buttons.values()[0]);await shot("3-magnifier");await click(ui.magnifier.close_button)
 			await click(ui.lesson_button);await click(level.learning.start_button)
 			check(ui.inspected,"lesson returns to observer")
-			await click(ui.candidate_buttons.clamp_head)
-			await tap(level.view.socket_screen_position("zrail"))
-			check(not level.state.placed.has("zrail"),"wrong type rejected")
-			for id in ["zrail","leg","mast","apron","top","lbrace","rudder","blade"]:
+			await click(ui.candidate_buttons.zong_corner)
+			await tap(level.view.socket_screen_position("apron"))
+			check(not level.state.placed.has("apron"),"wrong type rejected")
+			for id in level.state.Rules.ORDER:
 				await click(ui.candidate_buttons[level.state.Rules.SPECS[id].joint])
+				if level.state.Rules.SETTINGS.has(id):await click(ui.setting_buttons[level.state.Rules.SETTINGS[id].correct])
 				await tap(level.view.socket_screen_position(id))
 				await create_timer(1.8).timeout
 				check(level.state.placed.has(id),"touch installs "+id)
@@ -73,11 +74,12 @@ func run() -> void:
 				if id!="blade":await click(ui.next_button)
 			await click(ui.overview_button);await shot("3-helm")
 			await click(ui.left_button);await click(ui.right_button)
+			await click(ui.launch_button);await create_timer(3.3).timeout
 			check(level.state.completed,"third chapter completes")
 			await shot("3-success")
 			await click(ui.success_panel.restart_button)
 			await click(campaign.chapter_buttons[3])
-			var fresh=campaign.instances[3]
+			var fresh=campaign.current_chapter
 			await click(fresh.learning.start_button)
 			check(fresh.state.placed.is_empty() and not fresh.panel.inspected,"directory reentry resets")
 		campaign._show_menu();await settle()

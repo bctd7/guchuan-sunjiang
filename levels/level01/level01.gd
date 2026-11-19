@@ -1,20 +1,14 @@
-extends Node3D
-signal next_requested
-signal progress_changed
-const BUILD_REVISION="whole-level-failure-20261031-r8"
-signal return_requested
+extends "res://levels/chapter.gd"
 ## Coordinates three player demonstrations and explicitly labelled automatic repeats.
 const State = preload("res://levels/level01/level_state.gd")
 const Rules = preload("res://levels/level01/connection_rules.gd")
 const Skeleton = preload("res://levels/level01/skeleton_view.gd")
 const LevelPanel = preload("res://levels/level01/level_ui.gd")
-const Touch = preload("res://levels/shared/socket_interaction.gd")
+const Touch = preload("res://components/input/socket_interaction.gd")
 const Inspector = preload("res://levels/level01/joint_inspector.gd")
 const Lengths=preload("res://models/ship/keel/length_geometry.gd")
-const Learning = preload("res://levels/shared/teaching_portal.gd")
 const Story=preload("res://levels/level01/shipwright_story.gd")
 var story: CanvasLayer
-var learning: CanvasLayer
 var state = State.new()
 var view: Node3D
 var panel: CanvasLayer
@@ -22,7 +16,6 @@ var interaction: Node
 var inspector: CanvasLayer
 var joint_type := ""
 var tenon_length := ""
-var busy := false
 var checking_stability:=false
 var last_feedback := ""
 var _pending_review := ""
@@ -30,8 +23,10 @@ var _auto_tween: Tween
 var _auto_queue: Array[String]=[]
 var _motion_generation := 0
 
-func _ready() -> void:
-	print("LEVEL01_BUILD ",BUILD_REVISION," ",ProjectSettings.globalize_path("res://"))
+func _init() -> void:
+	chapter_number = 1
+
+func _build_workbench() -> void:
 	view = Skeleton.new()
 	add_child(view)
 	panel = LevelPanel.new()
@@ -61,20 +56,23 @@ func _ready() -> void:
 	panel.lesson_requested.connect(_open_story)
 	panel.inspect_requested.connect(_inspect)
 	state.changed.connect(_refresh)
-	state.changed.connect(func(): progress_changed.emit())
+	state.changed.connect(update_completion)
 	state.feedback.connect(func(message: String):
 		last_feedback=message
 		panel.show_feedback(message))
 	_refresh()
-	learning = Learning.new()
-	add_child(learning)
-	learning.configure(1,view,panel,interaction)
+	learning.bind_source(view, panel, interaction, view.camera, interaction.cancel)
+	panel.return_button.visible = not directory_managed
+	panel.success_panel.visibility_changed.connect(request_navigation_update)
 	panel.success_panel.bind(self,1,true)
 	panel.success_panel.next_requested.connect(func():next_requested.emit())
+	panel.failure_overlay.visibility_changed.connect(request_navigation_update)
 	panel.failure_overlay.bind(self,1,false)
-	preload("res://shared/seating_audio.gd").bind_results(self,panel.success_panel,panel.failure_overlay)
+	preload("res://audio/seating_audio.gd").bind_results(self,panel.success_panel,panel.failure_overlay)
 	story=Story.new()
 	add_child(story)
+	story.root.visibility_changed.connect(request_navigation_update)
+	inspector.visibility_changed.connect(request_navigation_update)
 
 func _inspect() -> void:
 	if busy or state.failed: return
@@ -261,22 +259,18 @@ func _show_failure(message: String) -> void:
 
 func _open_story() -> void:
 	if busy or state.failed: return
-	story.show_story(interaction)
+	story.show_story(interaction, interaction.cancel)
 
 func _open_lessons() -> void:
 	if busy or state.failed: return
-	inspector.close()
+	learning.bind_source(view, inspector, interaction, inspector.camera, inspector.orbit.suspend_gesture)
 	learning.show_intro()
 
-# Campaign contract. Reentry keeps this instance and its gameplay state.
-func enter() -> void:
-	learning.show_intro()
-
-func leave() -> void:
+func _leave_workbench() -> void:
 	interaction.cancel()
 
 func is_completed() -> bool:
 	return state.completed
 
-func navigation_status() -> Dictionary:
-	return {"modal_open": panel.success_panel.visible or panel.failure_overlay.visible or learning.modal_open() or inspector.opened or story.opened, "can_leave": not busy, "intro_open": learning.opened}
+func _workbench_modal_open() -> bool:
+	return panel.success_panel.visible or panel.failure_overlay.visible or inspector.opened or story.opened

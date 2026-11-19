@@ -1,4 +1,4 @@
-extends "res://levels/shared/story_overlay.gd"
+extends "res://components/ui/story_overlay.gd"
 ## Chapter content only; presentation and lifecycle are shared.
 const Illustration = preload("res://levels/level02/bulkhead_diagram.gd")
 const STORY_TITLE := "水密隔舱"
@@ -11,5 +11,5 @@ const STORY_PARAGRAPHS := [
 func _story_content() -> Dictionary:
 	return {"name":"BulkheadStory", "title":STORY_TITLE, "paragraphs":STORY_PARAGRAPHS, "illustration":Illustration}
 
-func show_lesson(interaction: Node) -> void:
-	show_story(interaction)
+func show_lesson(interaction: Node, suspend_gesture: Callable = Callable()) -> void:
+	show_story(interaction, suspend_gesture)

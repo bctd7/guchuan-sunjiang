@@ -7,14 +7,16 @@ signal socket_requested(id: String)
 signal undo_requested
 signal restart_requested
 signal next_requested
+signal setting_requested(value: int)
+signal launch_requested
 signal turn_requested(degrees: float)
 signal return_requested
-const StepGuide=preload("res://levels/shared/step_guide.gd")
-const ExhibitLayout=preload("res://shared/ui/exhibition_layout.gd")
-const Chrome=preload("res://levels/shared/chapter_chrome.gd")
-const Controls=preload("res://levels/shared/chapter_ui.gd")
-const MainStyle=preload("res://shared/ui/workshop_ui_style.gd")
-const Friendly=preload("res://shared/ui/friendly_theme.gd")
+const StepGuide=preload("res://components/ui/step_guide.gd")
+const ExhibitLayout=preload("res://components/ui/exhibition_layout.gd")
+const Chrome=preload("res://components/ui/chapter_chrome.gd")
+const Controls=preload("res://components/ui/chapter_ui.gd")
+const MainStyle=preload("res://components/ui/workshop_ui_style.gd")
+const Friendly=preload("res://components/ui/friendly_theme.gd")
 const Rules=preload("res://levels/level03/connection_rules.gd")
 const Gallery=preload("res://levels/level03/candidate_gallery.gd")
 var root: Control
@@ -53,6 +55,10 @@ var progress_label: Label
 var angle_label: Label
 var success_panel: ColorRect
 var turn_row: HBoxContainer
+var launch_button: Button
+var setting_question: Label
+var setting_buttons: Array[Button] = []
+var _story_open := false
 var helm_panel: PanelContainer
 var inspected := false
 var _view: Node3D
@@ -69,7 +75,7 @@ func _ready() -> void:
 	layer=5
 	root=Control.new();root.size=Vector2(1440,900);root.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	root.theme=Friendly.make_theme(true);add_child(root)
-	backdrop=preload("res://levels/shared/workshop_backdrop.gd").new();add_child(backdrop)
+	backdrop=preload("res://components/ui/workshop_backdrop.gd").new();add_child(backdrop)
 	main_chrome=Control.new();main_chrome.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	main_chrome.mouse_filter=Control.MOUSE_FILTER_IGNORE;root.add_child(main_chrome)
 	model_container=SubViewportContainer.new();model_container.stretch=true
@@ -78,7 +84,7 @@ func _ready() -> void:
 	main_viewport=SubViewport.new();main_viewport.size=Vector2i(1035,600);main_viewport.own_world_3d=true
 	main_viewport.gui_disable_input=true;main_viewport.msaa_3d=Viewport.MSAA_2X
 	main_viewport.transparent_bg=true;model_container.add_child(main_viewport)
-	var chrome=Chrome.build(main_chrome,3,"帆樯舾装","这件木料","船匠的小故事")
+	var chrome=Chrome.build(main_chrome,3,"港湾码头 · 帆樯舾装","这件木料","船匠的小故事")
 	main_header=chrome.header;main_sidebar=chrome.side;main_footer=chrome.footer
 	task_label=chrome.task;stage_label=chrome.stage;step_label=chrome.step;part_label=chrome.piece
 	inspect_button=chrome.observe;story_button=chrome.story;return_button=chrome.back
@@ -91,6 +97,8 @@ func _ready() -> void:
 	undo_button=_footer_button("撤回上一步");undo_button.pressed.connect(func():undo_requested.emit())
 	restart_button=_footer_button("重新搭建");restart_button.pressed.connect(func():restart_requested.emit())
 	next_button=_footer_button("继续搭建",true);next_button.pressed.connect(func():next_requested.emit())
+	launch_button=_footer_button("下水试航",true)
+	launch_button.pressed.connect(func():launch_requested.emit())
 	helm_panel=Controls.panel(main_chrome,Rect2(20,484,MainStyle.TASK_CARD_WIDTH,210))
 	helm_panel.add_theme_stylebox_override("panel",MainStyle.task_card())
 	var helm_stack=VBoxContainer.new();helm_stack.add_theme_constant_override("separation",20);helm_panel.add_child(helm_stack)
@@ -103,10 +111,12 @@ func _ready() -> void:
 	right_button.pressed.connect(func():turn_requested.emit(30))
 	main_guide=StepGuide.new();main_chrome.add_child(main_guide)
 	_build_observer()
-	magnifier=preload("res://levels/shared/model_magnifier.gd").new();root.add_child(magnifier)
+	magnifier=preload("res://components/preview/model_magnifier.gd").new();root.add_child(magnifier)
 	magnifier.closed.connect(func():orbit.active=inspected and not _busy)
-	success_panel=preload("res://levels/shared/chapter_result.gd").new();root.add_child(success_panel)
+	magnifier.visibility_changed.connect(_sync_background)
+	success_panel=preload("res://components/ui/chapter_result.gd").new();root.add_child(success_panel)
 	success_panel.return_requested.connect(func():return_requested.emit())
+	success_panel.visibility_changed.connect(_sync_background)
 	main_guide.blocker=success_panel;step_guide.blocker=magnifier
 	get_viewport().size_changed.connect(_fit_layout)
 	visibility_changed.connect(_sync_background)
@@ -118,8 +128,15 @@ func _footer_button(text: String,primary:=false) -> Button:
 	return button
 
 func _build_observer() -> void:
-	workspace=preload("res://levels/shared/inspection_workspace.gd").new();root.add_child(workspace)
+	workspace=preload("res://components/ui/inspection_workspace.gd").new();root.add_child(workspace)
 	workspace.options.get_parent().hide()
+	setting_question=workspace.label(workspace.options,"",24)
+	setting_question.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	for index in 2:
+		var choice: Button = workspace.button(workspace.options,"")
+		choice.toggle_mode = true
+		choice.pressed.connect(func():setting_requested.emit(index))
+		setting_buttons.append(choice)
 	lesson_button=workspace.button(workspace.header,"本关榫卯讲解")
 	lesson_button.pressed.connect(func():lesson_requested.emit())
 	overview_button=workspace.button(workspace.header,"返回船架")
@@ -130,13 +147,13 @@ func _build_observer() -> void:
 		if _busy:return
 		orbit.suspend_gesture();orbit.active=false
 		magnifier.open(gallery.previews[kind],Rules.NAMES[kind]))
-	zoom_bar=preload("res://levels/shared/inspection_zoom_bar.gd").new();workspace.stage_surface.add_child(zoom_bar)
+	zoom_bar=preload("res://components/preview/inspection_zoom_bar.gd").new();workspace.stage_surface.add_child(zoom_bar)
 	workspace.mount_camera_tools(zoom_bar)
 	zoom_bar.zoom_requested.connect(_change_zoom);zoom_bar.reset_requested.connect(_reset_camera)
 	closeup_button=workspace.button(workspace.actions,"看接合处")
 	closeup_button.pressed.connect(func():
 		if is_instance_valid(_view):_view.toggle_closeup();_configure_camera())
-	orbit=preload("res://levels/shared/selectable_orbit.gd").new();workspace.stage_surface.add_child(orbit)
+	orbit=preload("res://components/preview/selectable_orbit.gd").new();workspace.stage_surface.add_child(orbit)
 	orbit.zoom_requested.connect(_change_zoom)
 	orbit.tapped.connect(func(point: Vector2):
 		if not _busy and inspected and is_instance_valid(_view):
@@ -169,8 +186,16 @@ func set_observed(value: bool) -> void:
 	if is_instance_valid(_view):_view.cutaway=false;_view.focus_current();_configure_camera()
 	if _state!=null:refresh(_state,_busy)
 
+func set_story_open(value: bool) -> void:
+	_story_open = value
+	_sync_background()
+
 func _sync_background() -> void:
 	if is_instance_valid(backdrop):backdrop.visible=visible and not inspected
+	var active := visible and not (_story_open or magnifier.visible or success_panel.visible)
+	main_viewport.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE if active else SubViewport.UPDATE_DISABLED
+	for preview in gallery.previews.values():
+		preview.set_suspended(not active)
 
 func _configure_camera() -> void:
 	if not is_instance_valid(_view):return
@@ -192,13 +217,30 @@ func refresh(state,busy: bool) -> void:
 	_state=state;_busy=busy
 	var installed: bool=state.placed.has(state.selected)
 	var ready: bool=state.placed.has("blade")
+	var launching: bool = busy and state.ready_to_launch()
 	stage_label.text="构件已装好" if installed else "当前要安装"
 	step_label.text="%02d / 03" % (state.stage_idx+1)
-	task_label.text=["接好桅座与桅杆","装好帆桁支撑","装好船尾舵架"][state.stage_idx]
+	task_label.text="左右试舵，准备下水" if ready else Rules.TITLES[state.stage_idx]
 	part_label.text=Rules.SPECS[state.selected].label
 	progress_label.text="搭建进度 %d / 8 件" % state.placed.size()
 	workspace.title.text=("这一处已试装 · " if installed else "观察 · ")+Rules.SPECS[state.selected].label
-	gallery.configure(state.selected);gallery.select(state.candidate);gallery.visible=not installed
+	if inspected and not installed:
+		gallery.configure(state.selected)
+		gallery.select(state.candidate)
+	gallery.visible=not installed
+	var adjustment: Dictionary = Rules.SETTINGS.get(state.selected,{})
+	var needs_setting := not adjustment.is_empty() and not installed
+	workspace.options.get_parent().visible = needs_setting
+	if needs_setting:
+		setting_question.text = adjustment.question
+		for i in setting_buttons.size():
+			setting_buttons[i].text = adjustment.options[i]
+			setting_buttons[i].set_pressed_no_signal(state.setting == i)
+			setting_buttons[i].disabled = busy
+	if _selected != state.selected:
+		show_feedback(Rules.SPECS[state.selected].hint)
+	launch_button.visible = state.ready_to_launch() and not inspected
+	launch_button.disabled = busy
 	for button in candidate_buttons.values():button.disabled=busy or installed
 	for button in gallery.inspect_buttons.values():button.disabled=busy
 	for button in [lesson_button,story_button,return_button,overview_button,inspect_button,restart_button,closeup_button,zoom_bar.reset_button,zoom_bar.zoom_in,zoom_bar.zoom_out]:button.disabled=busy
@@ -207,7 +249,12 @@ func refresh(state,busy: bool) -> void:
 	next_button.text="下一处船件" if state.stage_done() and state.stage_idx<2 else "继续搭建"
 	StepGuide.action(next_button,not next_button.disabled);next_button.visible=not next_button.disabled
 	StepGuide.action(undo_button,not undo_button.disabled)
-	helm_panel.visible=ready and not inspected
+	helm_panel.visible=ready and not inspected and not launching
+	if launching:
+		stage_label.text = "港湾试航"
+		task_label.text = "解缆离岸"
+		part_label.text = "观察船身与帆樯"
+		launch_button.hide()
 	angle_label.text="舵角 %+.0f°\n左舵 %s / 右舵 %s" % [state.rudder_angle,"✓" if state.tested_left else "待测","✓" if state.tested_right else "待测"]
 	for button in [left_button,center_button,right_button]:button.disabled=busy or not ready
 	if ready:overview_button.text="返回船架操舵"
@@ -220,18 +267,20 @@ func refresh(state,busy: bool) -> void:
 	orbit.active=inspected and not busy and not magnifier.visible
 	main_guide.show_target(null);step_guide.show_target(null)
 	if not busy and not state.completed:
-		if not inspected:
+		if launch_button.visible:main_guide.show_target(launch_button)
+		elif not inspected:
 			main_guide.show_target((left_button if not state.tested_left else right_button) if ready else (next_button if installed else inspect_button))
 		elif ready:step_guide.show_target(overview_button)
 		elif installed:step_guide.show_target(next_button)
-		elif state.candidate.is_empty():step_guide.show_target(gallery)
+		elif state.candidate.is_empty():step_guide.show_target(gallery, candidate_buttons.values())
+		elif needs_setting and state.setting < 0:step_guide.show_target(workspace.options,setting_buttons)
 		else:
 			var id: String=state.selected
-			step_guide.point_provider=func():return _view.socket_screen_position(id)
+			step_guide.show_point(func():return _view.socket_screen_position(id))
 
 func show_feedback(message: String,error:=false) -> void:
 	Controls.feedback(feedback_label,message,error)
-	Controls.feedback(workspace.status,message,error)
+	workspace.show_feedback(message,error)
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if inspected and not _busy and not magnifier.visible and event.is_action_pressed("ui_cancel"):

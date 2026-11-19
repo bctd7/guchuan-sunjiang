@@ -7,7 +7,7 @@ signal zoom_requested(factor: float)
 const SNAP_DEPTH := .72
 const DRAG_SLOP := 6.0
 const TOUCH_DRAG_SLOP := 10.0
-const Pinch = preload("res://levels/shared/touch_pinch.gd")
+const Pinch = preload("res://components/input/touch_pinch.gd")
 var pinch = Pinch.new()
 var view: Node3D
 var gate: Callable

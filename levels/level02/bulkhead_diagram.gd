@@ -1,6 +1,6 @@
 extends Control
 ## Full-frame story illustration of wooden watertight compartments.
-const ART = preload("res://levels/level02/assets/watertight_bulkhead_story.png")
+const ART = preload("res://assets/images/level02/watertight_bulkhead_story.png")
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE

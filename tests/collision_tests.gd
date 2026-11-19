@@ -1,6 +1,6 @@
 extends SceneTree
-const Guard = preload("res://core/mesh_collision_guard.gd")
-const Assembly = preload("res://core/assembly.gd")
+const Guard = preload("res://components/teaching/assembly/mesh_collision_guard.gd")
+const Assembly = preload("res://components/teaching/assembly/assembly.gd")
 var passed := 0
 var failed := 0
 
@@ -60,13 +60,13 @@ func test_catalog(assembly: Node3D, catalog: Array) -> void:
 					if assembly.states[dep] != "locked": ready = false
 				if not ready: continue
 				check(assembly.set_part_pose(id,assembly.entrance_pose(id)),definition.id + ": clear approach")
-				check(assembly.insert_part(id,true),definition.id + ": collision-safe calibration")
+				check(assembly.begin_insertion(id),definition.id + ": collision-safe calibration")
 				check(assembly.is_guided(id),definition.id + ": legacy instant does not complete")
 				var length: float = assembly.paths[id].length
 				check(assembly.advance_insertion(id,length*0.75),definition.id + ": actual concave forward stroke")
 				check(assembly.advance_insertion(id,-length*0.5),definition.id + ": real reverse path before final lock")
 				check(assembly.advance_insertion(id,length),definition.id + ": actual concave final stroke")
-				check(assembly.states[id] == "locked" and not assembly.remove_part(id,true),definition.id + ": final permanent lock")
+				check(assembly.states[id] == "locked" and not assembly.remove_part(id),definition.id + ": final permanent lock")
 				pending.erase(id)
 		check(pending.is_empty(),definition.id + ": complete manual assembly")
 
@@ -81,7 +81,7 @@ func test_real_approach(assembly: Node3D, catalog: Array) -> void:
 	check(assembly.set_part_pose(id,assembly.entrance_pose(id)), "safe approach after rejected drag")
 	check(assembly.begin_insertion(id), "safe calibration still works")
 	check(assembly.advance_insertion(id,assembly.paths[id].length), "safe manual insertion still works")
-	check(not assembly.remove_part(id,true), "completed real joint cannot be dismantled")
+	check(not assembly.remove_part(id), "completed real joint cannot be dismantled")
 	assembly.reset()
 	var almost: Transform3D = assembly.entrance_pose(id)
 	almost.origin.x += 0.1
@@ -92,7 +92,7 @@ func test_real_approach(assembly: Node3D, catalog: Array) -> void:
 	var wrong_angle: Transform3D = assembly.entrance_pose(id)
 	wrong_angle.basis = Basis(Vector3.UP,deg_to_rad(assembly.capture_angle_degrees + 0.1))
 	assembly.parts[id].transform = wrong_angle
-	check(assembly.candidate(id).reason == "angle" and not assembly.insert_part(id,true), "outside capture angle cannot engage")
+	check(assembly.candidate(id).reason == "angle" and not assembly.begin_insertion(id), "outside capture angle cannot engage")
 
 func test_controller_fixtures(assembly: Node3D) -> void:
 	check(ResourceSaver.save(box(Vector3.ONE * 0.3),"user://collision_test_small.tres") == OK, "save small fixture")
@@ -107,7 +107,7 @@ func test_controller_fixtures(assembly: Node3D) -> void:
 	check(assembly.candidate("moving").ok, "blocked calibration fixture lies in matching tolerance")
 	check(not assembly.snap("moving"), "calibration swept through wood is rejected")
 	check(assembly.parts.moving.position.is_equal_approx(Vector3(-3,0,0)), "rejected calibration does not teleport")
-	check(not assembly.insert_part("moving",true), "legacy instant cannot bypass calibration sweep")
+	check(not assembly.begin_insertion("moving"), "legacy instant cannot bypass calibration sweep")
 	check(assembly.states.moving == "free" and not assembly.progress.has("moving"), "blocked calibration preserves free state")
 	var installed: Dictionary = fixture.duplicate(true)
 	installed.parts[0].fixed = false
@@ -151,7 +151,7 @@ func test_controller_fixtures(assembly: Node3D) -> void:
 	check(assembly.states.moving == "free" and assembly.parts.moving.position.is_equal_approx(Vector3(-3,0,0)), "withdrawal ends at exact entrance, never scattered-position teleport")
 	check(assembly.begin_insertion("moving") and assembly.advance_insertion("moving",100), "fresh complete stroke follows safe detour")
 	check(assembly.parts.moving.transform.is_equal_approx(assembly.assembled_pose("moving")), "final detour exact assembled pose")
-	check(not assembly.advance_insertion("moving",-100) and not assembly.remove_part("moving",true), "final detour lock denies reverse/removal bypass")
+	check(not assembly.advance_insertion("moving",-100) and not assembly.remove_part("moving"), "final detour lock denies reverse/removal bypass")
 	# Wrong connector geometry must not be silently corrected at completion.
 	fixture.parts[1].connector_rotation = [0,15,0]
 	fixture.parts[1].socket_rotation = [0,0,0]

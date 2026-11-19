@@ -7,7 +7,7 @@ func snapshot(label: String) -> void:
 
 func run() -> void:
 	root.content_scale_size = Vector2i.ZERO
-	demo = load("res://classroom/classroom.tscn").instantiate()
+	demo = load("res://components/teaching/classroom/classroom.tscn").instantiate()
 	root.add_child(demo)
 	var original: Dictionary
 	for value in JSON.parse_string(FileAccess.get_file_as_string("res://.cross-view-20261023/backup/education/force_gallery/profiles.json")):

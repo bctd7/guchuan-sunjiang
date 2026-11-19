@@ -1,5 +1,5 @@
 extends RefCounted
-const WoodSurface=preload("res://levels/level02/wood_surface.gd")
+const WoodSurface=preload("res://models/ship/hull/wood_surface.gd")
 ## Read-only cut section of actual installed mesh, for the local ship workspace.
 ## Duplicates are hidden in overview and never used as collision/state substitutes.
 static func clip(polygon: PackedVector3Array,axis: int,limit: float,keep_above: bool) -> PackedVector3Array:

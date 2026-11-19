@@ -59,11 +59,11 @@ func run() -> void:
 	surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS
 	root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate()
 	surface.add_child(campaign)
 	await settle(.25)
 	await button(campaign.chapter_buttons[1])
-	level=campaign.instances[1]
+	level=campaign.current_chapter
 	await button(level.learning.start_button)
 	record_autos=false
 	for id in level.Rules.REPRESENTATIVE_IDS:
@@ -81,7 +81,7 @@ func run() -> void:
 		await finish_group(expected)
 	await button(level.panel.check_button)
 	check(level.state.completed,"correct type and length complete after retries")
-	await button(level.panel.success_close_button)
+	level.panel.success_panel.hide()
 	await capture("corrected-stable-section")
 	await button(level.panel.restart_button)
 	for id in level.Rules.REPRESENTATIVE_IDS:

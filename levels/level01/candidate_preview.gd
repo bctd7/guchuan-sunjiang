@@ -1,63 +1,33 @@
-extends SubViewportContainer
-signal activated
-const Orbit=preload("res://levels/shared/selectable_orbit.gd")
-var orbit: Control
-var model_root: Node3D
-var zoom_factor:=1.0
-var _height: float:
-	get:return _frame_height
-var _width: float:
-	get:return _frame_width
-## Real part clone, framed at its joint. Grain, tenon and shoulder stay together.
+extends "res://components/preview/rotatable_preview.gd"
+## Keel-specific geometry and framing, using the common viewport lifecycle.
 const Candidate = preload("res://levels/level01/candidate_geometry.gd")
 const Lengths = preload("res://models/ship/keel/length_geometry.gd")
-var viewport: SubViewport
 var specimen: Node3D
-var camera: Camera3D
-var _frame_height := 1.0
-var _frame_width := 1.8
-
-func _init() -> void:
-	stretch = true
-	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	viewport = SubViewport.new()
-	viewport.name = "CandidateViewport"
-	viewport.size = Vector2i(420,132)
-	viewport.own_world_3d = true
-	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
-	add_child(viewport)
-	resized.connect(_resize_camera)
 
 func _ready() -> void:
-	orbit=Orbit.new();add_child(orbit)
-	orbit.activated.connect(func():activated.emit())
-	orbit.zoom_requested.connect(func(factor: float):zoom_factor=clampf(zoom_factor*factor,.30,1.6);_resize_camera())
-	visibility_changed.connect(_sync_activity)
-	_sync_activity()
-func _sync_activity() -> void:
-	if not is_instance_valid(orbit):return
-	var enabled:=is_visible_in_tree()
-	orbit.set_process(enabled);orbit.set_process_input(enabled)
-	viewport.render_target_update_mode=SubViewport.UPDATE_WHEN_VISIBLE
-	if not enabled:orbit.suspend_gesture()
+	size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	super._ready()
+	viewport.name = "CandidateViewport"
+
 func configure(source: Node3D, piece_id: String, kind: String, length: String = "correct", compare_lengths: bool = false) -> void:
-	for child in viewport.get_children():
-		viewport.remove_child(child)
-		child.queue_free()
 	if not is_instance_valid(source) or not source.pieces.has(piece_id): return
-	specimen = source.duplicate_part(piece_id)
-	specimen.name = "CandidateSpecimen"
-	specimen.transform = Transform3D.IDENTITY
-	specimen.visible = true
-	Lengths.apply(specimen,piece_id,length if not length.is_empty() else "correct")
-	# Empty kind is an explicitly labelled physical length reference, not a pick.
-	if not kind.is_empty(): Candidate.apply(specimen,piece_id,kind,source)
-	solidify(specimen)
-	model_root=Node3D.new();viewport.add_child(model_root);model_root.add_child(specimen)
-	_add_lighting()
+	var stock_length := length if not length.is_empty() else "correct"
+	var key := "%s:%s:%s" % [piece_id, kind, stock_length]
+	specimen = source.candidate_variants.instantiate(key, _build_specimen.bind(source, piece_id, kind, stock_length))
+	replace_model(specimen)
 	_frame_joint(piece_id,compare_lengths)
 	viewport.set_meta("comparison_kind",kind)
+
+func _build_specimen(source: Node3D, piece_id: String, kind: String, length: String) -> Node3D:
+	var stock: Node3D = source.duplicate_part(piece_id)
+	stock.name = "CandidateSpecimen"
+	stock.transform = Transform3D.IDENTITY
+	stock.visible = true
+	Lengths.apply(stock, piece_id, length)
+	if not kind.is_empty():
+		Candidate.apply(stock, piece_id, kind, source)
+	solidify(stock)
+	return stock
 
 static func solidify(node: Node) -> void:
 	# Intended only for disposable clones, never the source ship.
@@ -123,7 +93,7 @@ static func outward_mesh(mesh: ArrayMesh) -> ArrayMesh:
 		result.surface_set_material(surface_index,mesh.surface_get_material(surface_index))
 	return result
 
-func _add_lighting() -> void:
+func _install_default_lighting() -> void:
 	var world := WorldEnvironment.new()
 	var environment := Environment.new()
 	environment.background_mode = Environment.BG_COLOR
@@ -132,15 +102,15 @@ func _add_lighting() -> void:
 	environment.ambient_light_color = Color("fffaf0")
 	environment.ambient_light_energy = .48
 	world.environment = environment
-	viewport.add_child(world)
+	lighting.add_child(world)
 	var light := DirectionalLight3D.new()
 	light.rotation_degrees = Vector3(-48,-30,0)
 	light.light_energy = .95
-	viewport.add_child(light)
+	lighting.add_child(light)
 	var fill := DirectionalLight3D.new()
 	fill.rotation_degrees = Vector3(-20,145,0)
 	fill.light_energy = .30
-	viewport.add_child(fill)
+	lighting.add_child(fill)
 
 func _frame_joint(piece_id: String, compare_lengths: bool) -> void:
 	var target := Vector3.ZERO
@@ -153,20 +123,20 @@ func _frame_joint(piece_id: String, compare_lengths: bool) -> void:
 		target = shoulder + Vector3(-side*.12,.04,0)
 		direction.x = -side*2.0
 		frame_height = .85
-		_frame_width = 2.6 if compare_lengths else 2.3
+		_width = 2.6 if compare_lengths else 2.3
 	elif piece_id in ["bow","stern"]:
 		var form := specimen.get_child(0) as Node3D
 		target = form.to_global(Vector3(0,.43,4.25))
 		direction = form.basis*Vector3(2.5,1.4,-3.8)
 		frame_height = 1.32
-		_frame_width = 2.7
+		_width = 2.7
 	elif piece_id.begins_with("beam"):
 		var body := specimen.get_child(0) as MeshInstance3D
 		if compare_lengths:
 			target = body.global_position
 			direction = Vector3(.3,1.6,5.0)
 			frame_height = .65
-			_frame_width = 7.65
+			_width = 7.65
 		else:
 			var left := body.global_position.x-body.mesh.get_aabb().size.x*.5
 			var tip := specimen.find_child("CandidateTenon",true,false) as MeshInstance3D
@@ -174,24 +144,23 @@ func _frame_joint(piece_id: String, compare_lengths: bool) -> void:
 			target = Vector3(left+.58,body.global_position.y,body.global_position.z)
 			direction = Vector3(-2.0,1.35,3.8)
 			frame_height = .96
-			_frame_width = 1.9
-	camera = Camera3D.new()
+			_width = 1.9
 	camera.name = "SpecimenCamera"
 	camera.projection = Camera3D.PROJECTION_ORTHOGONAL
 	camera.keep_aspect = Camera3D.KEEP_HEIGHT
 	camera.size = frame_height
-	_frame_height = frame_height
+	_height = frame_height
 	camera.near = .01
 	camera.far = 100.0
-	viewport.add_child(camera)
 	var elevation:=asin(direction.normalized().y)
 	orbit.yaw_limit=PI;orbit.pitch_min=elevation-deg_to_rad(75);orbit.pitch_max=elevation+deg_to_rad(75)
 	zoom_factor=1.0;orbit.configure(camera,target,direction.normalized()*8.0,true)
 	camera.current = true
-	_resize_camera()
+	_fit()
 	viewport.set_meta("focus",target)
 
-func _resize_camera() -> void:
+func _fit() -> void:
 	if not is_instance_valid(camera): return
 	var aspect := maxf(size.x,120.0)/maxf(size.y,66.0)
-	camera.size = maxf(_frame_height,_frame_width/aspect)*zoom_factor
+	camera.size = maxf(_height,_width/aspect)*zoom_factor
+	request_frame()

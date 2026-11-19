@@ -1,8 +1,8 @@
 extends "res://tests/observation_repeat_tests.gd"
 func run():
  surface=SubViewport.new();surface.size=Vector2i(1440,900);surface.own_world_3d=true;root.add_child(surface)
- campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.3)
- await button(campaign.chapter_buttons[2]);level=campaign.instances[2];await button(level.learning.start_button)
+ campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.3)
+ await button(campaign.chapter_buttons[2]);level=campaign.current_chapter;await button(level.learning.start_button)
  var obstruction:=Node3D.new();level.view.add_child(obstruction);level.view.fixed["test_obstruction"]=obstruction
  level.view.G.box(obstruction,Vector3(.3,.4,.3),level.view.panel_transform()*Vector3(2,0,.6),level.view.wood)
  level.view._pose_cache.clear()

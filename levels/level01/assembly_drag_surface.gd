@@ -1,4 +1,4 @@
-extends "res://levels/shared/inspection_orbit.gd"
+extends "res://components/preview/inspection_orbit.gd"
 var guidance_blocker: Control
 ## Preview-only insertion. The owner decides whether an assembly request is valid.
 signal zoom_requested(factor: float)
@@ -9,7 +9,7 @@ signal insertion_progress_changed(progress: float)
 
 enum Gesture { NONE, ORBIT, PART }
 const SNAP_DEPTH := .72
-const Pinch = preload("res://levels/shared/touch_pinch.gd")
+const Pinch = preload("res://components/input/touch_pinch.gd")
 var pinch = Pinch.new()
 var assembly_enabled := false
 var assembly_dragging := false
@@ -76,7 +76,7 @@ func _draw() -> void:
 	var grip:=_project(_parent_world()*(_part.transform*_grab_local))
 	var path:=target_screen()-drag_start_screen()
 	var direction:=_guide_axis if assembly_dragging else (path.normalized() if path.length()>18 else Vector2.UP)
-	preload("res://levels/shared/step_guide.gd").draw_direction(self,grip,direction)
+	preload("res://components/ui/step_guide.gd").draw_direction(self,grip,direction)
 
 func _park_for_pinch() -> void:
 	# Changing finger count cancels the pending release, not the real shallow pose.

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://components/teaching/classroom/science/dynamic/demo.gd" id="1"]
+
+[node name="DynamicEducation" type="Node"]
+script = ExtResource("1")

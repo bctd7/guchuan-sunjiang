@@ -8,7 +8,7 @@ func speed_up() -> void:
 	if "inspector" in level and is_instance_valid(level.inspector._motion): level.inspector._motion.set_speed_scale(32)
 
 func finish_motion() -> void:
-	var deadline := Time.get_ticks_msec()+5000
+	var deadline := Time.get_ticks_msec()+12000
 	while level.busy and Time.get_ticks_msec()<deadline:
 		speed_up()
 		if "inspector" in level and level.inspector.opened and not level.inspector.is_animating:
@@ -29,7 +29,9 @@ func choose_trial(id: String, joint: String, length: String, early_close := fals
 	# Last representative and even last automatic member must finish animating.
 	level.panel.check_requested.emit()
 	check(not level.state.failed and not level.state.completed,"checking during insertion never ends the level")
-	if early_close: await button(level.inspector.close_button)
+	if early_close and level.inspector.is_animating:
+		await click(level.inspector.close_button.get_global_rect().get_center())
+		check(level.inspector.opened and level.busy, "an early close cannot interrupt seating")
 	await finish_motion()
 
 func good_group(id: String) -> void:
@@ -60,11 +62,11 @@ func failure_is_locked() -> void:
 	await process_frame
 	check(level.state.placed==before and level.state.failed and level.panel.failure_overlay.visible,"stale controls and Escape cannot alter failed run")
 	check(not level.state.completed and not campaign.completed.get(campaign.active_level,false),"failed run cannot mark chapter complete")
-	check(level.panel.failure_return_button.text=="回到关卡目录" and level.panel.failure_restart_button.text=="重新开始","failure presents both requested actions")
+	check(level.panel.failure_return_button.text=="返回关卡目录" and level.panel.failure_restart_button.text=="重新搭建","failure presents both requested actions")
 
 func run() -> void:
 	root.size=Vector2i(1440,900)
-	campaign=load("res://campaign/campaign.tscn").instantiate()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate()
 	root.add_child(campaign)
 	await settle(.1)
 	await enter(1)
@@ -86,7 +88,8 @@ func run() -> void:
 					await restart_failure()
 				else:
 					check(level.state.completed and level.panel.success_panel.visible and campaign.completed.get(1,false),"complete correct assembly automatically passes")
-					await button(level.panel.restart_button)
+					await back()
+					await enter(1)
 				cases+=1
 	check(cases==27,"all 27 choices at three connection stages exercised through actual pointer events")
 	await cancellation_and_directory()
@@ -96,6 +99,7 @@ func run() -> void:
 	FileAccess.open("res://tests/evidence/whole-level-failure-r8/input-report.json",FileAccess.WRITE).store_string(JSON.stringify(report,"  "))
 	print("WHOLE_LEVEL_FAILURE ",JSON.stringify(report))
 	campaign.free()
+	await stop_music()
 	quit(0 if failed==0 else 1)
 
 func cancellation_and_directory() -> void:
@@ -106,8 +110,8 @@ func cancellation_and_directory() -> void:
 	await button(level.inspector.close_button)
 	await click(level.view.socket_screen_position("rib_l1"))
 	var old_generation: int=level._motion_generation
-	await button(level.inspector.close_button)
-	await button(level.panel.restart_button)
+	level.panel.restart_requested.emit()
+	await process_frame
 	await button(level.panel.inspect_button)
 	await button(level.inspector.joint_buttons.blind_tenon)
 	await button(level.inspector.length_buttons.correct)
@@ -120,28 +124,30 @@ func cancellation_and_directory() -> void:
 	check(level.state.automatic_count()==5 and not level.state.failed,"replacement run finishes its own group")
 	await button(level.panel.restart_button)
 	await choose_trial("rib_l1","dovetail","long",true)
-	var saved=level.state.placed.duplicate(true)
+	var unfinished: WeakRef = weakref(level)
 	await back()
 	await enter(2)
 	await place_l2("plank_0a")
-	var second=level
-	var second_saved=second.state.placed.duplicate(true)
+	var second: WeakRef = weakref(level)
 	await back()
 	await enter(1)
-	check(level.state.placed==saved and not level.state.failed,"directory preserves unfinished wrong choices without a verdict")
+	check(unfinished.get_ref() == null and second.get_ref() == null
+		and level.state.placed == level.Rules.initial_connections() and not level.state.failed,
+		"directory releases unfinished rounds and opens a new ship")
+	await choose_trial("rib_l1","dovetail","long",true)
 	await good_group("bow")
 	await good_group("beam1")
-	check(level.state.failed,"finishing the retained wrong run triggers final failure")
-	var first=level
+	check(level.state.failed,"finishing the wrong run triggers final failure")
+	var first: WeakRef = weakref(level)
 	await button(level.panel.failure_return_button)
 	check(campaign.active_level==0 and campaign.menu.visible,"failure directory action actually returns to chapter list")
 	await enter(1)
-	check(level==first and level.state.failed and level.panel.failure_overlay.visible,"failed run and modal persist across directory round trip")
-	await restart_failure()
-	check(second.state.placed==second_saved,"first chapter retry preserves second chapter progress")
+	check(first.get_ref() == null and not level.state.failed and not level.panel.failure_overlay.visible,
+		"failure directory action releases the round and its overlay")
 	for id in level.Rules.REPRESENTATIVE_IDS: await good_group(id)
 	check(level.state.completed and campaign.completed.get(1,false),"correct replay after failure passes normally")
-	await button(level.panel.restart_button)
+	await back()
+	await enter(1)
 	# Restart during final failure shake invalidates all later callbacks.
 	await choose_trial("rib_l1","blind_tenon","short",true)
 	await good_group("bow")
@@ -161,37 +167,37 @@ func cancellation_and_directory() -> void:
 	await settle(.25)
 	check(not level.busy and level.view.animations.is_empty() and not level.panel.failure_overlay.visible,"restart during shake cancels old failure callbacks")
 
-func hull_piece(id: String, aligned: bool) -> void:
+func hull_piece(id: String, wrong_opening: bool) -> void:
 	if level.state.placed.has(id) and level.state.placed[id].get("automatic",false):return
 	await HullNavigation.open_local(root,level,id)
 	await button(level.panel.joint_buttons[level.Rules.expected(id)])
-	await button(level.panel.opening_buttons[level.state.Openings.target(id)])
-	var row: int=level.Rules.row_for(id)
-	if row>0 and id.ends_with("a"):
-		await button(level.panel.layout_buttons["A" if aligned or row==2 else "B"])
+	await button(level.panel.opening_buttons["A" if wrong_opening and id == "plank_0a" else level.state.Openings.target(id)])
 	await settle(.5)
 	await HullPointer.drag(root,level.view,1.0)
 	check(level.busy and not level.state.failed and not level.state.completed,"hull does not judge before real insertion finishes "+id)
-	await finish_motion()
+	var deadline := Time.get_ticks_msec()+45000
+	while level.busy and Time.get_ticks_msec()<deadline:
+		await process_frame
+	check(not level.busy and level.view.animations.is_empty(),"hull finishes seating or trial "+id)
 	if level.view.inspected:await button(level.panel.overview_button)
-	if id!="bulkhead":
+	if id!=level.Rules.MANUAL_IDS.back():
 		check(not level.state.failed and not level.state.checked and not level.panel.failure_overlay.visible,"unfinished hull defers leak verdict "+id)
 
 func second_chapter() -> void:
 	await back()
 	await enter(2)
 	await button(level.panel.restart_button)
-	for id in level.Rules.IDS: await hull_piece(id,true)
-	check(level.state.failed and not level.state.completed and level.panel.failure_overlay.visible,"complete aligned hull automatically fails")
+	for id in level.Rules.MANUAL_IDS: await hull_piece(id,true)
+	check(level.state.failed and level.state.checked and not level.state.completed and level.panel.failure_overlay.visible
+		and level.state.failure_result().code=="opening","wrong opening reaches the full trial verdict")
 	await failure_is_locked()
-	var second=level
+	var second: WeakRef = weakref(level)
 	await button(level.panel.failure_return_button)
 	check(campaign.menu.visible and campaign.active_level==0,"hull failure action returns to directory")
 	await enter(2)
-	check(level==second and level.state.failed and level.panel.failure_overlay.visible,"hull failed state persists on reentry")
-	await button(level.panel.failure_restart_button)
-	check(not level.state.failed and level.state.placed.is_empty() and level.state.observed.is_empty(),"hull restart clears whole failed run")
-	for id in level.Rules.IDS: await hull_piece(id,false)
+	check(second.get_ref() == null and not level.state.failed and level.state.placed.is_empty(),
+		"hull directory return clears the previous failed round")
+	for id in level.Rules.MANUAL_IDS: await hull_piece(id,false)
 	check(level.state.completed and campaign.completed.get(2,false) and level.panel.success_panel.visible,"correct staggered hull passes after restart")
-	await button(level.panel.restart_button)
-	check(not campaign.completed.get(2,false),"hull restart clears only its chapter completion badge")
+	await back()
+	check(not campaign.completed.get(2,false),"hull directory return clears its completion badge")

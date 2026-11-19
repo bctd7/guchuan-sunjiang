@@ -11,6 +11,9 @@ var viewports: Dictionary = {}
 var previews: Dictionary = {}
 var captions: Dictionary = {}
 
+static func option_label(length: String) -> String:
+	return char(65 + ORDER.find(length))
+
 func _ready() -> void:
 	size_flags_vertical=Control.SIZE_EXPAND_FILL
 	add_theme_constant_override("separation",10)
@@ -84,8 +87,9 @@ func configure(source: Node3D, piece_id: String, kind: String = "") -> void:
 			var body := specimen.get_child(0) as MeshInstance3D
 			var stock_ticks := roundi((body.mesh.get_aabb().size.x+tip.mesh.get_aabb().size.x)*100.0)
 			detail = "整料 %d格" % stock_ticks
-		captions[length].text = "%s · %s%d格\n%s" % [char(65+index),measure.trim_suffix("长"),ticks,detail]
-		buttons[length].tooltip_text = "木料 %s · %s%d格；点选后试装" % [char(65+index),measure,ticks]
+		var label := option_label(length)
+		captions[length].text = "%s · %s%d格\n%s" % [label,measure.trim_suffix("长"),ticks,detail]
+		buttons[length].tooltip_text = "木料 %s · %s%d格；点选后试装" % [label,measure,ticks]
 
 func set_selected(length: String) -> void:
 	for id in buttons: buttons[id].set_pressed_no_signal(id == length)

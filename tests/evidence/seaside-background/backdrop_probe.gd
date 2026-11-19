@@ -8,10 +8,10 @@ func button(control: Button) -> void:
 	var caption: String=control.text
 	await super.button(control)
 	if campaign.active_level!=2:return
-	var level=campaign.instances[2]
+	var level=campaign.current_chapter
 	var expected: bool=level.view.is_visible_in_tree() and not level.view.inspected
 	check(level.view.backdrop.visible==expected,"seaside plate follows overview/local/teaching visibility after "+caption)
-	check(level.view.backdrop.get_child(0).texture.resource_path=="res://levels/level02/assets/seaside_shipyard.png","actual chapter-two CanvasLayer consumes the new seaside bitmap")
+	check(level.view.backdrop.get_child(0).texture.resource_path=="res://assets/images/level02/seaside_shipyard.png","actual chapter-two CanvasLayer consumes the new seaside bitmap")
 	if is_instance_valid(level.learning.workshop):
 		awaiting_local_return=level.view.inspected
 		check(not level.view.backdrop.visible,"seaside background does not leak behind original classroom")

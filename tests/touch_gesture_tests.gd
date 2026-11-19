@@ -199,7 +199,7 @@ func check_magnifier(scope: String) -> void:
 	await capture(scope+"-magnifier")
 	await settle(.46)
 	await button(magnifier.close_button)
-	check(not magnifier.visible and magnifier.preview.orbit.pinch.points.is_empty(), "closing magnifier clears hidden gesture ownership "+scope)
+	check(not magnifier.visible and magnifier.preview == null, "closing magnifier releases its viewport and gestures "+scope)
 	var orbit=level.inspector.orbit if chapter==1 else level.panel.observation_orbit
 	var angles: Vector2=orbit.target_angles
 	await touch(7,held,true); await move_touch(7,held+Vector2(24,12),Vector2(24,12)); await touch(7,held+Vector2(24,12),false)
@@ -230,11 +230,11 @@ func run() -> void:
 	if gpu: root.mode=Window.MODE_MINIMIZED
 	surface=SubViewport.new(); surface.size=Vector2i(1440,900); surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS; root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate(); surface.add_child(campaign); await settle(.2)
+	campaign=load("res://app/campaign/campaign.tscn").instantiate(); surface.add_child(campaign); await settle(.2)
 	for chapter_id in [1,2]:
 		chapter=chapter_id
 		await settle(.46)
-		await button(campaign.chapter_buttons[chapter]); level=campaign.instances[chapter]
+		await button(campaign.chapter_buttons[chapter]); level=campaign.current_chapter
 		await button(level.learning.start_button)
 		await button(level.panel.inspect_button if chapter==1 else level.panel.observe_button)
 		if chapter==1:

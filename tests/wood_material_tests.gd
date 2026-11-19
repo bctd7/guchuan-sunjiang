@@ -1,8 +1,8 @@
 extends SceneTree
 ## Verify the two real display paths, original geometry and mutable X-ray alpha.
-const Assembly = preload("res://core/assembly.gd")
-const Look = preload("res://classroom/display/workshop_look.gd")
-const Preview = preload("res://classroom/display/lesson_model_preview.gd")
+const Assembly = preload("res://components/teaching/assembly/assembly.gd")
+const Look = preload("res://components/teaching/classroom/display/workshop_look.gd")
+const Preview = preload("res://components/teaching/classroom/display/lesson_model_preview.gd")
 var passed := 0
 var failed := 0
 func _initialize() -> void: run.call_deferred()

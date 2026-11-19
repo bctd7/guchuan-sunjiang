@@ -10,7 +10,7 @@ func run() -> void:
 	mixer.seat_played.connect(func(owner):audio_events.append({"owner":owner,"ms":Time.get_ticks_msec()}))
 	var record=AudioEffectRecord.new();record.format=AudioStreamWAV.FORMAT_16_BITS
 	AudioServer.add_bus_effect(0,record);record.set_recording_active(true)
-	campaign=load("res://campaign/campaign.tscn").instantiate();root.add_child(campaign)
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();root.add_child(campaign)
 	await settle(3)
 	check(mixer.music.playing and mixer.clips.size()==3,"music and effects loaded")
 	var music_id=mixer.music.get_instance_id()
@@ -27,7 +27,8 @@ func run() -> void:
 			await place_l2("plank_0a")
 			check(audio_events.size()==before+6,"second manual and automatic seating audio")
 		else:
-			await place_l3("zrail")
+			await place_l3("apron")
+			await button(level.panel.overview_button)
 			check(audio_events.size()==before+1,"third seating exactly once")
 		before=audio_events.size()
 		await button(level.panel.undo_button);await settle(.4)

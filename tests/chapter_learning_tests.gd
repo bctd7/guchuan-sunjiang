@@ -1,8 +1,8 @@
 extends SceneTree
 ## Headless control-signal and state-preservation checks, not human GUI testing.
-const Learning = preload("res://levels/shared/teaching_portal.gd")
-const ModelPreview = preload("res://classroom/display/lesson_model_preview.gd")
-const Workshop = preload("res://classroom/classroom.gd")
+const Learning = preload("res://components/teaching/teaching_portal.gd")
+const ModelPreview = preload("res://components/teaching/classroom/display/lesson_model_preview.gd")
+const Workshop = preload("res://components/teaching/classroom/classroom.gd")
 const GROUPS := [
 	["dovetail", "blind_tenon", "through_tenon"],
 	["cross_lap", "tongue_groove", "three_way_lap"],
@@ -67,7 +67,8 @@ func check_chapter_group_and_round_trip(chapter: int) -> void:
 	var piece_id := view.piece.get_instance_id()
 	var pose_before: Transform3D = view.piece.transform
 	var camera_pose: Transform3D = view.camera.transform
-	learning.configure(chapter, view, panel, interaction)
+	learning.bind_source(view, panel, interaction, view.camera, interaction.cancel)
+	learning.configure(chapter)
 	await process_frame
 	check(learning.lesson_ids == GROUPS[chapter - 1], "chapter %d has exact ordered group" % chapter)
 	check(learning.lesson_buttons.keys() == GROUPS[chapter - 1], "chapter %d exposes exactly three lesson signals" % chapter)
@@ -169,7 +170,8 @@ func check_hidden_sources_and_disabled_input_are_preserved() -> void:
 	interaction.set_process_unhandled_key_input(false)
 	var learning := Learning.new()
 	level.add_child(learning)
-	learning.configure(1, view, panel, interaction)
+	learning.bind_source(view, panel, interaction, view.camera, interaction.cancel)
+	learning.configure(1)
 	learning.start_button.pressed.emit()
 	check(not view.visible and not panel.visible, "preexisting hidden source visibility preserved")
 	check(not interaction.is_processing_input() and not interaction.is_processing_unhandled_input() and not interaction.is_processing_unhandled_key_input(), "preexisting disabled input preserved")

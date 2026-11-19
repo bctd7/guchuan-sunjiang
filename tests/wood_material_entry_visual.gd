@@ -37,11 +37,11 @@ func run() -> void:
 	surface.own_world_3d = true
 	surface.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(surface)
-	campaign = load("res://campaign/campaign.tscn").instantiate()
+	campaign = load("res://app/campaign/campaign.tscn").instantiate()
 	surface.add_child(campaign)
 	for chapter in range(1, 4):
 		campaign.open_level(chapter)
-		var level = campaign.instances[chapter]
+		var level = campaign.current_chapter
 		await capture("chapter-%d-introduction" % chapter)
 		for id in level.learning.lesson_ids:
 			level.learning.lesson_buttons[id].pressed.emit()

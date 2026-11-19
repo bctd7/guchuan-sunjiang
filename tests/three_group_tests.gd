@@ -23,8 +23,8 @@ func run() -> void:
 	gpu=OS.get_cmdline_user_args().has("--gpu");root.set_flag(Window.FLAG_NO_FOCUS,true)
 	if gpu:root.mode=Window.MODE_MINIMIZED
 	surface=SubViewport.new();surface.size=Vector2i(1440,900);surface.own_world_3d=true;surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.2)
-	await button(campaign.chapter_buttons[2]);level=campaign.instances[2];await button(level.learning.start_button)
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.2)
+	await button(campaign.chapter_buttons[2]);level=campaign.current_chapter;await button(level.learning.start_button)
 	check(level.panel.group_buttons.size()==3 and level.Rules.MANUAL_IDS.size()==4,"three groups, with separate side and top strokes for the interlock")
 	await capture("01-three-group-overview")
 	# All real board variants remain variants; repetition never replaces a bad

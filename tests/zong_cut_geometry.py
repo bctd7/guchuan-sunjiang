@@ -5,7 +5,7 @@ import numpy as np
 root=Path(__file__).resolve().parents[1]
 helpers=runpy.run_path(str(root/'tests/force_profile_geometry.py'))
 inside,distance,load_mesh=helpers['inside'],helpers['distance'],helpers['load_mesh']
-p=next(x for x in json.loads((root/'classroom/science/force_gallery/profiles.json').read_text()) if x['id']=='zong_corner')
+p=next(x for x in json.loads((root/'components/teaching/classroom/science/force_gallery/profiles.json').read_text()) if x['id']=='zong_corner')
 passed=0
 def check(value,label):
  global passed

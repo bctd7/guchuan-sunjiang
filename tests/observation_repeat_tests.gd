@@ -49,7 +49,8 @@ func second_trial(id: String,mode: String) -> void:
 	await prepare(id)
 	if mode=="wrong_type" and id=="plank_0a":await button(level.panel.joint_buttons.cross_lap);await button(level.panel.opening_buttons.B)
 	if mode=="wrong_opening" and id=="plank_0a":await button(level.panel.opening_buttons.A)
-	if mode=="aligned" and id=="plank_1a":await button(level.panel.layout_buttons.A)
+	# The aligned fixture exercises the verdict for the former layout variant.
+	if mode=="aligned" and id=="plank_1a":level.state.choose_layout("A")
 	await settle(.5);await Pointer.drag(surface,level.view,1.0,id=="three_middle");await wait_motion()
 	check(level.state.placed.has(id),"manual representative installs "+id)
 	if level.Rules.REPEATS.has(id):
@@ -65,8 +66,8 @@ func run() -> void:
 	gpu=OS.get_cmdline_user_args().has("--gpu");root.set_flag(Window.FLAG_NO_FOCUS,true)
 	if gpu:root.mode=Window.MODE_MINIMIZED
 	surface=SubViewport.new();surface.size=Vector2i(1440,900);surface.own_world_3d=true;surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.2)
-	await button(campaign.chapter_buttons[1]);level=campaign.instances[1];await button(level.learning.start_button);await button(level.panel.inspect_button)
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.2)
+	await button(campaign.chapter_buttons[1]);level=campaign.current_chapter;await button(level.learning.start_button);await button(level.panel.inspect_button)
 	var inspector=level.inspector
 	await drag_region(inspector.joint_choices.previews.blind_tenon.get_global_rect(),Vector2(55,-15),true)
 	check(inspector.selected_joint.is_empty(),"rotating first-chapter candidate does not select")
@@ -93,15 +94,17 @@ func run() -> void:
 	await capture("first-whole-level-failure");await button(level.panel.failure_restart_button)
 	for id in level.Rules.REPRESENTATIVE_IDS:await first_trial(id)
 	check(level.state.completed and campaign.completed.get(1,false),"first chapter still completes correctly")
-	await button(level.panel.success_close_button);await button(campaign.back_button)
-	await button(campaign.chapter_buttons[2]);level=campaign.instances[2];await button(level.learning.start_button)
+	await button(level.panel.success_panel.return_button)
+	await button(campaign.chapter_buttons[2]);level=campaign.current_chapter;await button(level.learning.start_button)
 	await second_trial("plank_0a","correct");await capture("second-one-operation-two-boards")
 	await button(level.panel.undo_button);check(level.state.placed.is_empty() and level.state.selected=="plank_0a","one undo takes back both same-row boards")
 	for mode in ["correct","wrong_opening"]:
 		for id in level.Rules.MANUAL_IDS:await second_trial(id,mode)
 		check(level.state.placed.size()==10 and level.state.placed.values().filter(func(data):return data.get("automatic",false)).size()==6,"four manual strokes retain ten pieces and six repeated records")
 		if mode=="correct":
-			check(level.state.completed and not level.state.failed,"three-group correct hull passes");await capture("second-repeated-correct-complete");await button(level.panel.success_panel.get_child(0).get_child(3));await button(level.panel.restart_button)
+			check(level.state.completed and not level.state.failed,"three-group correct hull passes");await capture("second-repeated-correct-complete")
+			await button(level.panel.success_panel.return_button)
+			await button(campaign.chapter_buttons[2]);level=campaign.current_chapter;await button(level.learning.start_button)
 		else:
 			check(level.state.failed and not level.state.completed and level.panel.failure_restart_button.visible and level.panel.failure_return_button.visible,"grouped errors wait for whole trial and offer restart/directory "+mode)
 			if mode=="wrong_type":check(level.state.mismatched_joints()==["plank_0a","plank_0b"],"wrong representative is never corrected in automatic board")

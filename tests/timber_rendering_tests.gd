@@ -1,6 +1,6 @@
 extends SceneTree
 const G=preload("res://models/ship/hull/ship_geometry.gd")
-const Appearance=preload("res://levels/level02/wood_appearance.gd")
+const Appearance=preload("res://models/ship/hull/wood_appearance.gd")
 const Context=preload("res://levels/level02/inspection_context.gd")
 const Lighting=preload("res://levels/level02/timber_lighting.gd")
 var passed:=0

@@ -1,4 +1,4 @@
-extends "res://levels/shared/story_overlay.gd"
+extends "res://components/ui/story_overlay.gd"
 ## Chapter content only; presentation and lifecycle are shared.
 const STORY_TITLE := "龙骨里的七星伴月"
 const STORY_PARAGRAPHS := [

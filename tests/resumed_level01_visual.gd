@@ -79,12 +79,12 @@ func run() -> void:
 	surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS
 	root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate()
 	surface.add_child(campaign)
 	await settle(.3)
 	for number in [1,2,3]:
 		await button(campaign.chapter_buttons[number])
-		level=campaign.instances[number]
+		level=campaign.current_chapter
 		await capture("01-chapter-%d-original-models"%number)
 		check(level.learning.previews.size()==3,"chapter contains its three real-model previews")
 		await button(level.learning.start_button)
@@ -93,7 +93,7 @@ func run() -> void:
 		finish()
 		return
 	await button(campaign.chapter_buttons[1])
-	level=campaign.instances[1]
+	level=campaign.current_chapter
 	await capture("02-compact-task-and-workshop")
 	await button(level.panel.lesson_button)
 	check(level.story.opened and not campaign.navigation.visible,"optional story owns its view")
@@ -127,6 +127,6 @@ func run() -> void:
 		await install(id)
 	await button(level.panel.check_button)
 	check(level.state.completed and campaign.completed.get(1,false),"corrected full skeleton completes")
-	await button(level.panel.success_close_button)
+	level.panel.success_panel.hide()
 	await capture("09-corrected-plan-completion")
 	finish()

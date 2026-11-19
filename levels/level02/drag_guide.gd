@@ -18,7 +18,7 @@ func _draw() -> void:
 	var grip: Vector2=inverse*view.drag_grab_screen()
 	var path: Vector2=inverse.basis_xform(view.drag_input_path_screen())
 	var direction:=path.normalized()
-	preload("res://levels/shared/step_guide.gd").draw_direction(self,grip,direction)
+	preload("res://components/ui/step_guide.gd").draw_direction(self,grip,direction)
 
 func _process(_delta: float) -> void:
 	if enabled and is_visible_in_tree():queue_redraw()

@@ -1,8 +1,8 @@
 extends SceneTree
 ## Actual GPU specimens + all classroom entry views. Scripted setup, no hardware input.
 const OUTPUT := "res://tests/evidence/wood-materials/"
-const Preview = preload("res://classroom/display/lesson_model_preview.gd")
-const Workshop = preload("res://classroom/classroom.gd")
+const Preview = preload("res://components/teaching/classroom/display/lesson_model_preview.gd")
+const Workshop = preload("res://components/teaching/classroom/classroom.gd")
 var surface: SubViewport
 var images: Array[String] = []
 var failures: Array[String] = []

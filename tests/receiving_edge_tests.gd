@@ -9,7 +9,7 @@ func choose(level,id: String,kind: String=""):
  level.state.select(id);level.state.observe();level.state.choose_joint(kind if not kind.is_empty() else level.Rules.expected(id));level.state.choose_opening(level.state.Openings.target(id))
  if level.Rules.row_for(id)>0:level.state.choose_layout("B" if level.Rules.row_for(id)==1 else "A")
 func run():
- var level=load("res://levels/level02/level02.tscn").instantiate();root.add_child(level)
+ var level=load("res://levels/level02/level02.tscn").instantiate();root.add_child(level);level.learning.start_button.pressed.emit()
  for id in level.Rules.IDS:
   choose(level,id)
   check(level.view.installation_receiver_present(id),"correct actual edge covers both staggered plank halves "+id)

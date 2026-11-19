@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="古船榫（sǔn）匠 · Joinery Workshop"
-run/main_scene="res://startup/startup.tscn"
+run/main_scene="res://app/startup/startup.tscn"
 config/features=PackedStringArray("4.7")
 
 [autoload]
 
-Exhibition="*res://shared/exhibition.gd"
-GameAudio="*res://shared/game_audio.gd"
+Exhibition="*res://app/exhibition.gd"
+GameAudio="*res://audio/game_audio.gd"
 
 [display]
 
@@ -34,7 +34,7 @@ idle_timeout_seconds=180
 
 [gui]
 
-theme/custom_font="res://shared/fonts/default_font.tres"
+theme/custom_font="res://assets/fonts/default_font.tres"
 
 [rendering]
 

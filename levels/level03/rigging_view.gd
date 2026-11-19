@@ -2,7 +2,7 @@ extends Node3D
 const G = preload("res://models/ship/rigging/ship_geometry.gd")
 const Rules = preload("res://levels/level03/connection_rules.gd")
 const OFFSETS = {"zrail":Vector3(0,0,1.65),"leg":Vector3(0,-1.65,0),"mast":Vector3(0,1.6,0),"apron":Vector3(0,1.1,0),"top":Vector3(0,1.4,0),"lbrace":Vector3(1.65,0,0),"rudder":Vector3(0,2.6,0),"blade":Vector3(0,0,-1.5)}
-const CENTERS = {"zrail":Vector3(.5,.6,.5),"leg":Vector3(.5,.45,.5),"mast":Vector3(2.7,.8,2.5),"apron":Vector3(0,.20,0),"top":Vector3(0,.5,0),"lbrace":Vector3(0,-.10,0),"rudder":Vector3(2.3,.7,0),"blade":Vector3(2.3,-.75,0)}
+const CENTERS = {"zrail":Vector3(.5,.6,.5),"leg":Vector3(.5,.45,.5),"mast":Vector3(0,1.5,0),"apron":Vector3(0,.20,0),"top":Vector3(0,.5,0),"lbrace":Vector3(0,-.10,0),"rudder":Vector3(2.3,.7,0),"blade":Vector3(2.3,-.75,0)}
 var screen_surface: SubViewportContainer
 var camera: Camera3D
 var stages: Array[Node3D] = []
@@ -12,7 +12,9 @@ var animations: Dictionary = {}
 var rudder_pivot: Node3D
 var preview: Node3D
 var _preview_key := ""
-var _selected := "zrail"
+var _selected: String = Rules.ORDER[0]
+var launch_scene: Node3D
+var warning_motion: Tween
 var _stage := -1
 var _placed: Array = []
 var cutaway := false
@@ -23,7 +25,7 @@ func _ready() -> void:
 	var world := WorldEnvironment.new()
 	var env := Environment.new()
 	env.background_mode = Environment.BG_COLOR
-	env.background_color = Color("eee7d9")
+	env.background_color = Color("fff7e9")
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	env.ambient_light_color = Color("fffaf0")
 	env.ambient_light_energy = .60
@@ -72,22 +74,22 @@ func _ready() -> void:
 		markers[id] = marker
 func _build_mast_base() -> void:
 	var s := stages[0]
-	G.zong(s,"xrail",_wood)
-	G.box(s,Vector3(0,0,4.4),Vector3(4.4,1,5.2),_wood,"FarFrameRail")
-	G.box(s,Vector3(4.4,0,0),Vector3(5.2,1,5.2),_wood,"FarFrameEnd")
-	# Structural crossbed has a real blind square socket with a solid bottom.
-	G.solid(s,[[Vector3(1,0,2),Vector3(4.4,1,3)]],[[Vector3(2.4,.35,2.2),Vector3(3.0,1.1,2.8)]],_wood,"MastBedSquareSocket")
-	for point in [Vector3(4.6,-1.0,.5),Vector3(4.6,-1.0,4.6),Vector3(.5,-1.0,4.6)]:
-		G.box(s,point-Vector3(.16,1,.16),point+Vector3(.16,1,.16),_light,"TemporarySideSupport")
-	# Deliberately no deck or tabletop beneath the moving corner leg.
+	G.box(s,Vector3(-3,-2.9,-.68),Vector3(3,-2.35,.68),_wood,"Keel")
+	G.solid(s,[[Vector3(-.40,-2.35,-.40),Vector3(.40,.55,.40)]],[[Vector3(-.45,-.20,-.19),Vector3(.45,.7,.19)],[Vector3(-.45,.38,-.45),Vector3(-.25,.7,.45)],[Vector3(.25,.38,-.45),Vector3(.45,.7,.45)]],_wood,"KeelMountedFork")
+
 func _build_spar_seat() -> void:
 	var s := stages[1]
-	G.solid(s,[[Vector3(-.40,-2.8,-.40),Vector3(.40,.55,.40)]],[[Vector3(-.45,-.20,-.19),Vector3(.45,.7,.19)],[Vector3(-.45,.38,-.45),Vector3(-.25,.7,.45)],[Vector3(.25,.38,-.45),Vector3(.45,.7,.45)]],_wood,"MastTopForkAndTwinTenons")
-	G.cylinder(s,.38,1.2,Vector3(0,-3.3,0),_wood,"LowerMastContext")
+	G.zong(s,"xrail",_wood)
+	G.cylinder(s,.37,4.2,Vector3(3.9,-1.35,.5),_wood,"MastAtSparHeight")
+	G.lashing(s,Vector3(3.9,-.25,.5),.37)
+	G.lashing(s,Vector3(3.9,-2.90,.5),.37)
+
 func _build_rudder_frame() -> void:
 	var s := stages[2]
 	G.solid(s,[[Vector3(-.65,-1.5,-.62),Vector3(.65,1.5,.62)]],[[Vector3(-.16,-.31,-.26),Vector3(.7,.31,.26)],[Vector3(-.7,-.31,-.26),Vector3(0,-.06,.26)]],_wood,"SternPostSteppedSocket")
-	G.box(s,Vector3(-2,-1.7,-.8),Vector3(.8,-1.5,.8),_wood,"SternDeckEdge")
+	for i in 5:
+		var edge := -.80+.32*i
+		G.box(s,Vector3(-2,-1.7,edge),Vector3(.8,-1.5,edge+.307),_wood,"SternDeckPlank")
 	G.box(s,Vector3(-2,-1.95,-.8),Vector3(-1.75,1.7,.8),_light,"SternSideContext")
 	rudder_pivot = Node3D.new()
 	rudder_pivot.name = "OnlyRoundShaftAndBladeRotate"
@@ -97,7 +99,7 @@ func sync_state(state) -> void:
 	_selected = state.selected
 	_placed = state.placed.duplicate()
 	var new_stage: int = state.stage_idx
-	for i in 3: stages[i].visible = i == new_stage
+	for i in 3: stages[i].visible = i == new_stage and not is_instance_valid(launch_scene)
 	for id in pieces:
 		pieces[id].visible = state.placed.has(id)
 		if not animations.has(id): pieces[id].position = _base(id)
@@ -109,6 +111,7 @@ func sync_state(state) -> void:
 		if is_instance_valid(preview):
 			preview.get_parent().remove_child(preview)
 			preview.queue_free()
+			preview = null
 		if not state.placed.has(state.selected):
 			var kind: String = state.candidate if not state.candidate.is_empty() else str(Rules.SPECS[state.selected].joint)
 			preview = G.piece(state.selected,kind)
@@ -116,6 +119,12 @@ func sync_state(state) -> void:
 			stages[new_stage].add_child(preview)
 			preview.position = OFFSETS[state.selected]
 			if state.selected == "blade": preview.get_node("SideCap").position.z = 2.8
+	if is_instance_valid(preview):
+		if _selected == "rudder":
+			preview.rotation_degrees.z = 20 if state.setting == 1 else 0
+		elif _selected == "leg":
+			preview.rotation.z = PI if state.setting == 0 else 0.0
+			preview.position.y = 2.7 if state.setting == 0 else OFFSETS.leg.y
 	if _stage != new_stage:
 		_stage = new_stage
 		cutaway = false
@@ -139,24 +148,24 @@ func animate_place(id: String) -> void:
 	else:
 		tween.tween_property(p,"position",_base(id),1.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(func():
-		preload("res://shared/seating_audio.gd").play(self)
+		preload("res://audio/seating_audio.gd").play(self)
 		animations.erase(id))
 func focus_current() -> void:
 	var center: Vector3
 	var direction: Vector3
 	var span: float
-	if _stage == 0:
+	if _stage == 1:
 		center = Vector3(2.0,.75,2.2)
 		direction = Vector3(8,5,10)
-		span = 9.3
+		span = 7.8
 		if _selected == "leg":
-			center = Vector3(1.6,-.25,1.8)
+			center = Vector3(1.6,-.9,1.8)
 			direction = Vector3(7,-4.8,9)
-			span = 8.6
-	elif _stage == 1:
-		center = Vector3(0,-.3,0)
+			span = 8.0
+	elif _stage == 0:
+		center = Vector3(0,1.2 if _selected == "mast" else 0.0,0)
 		direction = Vector3(7,3.5,10)
-		span = 6.6
+		span = 12.0 if _selected == "mast" else 7.0
 	else:
 		center = Vector3(1.0,.1,-.15)
 		direction = Vector3(10,4.2,5)
@@ -184,3 +193,26 @@ func pick_socket(position: Vector2) -> String:
 	for id in markers:
 		if markers[id].is_visible_in_tree() and socket_screen_position(id).distance_to(position) <= 48: return id
 	return ""
+
+func show_loose_mast() -> void:
+	if not is_instance_valid(preview): return
+	if warning_motion: warning_motion.kill()
+	warning_motion = preview.create_tween()
+	warning_motion.tween_property(preview,"rotation:z",deg_to_rad(32),.35)
+	warning_motion.tween_property(preview,"rotation:z",0.0,.45)
+
+func start_launch() -> Tween:
+	for stage in stages: stage.hide()
+	launch_scene = preload("res://levels/level03/harbor_launch.gd").new()
+	add_child(launch_scene)
+	camera.position = Vector3(-3.0,4.1,11)
+	camera.look_at(Vector3(0,1.85,0))
+	camera.size = 6.5
+	return launch_scene.sail_out()
+
+func clear_launch() -> void:
+	if is_instance_valid(launch_scene):
+		remove_child(launch_scene)
+		launch_scene.queue_free()
+		launch_scene = null
+		focus_current()

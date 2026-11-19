@@ -1,16 +1,17 @@
 extends HBoxContainer
 const Lighting=preload("res://levels/level02/timber_lighting.gd")
 ## Three real ship-material candidate previews; assembled from current G solids.
-const Appearance=preload("res://levels/level02/wood_appearance.gd")
+const Appearance=preload("res://models/ship/hull/wood_appearance.gd")
 const G=preload("res://models/ship/hull/ship_geometry.gd")
 const Boat=preload("res://models/ship/hull/boat_joints.gd")
 signal chosen(id: String)
 signal inspect_requested(id: String)
 var inspect_buttons: Dictionary={}
-const Workspace=preload("res://levels/shared/inspection_workspace.gd")
-const Preview=preload("res://levels/shared/rotatable_preview.gd")
+const Workspace=preload("res://components/ui/inspection_workspace.gd")
+const Preview=preload("res://components/preview/rotatable_preview.gd")
 var previews: Dictionary={}
 const DETAILS={"tongue_groove":"舌槽沿板边相接","cross_lap":"两件缺口相向落合","three_way_lap":"中件侧推，顶件锁合"}
+const CAPTIONS={"tongue_groove":"选企口榫","cross_lap":"选搭扣榫 · 交叉嵌合","three_way_lap":"选扣合榫 · 侧推锁合"}
 const TYPES=["tongue_groove","cross_lap","three_way_lap"]
 var buttons: Dictionary={}
 var captions: Dictionary={}
@@ -18,11 +19,16 @@ func _ready() -> void:
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
 	add_theme_constant_override("separation",28)
 	custom_minimum_size.y=174
+
+func build_cards() -> void:
+	if not buttons.is_empty():
+		return
 	for id in TYPES:
-		var button=preload("res://levels/shared/selection_card.gd").new();add_child(button);buttons[id]=button
+		var button=preload("res://components/ui/selection_card.gd").new();add_child(button);buttons[id]=button
 		button.pressed.connect(func():chosen.emit(id))
 		var preview=button.preview;previews[id]=preview;preview.set_lighting_profile(Lighting)
 		captions[id]=button.caption;inspect_buttons[id]=button.inspect_button
+		button.caption.text = CAPTIONS[id]
 		button.inspect_requested.connect(func():inspect_requested.emit(id))
 		var root:=Node3D.new()
 		var a=G.material(Color("b89569"))
@@ -56,15 +62,9 @@ func _ready() -> void:
 			root.set_meta("joint_demo",{"parts":[{"path":"LowerStock","caption":"下件导槽","axis":Vector3(.5,0,sin(PI/3)),"normal":Vector3.UP},{"path":"MiddleStock","caption":"中件滑槽","axis":Vector3.RIGHT,"normal":Vector3.DOWN},{"path":"UpperStock","caption":"顶件锁口","axis":Vector3(.5,0,-sin(PI/3)),"normal":Vector3.DOWN}],"order":["MiddleStock","UpperStock"],"closed_positions":{"MiddleStock":Vector3.ZERO,"UpperStock":Vector3.ZERO},"description":"中件先从侧面沿槽滑入，顶件再向下落入交叉口，挡住中件的退出方向。","closed_text":"中件侧推到位后，顶件落下，槽肩阻挡中件沿原路退出。"})
 		Appearance.apply(root)
 		var direction := Vector3(4, 6, 2.3) if id == "three_way_lap" else Vector3(2.3, 3, 4)
-		preview.configure(root, Vector3.ZERO, direction, 2.3, 3.6)
+		preview.show_model(root, Vector3.ZERO, direction, 2.3, 3.6)
 		preview.frame_model(root, direction)
 		button.tooltip_text=DETAILS[id]
 
 func choose(id: String) -> void:
 	for key in buttons:buttons[key].set_pressed_no_signal(key==id)
-
-func configure_task(_expected: String) -> void:
-	for id in TYPES:
-		var label: String={"tongue_groove":"企口榫","cross_lap":"搭扣榫 · 交叉嵌合","three_way_lap":"扣合榫 · 侧推锁合"}[id]
-		captions[id].text="选"+label
-		buttons[id].tooltip_text=DETAILS[id]

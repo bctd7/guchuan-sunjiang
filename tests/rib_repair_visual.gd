@@ -120,11 +120,11 @@ func run() -> void:
 	surface.own_world_3d=true
 	surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS
 	root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate()
+	campaign=load("res://app/campaign/campaign.tscn").instantiate()
 	surface.add_child(campaign)
 	await settle(.3)
 	await button(campaign.chapter_buttons[1])
-	level=campaign.instances[1]
+	level=campaign.current_chapter
 	await button(level.learning.start_button)
 	# Read-only renderer fixture: both mirrors and all three rib stations.
 	for id in ["rib_l1","rib_r1","rib_l2","rib_r2","rib_l3","rib_r3"]:
@@ -152,7 +152,7 @@ func run() -> void:
 		check(changed,"automatic piece genuinely moves on camera "+id)
 	await button(level.panel.check_button)
 	check(level.state.completed,"full body-drag assembly completes")
-	await button(level.panel.success_close_button)
+	level.panel.success_panel.hide()
 	await capture("completed-section")
 	record_autos=false
 	await button(level.panel.restart_button)

@@ -2,31 +2,78 @@ extends RefCounted
 ## Actual local ship members. Box boolean meshing keeps all slots physically open.
 const SHAFT_RADIUS := 0.17
 const BEARING_RADIUS := 0.20
-static func wood(color := Color("b89569")) -> StandardMaterial3D:
-	var m := StandardMaterial3D.new()
-	m.albedo_color = color
-	m.roughness = .86
-	m.cull_mode = BaseMaterial3D.CULL_DISABLED
-	var n := FastNoiseLite.new()
-	n.seed = 1739
-	n.frequency = .035
-	var ramp := Gradient.new()
-	ramp.colors = PackedColorArray([Color(.80,.77,.73),Color.WHITE])
-	var tex := NoiseTexture2D.new()
-	tex.width = 128
-	tex.height = 128
-	tex.noise = n
-	tex.color_ramp = ramp
-	m.albedo_texture = tex
-	m.uv1_triplanar = true
-	m.uv1_scale = Vector3(.4,5,5)
-	return m
+static var _pieces = preload("res://models/ship/model_variants.gd").new()
+const Look = preload("res://components/teaching/classroom/display/workshop_look.gd")
+static var _wood_finishes: Dictionary = {}
+
+static func wood(color := Color("b89569"), axis := 0) -> StandardMaterial3D:
+	var key := color.to_html()+str(axis)
+	if _wood_finishes.has(key): return _wood_finishes[key]
+	var finish := StandardMaterial3D.new()
+	finish.albedo_color = color
+	finish.roughness = .84
+	finish.metallic_specular = .22
+	finish.cull_mode = BaseMaterial3D.CULL_DISABLED
+	finish.albedo_texture = Look.grain_texture()
+	finish.uv1_triplanar = true
+	finish.uv1_triplanar_sharpness = 12
+	finish.uv1_scale = Vector3(3.4,3.4,3.4)
+	finish.uv1_scale[axis] = .28
+	_wood_finishes[key] = finish
+	return finish
+
+# A small planed edge catches the light without rounding off a fitting shoulder.
+static func _planed_stock(size: Vector3) -> ArrayMesh:
+	var half := size*.5
+	var bevel := minf(.036,half[half.min_axis_index()]*.16)
+	var core := half-Vector3.ONE*bevel
+	var surface := SurfaceTool.new()
+	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	surface.set_smooth_group(-1)
+	for axis in 3:
+		var u := (axis+1)%3
+		var v := (axis+2)%3
+		for side: float in [-1.,1.]:
+			var points: Array[Vector3] = []
+			for corner: Vector2 in [Vector2(-1,-1),Vector2(-1,1),Vector2(1,1),Vector2(1,-1)]:
+				var point := Vector3.ZERO
+				point[axis] = side*half[axis]
+				point[u] = corner.x*core[u]
+				point[v] = side*corner.y*core[v]
+				points.append(point)
+			_quad(surface,points)
+			for edge: float in [-1.,1.]:
+				var start := Vector3.ZERO
+				start[axis] = side*core[axis]
+				start[u] = edge*core[u]
+				start[v] = -core[v]
+				var end := start
+				end[v] = core[v]
+				var n := Vector3.ZERO
+				n[axis] = side*bevel
+				var m := Vector3.ZERO
+				m[u] = edge*bevel
+				_quad(surface,[start+n,start+m,end+m,end+n])
+	for x: float in [-1.,1.]:
+		for y: float in [-1.,1.]:
+			for z: float in [-1.,1.]:
+				var p := core*Vector3(x,y,z)
+				for n in [Vector3(x,0,0),Vector3(0,y,0),Vector3(0,0,z)]:
+					surface.add_vertex(p+n*bevel)
+	surface.generate_normals()
+	return surface.commit()
+
 static func box(host: Node3D, lo: Vector3, hi: Vector3, mat: Material, label := "Stock") -> MeshInstance3D:
 	var p := MeshInstance3D.new()
 	p.name = label
-	var mesh := BoxMesh.new()
-	mesh.size = hi-lo
-	p.mesh = mesh
+	var dimensions := hi-lo
+	if mat is StandardMaterial3D and mat.albedo_texture != null:
+		p.mesh = _planed_stock(dimensions)
+		mat = wood(mat.albedo_color,dimensions.max_axis_index())
+	else:
+		var mesh := BoxMesh.new()
+		mesh.size = dimensions
+		p.mesh = mesh
 	p.position = (lo+hi)*.5
 	p.material_override = mat
 	host.add_child(p)
@@ -41,7 +88,7 @@ static func cylinder(host: Node3D, radius: float, height: float, pos: Vector3, m
 	mesh.radial_segments = 48
 	p.mesh = mesh
 	p.position = pos
-	p.material_override = mat
+	p.material_override = wood(mat.albedo_color,1) if mat is StandardMaterial3D and mat.albedo_texture != null else mat
 	host.add_child(p)
 	return p
 static func ring(host: Node3D, inner: float, outer: float, low: float, high: float, pos: Vector3, mat: Material, start := 0.0, span := TAU, label := "Bearing") -> MeshInstance3D:
@@ -109,9 +156,12 @@ static func zong(host: Node3D, id: String, mat: Material) -> void:
 	var p := MeshInstance3D.new()
 	p.name = "ShipZong_"+id
 	p.mesh = load("res://models/ship/rigging/assets/ship_mastframe_"+id+".obj")
-	p.material_override = mat
+	p.material_override = wood(mat.albedo_color,p.mesh.get_aabb().size.max_axis_index())
 	host.add_child(p)
 static func piece(id: String, kind: String) -> Node3D:
+	return _pieces.instantiate(id + ":" + kind, _build_piece.bind(id, kind))
+
+static func _build_piece(id: String, kind: String) -> Node3D:
 	var p := Node3D.new()
 	p.name = id
 	p.set_meta("ship_member",id)
@@ -119,7 +169,10 @@ static func piece(id: String, kind: String) -> Node3D:
 	var light := wood(Color("dcc29b"))
 	var dark := wood(Color("b89569"))
 	if id in ["zrail","leg"]:
-		if kind == "zong_corner": zong(p,id,light)
+		if kind == "zong_corner":
+			zong(p,id,light)
+			if id == "zrail":
+				_furled_sail(p)
 		else:
 			if id == "zrail": box(p,Vector3(0,0,1),Vector3(1,1,4.4),light)
 			else: box(p,Vector3(0,-2.225,0),Vector3(1,0,1),light)
@@ -130,10 +183,15 @@ static func piece(id: String, kind: String) -> Node3D:
 				box(p,Vector3(.1,0,.1),Vector3(.8,.35,1.1),dark,"WrongLShort")
 				box(p,Vector3(.55,.35,.1),Vector3(.8,.8,1.1),dark,"WrongLStep")
 	elif id == "mast":
-		cylinder(p,.32,3.7,Vector3(2.7,2.9,2.5),dark,"MastShaft")
-		if kind == "square_foot": box(p,Vector3(2.42,.37,2.22),Vector3(2.98,1.12,2.78),light,"SquareFoot")
-		elif kind == "round_axle": cylinder(p,.28,.75,Vector3(2.7,.745,2.5),light,"WrongRoundFoot")
-		else: box(p,Vector3(2.42,.37,2.22),Vector3(2.98,.65,2.78),light,"WrongLFoot")
+		var shaft := cylinder(p,.32,3.7,Vector3(0,3.68,0),dark,"MastShaft")
+		shaft.mesh.top_radius = .235
+		lashing(p,Vector3(0,2.12,0),.317)
+		lashing(p,Vector3(0,4.87,0),.256)
+		if kind == "square_foot": box(p,Vector3(-.28,1.10,-.28),Vector3(.28,1.86,.28),light,"SquareFoot")
+		elif kind == "round_axle": cylinder(p,.28,.75,Vector3(0,1.48,0),light,"WrongRoundFoot")
+		else:
+			box(p,Vector3(-.28,1.10,-.28),Vector3(.05,1.86,.28),light,"WrongLFoot")
+			box(p,Vector3(.05,1.43,-.28),Vector3(.28,1.86,.28),light,"WrongFootStep")
 	elif id == "apron":
 		box(p,Vector3(-2.6,-.18,-.17),Vector3(2.6,.35,.17),light,"SparApron")
 		if kind != "clamp_head":
@@ -141,10 +199,10 @@ static func piece(id: String, kind: String) -> Node3D:
 			if kind == "zong_corner": box(p,Vector3(.4,-.5,-.25),Vector3(.56,-.15,.25),dark,"WrongApronPeg2")
 	elif id == "top":
 		var cuts := [[Vector3(-.27,.35,-.42),Vector3(.27,.58,-.17)],[Vector3(-.27,.35,.17),Vector3(.27,.58,.42)]] if kind == "clamp_head" else [[Vector3(-.2,.35,-.3),Vector3(.2,.58,.3)]]
-		solid(p,[[Vector3(-1.85,.40,-.85),Vector3(1.85,.72,.85)]],cuts,light,"SparSupportTwinSockets")
-		var spar := cylinder(p,.15,6.6,Vector3(0,.9,0),dark,"SailSpar")
-		spar.rotation.z = PI/2
-		box(p,Vector3(-2.5,1.03,-.035),Vector3(2.5,1.70,.035),wood(Color("e7ddbf")),"ShortFurledSail")
+		if kind == "l_through":
+			cuts.append([Vector3(.19,.35,-.30),Vector3(.52,.47,.30)])
+		cuts.append([Vector3(-.30,1.08,-.30),Vector3(.30,1.91,.30)])
+		solid(p,[[Vector3(-1.85,.40,-.85),Vector3(1.85,1.83,.85)]],cuts,light,"MastBedTwinSockets")
 	elif id == "lbrace":
 		var stocks := [[Vector3(.668,-.5,-.47),Vector3(3.3,.5,.47)]]
 		if kind == "l_through":
@@ -158,7 +216,9 @@ static func piece(id: String, kind: String) -> Node3D:
 	elif id == "rudder":
 		if kind == "round_axle": cylinder(p,.17,3.65,Vector3(2.3,.075,0),light,"RoundShaft")
 		elif kind == "square_foot": box(p,Vector3(2.13,-1.75,-.17),Vector3(2.47,1.9,.17),light,"WrongSquareShaft")
-		else: box(p,Vector3(2.13,-1.75,-.17),Vector3(2.47,1.9,.17),light,"WrongLShank")
+		else:
+			box(p,Vector3(2.13,-1.75,-.17),Vector3(2.35,1.9,.17),light,"WrongLShank")
+			box(p,Vector3(2.35,.65,-.17),Vector3(2.54,1.9,.17),light,"WrongShankStep")
 		cylinder(p,.31,.12,Vector3(2.3,.88,0),dark,"TopThrustShoulder")
 		box(p,Vector3(2.15,1.65,-.1),Vector3(3.6,1.82,.1),dark,"Tiller")
 	elif id == "blade":
@@ -171,6 +231,59 @@ static func piece(id: String, kind: String) -> Node3D:
 		ring(cap,.19,.32,-.9,-.6,Vector3(2.3,0,0),dark,0,PI,"BladeSplitCollarFront")
 		for x in [1.94,2.55]: box(cap,Vector3(x,-.91,0),Vector3(x+.11,-.59,.15),dark,"FrontClampEar")
 		for x in [1.97,2.57]:
-			var pin := cylinder(cap,.035,.58,Vector3(x,-.75,0),wood(Color("6d7568")),"RemovablePin")
+			var pin := cylinder(cap,.035,.58,Vector3(x,-.75,0),wood(Color("815d40")),"RemovablePin")
 			pin.rotation.x = PI/2
 	return p
+
+static func lashing(host: Node3D,center: Vector3,radius: float) -> void:
+	var cord := wood(Color("ae8b61"))
+	for i in 4:
+		var wrap := TorusMesh.new()
+		wrap.inner_radius = radius-.012
+		wrap.outer_radius = radius+.026
+		wrap.rings = 28
+		wrap.ring_segments = 6
+		var loop := MeshInstance3D.new()
+		loop.mesh = wrap
+		loop.material_override = cord
+		loop.position = center + Vector3.UP*.033*i
+		loop.rotation.z = .034
+		host.add_child(loop)
+
+static func _furled_sail(host: Node3D) -> void:
+	var cloth := StandardMaterial3D.new()
+	cloth.albedo_color = Color("e5cda0")
+	cloth.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var surface := SurfaceTool.new()
+	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var previous: Array[Vector3] = []
+	for i in 33:
+		var t := i/32.0
+		var z := lerpf(1.26,4.35,t)
+		var sag := pow(absf(sin(PI*3*t)),.75)
+		var ring_points: Array[Vector3] = []
+		for j in 24:
+			var angle := TAU*j/24
+			var folds := 1.0+.11*cos(6*angle+2*t)
+			ring_points.append(Vector3(.52+(.22+.10*sag)*folds*cos(angle),-.15-.135*sag+(.17+.08*sag)*folds*sin(angle),z))
+		if not previous.is_empty():
+			for j in 24:
+				var k := (j+1)%24
+				_quad(surface,[previous[j],previous[k],ring_points[k],ring_points[j]])
+		if i==0 or i==32:
+			var center := Vector3(.52,-.15,z)
+			for j in 24:
+				for point in [center,ring_points[j],ring_points[(j+1)%24]]:surface.add_vertex(point)
+		previous = ring_points
+	surface.generate_normals()
+	var roll := MeshInstance3D.new()
+	roll.name = "FurledSail"
+	roll.mesh = surface.commit()
+	roll.material_override = cloth
+	host.add_child(roll)
+	for t in [0.02,1.0/3,2.0/3,.98]:
+		var z := lerpf(1.26,4.35,t)
+		for dz in [-.036,.036]:
+			var strap := ring(host,.50,.523,-.016,.016,Vector3(.5,.35,z+dz),wood(Color("996f47")),0,TAU,"SailTie")
+			strap.rotation.x = PI/2
+			strap.scale.z = 1.44

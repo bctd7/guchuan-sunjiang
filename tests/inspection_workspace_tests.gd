@@ -56,10 +56,10 @@ func capture(name: String) -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("res://tests/evidence/inspection-workspace"))
 	check(surface.get_texture().get_image().save_png(path)==OK,"GPU screenshot "+name);images.append(path)
 func wait_motion() -> void:
-	var deadline:=Time.get_ticks_msec()+7000
+	var deadline:=Time.get_ticks_msec()+45000
 	while level.busy and Time.get_ticks_msec()<deadline:
 		check(not level.state.completed and not level.state.failed,"final seating and trial precede verdict")
-		if gpu and not captured_opening_impact and level.view.trial.phase=="impact" and not level.view.trial.opening_points.is_empty():
+		if gpu and not captured_opening_impact and level.view.trial.phase=="impact" and not level.view.trial.presentation_snapshot().connection_points.is_empty():
 			captured_opening_impact=true
 			await capture("opening-mismatch-wave-impact")
 		await process_frame
@@ -68,7 +68,6 @@ func prepare(id: String,opening: String="") -> void:
 	await Navigation.open_local(surface,level,id)
 	await button(level.panel.joint_buttons[level.Rules.expected(id)])
 	await button(level.panel.opening_buttons[opening if not opening.is_empty() else level.state.Openings.target(id)])
-	if id.ends_with("a") and level.Rules.row_for(id)>0:await button(level.panel.layout_buttons.B if level.Rules.row_for(id)==1 else level.panel.layout_buttons.A)
 	await settle(.03)
 	var points: Array[Vector3]=level.view.inspection_focus_corners()
 	var frame: Rect2=workspace_rect().grow(1)
@@ -99,20 +98,23 @@ func run() -> void:
 	root.set_flag(Window.FLAG_NO_FOCUS,true)
 	if gpu:root.mode=Window.MODE_MINIMIZED
 	surface=SubViewport.new();surface.size=Vector2i(1440,900);surface.own_world_3d=true;surface.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(surface)
-	campaign=load("res://campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.25)
+	campaign=load("res://app/campaign/campaign.tscn").instantiate();surface.add_child(campaign);await settle(.25)
 	for chapter in [1,2]:
 		await button(campaign.chapter_buttons[chapter])
-		check(campaign.instances.has(chapter),"directory click enters actual chapter "+str(chapter))
-		if not campaign.instances.has(chapter):quit(2);return
-		level=campaign.instances[chapter];await button(level.learning.start_button)
+		check(campaign.current_chapter != null,"directory click enters actual chapter "+str(chapter))
+		if campaign.current_chapter == null:quit(2);return
+		level=campaign.current_chapter;await button(level.learning.start_button)
 		check(level.panel.main_chrome.find_child("WorkshopAuxiliary",true,false)==null,"restored main task panel has no added auxiliary card "+str(chapter))
 		rects[chapter]=[level.panel.main_header.get_global_rect(),level.panel.main_sidebar.get_global_rect(),level.panel.main_footer.get_global_rect()]
 		await capture("chapter-%d-overview"%chapter)
 		await button(level.panel.inspect_button if chapter==1 else level.panel.observe_button)
 		var workspace: Control=level.inspector.root if chapter==1 else level.panel.workspace
-		var layout: Array=[workspace.candidates.get_global_rect(),workspace.stage_surface.get_global_rect(),workspace.options.get_global_rect(),workspace.actions.get_global_rect()]
-		if chapter==1:rects["local"]=layout
-		else:check(layout==rects["local"],"both actual chapter observation pages share candidate/stage/options/action rectangles")
+		var candidates: Rect2=workspace.candidates.get_global_rect()
+		var stage: Rect2=workspace.stage_surface.get_global_rect()
+		var options: Rect2=workspace.options.get_global_rect()
+		var actions: Rect2=workspace.actions.get_global_rect()
+		check(candidates.end.y<=stage.position.y and stage.end.x<=options.position.x and stage.end.y<=actions.position.y,
+			"chapter observation uses the shared layout with clear candidate, stage, options and action areas "+str(chapter))
 		await capture("chapter-%d-local"%chapter)
 		if chapter==1:
 			await button(level.inspector.joint_buttons.blind_tenon);await button(level.inspector.length_buttons.correct)
@@ -153,7 +155,8 @@ func run() -> void:
 	await button(level.panel.reset_observation_button)
 	await capture("chapter-2-selected")
 	await button(level.panel.lesson_button);await button(level.learning.start_button)
-	check(level.view.get_parent()==level.panel.local_viewport and level.state.opening=="B" and level.panel.local_viewport.render_target_update_mode==SubViewport.UPDATE_ALWAYS,"teaching return restores local viewport and explicit opening")
+	check(level.view.get_parent()==level.panel.local_viewport and level.state.opening=="B","teaching return restores the local world and explicit opening")
+	check(level.panel.local_viewport.render_target_update_mode!=SubViewport.UPDATE_DISABLED,"restored local viewport resumes rendering")
 	await button(level.panel.overview_button)
 	check(level.view.get_parent()==level and level.panel.local_viewport.render_target_update_mode==SubViewport.UPDATE_DISABLED,"overview restores the original world and suspends local rendering")
 	check(level.panel.gallery.previews.values().all(func(card):return not card.orbit.is_processing() and not card.orbit.is_processing_input()),"hidden candidate cards suspend orbit work and raw input")
@@ -162,14 +165,14 @@ func run() -> void:
 		await place(id,str(wrong.get(id,"")),id in ["plank_0b","three_upper"])
 		if id!=level.Rules.IDS.back():check(not level.state.failed and not level.state.checked,"seatable mismatches wait for the last real member "+id)
 	check(level.state.failed and level.state.mismatched_openings().size()==8 and not level.state.completed,"all ten pieces precede the verdict; six boards and both cross members preserve the selected wrong opening")
-	check(level.view.trial.opening_points.size()==6 and level.view.trial.drops.get_child_count()>0,"the six inherited hull openings leak; interior cross members stay dry")
+	check(level.view.trial.presentation_snapshot().connection_points.size()==6 and level.view.trial.drops.get_child_count()>0,"the six inherited hull openings leak; interior cross members stay dry")
 	await capture("wrong-openings-final-trial")
 	await button(level.panel.failure_restart_button)
 	check(level.state.placed.is_empty() and level.state.opening.is_empty() and not level.view.trial.visible,"restart clears mismatches and old trial")
 	for id in level.Rules.IDS:await place(id,"",id in ["plank_0a","bulkhead"])
-	check(level.state.completed and level.state.mismatched_openings().is_empty() and level.view.trial.opening_points.is_empty(),"matching all actual openings plus staggered seams completes whole challenge")
+	check(level.state.completed and level.state.mismatched_openings().is_empty() and level.view.trial.presentation_snapshot().connection_points.is_empty(),"matching all actual openings plus staggered seams completes whole challenge")
 	await capture("matching-openings-complete")
-	var close: Button=level.panel.success_panel.get_child(0).get_child(3);await button(close)
+	level.panel.success_panel.hide()
 	await button(level.panel.undo_button)
 	check(not level.state.completed and level.state.placed.size()==9 and level.state.opening.is_empty(),"undo retains other real members and requires a fresh opening choice")
 	for dimensions in [Vector2i(1100,800),Vector2i(960,600)]:

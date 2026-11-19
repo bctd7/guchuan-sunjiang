@@ -21,7 +21,7 @@ Music 总线 -19dB，SFX 总线 -9dB；音乐 2.5 秒淡入。源配乐约 -16.1
 - 第三关：rigging_view 实际装入 Tween 最后回调触发，舵叶等双部件动作全部就位后一次。
 - 不建立延迟音效队列；单音效播放器限制叠加，总线独立。取消动画会取消绑定回调，generation 排除旧操作；离树时停止所属音效。资源读取仅发生在启动。
 
-来源、原创合成及授权记录：[SOURCES](../../assets/audio/SOURCES.md)。验证和限制：[验证报告](../../tests/AUDIO_VERIFICATION.md)。
+来源、原创合成及授权记录：[SOURCES](../../audio/SOURCES.md)。验证和限制：[验证报告](../../tests/AUDIO_VERIFICATION.md)。
 
 ## 补充操作反馈
 

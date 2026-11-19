@@ -1,6 +1,6 @@
 """Original deterministic score and synthesis; no downloaded samples or melodies."""
 import numpy as np, wave, pathlib, json, subprocess
-OUT=pathlib.Path(__file__).resolve().parents[2]/'assets/audio'
+OUT=pathlib.Path(__file__).resolve().parents[2]/'audio'
 SR=44100
 rng=np.random.default_rng(20261117)
 def save(name,x):

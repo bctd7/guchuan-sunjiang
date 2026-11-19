@@ -1,6 +1,6 @@
 extends SceneTree
-const Assembly = preload("res://core/assembly.gd")
-const Interaction = preload("res://core/interaction.gd")
+const Assembly = preload("res://components/teaching/assembly/assembly.gd")
+const Interaction = preload("res://components/teaching/assembly/interaction.gd")
 var passed := 0
 var failed := 0
 

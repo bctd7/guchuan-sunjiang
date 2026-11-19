@@ -25,7 +25,7 @@ func run() -> void:
 	root.set_flag(Window.FLAG_NO_FOCUS, true)
 	var exhibition := root.get_node("Exhibition")
 	var audio := root.get_node("GameAudio")
-	change_scene_to_file("res://campaign/campaign.tscn")
+	change_scene_to_file("res://app/campaign/campaign.tscn")
 	await scene_changed
 	var campaign := current_scene
 	var campaign_id := campaign.get_instance_id()
@@ -35,7 +35,7 @@ func run() -> void:
 	check(current_scene == campaign and is_instance_valid(campaign.replay_layer),
 		"A manual replay is protected from idle return")
 	if not is_instance_valid(campaign) or not is_instance_valid(campaign.replay_layer):
-		finish(audio)
+		await finish(audio)
 		return
 	campaign.replay_layer.get_child(0).skip.pressed.emit()
 	await process_frame
@@ -46,7 +46,7 @@ func run() -> void:
 	campaign.open_level(1)
 	check(campaign.active_level == 1, "Started a chapter before idling")
 	var consumer := InputConsumer.new()
-	campaign.instances[1].add_child(consumer)
+	campaign.current_chapter.add_child(consumer)
 	var keyboard := InputEventKey.new()
 	keyboard.keycode = KEY_A
 	keyboard.pressed = true
@@ -69,9 +69,9 @@ func run() -> void:
 	await create_timer(0.85).timeout
 	var welcome := current_scene
 	check(not is_instance_id_valid(campaign_id), "Idle return frees the previous campaign")
-	if welcome == null or welcome.scene_file_path != "res://startup/startup.tscn":
+	if welcome == null or welcome.scene_file_path != "res://app/startup/startup.tscn":
 		check(false, "Idle return opens the welcome scene")
-		finish(audio)
+		await finish(audio)
 		return
 	check(welcome.player.loop and audio.video_paused,
 		"Idle welcome starts looping and pauses workshop music")
@@ -86,16 +86,17 @@ func run() -> void:
 	start.pressed = false
 	send_input(start)
 	await create_timer(0.25).timeout
-	check(current_scene != null and current_scene.scene_file_path == "res://campaign/campaign.tscn"
-		and current_scene.active_level == 0 and current_scene.instances.is_empty(),
+	check(current_scene != null and current_scene.scene_file_path == "res://app/campaign/campaign.tscn"
+		and current_scene.active_level == 0 and current_scene.current_chapter == null,
 		"Start opens a fresh chapter directory")
 	check(not audio.video_paused, "Workshop music resumes")
 	await create_timer(0.85).timeout
-	check(current_scene != null and current_scene.scene_file_path == "res://startup/startup.tscn"
+	check(current_scene != null and current_scene.scene_file_path == "res://app/startup/startup.tscn"
 		and current_scene.player.loop, "The chapter directory can enter idle mode again")
-	finish(audio)
+	await finish(audio)
 
 func finish(audio: Node) -> void:
 	audio.music.stop()
 	print("EXHIBITION_IDLE ", JSON.stringify(failures))
+	await create_timer(.2).timeout
 	quit(0 if failures.is_empty() else 1)

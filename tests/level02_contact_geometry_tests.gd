@@ -1,5 +1,5 @@
 extends SceneTree
-const Contact=preload("res://levels/level02/trial_contact.gd")
+const Contact=preload("res://models/ship/hull/trial_contact.gd")
 const G=preload("res://models/ship/hull/ship_geometry.gd")
 var passed:=0
 var failures: Array[String]=[]
@@ -23,6 +23,16 @@ func run() -> void:
 		check(stop.clear and stop.distance>1.09 and stop.distance<1.11,"first wall blocks access to empty pocket behind it")
 	fixture.free();stock.free()
 	var level=load("res://levels/level02/level02.tscn").instantiate();root.add_child(level);level.learning.start_button.pressed.emit()
+	level.state.observe()
+	for kind in ["tongue_groove", "cross_lap", "three_way_lap"]:
+		level.state.choose_joint(kind)
+		var first: Node3D = level.view.candidate_opening("plank_0a", "A")
+		var second: Node3D = level.view.candidate_opening("plank_0a", "A")
+		var first_mesh := first.find_children("*", "MeshInstance3D", true, false)[0] as MeshInstance3D
+		var second_mesh := second.find_children("*", "MeshInstance3D", true, false)[0] as MeshInstance3D
+		check(first != second and first_mesh.mesh == second_mesh.mesh and first_mesh.material_override == second_mesh.material_override,
+			"same specification creates distinct nodes sharing mesh and material " + kind)
+		first.free();second.free()
 	var heights: Dictionary={}
 	for target in level.Rules.MANUAL_IDS:
 		for option in ["A","B","C"]:

@@ -11,7 +11,8 @@ func run() -> void:
    var row: int=State.Rules.row_for(id)
    var opening: String=State.Openings.target(id)
    if mode in ["frame","both"] and id=="cross_upper":opening="A"
-   if mode in ["plank","both"] and id in ["plank_1a","plank_1b"]:opening="B"
+   if mode in ["plank","both"] and id in ["plank_1a","plank_1b"]:
+    opening="B" if opening=="A" else "A"
    state.placed[id]={"joint":State.Rules.expected(id),"opening":opening,"layout":"B" if row==1 else "A"};state.layouts[row]="B" if row==1 else "A"
   view.sync_state(state)
   var data=view.trial_presentation(state.leaking_rows(),state.connection_issues(),state.mismatched_joints())
