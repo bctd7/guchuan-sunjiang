@@ -14,6 +14,7 @@ const SPECS = {
 	"blade":{"label":"侧装舵叶", "joint":"sleeve_pin", "stage":2, "deps":["rudder"], "hint":"从侧面合上两半夹套，用木销把舵叶固定在舵轴上。"}
 }
 const SETTINGS = {
+	"mast": {"question":"方脚要落在哪里，桅杆才站得稳？", "options":["搭在槽口边沿", "对准方槽中央"], "correct":1, "retry":"桅脚搭在槽沿，桅杆向一边倒了。把方脚移到方槽中央再落下。"},
 	"leg": {"question":"帆的重量向下压。角撑放在哪一侧？", "options":["从上面压住", "从下面托住"], "correct":1, "retry":"角撑放在上侧，帆桁下方悬空。换一侧试试。"},
 	"rudder": {"question":"船尾的轴孔竖直。怎样放入舵轴？", "options":["竖直对孔 · 0°", "斜放 · 20°"], "correct":0, "retry":"舵轴斜着顶住孔壁，无法转舵。把轴扶直再试。"}
 }

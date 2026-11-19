@@ -79,8 +79,10 @@ func _try_socket(id: String) -> Dictionary:
 	var outcome: Dictionary = state.attempt(id)
 	panel.show_feedback(outcome.message,not outcome.ok)
 	if outcome.code == "wrong_joint" and state.selected == "mast":
-		view.show_loose_mast()
+		view.show_failed_fit()
 		panel.show_feedback("桅脚在方槽里晃动，桅杆歪了。换一只与槽底相合的脚。",true)
+	elif outcome.code == "alignment" and state.setting >= 0:
+		view.show_failed_fit()
 	if outcome.ok:
 		busy = true
 		view.animate_place(state.selected)

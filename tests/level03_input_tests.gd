@@ -67,9 +67,15 @@ func install(id: String, use_touch := false) -> void:
 		check(level.state.last_outcome.code == "alignment","installation needs an explicit setting "+id)
 		var correct: int = Rules.SETTINGS[id].correct
 		await button(level.panel.setting_buttons[1-correct])
+		var moving_part: Node3D = level.view.pieces.zrail if id == "leg" else level.view.preview
+		var before: Transform3D = moving_part.transform
 		await click(point)
 		check(level.state.last_outcome.code == "alignment" and not level.state.placed.has(id),"wrong setup can be retried "+id)
+		await settle(.36)
+		check(not moving_part.transform.is_equal_approx(before),"failed fit moves the affected member "+id)
 		await button(level.panel.setting_buttons[correct])
+		if id == "leg":
+			check(moving_part.transform.is_equal_approx(before),"correcting the support restores the spar")
 	var count: int = level.state.placed.size()
 	if use_touch: await touch(point)
 	else: await click(point)
@@ -115,7 +121,7 @@ func run() -> void:
 	await button(level.panel.next_button)
 	await button(level.panel.candidate_buttons["round_axle"])
 	await click(level.view.socket_screen_position("mast"))
-	await settle(.22)
+	await settle(.36)
 	check(absf(level.view.preview.rotation.z) > .05 and not level.state.placed.has("mast"),"loose mast visibly tilts and can be corrected")
 	await button(level.panel.overview_button)
 	await button(level.panel.undo_button)

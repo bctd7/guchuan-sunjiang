@@ -15,6 +15,8 @@ var _preview_key := ""
 var _selected: String = Rules.ORDER[0]
 var launch_scene: Node3D
 var warning_motion: Tween
+var warning_part: Node3D
+var warning_start: Transform3D
 var _stage := -1
 var _placed: Array = []
 var cutaway := false
@@ -96,6 +98,7 @@ func _build_rudder_frame() -> void:
 	rudder_pivot.position = Vector3(2.3,0,0)
 	s.add_child(rudder_pivot)
 func sync_state(state) -> void:
+	_clear_warning()
 	_selected = state.selected
 	_placed = state.placed.duplicate()
 	var new_stage: int = state.stage_idx
@@ -120,10 +123,19 @@ func sync_state(state) -> void:
 			preview.position = OFFSETS[state.selected]
 			if state.selected == "blade": preview.get_node("SideCap").position.z = 2.8
 	if is_instance_valid(preview):
-		if _selected == "rudder":
-			preview.rotation_degrees.z = 20 if state.setting == 1 else 0
+		if _selected == "mast":
+			preview.position.x = .45 if state.setting == 0 else 0.0
+		elif _selected == "rudder":
+			# Line up the lower end above the bearing even when the axle is tilted.
+			var tip := Vector3(2.3,-1.75,0)
+			var tilt := Basis(Vector3.BACK,deg_to_rad(20) if state.setting == 1 else 0.0)
+			var approach: Vector3 = OFFSETS.rudder
+			if state.setting == 1:
+				approach.y += .45
+			preview.transform = Transform3D(tilt, approach + tip - tilt * tip)
 		elif _selected == "leg":
 			preview.rotation.z = PI if state.setting == 0 else 0.0
+			preview.position.x = 1.0 if state.setting == 0 else 0.0
 			preview.position.y = 2.7 if state.setting == 0 else OFFSETS.leg.y
 	if _stage != new_stage:
 		_stage = new_stage
@@ -194,12 +206,40 @@ func pick_socket(position: Vector2) -> String:
 		if markers[id].is_visible_in_tree() and socket_screen_position(id).distance_to(position) <= 48: return id
 	return ""
 
-func show_loose_mast() -> void:
+func _clear_warning() -> void:
+	if warning_motion:
+		warning_motion.kill()
+		warning_motion = null
+	if is_instance_valid(warning_part):
+		warning_part.transform = warning_start
+	warning_part = null
+
+func show_failed_fit() -> void:
 	if not is_instance_valid(preview): return
-	if warning_motion: warning_motion.kill()
-	warning_motion = preview.create_tween()
-	warning_motion.tween_property(preview,"rotation:z",deg_to_rad(32),.35)
-	warning_motion.tween_property(preview,"rotation:z",0.0,.45)
+	_clear_warning()
+	warning_part = preview
+	if _selected == "leg":
+		warning_part = pieces.zrail
+	warning_start = warning_part.transform
+	warning_motion = warning_part.create_tween()
+	warning_motion.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	match _selected:
+		"mast":
+			var foot := Vector3(0,1.10,0)
+			var contact := Vector3(preview.position.x,1.83,0)
+			var lean := Basis(Vector3.BACK,deg_to_rad(-22))
+			warning_motion.tween_property(preview,"position",contact - foot,.16)
+			warning_motion.tween_property(preview,"transform",Transform3D(lean,contact - lean * foot),.30)
+		"leg":
+			# The sail loads the free end while the joint stays at the corner.
+			var corner := Vector3(.5,.5,.5)
+			var sag := Basis(Vector3.RIGHT,deg_to_rad(14))
+			warning_motion.tween_property(warning_part,"transform",Transform3D(sag,corner - sag * corner),.35)
+		"rudder":
+			# The tilted tip enters only a short way before it catches on the rim.
+			warning_motion.tween_property(preview,"position:y",preview.position.y - .58,.26)
+	warning_motion.tween_interval(.22)
+	warning_motion.tween_property(warning_part,"transform",warning_start,.32)
 
 func start_launch() -> Tween:
 	for stage in stages: stage.hide()
