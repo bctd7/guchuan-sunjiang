@@ -3,7 +3,6 @@ extends "res://levels/chapter.gd"
 const State = preload("res://levels/level03/level_state.gd")
 const View = preload("res://levels/level03/rigging_view.gd")
 const LevelPanel = preload("res://levels/level03/level_ui.gd")
-const Touch = preload("res://components/input/socket_interaction.gd")
 var story: CanvasLayer
 var state = State.new()
 var view: Node3D
@@ -19,20 +18,17 @@ func _build_workbench() -> void:
 	view = View.new()
 	view.screen_surface=panel.main_viewport.get_parent()
 	panel.main_viewport.add_child(view)
-	interaction = Touch.new()
-	add_child(interaction)
-	interaction.configure(view)
-	interaction.socket_requested.connect(_try_socket)
+	interaction = panel.orbit
 	panel.candidate_chosen.connect(_choose_candidate)
 	panel.next_requested.connect(_next)
-	panel.socket_requested.connect(_try_socket)
+	interaction.assembly_requested.connect(_finish_drag)
 	panel.undo_requested.connect(_undo)
 	panel.restart_requested.connect(_restart)
 	panel.turn_requested.connect(_turn)
 	panel.setting_requested.connect(func(value: int):
 		if not busy:
 			state.adjust(value)
-			panel.show_feedback("观察木件的方向，点接合处试装。"))
+			panel.show_feedback("观察木件的方向，按住木件沿箭头拖动，松手试装。"))
 	panel.launch_requested.connect(_launch)
 	panel.return_requested.connect(_return_to_directory)
 	panel.lesson_requested.connect(func():
@@ -65,17 +61,20 @@ func _build_workbench() -> void:
 func _choose_candidate(kind: String) -> void:
 	if busy: return
 	state.choose(kind)
-	panel.show_feedback("已选 "+state.Rules.NAMES[kind]+"。")
+	panel.show_feedback("已选 "+state.Rules.NAMES[kind]+"。按住木件沿箭头拖动。")
 
 func _return_to_directory() -> void:
 	if busy: return
 	return_requested.emit()
 
 func _refresh() -> void:
+	interaction.cancel()
 	view.sync_state(state)
 	panel.refresh(state,busy)
-func _try_socket(id: String) -> Dictionary:
-	if busy or learning.modal_open() or story.opened or panel.magnifier.visible or not panel.inspected: return {"ok":false,"code":"busy","message":"当前不能安装。"}
+func _finish_drag() -> void:
+	var id: String = state.selected
+	var released_pose: Transform3D = interaction.accepted_pose
+	if busy or learning.modal_open() or story.opened or panel.magnifier.visible or not panel.inspected: return
 	var outcome: Dictionary = state.attempt(id)
 	panel.show_feedback(outcome.message,not outcome.ok)
 	if outcome.code == "wrong_joint" and state.selected == "mast":
@@ -85,12 +84,11 @@ func _try_socket(id: String) -> Dictionary:
 		view.show_failed_fit()
 	if outcome.ok:
 		busy = true
-		view.animate_place(state.selected)
+		view.animate_place(id,released_pose.origin)
 		panel.refresh(state,busy)
 		await view.animations[state.selected].finished
 		busy = false
 		_refresh()
-	return outcome
 func _next() -> void:
 	if busy or not state.placed.has(state.selected): return
 	if state.stage_done(): state.next_workbench()

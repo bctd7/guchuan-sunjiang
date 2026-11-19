@@ -6,7 +6,7 @@ const TITLES = ["龙骨桅座 · 夹头榫", "桅顶帆桁 · 粽角榫", "船�
 const SPECS = {
 	"apron":{"label":"桅座横牙条", "joint":"clamp_head", "stage":0, "deps":[], "hint":"龙骨上的叉口向上敞开。选一根能夹在两片叉口中间的牙条。"},
 	"top":{"label":"桅座承托板", "joint":"clamp_head", "stage":0, "deps":["apron"], "hint":"板底的两个槽要套住叉口两侧，中央的方槽留给桅脚。"},
-	"mast":{"label":"桅杆方脚", "joint":"square_foot", "stage":0, "deps":["top"], "hint":"让桅脚落进承托板中央的方槽，桅杆才能站直。"},
+	"mast":{"label":"桅杆方脚", "observation_label":"桅杆安装", "joint":"square_foot", "stage":0, "deps":["top"], "hint":"比较三件木料的底端，再看看承托板上的槽口。"},
 	"zrail":{"label":"帆桁横木", "joint":"zong_corner", "stage":1, "deps":["mast"], "hint":"把帆桁的斜肩与桅顶横档合上，再从另一面锁住接头。"},
 	"leg":{"label":"帆桁角撑", "joint":"zong_corner", "stage":1, "deps":["zrail"], "hint":"帆的重量向下压。看看哪一面能托住帆桁，再把角撑推入。"},
 	"lbrace":{"label":"舵架固定横撑", "joint":"l_through", "stage":2, "deps":["leg"], "hint":"较小的榫尖穿出船尾柱，较宽的榫肩留在槽里。"},
@@ -14,7 +14,7 @@ const SPECS = {
 	"blade":{"label":"侧装舵叶", "joint":"sleeve_pin", "stage":2, "deps":["rudder"], "hint":"从侧面合上两半夹套，用木销把舵叶固定在舵轴上。"}
 }
 const SETTINGS = {
-	"mast": {"question":"方脚要落在哪里，桅杆才站得稳？", "options":["搭在槽口边沿", "对准方槽中央"], "correct":1, "retry":"桅脚搭在槽沿，桅杆向一边倒了。把方脚移到方槽中央再落下。"},
+	"mast": {"question":"木件应如何与槽口配合，桅杆才能站稳？", "options":["搭在槽口边沿", "对准槽口中央"], "correct":1, "retry":"桅脚搭在槽沿，桅杆向一边倒了。把方脚移到方槽中央再落下。"},
 	"leg": {"question":"帆的重量向下压。角撑放在哪一侧？", "options":["从上面压住", "从下面托住"], "correct":1, "retry":"角撑放在上侧，帆桁下方悬空。换一侧试试。"},
 	"rudder": {"question":"船尾的轴孔竖直。怎样放入舵轴？", "options":["竖直对孔 · 0°", "斜放 · 20°"], "correct":0, "retry":"舵轴斜着顶住孔壁，无法转舵。把轴扶直再试。"}
 }

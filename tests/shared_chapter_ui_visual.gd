@@ -62,12 +62,12 @@ func run() -> void:
 			await click(ui.lesson_button);await click(level.learning.start_button)
 			check(ui.inspected,"lesson returns to observer")
 			await click(ui.candidate_buttons.zong_corner)
-			await tap(level.view.socket_screen_position("apron"))
+			await preload("res://tests/hull_pointer.gd").drag_assembly(surface,ui.orbit,1.0,true)
 			check(not level.state.placed.has("apron"),"wrong type rejected")
 			for id in level.state.Rules.ORDER:
 				await click(ui.candidate_buttons[level.state.Rules.SPECS[id].joint])
 				if level.state.Rules.SETTINGS.has(id):await click(ui.setting_buttons[level.state.Rules.SETTINGS[id].correct])
-				await tap(level.view.socket_screen_position(id))
+				await preload("res://tests/hull_pointer.gd").drag_assembly(surface,ui.orbit,1.0,true)
 				await create_timer(1.8).timeout
 				check(level.state.placed.has(id),"touch installs "+id)
 				if id in ["zrail","mast","top","blade"]:await shot("3-installed-"+id)

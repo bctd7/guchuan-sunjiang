@@ -1,8 +1,19 @@
 extends RefCounted
-## Shared real pointer gesture for chapter-two regressions. Never mutates gameplay state.
+## Shared real pointer gesture for assembly regressions. Never mutates gameplay state.
 static func drag(surface: Viewport,view: Node3D,fraction:=1.0,touch:=false) -> void:
 	var origin: Vector2=view.drag_grab_screen()
 	var travel: Vector2=view.drag_input_path_screen()*fraction
+	await _gesture(surface,origin,travel,touch)
+
+static func drag_assembly(surface: Viewport,orbit: Control,fraction:=1.0,touch:=false) -> void:
+	var start: Vector2 = orbit.drag_start_screen()
+	var path: Vector2 = orbit.target_screen() - start
+	var axis := path.normalized() if path.length() >= 18.0 else Vector2.UP
+	var grip: Vector2 = start.lerp(orbit.target_screen(),orbit.drag_progress)
+	var canvas := orbit.get_global_transform_with_canvas()
+	await _gesture(surface,canvas * grip,canvas.basis_xform(axis * clampf(path.length(),80,220) * fraction),touch)
+
+static func _gesture(surface: Viewport,origin: Vector2,travel: Vector2,touch: bool) -> void:
 	if touch:
 		var start:=InputEventScreenTouch.new()
 		start.index=0

@@ -76,11 +76,7 @@ func run() -> void:
 			for id in level.state.Rules.ORDER:
 				await click(level.panel.candidate_buttons[level.state.Rules.SPECS[id].joint])
 				if level.state.Rules.SETTINGS.has(id):await click(level.panel.setting_buttons[level.state.Rules.SETTINGS[id].correct])
-				var point: Vector2=level.view.socket_screen_position(id)
-				check(level.panel.main_viewport.get_parent().get_global_rect().has_point(point),"projected socket in model area "+id)
-				for down in [true,false]:
-					var event:=InputEventScreenTouch.new();event.index=0;event.position=point;event.pressed=down
-					surface.push_input(event,true);await process_frame
+				await preload("res://tests/hull_pointer.gd").drag_assembly(surface,level.panel.orbit,1.0,true)
 				await create_timer(1.8).timeout
 				check(level.state.placed.has(id),"1920 touch installs "+id)
 				if id in ["mast","top","blade"]:

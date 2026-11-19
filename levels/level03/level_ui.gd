@@ -3,7 +3,6 @@ extends CanvasLayer
 signal lesson_requested
 signal story_requested
 signal candidate_chosen(kind: String)
-signal socket_requested(id: String)
 signal undo_requested
 signal restart_requested
 signal next_requested
@@ -117,6 +116,7 @@ func _ready() -> void:
 	success_panel=preload("res://components/ui/chapter_result.gd").new();root.add_child(success_panel)
 	success_panel.return_requested.connect(func():return_requested.emit())
 	success_panel.visibility_changed.connect(_sync_background)
+	orbit.guidance_blocker=magnifier
 	main_guide.blocker=success_panel;step_guide.blocker=magnifier
 	get_viewport().size_changed.connect(_fit_layout)
 	visibility_changed.connect(_sync_background)
@@ -153,12 +153,13 @@ func _build_observer() -> void:
 	closeup_button=workspace.button(workspace.actions,"看接合处")
 	closeup_button.pressed.connect(func():
 		if is_instance_valid(_view):_view.toggle_closeup();_configure_camera())
-	orbit=preload("res://components/preview/selectable_orbit.gd").new();workspace.stage_surface.add_child(orbit)
+	orbit=preload("res://levels/level01/assembly_drag_surface.gd").new();workspace.stage_surface.add_child(orbit)
 	orbit.zoom_requested.connect(_change_zoom)
-	orbit.tapped.connect(func(point: Vector2):
-		if not _busy and inspected and is_instance_valid(_view):
-			var id: String=_view.pick_socket(point)
-			if not id.is_empty():socket_requested.emit(id))
+	orbit.selection_required.connect(func():
+		if _state.candidate.is_empty():show_feedback("先选一件木料，再沿箭头拖动。")
+		elif Rules.SETTINGS.has(_state.selected):show_feedback(Rules.SETTINGS[_state.selected].question))
+	orbit.insertion_progress_changed.connect(func(_progress: float):
+		if is_instance_valid(_view):_view.follow_blade_drag())
 	step_guide=StepGuide.new();workspace.add_child(step_guide)
 	workspace.hide()
 
@@ -223,7 +224,8 @@ func refresh(state,busy: bool) -> void:
 	task_label.text="左右试舵，准备下水" if ready else Rules.TITLES[state.stage_idx]
 	part_label.text=Rules.SPECS[state.selected].label
 	progress_label.text="搭建进度 %d / 8 件" % state.placed.size()
-	workspace.title.text=("这一处已试装 · " if installed else "观察 · ")+Rules.SPECS[state.selected].label
+	var piece: Dictionary = Rules.SPECS[state.selected]
+	workspace.title.text = ("这一处已试装 · " + piece.label) if installed else ("观察 · " + piece.get("observation_label",piece.label))
 	if inspected and not installed:
 		gallery.configure(state.selected)
 		gallery.select(state.candidate)
@@ -264,6 +266,9 @@ func refresh(state,busy: bool) -> void:
 			_selected=state.selected;_view.focus_current();_configure_camera()
 		elif inspected:
 			orbit._apply_camera();_view.camera.size=_base_size*_zoom
+	if is_instance_valid(_view):
+		var ready_to_drag: bool = inspected and not busy and not installed and not state.candidate.is_empty() and (not needs_setting or state.setting >= 0)
+		orbit.configure_assembly(_view.preview,_view.trial_target(state),_view.CENTERS[state.selected],ready_to_drag)
 	orbit.active=inspected and not busy and not magnifier.visible
 	main_guide.show_target(null);step_guide.show_target(null)
 	if not busy and not state.completed:
@@ -274,9 +279,6 @@ func refresh(state,busy: bool) -> void:
 		elif installed:step_guide.show_target(next_button)
 		elif state.candidate.is_empty():step_guide.show_target(gallery, candidate_buttons.values())
 		elif needs_setting and state.setting < 0:step_guide.show_target(workspace.options,setting_buttons)
-		else:
-			var id: String=state.selected
-			step_guide.show_point(func():return _view.socket_screen_position(id))
 
 func show_feedback(message: String,error:=false) -> void:
 	Controls.feedback(feedback_label,message,error)

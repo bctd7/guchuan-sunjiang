@@ -6,7 +6,8 @@ func snapshot(label: String) -> void:
 	check(root.get_texture().get_image().save_png("res://.unified-panel-20261023/"+label+".png") == OK,"actual unified-panel screenshot")
 
 func use_control(control: Control) -> void:
-	demo.workshop_panel.scroll.ensure_control_visible(control)
+	if demo.workshop_panel.scroll.is_ancestor_of(control):
+		demo.workshop_panel.scroll.ensure_control_visible(control)
 	await process_frame
 	await process_frame
 	await click(control.get_global_rect().get_center())
@@ -20,7 +21,7 @@ func run() -> void:
 	await process_frame
 	await process_frame
 	for id in ["advanced","align","insert","remove"]: check(not demo.buttons.has(id),"removed auxiliary action "+id)
-	check(demo.get_node("WorkshopUI").get_child_count() == 1,"one sidebar; no independent bottom/legacy panel")
+	check(demo.buttons.view.get_parent() == demo.get_node("WorkshopUI"),"reset view sits outside the sidebar")
 	check(demo.find_children("*","ItemList",true,false).is_empty(),"no part-selection entry/list retained")
 	# Scroll hit-testing is verified below with the real renderer. Dummy display
 	# runs retain structural/routing/framing coverage without claiming GUI clicks.
@@ -30,11 +31,25 @@ func run() -> void:
 			await process_frame
 			await process_frame
 			check(root.get_visible_rect().encloses(demo.workshop_panel.get_global_rect()),"headless panel bounds")
+			var reset_rect: Rect2 = demo.buttons.view.get_global_rect()
+			check(root.get_visible_rect().encloses(reset_rect) and reset_rect.position.x >= demo.workshop_panel.get_global_rect().end.x,"reset view fits beside the sidebar")
+			demo.interaction.yaw = -.2
+			await use_control(demo.buttons.view)
+			check(is_equal_approx(demo.interaction.yaw,.68),"right-side button restores camera yaw")
 			for index in demo.catalog.size():
 				demo.picker.select(index)
 				demo.picker.item_selected.emit(index)
 				await physics_frame
 				check(demo.assembly.definition.id == demo.catalog[index].id,"headless selector routing")
+				if resolution == Vector2i(1440,900):
+					for action in [demo.buttons.view,demo.buttons.reset]:
+						await use_control(demo.buttons.xray)
+						check(demo.assembly.xray and demo.buttons.xray.button_pressed,"transparency enabled before reset")
+						await use_control(action)
+						check(not demo.assembly.xray and not demo.buttons.xray.button_pressed,"reset clears transparency and toggle")
+						for part in demo.assembly.parts.values():
+							var wood: StandardMaterial3D = part.get_node("Wood").material_override
+							check(wood.transparency == BaseMaterial3D.TRANSPARENCY_DISABLED and is_equal_approx(wood.albedo_color.a,1.0),"reset restores opaque wood")
 				check_frame("headless free model area")
 				demo._open_education()
 				var p = demo.dynamic_science if index == 0 else demo.force_gallery
@@ -83,8 +98,8 @@ func run() -> void:
 		demo.interaction.yaw = -.2
 		demo.interaction.update_camera()
 		await use_control(demo.buttons.view)
-		check(is_equal_approx(demo.interaction.yaw,.68),"left view reset works")
-		check_frame("left view reset "+str(resolution))
+		check(is_equal_approx(demo.interaction.yaw,.68),"right view reset works")
+		check_frame("right view reset "+str(resolution))
 		check(await capture("tail",16),"direct drag calibrates without part/auxiliary UI")
 		await move_to("tail",.43)
 		await parked("tail","unified panel pause")

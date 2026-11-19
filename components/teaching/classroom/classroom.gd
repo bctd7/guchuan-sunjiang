@@ -63,6 +63,7 @@ func _build_ui() -> void:
 	add_child(layer)
 	workshop_panel = WorkshopPanel.new()
 	layer.add_child(workshop_panel)
+	workshop_panel.mount_view_button(layer)
 	workshop_panel.configure(catalog)
 	picker = workshop_panel.picker
 	science_entry = workshop_panel.science_entry
@@ -74,6 +75,7 @@ func _build_ui() -> void:
 	workshop_panel.view_requested.connect(_reset_view)
 	workshop_panel.reset_requested.connect(func():
 		interaction.cancel()
+		_clear_xray()
 		assembly.reset()
 		_update_framing())
 	workshop_panel.resized.connect(_update_framing)
@@ -125,8 +127,13 @@ func _update_framing(request_fit: bool = true) -> void:
 	interaction.orbit.screen_center_y = rect.get_center().y
 	if request_fit: interaction.request_fit()
 
+func _clear_xray() -> void:
+	assembly.set_xray(false)
+	buttons.xray.set_pressed_no_signal(false)
+
 func _reset_view() -> void:
 	interaction.cancel()
+	_clear_xray()
 	interaction.yaw = .68
 	interaction.pitch = .42
 	_update_framing(false)

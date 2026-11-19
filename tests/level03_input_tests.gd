@@ -50,6 +50,9 @@ func snapshot(label: String) -> void:
 	await RenderingServer.frame_post_draw
 	DirAccess.make_dir_recursive_absolute("res://tests/level03_evidence")
 	root.get_texture().get_image().save_png("res://tests/level03_evidence/"+label+".png")
+func drag(fraction:=1.0,use_touch:=false) -> void:
+	await preload("res://tests/hull_pointer.gd").drag_assembly(root,level.panel.orbit,fraction,use_touch)
+
 func install(id: String, use_touch := false) -> void:
 	check(level.state.selected == id,"current ship member "+id)
 	check(level.state.candidate.is_empty(),"no default candidate "+id)
@@ -63,13 +66,13 @@ func install(id: String, use_touch := false) -> void:
 	check(level.panel.workspace.viewport_container.get_global_rect().has_point(point),"socket inside scene viewport "+id)
 	check(level.view.pick_socket(point) == id,"root-coordinate socket pick "+id)
 	if Rules.SETTINGS.has(id):
-		await click(point)
-		check(level.state.last_outcome.code == "alignment","installation needs an explicit setting "+id)
+		await drag()
+		check(not level.state.placed.has(id) and level.state.setting < 0,"installation needs an explicit setting "+id)
 		var correct: int = Rules.SETTINGS[id].correct
 		await button(level.panel.setting_buttons[1-correct])
 		var moving_part: Node3D = level.view.pieces.zrail if id == "leg" else level.view.preview
 		var before: Transform3D = moving_part.transform
-		await click(point)
+		await drag()
 		check(level.state.last_outcome.code == "alignment" and not level.state.placed.has(id),"wrong setup can be retried "+id)
 		await settle(.36)
 		check(not moving_part.transform.is_equal_approx(before),"failed fit moves the affected member "+id)
@@ -77,8 +80,14 @@ func install(id: String, use_touch := false) -> void:
 		if id == "leg":
 			check(moving_part.transform.is_equal_approx(before),"correcting the support restores the spar")
 	var count: int = level.state.placed.size()
-	if use_touch: await touch(point)
-	else: await click(point)
+	await click(point)
+	check(level.state.placed.size() == count,"socket tap cannot install "+id)
+	if id == "apron":
+		await drag(-.4)
+		check(is_zero_approx(level.panel.orbit.drag_progress),"reverse drag cannot advance")
+		await drag(.35)
+		check(level.panel.orbit.drag_progress > .2 and level.state.placed.size() == count,"shallow drag preserves partial insertion")
+	await drag(.85,use_touch)
 	check(level.state.placed.size() == count+1,"pointer installs "+id)
 	check(level.busy,"installation animates "+id)
 	await snapshot(id+"-inserting")
@@ -102,10 +111,10 @@ func run() -> void:
 	check(dependency.code == "dependency","corner leg cannot precede horizontal rails")
 	var bad_socket := Rules.evaluate("zrail","leg","zong_corner",[],1)
 	check(bad_socket.code == "wrong_socket","different socket rejected")
-	await click(level.view.socket_screen_position("apron"))
-	check(level.state.last_outcome.code == "unselected","unselected type rejected by real click")
+	await drag()
+	check(level.state.placed.is_empty() and level.state.last_outcome.is_empty(),"unselected reference cannot be installed")
 	await button(level.panel.candidate_buttons["l_through"])
-	await click(level.view.socket_screen_position("apron"))
+	await drag()
 	check(level.state.last_outcome.code == "wrong_joint" and level.state.placed.is_empty(),"wrong type rejected without installation")
 	await button(level.panel.overview_button)
 	await button(level.panel.restart_button)
@@ -120,7 +129,8 @@ func run() -> void:
 	await install("top",true)
 	await button(level.panel.next_button)
 	await button(level.panel.candidate_buttons["round_axle"])
-	await click(level.view.socket_screen_position("mast"))
+	await button(level.panel.setting_buttons[1])
+	await drag()
 	await settle(.36)
 	check(absf(level.view.preview.rotation.z) > .05 and not level.state.placed.has("mast"),"loose mast visibly tilts and can be corrected")
 	await button(level.panel.overview_button)

@@ -144,21 +144,39 @@ func sync_state(state) -> void:
 	elif not state.placed.has(state.selected): focus_current()
 func _base(id: String) -> Vector3:
 	return Vector3(-2.3,0,0) if id in ["rudder","blade"] else Vector3.ZERO
-func animate_place(id: String) -> void:
+func trial_target(state) -> Transform3D:
+	if not is_instance_valid(preview):return Transform3D.IDENTITY
+	var target := preview.transform
+	target.origin = Vector3.ZERO
+	if state.selected == "mast" and state.setting == 0:
+		target.origin = Vector3(.45,.73,0)
+	elif state.selected == "rudder" and state.setting == 1:
+		target.origin = preview.position - Vector3.UP * .58
+	elif state.selected == "leg" and state.setting == 0:
+		target.origin = Vector3(1,2,0)
+	return target
+
+func follow_blade_drag() -> void:
+	if _selected == "blade" and is_instance_valid(preview):
+		preview.get_node("SideCap").position.z = 1.3 - preview.position.z
+
+func animate_place(id: String, released_offset: Variant = null) -> void:
 	var p: Node3D = pieces[id]
 	p.visible = true
-	p.position = _base(id)+OFFSETS[id]
+	var offset: Vector3 = OFFSETS[id] if released_offset == null else released_offset
+	p.position = _base(id) + offset
+	var remaining := clampf(offset.length() / Vector3(OFFSETS[id]).length(),.12,1.0)
 	var tween := create_tween()
 	animations[id] = tween
 	if id == "blade":
-		p.get_node("SideCap").position.z = 2.8
-		tween.tween_property(p,"position",_base(id),.8)
+		p.get_node("SideCap").position.z = 1.3 - offset.z
+		tween.tween_property(p,"position",_base(id),.8 * remaining)
 		# Keep the opposite half at world Z=+1.3 while the open back half slides
 		# in from -Z. The cap must never ride through the axle with the blade.
-		tween.parallel().tween_property(p.get_node("SideCap"),"position:z",1.3,.8)
+		tween.parallel().tween_property(p.get_node("SideCap"),"position:z",1.3,.8 * remaining)
 		tween.tween_property(p.get_node("SideCap"),"position:z",0.0,.6)
 	else:
-		tween.tween_property(p,"position",_base(id),1.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(p,"position",_base(id),remaining).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(func():
 		preload("res://audio/seating_audio.gd").play(self)
 		animations.erase(id))

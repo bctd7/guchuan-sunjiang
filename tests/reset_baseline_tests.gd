@@ -7,8 +7,6 @@ func snapshot(label: String) -> void:
 	check(root.get_texture().get_image().save_png("res://.reset-baseline-20261023/"+label+".png") == OK,"save actual reset baseline frame")
 
 func press_reset() -> void:
-	demo.workshop_panel.scroll.ensure_control_visible(demo.buttons.view)
-	await process_frame
 	await click(demo.buttons.view.get_global_rect().get_center())
 
 func run() -> void:

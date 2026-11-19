@@ -3,7 +3,7 @@
   "failed": 0,
   "failures": [],
   "input": "Viewport mouse and touchscreen",
-  "passed": 187,
+  "passed": 199,
   "steering_range_degrees": [
     -30,
     30

@@ -222,10 +222,7 @@ func place_l3(id: String) -> void:
 	await button(level.panel.candidate_buttons[level.state.Rules.SPECS[id].joint])
 	if level.state.Rules.SETTINGS.has(id):
 		await button(level.panel.setting_buttons[level.state.Rules.SETTINGS[id].correct])
-	var actual: Vector2=level.view.socket_screen_position(id)
-	check(actual.is_equal_approx(level.view.socket_screen_position(id)),"chapter three world helper agrees with actual SubViewport screen position: "+id)
-	check(level.view.pick_socket(actual)==id,"chapter three actual screen target is pickable: "+id)
-	await click(actual)
+	await HullPointer.drag_assembly(root,level.panel.orbit)
 	if id=="rudder":
 		check(not level.view.pieces.blade.visible,"wide blade remains detached while shaft enters bearing")
 		var shaft: MeshInstance3D=level.view.pieces.rudder.get_node("RoundShaft")

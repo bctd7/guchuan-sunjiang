@@ -63,7 +63,6 @@ func _ready() -> void:
 	var xray := _button(content,"xray","透明显示",func(): pass)
 	xray.toggle_mode = true
 	xray.toggled.connect(func(value: bool): xray_requested.emit(value))
-	_button(content,"view","重置视角",func(): view_requested.emit())
 	_button(content,"reset","重新拼装",func(): reset_requested.emit())
 	content.connect_steps(picker,buttons.reset)
 	status = Label.new()
@@ -79,18 +78,26 @@ func configure(catalog: Array) -> void:
 	picker.clear()
 	for joint in catalog: picker.add_item(str(joint.name))
 
+func mount_view_button(layer: CanvasLayer) -> void:
+	var button := _button(layer,"view","重置视角",func(): view_requested.emit())
+	button.theme = theme
+	button.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+	button.alignment = HORIZONTAL_ALIGNMENT_CENTER
+
 func _button(parent: Node, id: String, label: String, action: Callable) -> Button:
-	var row := MarginContainer.new()
-	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	row.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	parent.add_child(row)
-	block_count += 1
+	if parent == content:
+		var row := MarginContainer.new()
+		row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		row.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		content.add_child(row)
+		parent = row
+		block_count += 1
 	var button := WoodButton.new()
 	button.text = label
 	button.icon = FriendlyTheme.icon(id)
 	button.custom_minimum_size.y = 72
 	button.pressed.connect(action)
-	row.add_child(button)
+	parent.add_child(button)
 	buttons[id] = button
 	return button
 
@@ -120,7 +127,11 @@ func _layout_panel() -> void:
 		button.custom_minimum_size.y = 64 if small else 80
 		button.add_theme_constant_override("icon_max_width",22 if small else 28)
 		button.add_theme_constant_override("h_separation",8 if small else 12)
-	# Restore the five original expanding steps without changing their hit areas.
+	var view_button: Button = buttons.view
+	view_button.offset_right = -padding
+	view_button.offset_bottom = -padding
+	view_button.offset_left = -padding - maxf(152 if small else 188,view_button.get_combined_minimum_size().x)
+	view_button.offset_top = -padding - view_button.get_combined_minimum_size().y
 	content.custom_minimum_size.x = width-padding*2-14
 	position = Vector2.ZERO
 	size = Vector2(width,maxf(80,viewport_size.y))

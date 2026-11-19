@@ -42,7 +42,8 @@ func configure_assembly(part: Node3D, seated_pose: Transform3D, grab_point_local
 	_seated_pose = seated_pose
 	_grab_local = grab_point_local
 	assembly_enabled = enabled and is_instance_valid(part)
-	if is_instance_valid(part): _rest_pose = part.transform
+	if not is_instance_valid(part): return
+	_rest_pose = part.transform
 	accepted_pose=_rest_pose
 	_mouth_world=mouth_world if mouth_world is Vector3 else _parent_world()*(seated_pose*grab_point_local)
 	_tip_local=tip_local if tip_local is Vector3 else grab_point_local
