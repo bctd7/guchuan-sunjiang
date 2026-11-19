@@ -34,7 +34,8 @@ func _build_workbench() -> void:
 	panel.lesson_requested.connect(func():
 		if not busy: learning.show_intro())
 	story=preload("res://components/ui/story_overlay.gd").new()
-	story.content={"name":"RiggingStory","title":"码头边的第一阵风","paragraphs":[
+	story.content={"name":"RiggingStory","title":"码头边的第一阵风",
+		"illustration":preload("res://levels/level03/harbor_departure_illustration.gd"),"paragraphs":[
 		"小船匠托起帆桁，师傅却先让她摸一摸桅脚。风吹在帆上，力会顺着横木传给桅杆，再传到船身。她蹲下来，确认桅座的两肩都已经坐实。",
 		"挂帆时，布帆的重量把横木往下拉。小船匠从下面托起角撑，让三个方向的木件在角上合拢，再系紧帆索。",
 		"到了船尾，她发现两处接头的任务不同：横撑要牢牢固定，圆舵轴却要留在孔里转动。舵叶随轴摆动，船在前进时就能改变方向。",
